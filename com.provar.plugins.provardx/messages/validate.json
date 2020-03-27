@@ -1,0 +1,7 @@
+{
+    "commandDescription": "Validate the provardx property file agains standard JSON Schema",
+    "propertyFileFlagDescription" : "Specify custom property file.",
+    "showErrorsFlagDescription": "Allow to show validation errors. Default is false.",
+    "loglevelFlagDescription": "Allow to provide loglevels."
+}
+  

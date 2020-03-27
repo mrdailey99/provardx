@@ -1,0 +1,35 @@
+{
+  "provarHome":"C:/Program Files/Provar/",
+  "projectPath":"C:/Users/16156/git/ProvarDevOps/ProvarDevOps",
+  "resultsPath":"C:/Users/16156/git/ProvarDevOps/ProvarDevOps/ANT/Results",
+  "smtpPath": "C:/Users/16156/Provar/.smtp",
+  "resultsPathDisposition": "Replace", 
+  "testOutputLevel":"FINEST",
+  "pluginOutputlevel":"WARNING",
+  "excludeCallable":true,
+  "stopOnError":true,
+  "lightningMode":true,
+  "connectionRefreshType":"Reload",
+  "metadata":{
+     "metadataLevel":"Reload",
+     "cachePath":"../.provarCaches"
+  },
+  "environment":{
+     "testEnvironment":"",
+     "webBrowser":"Chrome",
+     "webBrowserConfig":"Full Screen",
+     "webBrowserProviderName":"Desktop",
+     "webBrowserDeviceName":"Full Screen"
+  },
+  "email": {
+     "sendEmail" : true,
+        "toRecipients": ["michael.dailey@provartesting.com"]
+   },
+  "testCase":[
+     "/Demos/Create New Opportunity.testcase"  
+  ],
+  "connectionOverride": 
+  [
+    {"connection": "Admin_Sandbox", "username": "devuserdailey@provartesting.com"}
+  ]	
+}

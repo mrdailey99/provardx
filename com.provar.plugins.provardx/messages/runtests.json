@@ -1,0 +1,11 @@
+{
+    "commandDescription": "Runs the specified list of Provar test cases against the currently configured SFDX defaultuserrname",
+    "propertyFileFlagDescription" : "provardx-properties.json file. If filepath specified the filename will be assumed or it can be specified (.e.g myprops.json). File must be in JSON format and conform to the provardx-properties JSON schema.",
+    "fileSpecFlagDescription" : "Specify comma-delimited, ordered paths of test cases to be executed. If not provided all tests in the PROJECTPATH will be executed.",
+    "connectionOverridefile" : "Connection file in the format provardx-connection-schema.json providing a mapping between the Provar project Connection names and the target users to be used.",
+    "cachePathFlagDescription" : "Specify relative or full file path for where a metadata cache has already been downloaded using either a VCS extract or metadata ProvarDX command.",
+    "metadataLevelFlagDescription" : "Specify permitted values reload (get all metadata - default) | refresh (only download changes). This overrides any settings made in the propertyfile.",
+    "secretsFlagDescription" : "Specify path to secrets file",
+    "loglevelFlagDescription" : "Specify the level of feedback provided during the compilation (see above) and execution."
+}
+  

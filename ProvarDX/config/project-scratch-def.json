@@ -1,0 +1,11 @@
+{
+  "orgName": "Dailey Company",
+  "username": "devuserdailey@provartesting.com",
+  "edition": "Developer",
+  "features": [],
+  "settings": {
+    "lightningExperienceSettings": {
+        "enableS1DesktopEnabled": true
+    }
+}
+}
