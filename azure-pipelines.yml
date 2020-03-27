@@ -18,8 +18,7 @@ steps:
 
 - script: |
     npm install
-    npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm install'
 - script: |
     npm install -g sfdx-cli
     npm install -g yarn
