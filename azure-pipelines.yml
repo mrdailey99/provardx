@@ -44,7 +44,7 @@ steps:
     # openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
     # sfdx force:auth:jwt:grant --clientid $(consumerkey) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
     sfdx force:org:create -f ProvarDX/config/project-scratch-def.json
-    sfdx force:org:display -u $(deb_hub_username) 
+    sfdx force:org:display -u devuserdailey@provartesting.com 
   displayName: 'Create Scratch Org and give description for the Org'
 - bash: |
     sfdx force:user:password:generate --targetusername $(dev_hub_username)
