@@ -1,0 +1,52 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+- script: |
+    npm install -g sfdx-cli
+    npm install -g yarn
+  displayName: 'npm install sfdx-cli and yarn'
+- bash: |
+    cd com.provar.plugins.provardx
+    sfdx plugins:link    
+  displayName: 'Link ProvarDX SFDX plugins with SFDX'
+- bash: |
+    yarn run prepack
+  displayName: 'Execute yarn command prepack available in package.json file'
+- bash: |
+    sfdx force:project:create -n ProvarDX
+    cp project-scratch-def.json ProvarDX/config/.
+  displayName: 'Creates SFDX Project with some sample configuration files'
+- bash: |
+    # sfdx force:auth:web:login --setdefaultdevusername -setalias provardevorg
+    # openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
+    # sfdx force:auth:jwt:grant --clientid $(consumerkey) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+    sfdx force:org:create -f ProvarDX/config/project-scratch-def.json
+    sfdx force:org:display -u $(deb_hub_username) 
+  displayName: 'Create Scratch Org and give description for the Org'
+- bash: |
+    sfdx force:user:password:generate --targetusername $(dev_hub_username)
+  displayName: 'Generate a password for Scratch Org for given user'
+- bash: sfdx provar:validate
+  displayName: 'Validate ProvarDX property file'
+- bash: sfdx provar:runtests
+  displayName: 'Run Provar Tests'
+
+  
