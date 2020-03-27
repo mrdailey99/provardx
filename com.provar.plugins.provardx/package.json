@@ -1,5 +1,5 @@
 {
-  "name": "@provartesting/provardx",
+  "name": "@mrdailey99/provardx",
   "description": "sfdx custom plugin to run provar testcases",
   "version": "0.0.1",
   "author": "Himanshu Sharma",
@@ -58,7 +58,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "provardx/provardx",
+  "repository": "mrdailey99/provardx",
   "scripts": {
     "postpack": "rimraf oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",
