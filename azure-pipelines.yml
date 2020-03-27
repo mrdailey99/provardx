@@ -37,7 +37,7 @@ steps:
   displayName: 'Execute yarn command prepack available in package.json file'
 - bash: |
     sfdx force:project:create -n ProvarDX
-    cp project-scratch-def.json ProvarDX/config/.
+    cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
   displayName: 'Creates SFDX Project with some sample configuration files'
 - bash: |
     # sfdx force:auth:web:login --setdefaultdevusername -setalias provardevorg
