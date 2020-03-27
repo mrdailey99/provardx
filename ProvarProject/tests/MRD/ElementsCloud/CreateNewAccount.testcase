@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="8">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="32" title="Set Variables for Test Case">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Set Variables for Test Case</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="33">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="14" title="Set Values: AccountName, Phone">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AccountName</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">ElementsCloud </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Phone</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">3</value>
+                              </argument>
+                              <argument id="format">
+                                <value class="variable">
+                                  <path element="NUMERIC"/>
+                                </value>
+                              </argument>
+                            </funcCall>
+                            <value valueClass="string">-</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">3</value>
+                              </argument>
+                              <argument id="format">
+                                <value class="variable">
+                                  <path element="NUMERIC"/>
+                                </value>
+                              </argument>
+                            </funcCall>
+                            <value valueClass="string">-</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">4</value>
+                              </argument>
+                              <argument id="format">
+                                <value class="variable">
+                                  <path element="NUMERIC"/>
+                                </value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="Status" variableScope="Test">
+                  <cacheToken>C:/Users/16156/Provar/Workspaces/SeleniumGrid Demo/SeleniumGrid/templates/ElementsCloud.xlsx;1565105612757</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="Field_Name"/>
+                    <apiParam name="API_ID"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/ElementsCloud.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Status</worksheetName>
+                    <valuesRange class="value" valueClass="string">A1:B8</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="37" title="Create New Account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create New Account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="38">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Account Home screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=ObjectHome"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Account Home screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="3">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="4" title="Click the New button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26action%3DNew"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the New button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Account New screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=New&amp;noOverride=true"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Account New screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="sfUiTargetResultName">
+                  <value class="value" valueClass="string">accountId</value>
+                </argument>
+                <argument id="sfUiTargetResultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="6">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Set the Account Name field to {AccountName}">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Name&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DName"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="variable">
+                            <path element="AccountName"/>
+                          </value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Account Name field to {AccountName}</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="value" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <textType>
+                              <constraints>
+                                <valueConstraint name="maxLength">255</valueConstraint>
+                                <valueConstraint name="maxLines">1</valueConstraint>
+                              </constraints>
+                            </textType>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="8" title="Set the Account Phone field to {Phone}">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Phone&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DPhone"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="variable">
+                            <path element="Phone"/>
+                          </value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Account Phone field to {Phone}</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="value" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Set the Active picklist to Yes">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Active__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DActive__c"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">Yes</value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Active picklist to Yes</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Active__c" name="value" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">No:No|Yes:Yes</valueConstraint>
+                                <valueConstraint name="unrestricted">true</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Click the Save button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=save&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26action%3Dsave"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">true</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">full</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Save button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
+                  <summary>The name under which the resulting Object Id will be stored.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                  <resultValueClasses>
+                    <string>ApexObjectId</string>
+                  </resultValueClasses>
+                </apiParam>
+                <apiParam group="result" name="sfUiTargetResultScope" title="Result Scope">
+                  <summary>The life-span of the resulting identifiers.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="52" title="Assert Account Values">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Assert Account Values</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="53">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="11" title="On SF Account View screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=View&amp;noOverride=true"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Account View screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="sfUiTargetObjectId">
+                  <value class="value" valueClass="string">0016F00003N8GKZQA3</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="12">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="13" title="UI Assert: Account Name">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="Name">
+                              <fieldLocator uri="ui:locator?name=Name&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DName"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="AccountName"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="15" title="UI Assert: Phone">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="Phone">
+                              <fieldLocator uri="ui:locator?name=Phone&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DPhone"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
+                                  <value class="variable">
+                                    <path element="Phone"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+                  <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="58" title="Generate API Token for Elements Cloud">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Generate API Token for Elements Cloud</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="59">
+          <steps>
+            <caseCall testCaseId="b1e85df2-ccc7-4d58-92e9-99ddb28bd591" testCasePath="tests/MRD/ElementsCloud/GenerateAPIToken.testcase" testItemId="90">
+              <outputArguments>
+                <outputArgument id="AuthHeader">
+                  <name class="value" valueClass="string">AuthHeader</name>
+                </outputArgument>
+                <outputArgument id="ElTeam">
+                  <name class="value" valueClass="string">ElTeam</name>
+                </outputArgument>
+                <outputArgument id="ElTeamId">
+                  <name class="value" valueClass="string">ElTeamId</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="61" title="Update Test Status and Add Data-table Records in Elements Cloud">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Set Test Status in Elements Cloud</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="62">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="23" title="If: {TestCaseSuccessful() = true}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="TestCaseSuccessful"/>
+                    <rhs class="value" valueClass="boolean">true</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="24">
+                  <steps>
+                    <caseCall testCaseId="f82a9e27-0a6c-4161-a03b-46a53fcef151" testCasePath="tests/MRD/ElementsCloud/CreateDatatableAttachment.testcase" testItemId="87">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="variable">
+                            <path element="ElementsCloud_API"/>
+                          </value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="DatabaseAttachmentResponse">
+                          <name class="value" valueClass="string">DatabaseAttachmentResponse</name>
+                        </outputArgument>
+                        <outputArgument id="DatabaseAttachmentStatus">
+                          <name class="value" valueClass="string">DatabaseAttachmentStatus</name>
+                        </outputArgument>
+                        <outputArgument id="DatatableAttachmentResponse">
+                          <name class="value" valueClass="string">DatatableAttachmentResponse</name>
+                        </outputArgument>
+                        <outputArgument id="DatatableAttachmentStatus">
+                          <name class="value" valueClass="string">DatatableAttachmentStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                    <caseCall testCaseId="2e3d2349-a472-4a5c-8d88-2fc44084a518" testCasePath="tests/MRD/ElementsCloud/UpdateStatus.testcase" testItemId="79">
+                      <arguments>
+                        <argument id="Status">
+                          <value class="value" valueClass="string">Pass</value>
+                        </argument>
+                        <argument id="connectionName">
+                          <value class="variable">
+                            <path element="ElementsCloud_API"/>
+                          </value>
+                        </argument>
+                        <argument id="Pass">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="UpdateStatusResponse">
+                          <name class="value" valueClass="string">UpdateStatusResponse</name>
+                        </outputArgument>
+                        <outputArgument id="UpdateStatusStatus">
+                          <name class="value" valueClass="string">UpdateStatusStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                    <caseCall testCaseId="805c93ca-05fe-4778-a78a-9a3d86eeb6a3" testCasePath="tests/MRD/ElementsCloud/CreateDatatableRecord.testcase" testItemId="86">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="variable">
+                            <path element="ElementsCloud_API"/>
+                          </value>
+                        </argument>
+                        <argument id="value">
+                          <value class="value" valueClass="string">All good</value>
+                        </argument>
+                        <argument id="PassFail">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                        <argument id="DatatableId">
+                          <value class="variable">
+                            <path element="DatatableAttachmentResponse">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                            <path element="_id"/>
+                          </value>
+                        </argument>
+                        <argument id="DatatableAttachmenId">
+                          <value class="variable">
+                            <path element="DatatableAttachmentResponse"/>
+                            <path element="attachments">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                            <path element="id"/>
+                          </value>
+                        </argument>
+                        <argument id="DatatableAttachmentId">
+                          <value class="variable">
+                            <path element="DatatableAttachmentResponse"/>
+                            <path element="attachments">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                            <path element="_id"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="CreateDatatableResponse">
+                          <name class="value" valueClass="string">CreateDatatableResponse</name>
+                        </outputArgument>
+                        <outputArgument id="CreateDatatableStatus">
+                          <name class="value" valueClass="string">CreateDatatableStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="26">
+                  <steps>
+                    <caseCall testCaseId="f82a9e27-0a6c-4161-a03b-46a53fcef151" testCasePath="tests/MRD/ElementsCloud/CreateDatatableAttachment.testcase" testItemId="88">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="variable">
+                            <path element="ElementsCloud_API"/>
+                          </value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="DatabaseAttachmentResponse">
+                          <name class="value" valueClass="string">DatatableAttachmentResponse</name>
+                        </outputArgument>
+                        <outputArgument id="DatabaseAttachmentStatus">
+                          <name class="value" valueClass="string">DatatableAttachmentStatus</name>
+                        </outputArgument>
+                        <outputArgument id="DatatableAttachmentResponse">
+                          <name class="value" valueClass="string">DatatableAttachmentResponse</name>
+                        </outputArgument>
+                        <outputArgument id="DatatableAttachmentStatus">
+                          <name class="value" valueClass="string">DatatableAttachmentStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                    <caseCall testCaseId="2e3d2349-a472-4a5c-8d88-2fc44084a518" testCasePath="tests/MRD/ElementsCloud/UpdateStatus.testcase" testItemId="91">
+                      <arguments>
+                        <argument id="Pass">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="UpdateStatusResponse">
+                          <name class="value" valueClass="string">UpdateStatusResponse</name>
+                        </outputArgument>
+                        <outputArgument id="UpdateStatusStatus">
+                          <name class="value" valueClass="string">UpdateStatusStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                    <caseCall testCaseId="805c93ca-05fe-4778-a78a-9a3d86eeb6a3" testCasePath="tests/MRD/ElementsCloud/CreateDatatableRecord.testcase" testItemId="85">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="variable">
+                            <path element="ElementsCloud_API"/>
+                          </value>
+                        </argument>
+                        <argument id="PassFail">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                        <argument id="DatatableAttachmenId">
+                          <value class="variable">
+                            <path element="DatatableAttachmentResponse"/>
+                            <path element="attachments">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                            <path element="id"/>
+                          </value>
+                        </argument>
+                        <argument id="DatatableAttachmentId">
+                          <value class="variable">
+                            <path element="DatatableAttachmentResponse"/>
+                            <path element="attachments">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                            <path element="_id"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="CreateDatatableResponse">
+                          <name class="value" valueClass="string">CreateDatatableResponse</name>
+                        </outputArgument>
+                        <outputArgument id="CreateDatatableStatus">
+                          <name class="value" valueClass="string">CreateDatatableStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

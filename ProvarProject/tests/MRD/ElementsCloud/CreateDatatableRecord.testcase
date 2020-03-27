@@ -1,0 +1,1159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="4" registryId="805c93ca-05fe-4778-a78a-9a3d86eeb6a3" visibility="Internal">
+  <summary/>
+  <steps>
+    <caseCall testCaseId="b1e85df2-ccc7-4d58-92e9-99ddb28bd591" testCasePath="tests/MRD/ElementsCloud/GenerateAPIToken.testcase" testItemId="23">
+      <outputArguments>
+        <outputArgument id="AuthHeader">
+          <name class="value" valueClass="string">AuthHeader</name>
+        </outputArgument>
+        <outputArgument id="ElTeam">
+          <name class="value" valueClass="string">ElTeam</name>
+        </outputArgument>
+        <outputArgument id="ElTeamId">
+          <name class="value" valueClass="string">ElTeamId</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="2" title="Set Values: DateId, DetailsId, PassFailId, Date">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">DateId</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Datatable">
+                    <filter class="index">
+                      <index valueClass="decimal">7</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">DetailsId</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Datatable">
+                    <filter class="index">
+                      <index valueClass="decimal">6</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">PassFailId</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Datatable">
+                    <filter class="index">
+                      <index valueClass="decimal">8</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Date</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="DateFormat">
+                  <argument id="date">
+                    <value class="variable">
+                      <path element="NOW"/>
+                    </value>
+                  </argument>
+                  <argument id="outputFormat">
+                    <value class="value" valueClass="string">yyyy-MM-dd hh:mm:ss z</value>
+                  </argument>
+                  <argument id="timeZone">
+                    <value class="value" valueClass="string">GMT</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="Datatable" variableScope="Test">
+          <cacheToken>C:/Users/16156/Provar/Workspaces/SeleniumGrid Demo/SeleniumGrid/templates/ElementsCloud.xlsx;1565115071350</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Field_Name"/>
+            <apiParam name="API_ID"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/ElementsCloud.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Datatable</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:B10</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="26" title="If: {DatatableAttachmentId != null}">
+      <arguments>
+        <argument id="condition">
+          <value class="ne">
+            <lhs class="variable">
+              <path element="DatatableAttachmentId"/>
+            </lhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="27">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="57" title="Datatable Attachment ID Parameter was Passed">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Datatable Attachment ID Parameter was Passed</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="58">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="50" title="If: {PassFail}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="variable">
+                            <path element="PassFail"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="44">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="45" title="Set Values: Details, PassId">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">Details</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="value" valueClass="string">All good</value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">PassId</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="Datatable">
+                                            <filter class="index">
+                                              <index valueClass="decimal">4</index>
+                                            </filter>
+                                          </path>
+                                          <path element="API_ID"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" isTitleUpdated="true" name="RestRequest" testItemId="46" title="REST API Call: Create Datatable Record">
+                              <arguments>
+                                <argument argId="4ef2ddbd-a503-4af2-8563-702394865b81" id="connectionName">
+                                  <value class="value" valueClass="string">ElementsCloud_API</value>
+                                </argument>
+                                <argument id="targetValue">
+                                  <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">CreateDatatableResponse</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="statusResultName">
+                                  <value class="value" valueClass="string">CreateDatatableStatus</value>
+                                </argument>
+                                <argument id="restResourceUrl">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">/</value>
+                                      <variable>
+                                        <path element="Version"/>
+                                      </variable>
+                                      <value valueClass="string">/stories/</value>
+                                      <variable>
+                                        <path element="StoryId"/>
+                                      </variable>
+                                      <value valueClass="string">/attachments/</value>
+                                      <variable>
+                                        <path element="DatatableAttachmentId"/>
+                                      </variable>
+                                      <value valueClass="string">/records</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restRequestHeader">
+                                  <value class="variable">
+                                    <path element="AuthHeader"/>
+                                  </value>
+                                </argument>
+                                <argument id="restBody">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">{\n\t"</value>
+                                      <variable>
+                                        <path element="DetailsId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Details"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="DateId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Date"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="PassFailId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="PassId"/>
+                                      </variable>
+                                      <value valueClass="string">"\n}</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restAttachments">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="contentType">
+                                  <value class="value" valueClass="string">JSON</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="body" name="restBody" title="Body">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                                  <childParams>
+                                    <apiParam name="name" title="Attachment Name"/>
+                                    <apiParam name="fileName" title="File Name"/>
+                                    <apiParam name="contentType" title="Content Type">
+                                      <type>
+                                        <choiceType>
+                                          <constraints>
+                                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                          </constraints>
+                                        </choiceType>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="data" title="Data">
+                                      <type>
+                                        <urlType/>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="base64Encode" title="Encode As Base64">
+                                      <type>
+                                        <booleanType/>
+                                      </type>
+                                    </apiParam>
+                                  </childParams>
+                                </compoundApiParam>
+                                <apiParam group="body" name="contentType" title="Content Type">
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="47">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="48" title="Set Values: Details, FailId">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">Details</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="value" valueClass="string">All bad</value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">FailId</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="Datatable">
+                                            <filter class="index">
+                                              <index valueClass="decimal">5</index>
+                                            </filter>
+                                          </path>
+                                          <path element="API_ID"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" isTitleUpdated="true" name="RestRequest" testItemId="49" title="REST API Call: Create Datatable Record">
+                              <arguments>
+                                <argument argId="4ef2ddbd-a503-4af2-8563-702394865b81" id="connectionName">
+                                  <value class="value" valueClass="string">ElementsCloud_API</value>
+                                </argument>
+                                <argument id="targetValue">
+                                  <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">CreateDatatableResponse</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="statusResultName">
+                                  <value class="value" valueClass="string">CreateDatatableStatus</value>
+                                </argument>
+                                <argument id="restResourceUrl">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">/</value>
+                                      <variable>
+                                        <path element="Version"/>
+                                      </variable>
+                                      <value valueClass="string">/stories/</value>
+                                      <variable>
+                                        <path element="StoryId"/>
+                                      </variable>
+                                      <value valueClass="string">/attachments/</value>
+                                      <variable>
+                                        <path element="DatatableAttachmentId"/>
+                                      </variable>
+                                      <value valueClass="string">/records</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restRequestHeader">
+                                  <value class="variable">
+                                    <path element="AuthHeader"/>
+                                  </value>
+                                </argument>
+                                <argument id="restBody">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">{\n\t"</value>
+                                      <variable>
+                                        <path element="DetailsId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Details"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="DateId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Date"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="PassFailId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="FailId"/>
+                                      </variable>
+                                      <value valueClass="string">"\n}</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restAttachments">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="contentType">
+                                  <value class="value" valueClass="string">JSON</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="body" name="restBody" title="Body">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                                  <childParams>
+                                    <apiParam name="name" title="Attachment Name"/>
+                                    <apiParam name="fileName" title="File Name"/>
+                                    <apiParam name="contentType" title="Content Type">
+                                      <type>
+                                        <choiceType>
+                                          <constraints>
+                                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                          </constraints>
+                                        </choiceType>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="data" title="Data">
+                                      <type>
+                                        <urlType/>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="base64Encode" title="Encode As Base64">
+                                      <type>
+                                        <booleanType/>
+                                      </type>
+                                    </apiParam>
+                                  </childParams>
+                                </compoundApiParam>
+                                <apiParam group="body" name="contentType" title="Content Type">
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="28">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="59" title="Datatable Attachment ID Parameter was not Passed">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Datatable Attachment ID Parameter was not Passed</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="60">
+                  <steps>
+                    <caseCall testCaseId="d05e7826-1391-4ab7-9e9c-30ad6e631054" testCasePath="tests/MRD/ElementsCloud/GetDatatableAttachments.testcase" testItemId="15">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="variable">
+                            <path element="ElementsCloud_API"/>
+                          </value>
+                        </argument>
+                        <argument id="StoryId">
+                          <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="DatatableAttachments">
+                          <name class="value" valueClass="string">DatatableAttachments</name>
+                        </outputArgument>
+                        <outputArgument id="DatatableAttachmentsStatus">
+                          <name class="value" valueClass="string">DatatableAttachmentsStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="17" title="If: {Count(DatatableAttachments.attachments) = 0}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="funcCall" id="Count">
+                              <argument id="value">
+                                <value class="variable">
+                                  <path element="DatatableAttachments"/>
+                                  <path element="attachments"/>
+                                </value>
+                              </argument>
+                            </lhs>
+                            <rhs class="value" valueClass="decimal">0</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="18">
+                          <steps>
+                            <caseCall testCaseId="f82a9e27-0a6c-4161-a03b-46a53fcef151" testCasePath="tests/MRD/ElementsCloud/CreateDatatableAttachment.testcase" testItemId="16">
+                              <arguments>
+                                <argument id="connectionName">
+                                  <value class="variable">
+                                    <path element="ElementsCloud_API"/>
+                                  </value>
+                                </argument>
+                                <argument id="StoryId">
+                                  <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+                                </argument>
+                              </arguments>
+                              <outputArguments>
+                                <outputArgument id="DatabaseAttachmentResponse">
+                                  <name class="value" valueClass="string">DatatableAttachmentResponse</name>
+                                </outputArgument>
+                                <outputArgument id="DatabaseAttachmentStatus">
+                                  <name class="value" valueClass="string">DatatableAttachmentStatus</name>
+                                </outputArgument>
+                                <outputArgument id="DatatableAttachmentResponse">
+                                  <name class="value" valueClass="string">DatatableAttachmentResponse</name>
+                                </outputArgument>
+                                <outputArgument id="DatatableAttachmentStatus">
+                                  <name class="value" valueClass="string">DatatableAttachmentStatus</name>
+                                </outputArgument>
+                              </outputArguments>
+                            </caseCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="20" title="Set Values: DatatableId">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">DatatableId</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="DatatableAttachmentResponse">
+                                            <filter class="index">
+                                              <index valueClass="decimal">0</index>
+                                            </filter>
+                                          </path>
+                                          <path element="_id"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="21">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="22" title="Set Values: DatatableId">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">DatatableId</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="DatatableAttachments"/>
+                                          <path element="attachments">
+                                            <filter class="index">
+                                              <index valueClass="decimal">0</index>
+                                            </filter>
+                                          </path>
+                                          <path element="_id"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="43" title="If: {PassFail}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="variable">
+                            <path element="PassFail"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="51">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="52" title="Set Values: Details, PassId">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">Details</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="value" valueClass="string">All good</value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">PassId</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="Datatable">
+                                            <filter class="index">
+                                              <index valueClass="decimal">4</index>
+                                            </filter>
+                                          </path>
+                                          <path element="API_ID"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" isTitleUpdated="true" name="RestRequest" testItemId="53" title="REST API Call: Create Datatable Record">
+                              <arguments>
+                                <argument argId="4ef2ddbd-a503-4af2-8563-702394865b81" id="connectionName">
+                                  <value class="value" valueClass="string">ElementsCloud_API</value>
+                                </argument>
+                                <argument id="targetValue">
+                                  <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">CreateDatatableResponse</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="statusResultName">
+                                  <value class="value" valueClass="string">CreateDatatableStatus</value>
+                                </argument>
+                                <argument id="restResourceUrl">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">/</value>
+                                      <variable>
+                                        <path element="Version"/>
+                                      </variable>
+                                      <value valueClass="string">/stories/</value>
+                                      <variable>
+                                        <path element="StoryId"/>
+                                      </variable>
+                                      <value valueClass="string">/attachments/</value>
+                                      <variable>
+                                        <path element="DatatableId"/>
+                                      </variable>
+                                      <value valueClass="string">/records</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restRequestHeader">
+                                  <value class="variable">
+                                    <path element="AuthHeader"/>
+                                  </value>
+                                </argument>
+                                <argument id="restBody">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">{\n\t"</value>
+                                      <variable>
+                                        <path element="DetailsId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Details"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="DateId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Date"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="PassFailId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="PassId"/>
+                                      </variable>
+                                      <value valueClass="string">"\n}</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restAttachments">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="contentType">
+                                  <value class="value" valueClass="string">JSON</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="body" name="restBody" title="Body">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                                  <childParams>
+                                    <apiParam name="name" title="Attachment Name"/>
+                                    <apiParam name="fileName" title="File Name"/>
+                                    <apiParam name="contentType" title="Content Type">
+                                      <type>
+                                        <choiceType>
+                                          <constraints>
+                                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                          </constraints>
+                                        </choiceType>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="data" title="Data">
+                                      <type>
+                                        <urlType/>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="base64Encode" title="Encode As Base64">
+                                      <type>
+                                        <booleanType/>
+                                      </type>
+                                    </apiParam>
+                                  </childParams>
+                                </compoundApiParam>
+                                <apiParam group="body" name="contentType" title="Content Type">
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="54">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="55" title="Set Values: Details, FailId">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">Details</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="value" valueClass="string">All bad</value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">FailId</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="Datatable">
+                                            <filter class="index">
+                                              <index valueClass="decimal">5</index>
+                                            </filter>
+                                          </path>
+                                          <path element="API_ID"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" isTitleUpdated="true" name="RestRequest" testItemId="56" title="REST API Call: Create Datatable Record">
+                              <arguments>
+                                <argument argId="4ef2ddbd-a503-4af2-8563-702394865b81" id="connectionName">
+                                  <value class="value" valueClass="string">ElementsCloud_API</value>
+                                </argument>
+                                <argument id="targetValue">
+                                  <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">CreateDatatableResponse</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="statusResultName">
+                                  <value class="value" valueClass="string">CreateDatatableStatus</value>
+                                </argument>
+                                <argument id="restResourceUrl">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">/</value>
+                                      <variable>
+                                        <path element="Version"/>
+                                      </variable>
+                                      <value valueClass="string">/stories/</value>
+                                      <variable>
+                                        <path element="StoryId"/>
+                                      </variable>
+                                      <value valueClass="string">/attachments/</value>
+                                      <variable>
+                                        <path element="DatatableId"/>
+                                      </variable>
+                                      <value valueClass="string">/records</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restRequestHeader">
+                                  <value class="variable">
+                                    <path element="AuthHeader"/>
+                                  </value>
+                                </argument>
+                                <argument id="restBody">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">{\n\t"</value>
+                                      <variable>
+                                        <path element="DetailsId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Details"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="DateId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="Date"/>
+                                      </variable>
+                                      <value valueClass="string">",\n\t"</value>
+                                      <variable>
+                                        <path element="PassFailId"/>
+                                      </variable>
+                                      <value valueClass="string">": "</value>
+                                      <variable>
+                                        <path element="FailId"/>
+                                      </variable>
+                                      <value valueClass="string">"\n}</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restAttachments">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="contentType">
+                                  <value class="value" valueClass="string">JSON</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="body" name="restBody" title="Body">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                                  <childParams>
+                                    <apiParam name="name" title="Attachment Name"/>
+                                    <apiParam name="fileName" title="File Name"/>
+                                    <apiParam name="contentType" title="Content Type">
+                                      <type>
+                                        <choiceType>
+                                          <constraints>
+                                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                          </constraints>
+                                        </choiceType>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="data" title="Data">
+                                      <type>
+                                        <urlType/>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="base64Encode" title="Encode As Base64">
+                                      <type>
+                                        <booleanType/>
+                                      </type>
+                                    </apiParam>
+                                  </childParams>
+                                </compoundApiParam>
+                                <apiParam group="body" name="contentType" title="Content Type">
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: 200 EqualTo {CreateDatatableStatus.StatusCode}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="value" valueClass="string">200</value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="CreateDatatableStatus"/>
+            <path element="StatusCode"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="25" title="Assert: {CreateDatatableResponse.recordId} IsPresent ">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="CreateDatatableResponse"/>
+            <path element="recordId"/>
+          </value>
+        </argument>
+        <argument id="actualValue"/>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">IsPresent</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+  </steps>
+  <params>
+    <param name="PassFail" title="PassFail">
+      <summary/>
+      <type>
+        <booleanType/>
+      </type>
+    </param>
+    <param name="StoryId" title="StoryId">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="DatatableAttachmentId" title="DatatableAttachmentId">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <outputParams>
+    <param name="CreateDatatableResponse" title="CreateDatatableResponse">
+      <summary>The name that the response will be stored under.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="CreateDatatableResponse"/>
+      </sourceValue>
+    </param>
+    <param name="CreateDatatableStatus" title="CreateDatatableStatus">
+      <summary>The status that the response status will be stored under.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="CreateDatatableStatus"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="PassFail">
+      <value class="value" valueClass="boolean">true</value>
+    </argument>
+    <argument id="StoryId">
+      <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+    </argument>
+    <argument id="DatatableAttachmentId"/>
+  </args>
+  <outputArgs>
+    <outputArgument id="CreateDatatableResponse">
+      <name class="value" valueClass="string">CreateDatatableResponse</name>
+    </outputArgument>
+    <outputArgument id="CreateDatatableStatus">
+      <name class="value" valueClass="string">CreateDatatableStatus</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

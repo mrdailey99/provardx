@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="1">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: ListValues">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">ListValues</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">1,2,3,4,5,6,7,8,9</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="4" title="Split: {ListValues}=&gt;,=&gt;Numbers">
+      <arguments>
+        <argument id="input">
+          <value class="variable">
+            <path element="ListValues"/>
+          </value>
+        </argument>
+        <argument id="separator">
+          <value class="value" valueClass="string">,</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Numbers</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="1" title="For Each: {Numbers}=&gt;Number">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="Numbers"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Number</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="2">
+          <steps>
+            <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="9" title="Random Integer: ⇒ IncludingZero">
+              <arguments>
+                <argument id="NumberOfDigits">
+                  <value class="variable">
+                    <path element="Number"/>
+                  </value>
+                </argument>
+                <argument id="ExcludeZero"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">IncludingZero</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="8" title="Random Integer: ⇒ ExcludingZero">
+              <arguments>
+                <argument id="NumberOfDigits">
+                  <value class="variable">
+                    <path element="Number"/>
+                  </value>
+                </argument>
+                <argument id="ExcludeZero">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">ExcludingZero</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

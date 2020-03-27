@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="9" registryId="2f68c997-839d-412a-9d41-d1fc767cedc5" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="16" title="Web Connect: LicenseManager">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">LicenseManager</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">LicenseManager</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="51" title="Set Values: Encode URI Parameters">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">FirstName</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="FirstName"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">LastName</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="LastName"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">City</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="City"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Company</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="Company"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Email</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="Email"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string">@</value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%40</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">RegistrationName</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="RegistrationName"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Street</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="Street"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Country</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="StringReplace">
+                  <argument id="sourceString">
+                    <value class="variable">
+                      <path element="Country"/>
+                    </value>
+                  </argument>
+                  <argument id="findString">
+                    <value class="value" valueClass="string"> </value>
+                  </argument>
+                  <argument id="replacementString">
+                    <value class="value" valueClass="string">%20</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.Switch" name="Switch" testItemId="53" title="Switch: {LicenseType}">
+      <arguments>
+        <argument argId="aac41301-c480-4a2e-8bda-e8b75287ed76" id="value">
+          <value class="variable">
+            <path element="LicenseType"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="case" testItemId="54">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="55" title="Case: Floating">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Floating</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="56">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="52" title="Web Request (HTTP/REST): ⇒LicenseKey">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="value" valueClass="string">LicenseManager</value>
+                        </argument>
+                        <argument id="targetValue">
+                          <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">LicenseKey</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="statusResultName">
+                          <value class="value" valueClass="string">RestResponseStatus</value>
+                        </argument>
+                        <argument id="restResourceUrl">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">/generate/1561384123670810108631395482831275?REG_NAME=</value>
+                              <variable>
+                                <path element="RegistrationName"/>
+                              </variable>
+                              <value valueClass="string">&amp;FIRSTNAME=</value>
+                              <variable>
+                                <path element="FirstName"/>
+                              </variable>
+                              <value valueClass="string">&amp;LASTNAME=</value>
+                              <variable>
+                                <path element="LastName"/>
+                              </variable>
+                              <value valueClass="string">&amp;EMAIL=</value>
+                              <variable>
+                                <path element="Email"/>
+                              </variable>
+                              <value valueClass="string">&amp;COMPANY=</value>
+                              <variable>
+                                <path element="Company"/>
+                              </variable>
+                              <value valueClass="string">&amp;PHONE=</value>
+                              <variable>
+                                <path element="Phone"/>
+                              </variable>
+                              <value valueClass="string">&amp;FAX=</value>
+                              <variable>
+                                <path element="Fax"/>
+                              </variable>
+                              <value valueClass="string">&amp;STREET=</value>
+                              <variable>
+                                <path element="Street"/>
+                              </variable>
+                              <value valueClass="string">&amp;CITY=</value>
+                              <variable>
+                                <path element="City"/>
+                              </variable>
+                              <value valueClass="string">&amp;ZIP=</value>
+                              <variable>
+                                <path element="Zip"/>
+                              </variable>
+                              <value valueClass="string">&amp;STATE=</value>
+                              <variable>
+                                <path element="State"/>
+                              </variable>
+                              <value valueClass="string">&amp;COUNTRY=</value>
+                              <variable>
+                                <path element="Country"/>
+                              </variable>
+                              <value valueClass="string">&amp;QUANTITY=</value>
+                              <variable>
+                                <path element="Quantity"/>
+                              </variable>
+                              <value valueClass="string">&amp;core=</value>
+                              <variable>
+                                <path element="Core"/>
+                              </variable>
+                              <value valueClass="string">&amp;sf=</value>
+                              <variable>
+                                <path element="SF"/>
+                              </variable>
+                              <value valueClass="string">&amp;sfOrgIds=</value>
+                              <variable>
+                                <path element="SfOrgIds"/>
+                              </variable>
+                              <value valueClass="string">&amp;sfOrgNames=</value>
+                              <variable>
+                                <path element="SfOrgNames"/>
+                              </variable>
+                              <value valueClass="string">&amp;LICENSEDURATION=</value>
+                              <variable>
+                                <path element="LICENSEDURATION"/>
+                              </variable>
+                              <value valueClass="string">&amp;MAINDURATION=</value>
+                              <variable>
+                                <path element="MAINDURATION"/>
+                              </variable>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="restRequestHeader"/>
+                        <argument argId="988137fe-214c-400b-bdc1-694018ee9592" id="restBody"/>
+                        <argument id="restAttachments">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="contentType">
+                          <value class="value" valueClass="string">Text</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <generatedParameters>
+                        <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                          <childParams>
+                            <apiParam name="name" title="Attachment Name"/>
+                            <apiParam name="fileName" title="File Name"/>
+                            <apiParam name="contentType" title="Content Type">
+                              <type>
+                                <choiceType>
+                                  <constraints>
+                                    <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                    <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                  </constraints>
+                                </choiceType>
+                              </type>
+                            </apiParam>
+                            <apiParam name="data" title="Data">
+                              <type>
+                                <urlType/>
+                              </type>
+                            </apiParam>
+                            <apiParam name="base64Encode" title="Encode As Base64">
+                              <type>
+                                <booleanType/>
+                              </type>
+                            </apiParam>
+                          </childParams>
+                        </compoundApiParam>
+                        <apiParam group="body" name="restBody" title="Body">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="body" name="contentType" title="Content Type">
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="case" testItemId="57">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="58" title="Case: Execution">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Execution</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="59">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="64" title="Web Request (HTTP/REST): ⇒LicenseKey">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="value" valueClass="string">LicenseManager</value>
+                        </argument>
+                        <argument id="targetValue">
+                          <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">LicenseKey</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="statusResultName">
+                          <value class="value" valueClass="string">RestResponseStatus</value>
+                        </argument>
+                        <argument id="restResourceUrl">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">/generate/1561384123670810108631563546630368?REG_NAME=</value>
+                              <variable>
+                                <path element="RegistrationName"/>
+                              </variable>
+                              <value valueClass="string">&amp;FIRSTNAME=</value>
+                              <variable>
+                                <path element="FirstName"/>
+                              </variable>
+                              <value valueClass="string">&amp;LASTNAME=</value>
+                              <variable>
+                                <path element="LastName"/>
+                              </variable>
+                              <value valueClass="string">&amp;EMAIL=</value>
+                              <variable>
+                                <path element="Email"/>
+                              </variable>
+                              <value valueClass="string">&amp;COMPANY=</value>
+                              <variable>
+                                <path element="Company"/>
+                              </variable>
+                              <value valueClass="string">&amp;PHONE=</value>
+                              <variable>
+                                <path element="Phone"/>
+                              </variable>
+                              <value valueClass="string">&amp;FAX=</value>
+                              <variable>
+                                <path element="Fax"/>
+                              </variable>
+                              <value valueClass="string">&amp;STREET=</value>
+                              <variable>
+                                <path element="Street"/>
+                              </variable>
+                              <value valueClass="string">&amp;CITY=</value>
+                              <variable>
+                                <path element="City"/>
+                              </variable>
+                              <value valueClass="string">&amp;ZIP=</value>
+                              <variable>
+                                <path element="Zip"/>
+                              </variable>
+                              <value valueClass="string">&amp;STATE=</value>
+                              <variable>
+                                <path element="State"/>
+                              </variable>
+                              <value valueClass="string">&amp;COUNTRY=</value>
+                              <variable>
+                                <path element="Country"/>
+                              </variable>
+                              <value valueClass="string">&amp;QUANTITY=</value>
+                              <variable>
+                                <path element="Quantity"/>
+                              </variable>
+                              <value valueClass="string">&amp;core=</value>
+                              <variable>
+                                <path element="Core"/>
+                              </variable>
+                              <value valueClass="string">&amp;sf=</value>
+                              <variable>
+                                <path element="SF"/>
+                              </variable>
+                              <value valueClass="string">&amp;sfOrgIds=</value>
+                              <variable>
+                                <path element="SfOrgIds"/>
+                              </variable>
+                              <value valueClass="string">&amp;sfOrgNames=</value>
+                              <variable>
+                                <path element="SfOrgNames"/>
+                              </variable>
+                              <value valueClass="string">&amp;LICENSEDURATION=</value>
+                              <variable>
+                                <path element="LICENSEDURATION"/>
+                              </variable>
+                              <value valueClass="string">&amp;MAINDURATION=</value>
+                              <variable>
+                                <path element="MAINDURATION"/>
+                              </variable>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="restRequestHeader"/>
+                        <argument argId="988137fe-214c-400b-bdc1-694018ee9592" id="restBody"/>
+                        <argument id="restAttachments">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="contentType">
+                          <value class="value" valueClass="string">Text</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <generatedParameters>
+                        <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                          <childParams>
+                            <apiParam name="name" title="Attachment Name"/>
+                            <apiParam name="fileName" title="File Name"/>
+                            <apiParam name="contentType" title="Content Type">
+                              <type>
+                                <choiceType>
+                                  <constraints>
+                                    <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                    <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                  </constraints>
+                                </choiceType>
+                              </type>
+                            </apiParam>
+                            <apiParam name="data" title="Data">
+                              <type>
+                                <urlType/>
+                              </type>
+                            </apiParam>
+                            <apiParam name="base64Encode" title="Encode As Base64">
+                              <type>
+                                <booleanType/>
+                              </type>
+                            </apiParam>
+                          </childParams>
+                        </compoundApiParam>
+                        <apiParam group="body" name="restBody" title="Body">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="body" name="contentType" title="Content Type">
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="case" testItemId="60">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="61" title="Case: Trial">
+              <arguments>
+                <argument id="value">
+                  <value class="value" valueClass="string">Trial</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="string">No</value>
+                </argument>
+                <argument id="alreadyMatched"/>
+                <argument id="switchValue"/>
+              </arguments>
+              <clauses>
+                <clause name="steps" testItemId="62">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="65" title="Web Request (HTTP/REST): ⇒LicenseKey">
+                      <arguments>
+                        <argument id="connectionName">
+                          <value class="value" valueClass="string">LicenseManager</value>
+                        </argument>
+                        <argument id="targetValue">
+                          <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=Other"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">LicenseKey</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="statusResultName">
+                          <value class="value" valueClass="string">RestResponseStatus</value>
+                        </argument>
+                        <argument id="restResourceUrl">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">/generate/1561384123670810108631390177697352?REG_NAME=</value>
+                              <variable>
+                                <path element="RegistrationName"/>
+                              </variable>
+                              <value valueClass="string">&amp;FIRSTNAME=</value>
+                              <variable>
+                                <path element="FirstName"/>
+                              </variable>
+                              <value valueClass="string">&amp;LASTNAME=</value>
+                              <variable>
+                                <path element="LastName"/>
+                              </variable>
+                              <value valueClass="string">&amp;EMAIL=</value>
+                              <variable>
+                                <path element="Email"/>
+                              </variable>
+                              <value valueClass="string">&amp;COMPANY=</value>
+                              <variable>
+                                <path element="Company"/>
+                              </variable>
+                              <value valueClass="string">&amp;PHONE=</value>
+                              <variable>
+                                <path element="Phone"/>
+                              </variable>
+                              <value valueClass="string">&amp;FAX=</value>
+                              <variable>
+                                <path element="Fax"/>
+                              </variable>
+                              <value valueClass="string">&amp;STREET=</value>
+                              <variable>
+                                <path element="Street"/>
+                              </variable>
+                              <value valueClass="string">&amp;CITY=</value>
+                              <variable>
+                                <path element="City"/>
+                              </variable>
+                              <value valueClass="string">&amp;ZIP=</value>
+                              <variable>
+                                <path element="Zip"/>
+                              </variable>
+                              <value valueClass="string">&amp;STATE=</value>
+                              <variable>
+                                <path element="State"/>
+                              </variable>
+                              <value valueClass="string">&amp;COUNTRY=</value>
+                              <variable>
+                                <path element="Country"/>
+                              </variable>
+                              <value valueClass="string">&amp;QUANTITY=</value>
+                              <variable>
+                                <path element="Quantity"/>
+                              </variable>
+                              <value valueClass="string">&amp;core=</value>
+                              <variable>
+                                <path element="Core"/>
+                              </variable>
+                              <value valueClass="string">&amp;sf=</value>
+                              <variable>
+                                <path element="SF"/>
+                              </variable>
+                              <value valueClass="string">&amp;sfOrgIds=</value>
+                              <variable>
+                                <path element="SfOrgIds"/>
+                              </variable>
+                              <value valueClass="string">&amp;sfOrgNames=</value>
+                              <variable>
+                                <path element="SfOrgNames"/>
+                              </variable>
+                              <value valueClass="string">&amp;LICENSEDURATION=</value>
+                              <variable>
+                                <path element="LICENSEDURATION"/>
+                              </variable>
+                              <value valueClass="string">&amp;MAINDURATION=</value>
+                              <variable>
+                                <path element="MAINDURATION"/>
+                              </variable>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="restRequestHeader"/>
+                        <argument argId="988137fe-214c-400b-bdc1-694018ee9592" id="restBody"/>
+                        <argument id="restAttachments">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="contentType">
+                          <value class="value" valueClass="string">Text</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <generatedParameters>
+                        <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                          <childParams>
+                            <apiParam name="name" title="Attachment Name"/>
+                            <apiParam name="fileName" title="File Name"/>
+                            <apiParam name="contentType" title="Content Type">
+                              <type>
+                                <choiceType>
+                                  <constraints>
+                                    <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                    <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                  </constraints>
+                                </choiceType>
+                              </type>
+                            </apiParam>
+                            <apiParam name="data" title="Data">
+                              <type>
+                                <urlType/>
+                              </type>
+                            </apiParam>
+                            <apiParam name="base64Encode" title="Encode As Base64">
+                              <type>
+                                <booleanType/>
+                              </type>
+                            </apiParam>
+                          </childParams>
+                        </compoundApiParam>
+                        <apiParam group="body" name="restBody" title="Body">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="body" name="contentType" title="Content Type">
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="49" title="Assert:  IsEmpty {RestResponseStatus.ResponseMessage}">
+      <arguments>
+        <argument id="expectedValue"/>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="RestResponseStatus"/>
+            <path element="ResponseMessage"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">IsEmpty</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="48" title="Assert: 200 EqualTo {RestResponseStatus.StatusCode}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="value" valueClass="string">200</value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="RestResponseStatus"/>
+            <path element="StatusCode"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="43" title="Assert: {LicenseKey} IsPresent ">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="LicenseKey"/>
+          </value>
+        </argument>
+        <argument id="actualValue"/>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">IsPresent</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="50" title="Write: {LicenseKey}=&gt;templates/NewAccounts.xlsx">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="data">
+          <value class="variable">
+            <path element="LicenseKey"/>
+          </value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="excelTarget" sheetWriteMode="Update">
+            <workbookPath class="value" valueClass="string">templates/NewAccounts.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">New</worksheetName>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/NewAccounts.xlsx</value>
+        </argument>
+        <argument id="updateValueRange"/>
+        <argument id="updateColumnNames">
+          <value class="value" valueClass="string">FirstRowOfRange</value>
+        </argument>
+        <argument id="updateMatchType">
+          <value class="value" valueClass="string">RowOrColNumber</value>
+        </argument>
+        <argument id="updateMatchLocator">
+          <value class="value" valueClass="string">2</value>
+        </argument>
+      </arguments>
+      <generatedParameters>
+        <apiParam group="result" name="updateValueRange" title="Values Range">
+          <summary>The range of cells that needs to updated. If nothing is specified entire sheet is targeted</summary>
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="disableTemplateEditor">true</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="result" name="updateColumnNames" title="Column Names">
+          <summary>Identifies where the column names are in the spreadsheet:</summary>
+          <defaultValue>FirstRowOfRange</defaultValue>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">FirstRowOfRange:Across the first row|FirstColumnOfRange:Down the first column</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="result" internal="true" name="updateMatchType" title="">
+          <summary/>
+          <defaultValue>RowOrColNumber</defaultValue>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">RowOrColNumber:Match by Position|Where:Match on Condition|MatchColumns:Match by Columns</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="result" manuallyResolved="true" name="updateMatchLocator" title="Match Locator">
+          <summary>Identifies which rows in the Range will be updated. \n It can either be a row number (where the first row = 1) or a filtering condition against one or more columns (e.g. {firstName = "Joe" and surname = "Bloggs"}.</summary>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <params>
+    <param name="RegistrationName" title="RegistrationName">
+      <summary>The name the license will be registered under.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="FirstName" title="FirstName">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="LastName" title="LastName">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Email" title="Email">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Company" title="Company">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Phone" title="Phone">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Fax" title="Fax">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Street" title="Street">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="City" title="City">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Country" title="Country">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Zip" title="Zip">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Quantity" title="Quantity">
+      <summary>The number of licenses to generate for this account.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="Core" title="Core">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="SF" title="SF">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="SfOrgIds" title="SfOrgIds">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="SfOrgNames" title="SfOrgNames">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="State" title="State">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="LicenseType" title="LicenseType">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="LICENSEDURATION" title="LicenseDuration">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="MAINDURATION" title="MaintenanceDuration">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <outputParams>
+    <param name="LICENSE_KEY" title="LICENSE_KEY">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="LicenseKey"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="RegistrationName">
+      <value class="value" valueClass="string">ProvarTesting</value>
+    </argument>
+    <argument id="FirstName">
+      <value class="value" valueClass="string">Sally</value>
+    </argument>
+    <argument id="LastName">
+      <value class="value" valueClass="string">Fields</value>
+    </argument>
+    <argument id="Email">
+      <value class="value" valueClass="string">michael.dailey%40provartesting.com</value>
+    </argument>
+    <argument id="Company">
+      <value class="value" valueClass="string">ProvarTesting</value>
+    </argument>
+    <argument id="Phone"/>
+    <argument id="Fax"/>
+    <argument id="Street"/>
+    <argument id="City"/>
+    <argument id="Country"/>
+    <argument id="Zip"/>
+    <argument id="Quantity">
+      <value class="value" valueClass="string">1</value>
+    </argument>
+    <argument id="Core">
+      <value class="value" valueClass="string">true</value>
+    </argument>
+    <argument id="SF">
+      <value class="value" valueClass="string">true</value>
+    </argument>
+    <argument id="SfOrgIds">
+      <value class="value" valueClass="string">*</value>
+    </argument>
+    <argument id="SfOrgNames">
+      <value class="value" valueClass="string">*</value>
+    </argument>
+    <argument id="State"/>
+    <argument id="LicenseType">
+      <value class="value" valueClass="string">Execution</value>
+    </argument>
+    <argument id="LICENSEDURATION">
+      <value class="value" valueClass="string">365</value>
+    </argument>
+    <argument id="MAINDURATION">
+      <value class="value" valueClass="string">365</value>
+    </argument>
+  </args>
+  <outputArgs>
+    <outputArgument id="LICENSE_KEY">
+      <name class="variable">
+        <path element="LicenseKey"/>
+      </name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

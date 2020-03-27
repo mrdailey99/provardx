@@ -1,0 +1,10 @@
+[
+ {
+   "StageName": "Prospecting",
+   "Probability": 10
+ },
+ {
+   "StageName": "Qualification",
+   "Probability": 20
+ }
+]

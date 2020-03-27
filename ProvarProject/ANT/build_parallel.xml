@@ -1,0 +1,72 @@
+<project default="runtests">
+    <property environment="env"/>
+    <property value="${env.PROVAR_HOME}" name="provar.home"/>
+    <property value="${env.WORKSPACE}" name="testproject.home"/>
+    <property value="${env.WORKSPACE}/ANT/Results" name="testproject.results"/>
+	
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<parallel>
+            <Run-Test-Case provarHome="${provar.home}" 
+                    projectPath="${testproject.home}" 
+                    resultsPath="${testproject.results}" 
+                    resultsPathDisposition="Increment" 
+                    testEnvironment="" 
+                    webBrowser="Chrome_Headless" 
+                    webBrowserConfiguration="Full Screen"
+                    webBrowserProviderName="Desktop"
+                    webBrowserDeviceName="Full Screen" 
+                    excludeCallableTestCases="true" 
+                    salesforceMetadataCache="Reload" 
+                    projectCachePath="../../.provarCaches"
+                    testOutputlevel="WARNING" 
+                    pluginOutputlevel="WARNING"
+                    stopTestRunOnError="false"
+                    secretsPassword="${secrets.password}"
+                    testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+                    invokeTestRunMonitor="true"
+                    >
+            
+                <fileset dir="${testproject.home}/tests/SeleniumGrid/Tests1">
+                    <include name ="SeleniumGridTest.testcase"/>
+                    <include name ="CreateNewContact.testcase"/>
+                </fileset>
+                <emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+                <attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="true" includeDebugMessages="true" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+            </Run-Test-Case>
+            
+            <Run-Test-Case provarHome="${provar.home}" 
+                    projectPath="${testproject.home}" 
+                    resultsPath="${testproject.results}" 
+                    resultsPathDisposition="Increment" 
+                    testEnvironment="" 
+                    webBrowser="Chrome_Headless" 
+                    webBrowserConfiguration="Full Screen"
+                    webBrowserProviderName="Desktop"
+                    webBrowserDeviceName="Full Screen" 
+                    excludeCallableTestCases="true" 
+                    salesforceMetadataCache="Reload" 
+                    projectCachePath="../../.provarCaches"
+                    testOutputlevel="WARNING" 
+                    pluginOutputlevel="WARNING"
+                    stopTestRunOnError="false"
+                    secretsPassword="${secrets.password}"
+                    testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+                    invokeTestRunMonitor="true"
+                    >
+            
+                <fileset dir="${testproject.home}/tests/SeleniumGrid/Tests2">
+                    <include name ="SeleniumGridTest2.testcase"/>
+                    <include name ="CreateNewContact.testcase"/>
+                </fileset>
+                <emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+                <attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="true" includeDebugMessages="true" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+            </Run-Test-Case>	
+		</parallel>
+	</target>
+</project>

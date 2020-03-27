@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="4">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="50" title="Set Values: DistributionList">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">DistributionList</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">michael.dailey@provartesting.com</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.Given" name="Given" testItemId="4" title="Given: The accounts are created in bulk using Apex">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">The accounts are created in bulk using Apex</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="5">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DesignStep" name="DesignStep" testItemId="19" title="CreateBulkAccounts">
+              <arguments>
+                <argument id="name">
+                  <value class="value" valueClass="string">CreateBulkAccounts</value>
+                </argument>
+                <argument id="description">
+                  <value class="value" valueClass="string">Will create accounts in bulk using Apex Bulk command</value>
+                </argument>
+                <argument id="expectedResult">
+                  <value class="value" valueClass="string">150 Accounts will be created in Salesforce</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="20"/>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="uiApplicationName"/>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexBulk" name="ApexBulk" testItemId="12" title="Apex Bulk: insert=&gt;Accounts">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Account</value>
+                </argument>
+                <argument id="operation">
+                  <value class="value" valueClass="string">insert</value>
+                </argument>
+                <argument id="externalIdFieldName"/>
+                <argument id="assignmentRuleId"/>
+                <argument id="data">
+                  <value class="url">{ExcelData}</value>
+                </argument>
+                <argument id="contentType">
+                  <value class="value" valueClass="string">XML</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">Accounts</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="ExcelData" variableScope="Test">
+                  <cacheToken>C:/Users/16156/Provar/Workspaces/demo2/demo2/demo/templates/TestAccountData.xlsx;1556629891415</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="Phone"/>
+                    <apiParam name="Name"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/TestAccountData.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">BulkAccounts</worksheetName>
+                    <valuesRange class="value" valueClass="string">A1:B151</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.And" name="And" testItemId="27" title="And: The accounts are verified in a SOQL query">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">The accounts are verified in a SOQL query</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="28">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="30" title="SOQL Query: select Name, Phone from Account where Name like 'MRD Test Account%'=&gt;AccountRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="value" valueClass="string">select Name, Phone from Account where Name like 'MRD Test Account%'</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">AccountRows</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="32" title="Assert: 150 EqualTo {Count(AccountRows)}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="value" valueClass="string">150</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="funcCall" id="Count">
+                    <argument id="value">
+                      <value class="variable">
+                        <path element="AccountRows"/>
+                      </value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage">
+                  <value class="value" valueClass="string">150 Accounts should have been created in Salesforce</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.Then" name="Then" testItemId="23" title="Then: Report on the accounts created">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Report on the accounts created</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="24">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ActualResult" name="ActualResult" testItemId="25" title="{Accounts}">
+              <arguments>
+                <argument id="result">
+                  <value class="variable">
+                    <path element="Accounts"/>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="26"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="34" title="Finally: Report on the failure to create accounts">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Report on the failure to create accounts</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="35">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" name="SendMessage" testItemId="46" title="Send Message: GmailMRD">
+              <arguments>
+                <argument id="destinationConnectionName">
+                  <value class="value" valueClass="string">GmailMRD</value>
+                </argument>
+                <argument id="body">
+                  <value class="variable">
+                    <path element="Accounts"/>
+                  </value>
+                </argument>
+                <argument id="payloadFormat">
+                  <value class="value" valueClass="string">Auto</value>
+                </argument>
+                <argument id="attachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="to">
+                  <value class="variable">
+                    <path element="DistributionList"/>
+                  </value>
+                </argument>
+                <argument id="cc"/>
+                <argument id="bcc"/>
+                <argument id="subject">
+                  <value class="value" valueClass="string">CreateAccounts in Bulk Test Results</value>
+                </argument>
+                <argument id="signature">
+                  <value class="value" valueClass="string">Thank you, \nProvar Testing</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" mandatory="true" name="to" title="To">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="cc" title="CC">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="bcc" title="BCC">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="subject" title="Subject">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="signature" title="Signature">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

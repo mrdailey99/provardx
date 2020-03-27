@@ -44,6 +44,10 @@ steps:
 - bash: |
     sfdx force:user:password:generate --targetusername $(dev_hub_username)
   displayName: 'Generate a password for Scratch Org for given user'
+- bash: |
+    echo "Install Provar"
+    wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
+    unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
 - bash: sfdx provar:validate
   displayName: 'Validate ProvarDX property file'
 - bash: sfdx provar:runtests

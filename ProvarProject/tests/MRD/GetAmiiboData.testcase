@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <caseCall testCaseId="b7bb03a1-afce-404a-acc9-3b6ac86a53a7" testCasePath="tests/MRD/RESTAPITest.testcase" testItemId="5">
+      <arguments>
+        <argument id="Resource">
+          <value class="value" valueClass="string">?name=Mario</value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="b7bb03a1-afce-404a-acc9-3b6ac86a53a7" testCasePath="tests/MRD/RESTAPITest.testcase" testItemId="4">
+      <arguments>
+        <argument id="Resource">
+          <value class="value" valueClass="string">?name=Luigi</value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="b7bb03a1-afce-404a-acc9-3b6ac86a53a7" testCasePath="tests/MRD/RESTAPITest.testcase" testItemId="3">
+      <arguments>
+        <argument id="Resource">
+          <value class="value" valueClass="string">?name=Link</value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="b7bb03a1-afce-404a-acc9-3b6ac86a53a7" testCasePath="tests/MRD/RESTAPITest.testcase" testItemId="2">
+      <arguments>
+        <argument id="Resource">
+          <value class="value" valueClass="string">?name=Fox</value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="b7bb03a1-afce-404a-acc9-3b6ac86a53a7" testCasePath="tests/MRD/RESTAPITest.testcase" testItemId="1">
+      <arguments>
+        <argument id="Resource">
+          <value class="value" valueClass="string">?name=Falco</value>
+        </argument>
+      </arguments>
+    </caseCall>
+  </steps>
+</testCase>

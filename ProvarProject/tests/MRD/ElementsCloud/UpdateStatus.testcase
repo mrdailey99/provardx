@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="44" registryId="2e3d2349-a472-4a5c-8d88-2fc44084a518" visibility="Internal">
+  <summary/>
+  <steps>
+    <caseCall testCaseId="b1e85df2-ccc7-4d58-92e9-99ddb28bd591" testCasePath="tests/MRD/ElementsCloud/GenerateAPIToken.testcase" testItemId="15">
+      <outputArguments>
+        <outputArgument id="AuthHeader">
+          <name class="value" valueClass="string">AuthHeader</name>
+        </outputArgument>
+        <outputArgument id="ElTeam">
+          <name class="value" valueClass="string">ElTeam</name>
+        </outputArgument>
+        <outputArgument id="ElTeamId">
+          <name class="value" valueClass="string">ElTeamId</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="12" title="Set Values: User Story Statuses">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">ReadyForRelease</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">5</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">BeingImplemented</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">3</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">BeingConsidered</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">0</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">InDesign</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">1</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">ReadyForImplementation</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">2</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">WillNotBeImplemented</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">4</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Released</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Status">
+                    <filter class="index">
+                      <index valueClass="decimal">6</index>
+                    </filter>
+                  </path>
+                  <path element="API_ID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="Status" variableScope="Test">
+          <cacheToken>C:/Users/16156/Provar/Workspaces/SeleniumGrid Demo/SeleniumGrid/templates/ElementsCloud.xlsx;1565124208482</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Field_Name"/>
+            <apiParam name="API_ID"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/ElementsCloud.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Status</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:B8</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <caseCall testCaseId="dbb5a92c-da76-4d0d-9439-cc0f5e3b4966" testCasePath="tests/MRD/ElementsCloud/GetUserStory.testcase" testItemId="33">
+      <arguments>
+        <argument id="StoryId">
+          <value class="variable">
+            <path element="StoryId"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="UserStory">
+          <name class="value" valueClass="string">UserStory</name>
+        </outputArgument>
+        <outputArgument id="UserStoryStatus">
+          <name class="value" valueClass="string">UserStoryStatus</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="2" title="If: {Pass}">
+      <arguments>
+        <argument argId="04bf5474-6209-43a6-88fa-02bac81fe9db" id="condition">
+          <value class="variable">
+            <path element="Pass"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="3">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="34" title="Update Story Status Only on Change">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Update Story Status Only on Change</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="35">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="16" title="If: {UserStory.status.id != ReadyForRelease}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="ne">
+                            <lhs class="variable">
+                              <path element="UserStory"/>
+                              <path element="status"/>
+                              <path element="id"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="ReadyForRelease"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="17">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" isTitleUpdated="true" name="RestRequest" testItemId="1" title="REST API Call: Update Status to 'Ready for Release'">
+                              <tags/>
+                              <arguments>
+                                <argument argId="0c082e21-5b64-41c3-a38b-0eb1b538a7fe" id="connectionName">
+                                  <value class="value" valueClass="string">ElementsCloud_API</value>
+                                </argument>
+                                <argument id="targetValue">
+                                  <value class="restTarget" uri="rest:untyped?method=PUT&amp;bodyStyle=Other"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">UpdateStatusResponse</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="statusResultName">
+                                  <value class="value" valueClass="string">UpdateStatusStatus</value>
+                                </argument>
+                                <argument id="restResourceUrl">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">/</value>
+                                      <variable>
+                                        <path element="Version"/>
+                                      </variable>
+                                      <value valueClass="string">/stories/</value>
+                                      <variable>
+                                        <path element="StoryId"/>
+                                      </variable>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restRequestHeader">
+                                  <value class="variable">
+                                    <path element="AuthHeader"/>
+                                  </value>
+                                </argument>
+                                <argument id="restBody">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">{\n    "status": "</value>
+                                      <variable>
+                                        <path element="ReadyForRelease"/>
+                                      </variable>
+                                      <value valueClass="string">"  \n}</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restAttachments">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="contentType">
+                                  <value class="value" valueClass="string">JSON</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="body" name="restBody" title="Body">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                                  <childParams>
+                                    <apiParam name="name" title="Attachment Name"/>
+                                    <apiParam name="fileName" title="File Name"/>
+                                    <apiParam name="contentType" title="Content Type">
+                                      <type>
+                                        <choiceType>
+                                          <constraints>
+                                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                          </constraints>
+                                        </choiceType>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="data" title="Data">
+                                      <type>
+                                        <urlType/>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="base64Encode" title="Encode As Base64">
+                                      <type>
+                                        <booleanType/>
+                                      </type>
+                                    </apiParam>
+                                  </childParams>
+                                </compoundApiParam>
+                                <apiParam group="body" name="contentType" title="Content Type">
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="31" title="Assert: 200 EqualTo {UpdateStatusStatus.StatusCode}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="value" valueClass="string">200</value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="UpdateStatusStatus"/>
+                                    <path element="StatusCode"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage"/>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="4">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="46" title="Update Story Status Only on Change">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Update Story Status Only on Change</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="47">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="48" title="If: {UserStory.status.id != BeingImplemented}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="ne">
+                            <lhs class="variable">
+                              <path element="UserStory"/>
+                              <path element="status"/>
+                              <path element="id"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="BeingImplemented"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="49">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" isTitleUpdated="true" name="RestRequest" testItemId="50" title="REST API Call: Update Status to 'Being implemented'">
+                              <tags/>
+                              <arguments>
+                                <argument id="connectionName">
+                                  <value class="value" valueClass="string">ElementsCloud_API</value>
+                                </argument>
+                                <argument id="targetValue">
+                                  <value class="restTarget" uri="rest:untyped?method=PUT&amp;bodyStyle=Other"/>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">UpdateStatusResponse</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="statusResultName">
+                                  <value class="value" valueClass="string">UpdateStatusStatus</value>
+                                </argument>
+                                <argument id="restResourceUrl">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">/</value>
+                                      <variable>
+                                        <path element="Version"/>
+                                      </variable>
+                                      <value valueClass="string">/stories/</value>
+                                      <variable>
+                                        <path element="StoryId"/>
+                                      </variable>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restRequestHeader">
+                                  <value class="variable">
+                                    <path element="AuthHeader"/>
+                                  </value>
+                                </argument>
+                                <argument id="restBody">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">{\n    "status": "</value>
+                                      <variable>
+                                        <path element="BeingImplemented"/>
+                                      </variable>
+                                      <value valueClass="string">"\n}</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="restAttachments">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="contentType">
+                                  <value class="value" valueClass="string">JSON</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="body" name="restBody" title="Body">
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                                <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+                                  <childParams>
+                                    <apiParam name="name" title="Attachment Name"/>
+                                    <apiParam name="fileName" title="File Name"/>
+                                    <apiParam name="contentType" title="Content Type">
+                                      <type>
+                                        <choiceType>
+                                          <constraints>
+                                            <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                            <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                          </constraints>
+                                        </choiceType>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="data" title="Data">
+                                      <type>
+                                        <urlType/>
+                                      </type>
+                                    </apiParam>
+                                    <apiParam name="base64Encode" title="Encode As Base64">
+                                      <type>
+                                        <booleanType/>
+                                      </type>
+                                    </apiParam>
+                                  </childParams>
+                                </compoundApiParam>
+                                <apiParam group="body" name="contentType" title="Content Type">
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="51" title="Assert: 200 EqualTo {UpdateStatusStatus.StatusCode}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="value" valueClass="string">200</value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="UpdateStatusStatus"/>
+                                    <path element="StatusCode"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage"/>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:04bf5474-6209-43a6-88fa-02bac81fe9db" name="Pass" title="Pass">
+      <summary>The condition that is tested.\r\n\r\nIf it evaluates to true then the Then steps are executed, otherwise any Else steps.</summary>
+      <type>
+        <booleanType/>
+      </type>
+    </param>
+    <param name="StoryId" title="StoryId">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <outputParams>
+    <param name="UpdateStatusResponse" title="UpdateStatusResponse">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="UpdateStatusResponse"/>
+      </sourceValue>
+    </param>
+    <param name="UpdateStatusStatus" title="UpdateStatusStatus">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="UpdateStatusStatus"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="Pass">
+      <value class="value" valueClass="boolean">false</value>
+    </argument>
+    <argument id="StoryId">
+      <value class="value" valueClass="string">5d498581f772c1056d60048b</value>
+    </argument>
+  </args>
+  <outputArgs>
+    <outputArgument id="UpdateStatusResponse">
+      <name class="value" valueClass="string">UpdateStatusResponse</name>
+    </outputArgument>
+    <outputArgument id="UpdateStatusStatus">
+      <name class="value" valueClass="string">UpdateStatusStatus</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

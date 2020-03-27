@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="9">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="3" title="Set Values: Account License Information ">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="AccountData" variableScope="Test">
+          <cacheToken>C:/Users/16156/Provar/Workspaces/SeleniumGrid Demo/SeleniumGrid/templates/LicenseGeneration.xlsx;1568900365116</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="RegistrationName"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Email"/>
+            <apiParam name="Company"/>
+            <apiParam name="Phone"/>
+            <apiParam name="Fax"/>
+            <apiParam name="Street"/>
+            <apiParam name="City"/>
+            <apiParam name="Country"/>
+            <apiParam name="State"/>
+            <apiParam name="Zip"/>
+            <apiParam name="Quantity"/>
+            <apiParam name="Core"/>
+            <apiParam name="SF"/>
+            <apiParam name="SfOrgIds"/>
+            <apiParam name="SfOrgNames"/>
+            <apiParam name="LicenseType"/>
+            <apiParam name="LicenseDuration"/>
+            <apiParam name="MaintenanceDuration"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/LicenseGeneration.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">LicenseInformation</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:T2</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <caseCall testCaseId="2f68c997-839d-412a-9d41-d1fc767cedc5" testCasePath="tests/MRD/LicenseManager/GenerateLicenseKeys.testcase" testItemId="1">
+      <arguments>
+        <argument id="RegistrationName">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="RegistrationName"/>
+          </value>
+        </argument>
+        <argument id="FirstName">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="FirstName"/>
+          </value>
+        </argument>
+        <argument id="LastName">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument id="Email">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Email"/>
+          </value>
+        </argument>
+        <argument id="Company">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Company"/>
+          </value>
+        </argument>
+        <argument id="Phone">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Phone"/>
+          </value>
+        </argument>
+        <argument id="Fax"/>
+        <argument id="Street">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Street"/>
+          </value>
+        </argument>
+        <argument id="City">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="City"/>
+          </value>
+        </argument>
+        <argument id="Country">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Country"/>
+          </value>
+        </argument>
+        <argument id="Zip">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Zip"/>
+          </value>
+        </argument>
+        <argument id="Quantity">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Quantity"/>
+          </value>
+        </argument>
+        <argument id="Core">
+          <value class="value" valueClass="string">true</value>
+        </argument>
+        <argument id="SF">
+          <value class="value" valueClass="string">true</value>
+        </argument>
+        <argument id="SfOrgIds">
+          <value class="value" valueClass="string">*</value>
+        </argument>
+        <argument id="SfOrgNames">
+          <value class="value" valueClass="string">*</value>
+        </argument>
+        <argument id="State">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="State"/>
+          </value>
+        </argument>
+        <argument id="LicenseType">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="LicenseType"/>
+          </value>
+        </argument>
+        <argument id="LICENSEDURATION">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="LicenseDuration"/>
+          </value>
+        </argument>
+        <argument id="MAINDURATION">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="MaintenanceDuration"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="LICENSE_KEY">
+          <name class="value" valueClass="string">LICENSE_KEY</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <caseCall testCaseId="e4616f93-9225-4648-854d-14133c2caa60" testCasePath="tests/MRD/LicenseManager/SendLicenseEmail.testcase" testItemId="2">
+      <arguments>
+        <argument id="LicenseKey">
+          <value class="variable">
+            <path element="LICENSE_KEY"/>
+          </value>
+        </argument>
+        <argument id="ClientName">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="FirstName"/>
+          </value>
+        </argument>
+        <argument id="Quantity">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Quantity"/>
+          </value>
+        </argument>
+        <argument id="Email">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Email"/>
+          </value>
+        </argument>
+        <argument id="LicenseType">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="LicenseType"/>
+          </value>
+        </argument>
+        <argument id="LicenseDuration">
+          <value class="variable">
+            <path element="AccountData">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="LicenseDuration"/>
+          </value>
+        </argument>
+        <argument id="MaintenanceDuration">
+          <value class="value" valueClass="string">365</value>
+        </argument>
+      </arguments>
+    </caseCall>
+  </steps>
+</testCase>

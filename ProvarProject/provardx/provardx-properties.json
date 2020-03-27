@@ -1,0 +1,26 @@
+{
+   "provarHome":"C:/Program Files/Provar/",
+   "projectPath":"C:/Users/16156/git/ProvarDevOps/ProvarDevOps",
+   "resultsPath":"C:/Users/16156/git/ProvarDevOps/ProvarDevOps/ANT/Results",
+   "smtpPath": "",
+   "resultsPathDisposition": "Replace", 
+   "testOutputLevel":"WARNING",
+   "pluginOutputlevel":"WARNING",
+   "stopOnError":false,
+   "lightningMode":true,
+   "connectionRefreshType":"Reload",
+   "metadata":{
+      "metadataLevel":"Reload",
+      "cachePath":"../.provarCaches"
+   },
+   "environment":{
+      "testEnvironment":"",
+      "webBrowser":"Chrome_Headless",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+   }
+   ,"testCase":[
+    	"/Demos/Create New Opportunity.testcase"  
+	]
+}

@@ -1,0 +1,79 @@
+<project default="runtests">
+	<property environment="env"/>
+	<property name="provar.home" value="${env.PROVAR_HOME}"/>
+	<property name="testproject.home" value="${env.WORKSPACE}"/>
+	<property name="testproject.results" value="${env.WORKSPACE}/ANT/Results"/>
+	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
+	<property name="testenvironment.secretspassword" value="${env.ProvarSecretsPassword_EnvName}"/>
+	
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<parallel threadCount="2" failonany="true">
+
+			<sequential>
+
+				<Run-Test-Case provarHome="${provar.home}" 
+					projectPath="${testproject.home}" 
+					resultsPath="${testproject.results}" 
+					resultsPathDisposition="Increment" 
+					testEnvironment="" 
+					webBrowser="Chrome_Headless" 
+					webBrowserConfiguration="Full Screen"
+					webBrowserProviderName="Desktop"
+					webBrowserDeviceName="Full Screen" 
+					excludeCallableTestCases="true" 
+					salesforceMetadataCache="Reload" 
+					projectCachePath="../../.provarCaches"
+					testOutputlevel="WARNING" 
+					pluginOutputlevel="WARNING"
+					stopTestRunOnError="false"
+					secretsPassword="${secrets.password}"
+					testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+					invokeTestRunMonitor="true"
+					>
+			
+					<fileset dir="${testproject.home}/tests/Sandbox"/>
+
+					<emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+					<attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+				</Run-Test-Case>
+
+			</sequential>
+			
+			<sequential>
+
+				<Run-Test-Case provarHome="${provar.home}" 
+					projectPath="${testproject.home}" 
+					resultsPath="${testproject.results}" 
+					resultsPathDisposition="Increment" 
+					testEnvironment="" 
+					webBrowser="Chrome_Headless" 
+					webBrowserConfiguration="Full Screen"
+					webBrowserProviderName="Desktop"
+					webBrowserDeviceName="Full Screen" 
+					excludeCallableTestCases="true" 
+					salesforceMetadataCache="Reload" 
+					projectCachePath="../../.provarCaches"
+					testOutputlevel="WARNING" 
+					pluginOutputlevel="WARNING"
+					stopTestRunOnError="false"
+					secretsPassword="${secrets.password}"
+					testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+					invokeTestRunMonitor="true"
+					>
+
+					<fileset dir="${testproject.home}/tests/Smoke Tests"/>
+
+					<emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+					<attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+				</Run-Test-Case>
+			</sequential>
+		</parallel>
+	</target>
+</project>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase registryId="778a1e3a-8616-4deb-afa0-cf502fd3d4f0" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Account=&gt;AccountId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Account</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">AccountId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Name">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="Name"/>
+          </value>
+        </argument>
+        <argument id="BillingStreet">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="BillingStreet"/>
+          </value>
+        </argument>
+        <argument id="BillingCity">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="BillingCity"/>
+          </value>
+        </argument>
+        <argument id="BillingPostalCode">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="BillingPostalCode"/>
+          </value>
+        </argument>
+        <argument id="BillingCountry">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="BillingCountry"/>
+          </value>
+        </argument>
+        <argument id="Phone">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="Phone"/>
+          </value>
+        </argument>
+        <argument id="Fax">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="Fax"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="AccountData" variableScope="Test">
+          <cacheToken>C:/Users/16156/Provar/Workspaces/SeleniumGrid Demo/SeleniumGrid/templates/TestAccountData.xlsx;1561485086767</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Phone"/>
+            <apiParam name="Name"/>
+            <apiParam name="Active"/>
+            <apiParam name="BillingStreet"/>
+            <apiParam name="BillingCity"/>
+            <apiParam name="BillingPostalCode"/>
+            <apiParam name="BillingCountry"/>
+            <apiParam name="Fax"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Email"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestAccountData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Accounts</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:K2</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=BillingStreet" name="BillingStreet" title="BillingStreet"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=BillingCity" name="BillingCity" title="BillingCity"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=BillingPostalCode" name="BillingPostalCode" title="BillingPostalCode"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=BillingCountry" name="BillingCountry" title="BillingCountry"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Fax" name="Fax" title="Fax"/>
+      </generatedParameters>
+    </apiCall>
+    <caseCall testCaseId="2f628c0d-debe-4919-b8bf-30e92e3147de" testCasePath="tests/MRD/LicenseManager/GenerateContact.testcase" testItemId="4">
+      <arguments>
+        <argument id="FirstName">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="FirstName"/>
+          </value>
+        </argument>
+        <argument id="LastName">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument id="AccountId">
+          <value class="variable">
+            <path element="AccountId"/>
+          </value>
+        </argument>
+        <argument id="Company__c">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="Name"/>
+          </value>
+        </argument>
+        <argument id="Email">
+          <value class="variable">
+            <path element="AccountData"/>
+            <path element="Email"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+  </steps>
+  <tags>
+    <string>disabled</string>
+  </tags>
+</testCase>

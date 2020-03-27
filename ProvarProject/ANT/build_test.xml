@@ -1,0 +1,43 @@
+<project default="runtests">
+	<property environment="env"/>
+	<property name="provar.home" value="C:/Program Files/Provar/"/>
+	<property name="testproject.home" value=".."/>
+	<property name="testproject.results" value="../{env.WORKSPACE}/ANT/Results"/>
+	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
+	<property name="testenvironment.secretspassword" value="${env.ProvarSecretsPassword_EnvName}"/>
+	
+	
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<Run-Test-Case provarHome="${provar.home}" 
+				projectPath="${testproject.home}" 
+				resultsPath="${testproject.results}" 
+				resultsPathDisposition="Increment" 
+				testEnvironment="" 
+				webBrowser="Chrome_Headless" 
+				webBrowserConfiguration="1920x1080"
+				webBrowserProviderName="Desktop"
+				webBrowserDeviceName="1920x1080" 
+				excludeCallableTestCases="true" 
+				salesforceMetadataCache="Reload" 
+				projectCachePath="../../.provarCaches"
+				testOutputlevel="WARNING" 
+				pluginOutputlevel="WARNING"
+				stopTestRunOnError="false"
+				secretsPassword="${secrets.password}"
+				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+				invokeTestRunMonitor="true"
+				>
+		
+			<fileset id="testcases" dir="../tests"></fileset>
+
+		</Run-Test-Case>
+
+	</target>
+</project>

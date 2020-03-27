@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+  <title>/ProvarDevOps/.testproject</title>
+  <configPath>config</configPath>
+  <testsPath>tests</testsPath>
+  <templatesPath>templates</templatesPath>
+  <sourcePath>src</sourcePath>
+  <secureStoragePath>.secrets</secureStoragePath>
+  <browserDebugPort>0</browserDebugPort>
+  <environments>
+    <environment name="Test Env">
+      <summary/>
+    </environment>
+    <environment name="Lightning">
+      <summary/>
+    </environment>
+    <environment name="Dev">
+      <summary/>
+    </environment>
+    <environment name="QA">
+      <summary/>
+    </environment>
+    <environment name="PROD">
+      <summary/>
+    </environment>
+  </environments>
+  <variables>
+    <testVariable name="_chromeOptions">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+          <valueConstraint name="regex"/>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+    <testVariable name="Email">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+          <valueConstraint name="regex"/>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">richard.clark@provartesting.com</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+  </variables>
+  <connectionClasses>
+    <connectionClass name="sf">
+      <connections>
+        <connection name="Admin_Sandbox">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="2ff233cb-b15e-403c-96e9-5c7c369a0ce3" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="webservice">
+      <connections>
+        <connection name="Amiibo_API">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=https://www.amiiboapi.com/api/amiibo;authenticationType=NO_AUTHENTICATION"/>
+          </connectionUrls>
+        </connection>
+        <connection name="LicenseManager">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="09b7cdc9-9eed-4f96-9577-a752576394b6" url="restservice:url=https://online.license4j.com/e;authenticationType=NO_AUTHENTICATION"/>
+          </connectionUrls>
+        </connection>
+        <connection name="JSON_Placeholder_API">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=https://jsonplaceholder.typicode.com;authenticationType=NO_AUTHENTICATION"/>
+          </connectionUrls>
+        </connection>
+        <connection name="QTest_Management_API">
+          <summary>qTest API base URI</summary>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="34a6f753-fb34-486b-950f-2c0f61c6dfbb" url="restservice:url=https://toscatesttrial.qtestnet.com;authenticationType=NO_AUTHENTICATION"/>
+          </connectionUrls>
+        </connection>
+        <connection name="ElementsCloud_API">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=https://api.q9elements.com/api;authenticationType=NO_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Authorization" value="token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWFiMTM3MDA5ZTZlZWQwNTI1MGI2ZTc1IiwiaWF0IjoxNTg1MTY3MTIxLCJleHAiOjE1ODU3NzE5MjF9.66QYhvvIqz1-CLTR-gnvC_0ossrCyARnkXXwzZpTsao"/>
+              </customHeaders>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection name="SF_Rest">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https://login.salesforce.com;user=provartrial57@gmail.com;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+              </customHeaders>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="google">
+      <connections>
+        <connection name="Onboarding">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=onboarding.us@provartesting.com;password={password};authenticationType=PASSWORD"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="ui">
+      <connections>
+        <connection name="testConnection">
+          <summary>\t</summary>
+          <connectionUrls>
+            <connectionUrl url="se:baseUrl=http://google.com"/>
+            <connectionUrl envName="QA" url="se:baseUrl=http://google2.com"/>
+          </connectionUrls>
+        </connection>
+        <connection name="ProvarWebsite">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="se:baseUrl=https://www.provartesting.com/contact/"/>
+          </connectionUrls>
+        </connection>
+        <connection name="Amazon">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="se:baseUrl=http://amazon.com"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+  </connectionClasses>
+  <browserConfigurations>
+    <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
+      <summary>Full screen with Test Builder adjustment</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1024" browserWidthType="Pixels" name="1024x768">
+      <summary>Fixed 1024x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="800" browserHeightType="Pixels" browserWidth="1280" browserWidthType="Pixels" name="1280x800">
+      <summary>Fixed 1280x800</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1366" browserWidthType="Pixels" name="1366x768">
+      <summary>Fixed 1366x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="1080" browserHeightType="Pixels" browserWidth="1920" browserWidthType="Pixels" name="1920x1080">
+      <summary>Fixed 1920x1080</summary>
+    </browserConfiguration>
+  </browserConfigurations>
+  <antPath>ANT</antPath>
+  <testCyclePath>TestCycle</testCyclePath>
+  <browserApplications>
+    <browserApplication connectionTypes="sf" name="Salesforce1">
+      <properties>
+        <browserPlatformProperty name="browserName" platform="IOS" type="DesiredCapability" value="Safari"/>
+        <browserPlatformProperty name="browserName" platform="ANDROID" type="DesiredCapability" value="Chrome"/>
+      </properties>
+    </browserApplication>
+    <browserApplication connectionTypes="sf" name="ServiceMax FSA">
+      <properties>
+        <browserPlatformProperty name="bundleId" platform="IOS" type="DesiredCapability" value="com.servicemaxinc.svmxfieldserviceapp"/>
+        <browserPlatformProperty name="app" platform="DESKTOP" type="DesiredCapability" value="C:\\Program Files\\ServiceMax\\ServiceMax Field Service\\Laptop Mobile.exe"/>
+      </properties>
+    </browserApplication>
+  </browserApplications>
+  <browserProviders>
+    <browserProvider name="Desktop" type="SeleniumLocal">
+      <devices>
+        <browserProviderDevice name="Full Screen">
+          <properties>
+            <browserPlatformProperty name="summary" value="Full screen with Test Builder adjustment"/>
+            <browserPlatformProperty name="browserHeightType" value="Full"/>
+            <browserPlatformProperty name="browserWidthType" value="Full"/>
+            <browserPlatformProperty name="adjustBrowserWidthForChromeIde" value="true"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1024x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1024x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1024"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1280x800">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1280x800"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="800"/>
+            <browserPlatformProperty name="browserWidth" value="1280"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1366x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1366x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1366"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1920x1080">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1920x1080"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="1080"/>
+            <browserPlatformProperty name="browserWidth" value="1920"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties/>
+    </browserProvider>
+    <browserProvider name="SeleniumGrid" type="SeleniumGrid">
+      <devices>
+        <browserProviderDevice name="WIN10 Chrome ANY" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Chrome"/>
+            <browserPlatformProperty name="version" type="DesiredCapability" value="ANY"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="WIN10 Edge ANY" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Edge"/>
+            <browserPlatformProperty name="version" type="DesiredCapability" value="ANY"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties>
+        <browserPlatformProperty name="gridUrl" value="http://localhost:4444/hub"/>
+      </properties>
+    </browserProvider>
+    <browserProvider name="SauceLabs" secureStorageNodeId="6126dcdc-10f7-494e-aed8-bb2df28a447b" type="SauceLabsDesktop">
+      <devices>
+        <browserProviderDevice name="WIN10 chrome" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="LINUX firefox" platform="LINUX">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="firefox"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="WIN10 internet explorer" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="internet explorer"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="WIN10 MicrosoftEdge" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="MicrosoftEdge"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties>
+        <browserPlatformProperty name="userName" value="Mrdailey999"/>
+        <browserPlatformProperty name="dataCenter" value="us-west-1"/>
+        <browserPlatformProperty name="extendedDebugging" type="DesiredCapability" value="true"/>
+        <browserPlatformProperty name="capturePerformance" type="DesiredCapability" value="true"/>
+      </properties>
+    </browserProvider>
+  </browserProviders>
+</testProject>

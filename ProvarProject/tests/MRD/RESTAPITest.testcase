@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="11" registryId="b7bb03a1-afce-404a-acc9-3b6ac86a53a7" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="1" title="Web Connect: API">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Amiibo_API</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">API</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="35" title="Web Request (HTTP/REST): ⇒RestResponse">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">API</value>
+        </argument>
+        <argument id="targetValue">
+          <value class="restTarget" uri="rest:untyped?method=GET&amp;bodyStyle=JSON"/>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">RestResponse</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="statusResultName">
+          <value class="value" valueClass="string">RestResponseStatus</value>
+        </argument>
+        <argument argId="7865d4ce-1046-4cd8-b13d-a8dc4e6f9fe7" id="restResourceUrl">
+          <value class="variable">
+            <path element="Resource"/>
+          </value>
+        </argument>
+        <argument id="restRequestHeader"/>
+      </arguments>
+      <generatedParameters>
+        <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="38" title="Assert: {RestResponseStatus.StatusCode} EqualTo 200">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="RestResponseStatus"/>
+            <path element="StatusCode"/>
+          </value>
+        </argument>
+        <argument id="actualValue">
+          <value class="value" valueClass="string">200</value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage">
+          <value class="value" valueClass="string">API response status should contains 200.</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="45" title="Assert: {Resource} Contains {RestResponse.amiibo[1].character}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="Resource"/>
+          </value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="RestResponse"/>
+            <path element="amiibo">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="character"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">Contains</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage">
+          <value class="value" valueClass="string">REST response should contain resource name.</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="39" title="Write: {RestResponse.amiibo}=&gt;templates/Amiibos.xlsx">
+      <arguments>
+        <argument id="data">
+          <value class="variable">
+            <path element="RestResponse"/>
+            <path element="amiibo"/>
+          </value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="excelTarget" sheetWriteMode="Overwrite">
+            <workbookPath class="value" valueClass="string">templates/Amiibos.xlsx</workbookPath>
+            <worksheetName class="variable">
+              <path element="RestResponse"/>
+              <path element="amiibo">
+                <filter class="index">
+                  <index valueClass="decimal">0</index>
+                </filter>
+              </path>
+              <path element="character"/>
+            </worksheetName>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/Amiibos.xlsx</value>
+        </argument>
+      </arguments>
+      <generatedParameters/>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="40" title="Write: {RestResponseStatus}=&gt;templates/Amiibos.xlsx">
+      <arguments>
+        <argument id="data">
+          <value class="variable">
+            <path element="RestResponseStatus"/>
+          </value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="excelTarget" sheetWriteMode="Append">
+            <workbookPath class="value" valueClass="string">templates/Amiibos.xlsx</workbookPath>
+            <worksheetName class="variable">
+              <path element="RestResponse"/>
+              <path element="amiibo">
+                <filter class="index">
+                  <index valueClass="decimal">0</index>
+                </filter>
+              </path>
+              <path element="character"/>
+            </worksheetName>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/Amiibos.xlsx</value>
+        </argument>
+      </arguments>
+      <generatedParameters/>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:7865d4ce-1046-4cd8-b13d-a8dc4e6f9fe7" name="Resource" title="Resource Name">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="Resource">
+      <value class="value" valueClass="string">?name=Link</value>
+    </argument>
+  </args>
+</testCase>

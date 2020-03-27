@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase failureBehaviour="Continue" registryId="65cd0b46-8dd5-4444-a459-b29a03edfda3" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="19" title="If: {TestSuiteExecutionId = null}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="variable">
+              <path element="TestSuiteExecutionId"/>
+            </lhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="20">
+          <steps/>
+        </clause>
+        <clause name="else" testItemId="23">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="16" title="Salesforce Connect: Admin_Sandbox (Test)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                </argument>
+                <argument argId="b723ee82-99c6-4088-8542-9277e00219fb" id="reuseConnectionName"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Reuse</value>
+                </argument>
+                <argument id="uiApplicationName"/>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="privateBrowsingMode">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="18" title="Split: {TestCaseName}=&gt;.=&gt;TestCaseNameFull">
+              <arguments>
+                <argument id="input">
+                  <value class="variable">
+                    <path element="TestCaseName"/>
+                  </value>
+                </argument>
+                <argument id="separator">
+                  <value class="value" valueClass="string">.</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">TestCaseNameFull</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="13" title="If: {TestCaseSuccessful() = true}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="TestCaseSuccessful"/>
+                    <rhs class="value" valueClass="boolean">true</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="3">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="15" title="Create Object: provarti__Test_Case_Execution__c=&gt;TestCaseExecutionId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provarti__Test_Case_Execution__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestCaseExecutionId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="provarti__Test_Suite_Execution__c">
+                          <value class="variable">
+                            <path element="TestSuiteExecutionId"/>
+                          </value>
+                        </argument>
+                        <argument id="provarti__End_Date_Time__c">
+                          <value class="variable">
+                            <path element="NOW"/>
+                          </value>
+                        </argument>
+                        <argument id="provarti__Status__c">
+                          <value class="value" valueClass="string">Pass</value>
+                        </argument>
+                        <argument id="provarti__Name__c">
+                          <value class="variable">
+                            <path element="TestCaseNameFull">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                          </value>
+                        </argument>
+                        <argument id="provarti__Start_Date_Time__c">
+                          <value class="variable">
+                            <path element="TestCaseStart"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Case_Execution__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Test_Suite_Execution__c" name="provarti__Test_Suite_Execution__c" title="provarti__Test_Suite_Execution__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__End_Date_Time__c" name="provarti__End_Date_Time__c" title="provarti__End_Date_Time__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Status__c" name="provarti__Status__c" title="provarti__Status__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Start_Date_Time__c" name="provarti__Start_Date_Time__c" title="provarti__Start_Date_Time__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="4">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="9" title="Create Object: provarti__Test_Case_Execution__c=&gt;TestCaseExecutionId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provarti__Test_Case_Execution__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestCaseExecutionId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="provarti__Test_Suite_Execution__c">
+                          <value class="variable">
+                            <path element="TestSuiteExecutionId"/>
+                          </value>
+                        </argument>
+                        <argument id="provarti__End_Date_Time__c">
+                          <value class="variable">
+                            <path element="NOW"/>
+                          </value>
+                        </argument>
+                        <argument id="provarti__Status__c">
+                          <value class="value" valueClass="string">Fail</value>
+                        </argument>
+                        <argument argId="792d3d44-65c6-45eb-a3a7-61d39f7e1ee2" id="provarti__Name__c">
+                          <value class="variable">
+                            <path element="TestCaseNameFull">
+                              <filter class="index">
+                                <index valueClass="decimal">0</index>
+                              </filter>
+                            </path>
+                          </value>
+                        </argument>
+                        <argument id="provarti__Start_Date_Time__c">
+                          <value class="variable">
+                            <path element="TestCaseStart"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Case_Execution__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Test_Suite_Execution__c" name="provarti__Test_Suite_Execution__c" title="provarti__Test_Suite_Execution__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__End_Date_Time__c" name="provarti__End_Date_Time__c" title="provarti__End_Date_Time__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Status__c" name="provarti__Status__c" title="provarti__Status__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c"/>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Start_Date_Time__c" name="provarti__Start_Date_Time__c" title="provarti__Start_Date_Time__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params>
+    <param name="TestCaseName" title="Test Case Name">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="TestCaseStart" title="Test Case Start">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:b723ee82-99c6-4088-8542-9277e00219fb" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+  </params>
+  <outputParams>
+    <param name="TestCaseExecutionId" title="Test Case Execution Id">
+      <summary>The name that the resulting connection will be stored under.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="TestCaseExecutionId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="TestCaseName">
+      <value class="value" valueClass="string">TestCaseName</value>
+    </argument>
+    <argument id="TestCaseStart">
+      <value class="value" escapingDisabled="true" valueClass="string">{TestCaseStart()}</value>
+    </argument>
+    <argument id="reuseConnectionName">
+      <value class="value" valueClass="string">Admin_Sandbox</value>
+    </argument>
+  </args>
+  <outputArgs>
+    <outputArgument id="TestCaseExecutionId">
+      <name class="value" valueClass="string">TestCaseExecutionId</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

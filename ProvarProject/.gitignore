@@ -1,0 +1,8 @@
+bin/
+ANT/Results*
+ANT/Results/*
+.secrets
+.metadata
+.metadata/*
+temp.log
+*.pdf

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="10" registryId="a11db5ed-65d4-447b-986a-97e3a443757b" visibility="Internal">
+  <summary/>
+  <steps>
+    <caseCall testCaseId="d57aa326-95eb-41f7-8228-f3e575160cd2" testCasePath="tests/MRD/Tricentis/QTest Token.testcase" testItemId="8">
+      <outputArguments>
+        <outputArgument id="AuthHeader">
+          <name class="value" valueClass="string">AuthHeader</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="1" title="Web Connect: QTest_Management_API">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QTest_Management_API</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QTest_Management_API</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="2" title="Web Request (HTTP/REST): ⇒RestResponse">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QTest_Management_API</value>
+        </argument>
+        <argument id="targetValue">
+          <value class="restTarget" uri="rest:untyped?method=POST&amp;bodyStyle=JSON"/>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">RestResponse</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="statusResultName">
+          <value class="value" valueClass="string">RestResponseStatus</value>
+        </argument>
+        <argument id="restResourceUrl">
+          <value class="value" valueClass="string">/api/v3/projects/88766/test-cases/</value>
+        </argument>
+        <argument id="restRequestHeader">
+          <value class="variable">
+            <path element="AuthHeader"/>
+          </value>
+        </argument>
+        <argument id="restBody">
+          <value class="value" valueClass="string">{\n\t"name": "Create New Account",\n\t"properties": [{\n\t\t\t"field_id": 6614791,\n\t\t\t"field_value": 702\n\t\t},\n\t\t{\n\t\t\t"field_id": 6614787,\n\t\t\t"field_value": 711\n\t\t},\n\t\t{\n\t\t\t"field_id": 6614793,\n\t\t\t"field_value": "Creates a new account in Salesforce using Provar Test Automation."\n\t\t},\n\t\t{\n\t\t\t"field_id": 6614788,\n\t\t\t"field_value": "Automated content to automate."\n\t\t}\n\t],\n\t"test_steps": [{\n\t\t\t"description": "Salesforce Connect",\n\t\t\t"expected": "Browser is successfully opened and logged into Salesforce."\n\t\t},\n\t\t{\n\t\t\t"description": "Navigate to Account Home Screen and click 'New' to create a new Account",\n\t\t\t"expected": "Account Home is opened followed by the New Account window being opened once 'New' is pressed."\n\t\t},\n\t\t{\n\t\t\t"description": "Enter value for Account Name field",\n\t\t\t"expected": "Account Name field is populated with value."\n\t\t},\n\t\t{\n\t\t\t"description": "Enter value for Phone field",\n\t\t\t"expected": "Phone field is populated with value."\n\t\t},\n\t\t{\n\t\t\t"description": "Click 'Save' button to save the Account",\n\t\t\t"expected": "Account is saved and screenshot is taken before and after test step finalizes. Should navigate user to  Account View page."\n\t\t}\n\t]\n}</value>
+        </argument>
+        <argument id="restAttachments">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+      </arguments>
+      <generatedParameters>
+        <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="body" name="restBody" title="Body">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="mimeType">application/json</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <compoundApiParam group="attachments" list="true" name="restAttachments" title="Attachment">
+          <childParams>
+            <apiParam name="name" title="Attachment Name"/>
+            <apiParam name="fileName" title="File Name"/>
+            <apiParam name="contentType" title="Content Type">
+              <type>
+                <choiceType>
+                  <constraints>
+                    <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                    <valueConstraint name="valuesSourceDependencies">com.provar.core.model.base.api.MimeContentType</valueConstraint>
+                  </constraints>
+                </choiceType>
+              </type>
+            </apiParam>
+            <apiParam name="data" title="Data">
+              <type>
+                <urlType/>
+              </type>
+            </apiParam>
+            <apiParam name="base64Encode" title="Encode As Base64">
+              <type>
+                <booleanType/>
+              </type>
+            </apiParam>
+          </childParams>
+        </compoundApiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="3" title="Assert: 200 EqualTo {RestResponseStatus.StatusCode}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="value" valueClass="string">200</value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="RestResponseStatus"/>
+            <path element="StatusCode"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage">
+          <value class="value" valueClass="string">REST Response from QTest API should return a 200 HTTP Status Code.</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="4" title="Assert: {RestResponse.id} IsPresent ">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="RestResponse"/>
+            <path element="id"/>
+          </value>
+        </argument>
+        <argument id="actualValue"/>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">IsPresent</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

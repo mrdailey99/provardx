@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="2">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: Admin_Sandbox (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <caseCall testCaseId="778a1e3a-8616-4deb-afa0-cf502fd3d4f0" testCasePath="tests/MRD/LicenseManager/GenerateAccount.testcase" testItemId="10">
+      <tags>
+        <string>disabled</string>
+      </tags>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: Select Account by Company Name">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Id\n    ,Name\n    ,BillingStreet\n    ,BillingCity\n    ,BillingPostalCode\n    ,BillingCountry\n    ,Fax\n    ,Phone from Account WHERE Name = '</value>
+              <variable>
+                <path element="NewAccount"/>
+                <path element="Company"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">AccountRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="NewAccount" variableScope="Test">
+          <cacheToken>C:/Users/16156/Provar/Workspaces/SeleniumGrid Demo/SeleniumGrid/templates/NewAccounts.xlsx;1561486255672</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="FirstName"/>
+            <apiParam name="LastName"/>
+            <apiParam name="Company"/>
+            <apiParam name="AddressLine1"/>
+            <apiParam name="City"/>
+            <apiParam name="ZipCode"/>
+            <apiParam name="Country"/>
+            <apiParam name="Core"/>
+            <apiParam name="Sf"/>
+            <apiParam name="SfOrgIds"/>
+            <apiParam name="SfOrgNames"/>
+            <apiParam name="Quantity"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/NewAccounts.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Floating</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:K2</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="4" title="Assert: {NewAccount.Company} EqualTo {AccountRows[1].Name}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="Company"/>
+          </value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Name"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: Select Contact(s) from Account by Contact Name">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Name\n    ,FirstName\n    ,LastName\n    ,Email\n    ,Id\n    ,AccountId from Contact WHERE AccountId = '</value>
+              <variable>
+                <path element="AccountRows">
+                  <filter class="index">
+                    <index valueClass="decimal">0</index>
+                  </filter>
+                </path>
+                <path element="Id"/>
+              </variable>
+              <value valueClass="string">'  \n    and FirstName = '</value>
+              <variable>
+                <path element="NewAccount"/>
+                <path element="FirstName"/>
+              </variable>
+              <value valueClass="string">'  and LastName = '</value>
+              <variable>
+                <path element="NewAccount"/>
+                <path element="LastName"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ContactRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="6" title="Assert: {NewAccount.FirstName} EqualTo {ContactRows[19].FirstName}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="FirstName"/>
+          </value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="ContactRows">
+              <filter class="index">
+                <index valueClass="decimal">18</index>
+              </filter>
+            </path>
+            <path element="FirstName"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="7" title="Assert: {NewAccount.LastName} EqualTo {ContactRows[19].LastName}">
+      <arguments>
+        <argument id="expectedValue">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument id="actualValue">
+          <value class="variable">
+            <path element="ContactRows">
+              <filter class="index">
+                <index valueClass="decimal">18</index>
+              </filter>
+            </path>
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument id="comparisonType">
+          <value class="value" valueClass="string">EqualTo</value>
+        </argument>
+        <argument id="caseSensitive">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="numeric">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="retainDecimals">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="nullGreater">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchMultiLine">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="matchDotAll">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="failureMessage"/>
+      </arguments>
+    </apiCall>
+    <caseCall testCaseId="2f68c997-839d-412a-9d41-d1fc767cedc5" testCasePath="tests/MRD/LicenseManager/GenerateLicenseKeys.testcase" testItemId="8">
+      <arguments>
+        <argument id="RegistrationName">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="Registration"/>
+          </value>
+        </argument>
+        <argument id="FirstName">
+          <value class="variable">
+            <path element="ContactRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="FirstName"/>
+          </value>
+        </argument>
+        <argument id="LastName">
+          <value class="variable">
+            <path element="ContactRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="LastName"/>
+          </value>
+        </argument>
+        <argument id="Email">
+          <value class="variable">
+            <path element="ContactRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Email"/>
+          </value>
+        </argument>
+        <argument id="Company">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Name"/>
+          </value>
+        </argument>
+        <argument id="Phone">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Phone"/>
+          </value>
+        </argument>
+        <argument id="Fax">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="Fax"/>
+          </value>
+        </argument>
+        <argument id="Street">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="BillingStreet"/>
+          </value>
+        </argument>
+        <argument id="City">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="BillingCity"/>
+          </value>
+        </argument>
+        <argument id="Country">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="BillingCountry"/>
+          </value>
+        </argument>
+        <argument id="Zip">
+          <value class="variable">
+            <path element="AccountRows">
+              <filter class="index">
+                <index valueClass="decimal">0</index>
+              </filter>
+            </path>
+            <path element="BillingPostalCode"/>
+          </value>
+        </argument>
+        <argument id="Quantity">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="Quantity"/>
+          </value>
+        </argument>
+        <argument id="Core">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="Core"/>
+          </value>
+        </argument>
+        <argument id="SF">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="Sf"/>
+          </value>
+        </argument>
+        <argument id="SF_ORG_IDS">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="SfOrgIds"/>
+          </value>
+        </argument>
+        <argument id="SF_ORG_NAMES">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="SfOrgNames"/>
+          </value>
+        </argument>
+        <argument id="SfOrgIds">
+          <value class="value" valueClass="string">*</value>
+        </argument>
+        <argument id="SfOrgNames">
+          <value class="value" valueClass="string">*</value>
+        </argument>
+        <argument id="State"/>
+        <argument id="LicenseType"/>
+        <argument id="LICENSEDURATION">
+          <value class="value" valueClass="string">365</value>
+        </argument>
+        <argument id="MAINDURATION">
+          <value class="value" valueClass="string">365</value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="LICENSE_KEY">
+          <name class="value" valueClass="string">LICENSE_KEY</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <caseCall testCaseId="e4616f93-9225-4648-854d-14133c2caa60" testCasePath="tests/MRD/LicenseManager/SendLicenseEmail.testcase" testItemId="9">
+      <arguments>
+        <argument id="LicenseKey">
+          <value class="variable">
+            <path element="LICENSE_KEY"/>
+          </value>
+        </argument>
+        <argument id="ClientName">
+          <value class="compound">
+            <parts>
+              <variable>
+                <path element="NewAccount"/>
+                <path element="FirstName"/>
+              </variable>
+              <value valueClass="string"> </value>
+              <variable>
+                <path element="NewAccount"/>
+                <path element="LastName"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
+        <argument id="Quantity">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="Quantity"/>
+          </value>
+        </argument>
+        <argument id="Email">
+          <value class="variable">
+            <path element="ContactRows">
+              <filter class="index">
+                <index valueClass="decimal">18</index>
+              </filter>
+            </path>
+            <path element="Email"/>
+          </value>
+        </argument>
+        <argument id="LicenseType">
+          <value class="variable">
+            <path element="NewAccount"/>
+            <path element="LicenseType"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+  </steps>
+</testCase>
