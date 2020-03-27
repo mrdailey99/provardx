@@ -23,12 +23,15 @@ steps:
     npm install -g sfdx-cli
     npm install -g yarn
   displayName: 'npm install sfdx-cli and yarn'
-- bash: |
-    cd com.provar.plugins.provardx
-    sfdx plugins:link    
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      cd com.provar.plugins.provardx
+      sfdx plugins:link
   displayName: 'Link ProvarDX SFDX plugins with SFDX'
-- bash: |
-    yarn run prepack
+- bash: yarn run prepack
   displayName: 'Execute yarn command prepack available in package.json file'
 - bash: |
     sfdx force:project:create -n ProvarDX
@@ -48,6 +51,7 @@ steps:
     echo "Install Provar"
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
     unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
+  displayName: 'Install Provar'
 - bash: sfdx provar:validate
   displayName: 'Validate ProvarDX property file'
 - bash: sfdx provar:runtests
