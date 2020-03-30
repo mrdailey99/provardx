@@ -58,6 +58,8 @@ steps:
     echo "Install Provar"
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
     unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
+    cd /home/vsts/work/1/s/ProvarHome
+    ls -la
   displayName: 'Install Provar'
 - bash: |
     cd com.provar.plugins.provardx
