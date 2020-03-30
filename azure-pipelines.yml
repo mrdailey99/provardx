@@ -22,7 +22,8 @@ steps:
 - script: |
     npm install -g sfdx-cli
     npm install -g yarn
-  displayName: 'npm install sfdx-cli and yarn'
+    npm install openssl-nodejs
+  displayName: 'npm install sfdx-cli, yarn, and openssl'
 
 - task: Bash@3
   inputs:
@@ -40,11 +41,12 @@ steps:
     cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
   displayName: 'Creates SFDX Project with some sample configuration files'
 - bash: |
-    # sfdx force:auth:web:login --setdefaultdevusername -setalias provardevorg
-    # openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
-    # sfdx force:auth:jwt:grant --clientid $(consumerkey) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+    openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
+    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+  displayName: 'Authenticates to Scratch Org'
+- bash: |
     sfdx force:org:create -f ProvarDX/config/project-scratch-def.json
-    sfdx force:org:display -u devuserdailey@provartesting.com 
+    sfdx force:org:display -u $(dev_hub_username)
   displayName: 'Create Scratch Org and give description for the Org'
 - bash: |
     sfdx force:user:password:generate --targetusername $(dev_hub_username)
