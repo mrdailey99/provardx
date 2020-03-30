@@ -42,8 +42,8 @@ steps:
   displayName: 'Creates SFDX Project with some sample configuration files'
 - bash: |
     openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
-    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
-  displayName: 'Authenticates to Scratch Org'
+    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets/server.key --username provartrial57@gmail.com --setdefaultdevhubusername --setalias $(dev_hub_alias)
+  displayName: 'Authenticates to Dev Hub Org'
 - bash: |
     sfdx force:org:create -f ProvarDX/config/project-scratch-def.json
     sfdx force:org:display -u $(dev_hub_username)
