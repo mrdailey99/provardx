@@ -56,9 +56,13 @@ steps:
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
     unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
   displayName: 'Install Provar'
-- bash: sfdx provar:validate
+- bash: |
+    cd com.provar.plugins.provardx
+    sfdx provar:validate
   displayName: 'Validate ProvarDX property file'
-- bash: sfdx provar:runtests
+- bash: |
+    cd com.provar.plugins.provardx 
+    sfdx provar:runtests
   displayName: 'Run Provar Tests'
 
   
