@@ -22,6 +22,7 @@ steps:
 - script: |
     npm install
   displayName: 'npm install'
+
 - script: |
     npm install -g sfdx-cli
     npm install -g yarn
@@ -35,33 +36,41 @@ steps:
       cd com.provar.plugins.provardx
       sfdx plugins:link
   displayName: 'Link ProvarDX SFDX plugins with SFDX'
+
 - bash: |
     cd com.provar.plugins.provardx
     yarn run prepack
   displayName: 'Execute yarn command prepack available in package.json file'
+
 - bash: |
     sfdx force:project:create -n ProvarDX
     cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
   displayName: 'Creates SFDX Project with some sample configuration files'
+
 - bash: |
     openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
     sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
   displayName: 'Authenticates to Dev Hub Org'
+
 - bash: |
     sfdx force:org:list --clean
   displayName: 'Cleans stale Org authentications'
-# Copy Scratch Org username to property file
+
 - task: ShellScript@2
   inputs:
     scriptPath: create_connection_overrides.sh
     args: $(scratch_org_username)
+  displayName: 'Copy Scratch Org user to property file'
+
 - bash: |
     sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username)
     sfdx force:org:display -u $(scratch_org_username)
   displayName: 'Create Scratch Org and Org description'
+
 - bash: |
     sfdx force:user:password:generate --targetusername $(scratch_org_username)
   displayName: 'Generate a password for Scratch Org for given user'
+
 - bash: |
     echo "Install Provar"
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
@@ -70,13 +79,23 @@ steps:
     cd /home/vsts/work/1/s/ProvarHome
     ls -la
   displayName: 'Install Provar'
+
 - bash: |
     cd com.provar.plugins.provardx
     sfdx provar:validate
   displayName: 'Validate ProvarDX property file'
+
+- bash: |
+    cd com.provar.plugins.provardx
+    sfdx provar:compile -p provardx-properties.json
+  displayName: 'Compile Provar Tests'
+
+- bash: |
+    cd com.provar.plugins.provardx
+    sfdx provar:metadatacache -m 'refresh' -c '/home/vsts/work/1/s/.provarCaches' -p 'provardx-properties.json'
+  displayName: 'Refresh Metadata Cache for SF'
+
 - bash: |
     cd com.provar.plugins.provardx 
-    sfdx provar:runtests -f provardx-properties.json
+    sfdx provar:runtests -f 'provardx-properties.json'
   displayName: 'Run Provar Tests'
-
-  

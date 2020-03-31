@@ -12,7 +12,7 @@
   "connectionRefreshType":"Reload",
   "metadata":{
      "metadataLevel":"Reload",
-     "cachePath":"../.provarCaches"
+     "cachePath":"/home/vsts/work/1/s/.provarCaches"
   },
   "environment":{
      "testEnvironment":"",
