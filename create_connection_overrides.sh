@@ -1,0 +1,2 @@
+#!/bin/sh
+awk -v username=$1 '{print} /{/ && !n {print "  \"connectionOverride\": \n  [\n    { \"connection\": \"Admin_Sandbox\", \"username\": \""username"\" }\n  ],"; n++}' com.provar.plugins.provardx/provardx-properties.json > tmp && mv tmp com.provar.plugins.provardx/provardx-properties.json

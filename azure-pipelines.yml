@@ -3,12 +3,15 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 trigger:
 - master
 
 pool:
   vmImage: 'ubuntu-latest'
-
+variables:
+  scratch_org_username: $(Build.BuildNumber)
 steps:
 - task: NodeTool@0
   inputs:
@@ -48,7 +51,8 @@ steps:
     sfdx force:org:list --clean
   displayName: 'Cleans stale Org authentications'
 - bash: |
-    sfdx force:org:create -f ProvarDX/config/project-scratch-def.json
+    create_connection_overrides.sh $(scratch_org_username)
+    sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username)
     sfdx force:org:display -u $(scratch_org_username)
   displayName: 'Create Scratch Org and Org description'
 - bash: |
@@ -68,7 +72,7 @@ steps:
   displayName: 'Validate ProvarDX property file'
 - bash: |
     cd com.provar.plugins.provardx 
-    sfdx provar:runtests
+    sfdx provar:runtests -f provardx-properties.json
   displayName: 'Run Provar Tests'
 
   

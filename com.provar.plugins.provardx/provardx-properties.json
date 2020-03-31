@@ -27,9 +27,5 @@
    },
   "testCase":[
      "/Demos/Create New Opportunity.testcase"  
-  ],
-  "connectionOverride": 
-  [
-    {"connection": "Admin_Sandbox", "username": "provardx@provartesting.com"}
   ]	
 }
