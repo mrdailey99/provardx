@@ -11,7 +11,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  scratch_org_username: $(Build.BuildNumber)
+  scratch_org_username: $(Build.BuildNumber)@provartesting.com
 steps:
 - task: NodeTool@0
   inputs:
