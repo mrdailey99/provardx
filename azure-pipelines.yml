@@ -3,7 +3,7 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
 - master
@@ -50,8 +50,12 @@ steps:
 - bash: |
     sfdx force:org:list --clean
   displayName: 'Cleans stale Org authentications'
+# Copy Scratch Org username to property file
+- task: ShellScript@2
+  inputs:
+    scriptPath: create_connection_overrides.sh
+    args: $(scratch_org_username)
 - bash: |
-    create_connection_overrides.sh $(scratch_org_username)
     sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username)
     sfdx force:org:display -u $(scratch_org_username)
   displayName: 'Create Scratch Org and Org description'
