@@ -1,10 +1,10 @@
 {
-  "provarHome":"/home/vsts/work/1/s/ProvarHome",
-  "projectPath":"/home/vsts/work/1/s/ProvarProject",
-  "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
-  "smtpPath": "/home/vsts/work/1/s/ProvarProject/.smtp",
+  "provarHome": "C:\\Program Files\\Provar",
+  "projectPath":"C:\\Users\\16156\\git\\ProvarDevOps\\ProvarDevOps",
+  "resultsPath":"C:\\Users\\16156\\git\\ProvarDevOps\\ProvarDevOps\\ANT\\Results",
+  "smtpPath": "C:\\Users\\16156\\git\\ProvarDevOps\\ProvarDevOps\\.smtp",
   "resultsPathDisposition": "Replace", 
-  "testOutputLevel":"WARNING",
+  "testOutputLevel":"FINEST",
   "pluginOutputlevel":"WARNING",
   "excludeCallable":true,
   "stopOnError":true,
@@ -12,7 +12,7 @@
   "connectionRefreshType":"Reload",
   "metadata":{
      "metadataLevel":"Reload",
-     "cachePath":"/home/vsts/work/1/s/.provarCaches"
+     "cachePath":"C:\\Users\\16156\\git\\ProvarDevOps\\.provarCaches"
   },
   "environment":{
      "testEnvironment":"",

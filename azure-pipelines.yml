@@ -76,6 +76,7 @@ steps:
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
     unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
     export PROVAR_HOME=/home/vsts/work/1/s/ProvarHome
+    cp /home/vsts/work/1/s/ProvarProject/provardx $PROVAR_HOME/provardx
     cd /home/vsts/work/1/s/ProvarHome
     ls -la
   displayName: 'Install Provar'
@@ -85,17 +86,17 @@ steps:
     sfdx provar:validate
   displayName: 'Validate ProvarDX property file'
 
-- bash: |
-    cd com.provar.plugins.provardx
-    sfdx provar:compile -p provardx-properties.json
-  displayName: 'Compile Provar Tests'
+# - bash: |
+#     cd com.provar.plugins.provardx
+#     sfdx provar:compile -p provardx-properties.json
+#   displayName: 'Compile Provar Tests'
 
-- bash: |
-    cd com.provar.plugins.provardx
-    sfdx provar:metadatacache -m 'refresh' -c '/home/vsts/work/1/s/.provarCaches' -p 'provardx-properties.json'
-  displayName: 'Refresh Metadata Cache for SF'
+# - bash: |
+#     cd com.provar.plugins.provardx
+#     sfdx provar:metadatacache -m 'refresh' -c '/home/vsts/work/1/s/.provarCaches' -p 'provardx-properties.json'
+#   displayName: 'Refresh Metadata Cache for SF'
 
 - bash: |
     cd com.provar.plugins.provardx 
-    sfdx provar:runtests -f 'provardx-properties.json'
+    sfdx provar:runtests -p provardx-properties.json
   displayName: 'Run Provar Tests'
