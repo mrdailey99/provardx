@@ -29,7 +29,7 @@
       </tags>
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
           <value class="value" valueClass="string">Admin_Sandbox</value>

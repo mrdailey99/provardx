@@ -26,7 +26,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
           <value class="value" valueClass="string">Admin_Sandbox</value>
@@ -912,13 +912,13 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="44" title="Click the Convert Button">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=convertButton"/>
+                  <value class="uiLocator" uri="ui:locator?name=submitConvert&amp;binding=sf%3Aui%3Abinding%3Aobject%3Faction%3DsubmitConvert"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Convert Button button</value>
+                  <value class="value" valueClass="string">Click the Convert button</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>

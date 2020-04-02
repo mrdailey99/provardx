@@ -234,10 +234,10 @@
       <clauses>
         <clause name="hidden" testItemId="35">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" name="SendMessage" testItemId="46" title="Send Message: GmailMRD">
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" name="SendMessage" testItemId="46" title="Send Message: Onboarding">
               <arguments>
                 <argument id="destinationConnectionName">
-                  <value class="value" valueClass="string">GmailMRD</value>
+                  <value class="value" valueClass="string">Onboarding</value>
                 </argument>
                 <argument id="body">
                   <value class="variable">

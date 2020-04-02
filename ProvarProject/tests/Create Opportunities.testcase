@@ -5,7 +5,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
           <value class="value" valueClass="string">Admin_Sandbox</value>
@@ -82,21 +82,7 @@
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="4">
-          <steps>
-            <caseCall testCaseId="e5b1b7cd-74a2-4aac-a476-b185b935f123" testCasePath="tests/Demos/Create New Opportunity.testcase" testItemId="39">
-              <arguments>
-                <argument id="OppName">
-                  <value class="variable">
-                    <path element="Opp"/>
-                    <path element="OppName"/>
-                  </value>
-                </argument>
-                <argument id="valuePath">
-                  <value class="value" valueClass="string">StageName</value>
-                </argument>
-              </arguments>
-            </caseCall>
-          </steps>
+          <steps/>
         </clause>
       </clauses>
     </apiCall>

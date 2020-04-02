@@ -18,13 +18,13 @@
         </clause>
         <clause name="else" testItemId="23">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="16" title="Salesforce Connect: Admin_Sandbox (Test)">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="16" title="Salesforce Connect: Admin (Test)">
               <arguments>
                 <argument id="connectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="resultName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument argId="b723ee82-99c6-4088-8542-9277e00219fb" id="reuseConnectionName"/>
                 <argument id="resultScope">
@@ -98,7 +98,7 @@
                           <value class="value" valueClass="string">TestCaseExecutionId</value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                          <value class="value" valueClass="string">Admin</value>
                         </argument>
                         <argument id="assignmentRuleId"/>
                         <argument id="resultScope">
@@ -158,7 +158,7 @@
                           <value class="value" valueClass="string">TestCaseExecutionId</value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                          <value class="value" valueClass="string">Admin</value>
                         </argument>
                         <argument id="assignmentRuleId"/>
                         <argument id="resultScope">

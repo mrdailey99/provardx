@@ -4,7 +4,7 @@
   "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
   "smtpPath": "/home/vsts/work/1/s/ProvarProject/.smtp",
   "resultsPathDisposition": "Replace", 
-  "testOutputLevel":"WARNING",
+  "testOutputLevel":"FINEST",
   "pluginOutputlevel":"WARNING",
   "excludeCallable":true,
   "stopOnError":true,
@@ -26,6 +26,6 @@
         "toRecipients": ["michael.dailey@provartesting.com"]
    },
   "testCase":[
-     "/Demos/Create New Opportunity.testcase"  
+     "/Sandbox/Opportunity/CreateNewOpportunity.testcase"  
   ]	
 }

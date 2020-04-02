@@ -23,13 +23,13 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="reuseConnectionName"/>
         <argument id="resultScope">
@@ -67,7 +67,7 @@
     <caseCall testCaseId="3b131cbc-43bd-4fa2-90a1-d120123fc715" testCasePath="tests/Sandbox/Lead/CreateNewLead.testcase" testItemId="2">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
       </arguments>
       <outputArguments>
@@ -91,7 +91,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConvertLead" name="ApexConvertLead" testItemId="3" title="Convert Lead:  =&gt; //">
       <arguments>
         <argument id="apexConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="leadId">
           <value class="variable">
@@ -150,7 +150,7 @@
                   <value class="value" valueClass="string">AccountRead</value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="objectId">
                   <value class="variable">
@@ -191,7 +191,7 @@
                   <value class="value" valueClass="string">OpportunityRead</value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="objectId">
                   <value class="variable">
@@ -228,7 +228,7 @@
                   <value class="value" valueClass="string">LeadRead</value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="objectId">
                   <value class="variable">
@@ -267,7 +267,7 @@
                   <value class="value" valueClass="string">ContactRead</value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="objectId">
                   <value class="variable">
@@ -317,7 +317,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
               </arguments>
               <outputArguments>

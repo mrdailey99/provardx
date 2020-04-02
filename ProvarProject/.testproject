@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/ProvarDevOps/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -57,16 +57,6 @@
     </testVariable>
   </variables>
   <connectionClasses>
-    <connectionClass name="sf">
-      <connections>
-        <connection name="Admin_Sandbox">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="2ff233cb-b15e-403c-96e9-5c7c369a0ce3" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-          </connectionUrls>
-        </connection>
-      </connections>
-    </connectionClass>
     <connectionClass name="webservice">
       <connections>
         <connection name="Amiibo_API">
@@ -117,10 +107,10 @@
     </connectionClass>
     <connectionClass name="google">
       <connections>
-        <connection name="Onboarding">
+        <connection name="ProvarDocker">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=onboarding.us@provartesting.com;password={password};authenticationType=PASSWORD"/>
+            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;password={password};authenticationType=PASSWORD"/>
           </connectionUrls>
         </connection>
       </connections>
@@ -144,6 +134,16 @@
           <summary/>
           <connectionUrls>
             <connectionUrl url="se:baseUrl=http://amazon.com"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="sf">
+      <connections>
+        <connection name="Admin">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>

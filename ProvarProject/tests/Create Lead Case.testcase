@@ -5,7 +5,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Global)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
           <value class="value" valueClass="string">Admin</value>
@@ -593,29 +593,6 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <caseCall testCaseId="45ba33d8-d281-4a32-be75-b7d266736f48" testCasePath="tests/Demos/Create New Opportunity.testcase" testItemId="14">
-      <arguments>
-        <argument id="stageName">
-          <value class="value" valueClass="string">Qualification</value>
-        </argument>
-      </arguments>
-    </caseCall>
-    <caseCall testCaseId="e5b1b7cd-74a2-4aac-a476-b185b935f123" testCasePath="tests/Demos/Create New Opportunity.testcase" testItemId="15">
-      <arguments>
-        <argument id="OppName">
-          <value class="compound">
-            <parts>
-              <value valueClass="string">Demo </value>
-              <funcCall id="UniqueId">
-                <argument id="length">
-                  <value class="value" valueClass="decimal">7</value>
-                </argument>
-              </funcCall>
-            </parts>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
   </steps>
   <params>
     <param name="FirstName" title="FirstName">

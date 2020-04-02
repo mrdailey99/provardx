@@ -23,13 +23,13 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="reuseConnectionName"/>
         <argument id="resultScope">
@@ -149,7 +149,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="4" title="On SF Account Home screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=ObjectHome"/>
@@ -221,7 +221,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="7" title="On SF Account New screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=New&amp;noOverride=true"/>
@@ -454,7 +454,7 @@
           <value class="value" valueClass="string">AccountRead</value>
         </argument>
         <argument id="apexConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="objectId">
           <value class="variable">
@@ -506,7 +506,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
               </arguments>
               <outputArguments>

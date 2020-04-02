@@ -27,7 +27,7 @@
       <tags/>
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
           <value class="value" valueClass="string">Admin_Sandbox</value>
@@ -495,9 +495,11 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Contact&amp;field=LastName" name="LastName" title="Last Name"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="62" title="Finally: ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="62" title="Finally: Create Test Case in SF Org">
       <arguments>
-        <argument id="description"/>
+        <argument id="description">
+          <value class="value" valueClass="string">Create Test Case in SF Org</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="hidden" testItemId="75">

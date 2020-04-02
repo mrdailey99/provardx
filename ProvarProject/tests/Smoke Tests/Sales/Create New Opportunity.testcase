@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="22">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: TestCaseStart">
@@ -23,13 +23,13 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -214,7 +214,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Opportunity Home screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=ObjectHome"/>
@@ -300,7 +300,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="19" title="On SF Opportunity New screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=New&amp;noOverride=true"/>
@@ -632,7 +632,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="26" title="On SF Opportunity View screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=View&amp;noOverride=true"/>
@@ -826,7 +826,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="32" title="With OpportunityHistories rows {1}">
               <arguments>
                 <argument id="uiConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="locator">
                   <value class="uiLocator" uri="sf:ui:locator:row?table=View%2FOpportunityHistories%2FOpportunityHistoriesTable"/>
@@ -978,7 +978,7 @@
               </tags>
               <arguments>
                 <argument id="uiConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="target">
                   <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=PathAssistant"/>
@@ -1082,7 +1082,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="61" title="On SF Opportunity Edit screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=Edit"/>
@@ -1234,7 +1234,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="38" title="On SF Opportunity View screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Opportunity&amp;action=View&amp;noOverride=true"/>
@@ -1540,7 +1540,7 @@
       </tags>
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=OpportunityLineItem&amp;action=addProd"/>
@@ -1629,7 +1629,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="86" title="With Search Table {1}">
               <arguments>
                 <argument id="uiConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="locator">
                   <value class="uiLocator" uri="sf:ui:locator:row?table=addProd%2FSearchResults%2FSearchTable"/>
@@ -1861,7 +1861,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="78" title="On SF Opportunity: Competitor New screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=OpportunityCompetitor&amp;action=New"/>
@@ -1910,7 +1910,7 @@
                   <value class="value" valueClass="boolean">false</value>
                 </argument>
                 <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
+                  <value class="value" valueClass="boolean">true</value>
                 </argument>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
@@ -1951,7 +1951,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="81" title="Click the Save button">
-              <tags/>
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save"/>
@@ -2036,7 +2038,7 @@
           <value class="value" valueClass="string">OpportunityRead</value>
         </argument>
         <argument id="apexConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="objectId">
           <value class="variable">
@@ -2066,9 +2068,11 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=MainCompetitors__c" name="MainCompetitors__c" title="Main Competitor(s)"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="51" title="Finally: ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="51" title="Finally: Create Test Case in SF Org">
       <arguments>
-        <argument id="description"/>
+        <argument id="description">
+          <value class="value" valueClass="string">Create Test Case in SF Org</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="hidden" testItemId="52">
