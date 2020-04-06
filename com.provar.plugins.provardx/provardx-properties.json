@@ -4,7 +4,7 @@
   "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
   "smtpPath": "/home/vsts/work/1/s/ProvarProject/.smtp",
   "resultsPathDisposition": "Replace", 
-  "testOutputLevel":"FINEST",
+  "testOutputLevel":"WARNING",
   "pluginOutputlevel":"WARNING",
   "excludeCallable":true,
   "stopOnError":true,
