@@ -70,6 +70,13 @@ steps:
 - bash: |
     sfdx force:user:password:generate --targetusername $(scratch_org_username)
   displayName: 'Generate a password for Scratch Org for given user'
+- bash: |
+    cd ProvarDX
+    sfdx force:mdapi:retrieve -r ./package -u $(dev_hub_username) -k ./package.xml
+    unzip ./package/unpackaged.zip
+    sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
+    sfdx force:source:push -u $(scratch_org_username)
+  displayName: 'Update Scratch Org Admin Profile'
 
 - bash: |
     echo "Install Provar"
