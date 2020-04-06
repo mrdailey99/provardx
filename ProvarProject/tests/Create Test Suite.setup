@@ -166,5 +166,7 @@
       <name class="value" valueClass="string">TestSuiteExecutionId</name>
     </outputArgument>
   </outputArgs>
-  <tags/>
+  <tags>
+    <string>disabled</string>
+  </tags>
 </testCase>

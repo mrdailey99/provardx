@@ -73,7 +73,7 @@ steps:
   displayName: 'Copy Scratch Org user to property file'
 
 - bash: |
-    sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username)
+    sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username) -a $(scratch_org_alias)
     sfdx force:org:display -u $(scratch_org_username)
   displayName: 'Create Scratch Org and Org description'
 

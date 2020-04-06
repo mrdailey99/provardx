@@ -1,14 +1,14 @@
 {
    "connectionOverride": 
    [
-     { "connection": "Admin", "username": "mrdailey99.provardx_master@provartesting.com" }
+     { "connection": "Admin", "username": "mrd123@testing.com" }
    ],
   "provarHome": "C:\\Program Files\\Provar",
   "projectPath":"C:\\Users\\16156\\git\\provardx\\ProvarProject",
   "resultsPath":"C:\\Users\\16156\\git\\provardx\\ProvarProject\\ANT\\Results",
   "smtpPath": "C:\\Users\\16156\\git\\provardx\\ProvarProject\\.smtp",
   "resultsPathDisposition": "Replace", 
-  "testOutputLevel":"FINE",
+  "testOutputLevel":"WARNING",
   "pluginOutputlevel":"WARNING",
   "excludeCallable":true,
   "stopOnError":true,
