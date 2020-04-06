@@ -8,7 +8,7 @@
   "resultsPath":"C:\\Users\\16156\\git\\provardx\\ProvarProject\\ANT\\Results",
   "smtpPath": "C:\\Users\\16156\\git\\provardx\\ProvarProject\\.smtp",
   "resultsPathDisposition": "Replace", 
-  "testOutputLevel":"WARNING",
+  "testOutputLevel":"INFO",
   "pluginOutputlevel":"WARNING",
   "excludeCallable":true,
   "stopOnError":true,

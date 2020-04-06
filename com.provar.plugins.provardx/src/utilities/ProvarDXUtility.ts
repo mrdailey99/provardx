@@ -136,16 +136,10 @@ export default class ProvarDXUtility {
 
     private handleSpecialCharacters(password: string): string {
         if (password) {
-            //  password = password.split('&').join('"&"');
-            //  password = password.split('|').join('"|"');
-            //  password = password.split('^').join('"^"');
-            if (password.includes('&')) {
-                password = password.replace('&', '\\&');
-            } else if (password.includes('|')) {
-                password = password.replace('|', '\\|');
-            } else if (password.includes('^')) {
-                password = password.replace('^', '\\^');
-            }
+             password = password.split('&').join('"&"');
+             password = password.split('|').join('"|"');
+             password = password.split('^').join('"^"');
+            // console.info('[INFO]  Scratch Org Password: ' + password);
         }
         return password;
     }

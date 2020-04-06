@@ -40,21 +40,6 @@
         </testVariableValue>
       </values>
     </testVariable>
-    <testVariable name="Email">
-      <valueType class="textType">
-        <constraints>
-          <valueConstraint name="minLength">0</valueConstraint>
-          <valueConstraint name="maxLength">9999</valueConstraint>
-          <valueConstraint name="regex"/>
-        </constraints>
-      </valueType>
-      <summary/>
-      <values>
-        <testVariableValue>
-          <value class="value" valueClass="string">richard.clark@provartesting.com</value>
-        </testVariableValue>
-      </values>
-    </testVariable>
   </variables>
   <connectionClasses>
     <connectionClass name="webservice">

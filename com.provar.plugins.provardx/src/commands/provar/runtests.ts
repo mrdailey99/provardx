@@ -82,6 +82,7 @@ export default class runtests extends SfdxCommand {
       let userInfoString = provarDxUtils.prepareRawProperties(JSON.stringify({'dxUsers': userInfo}));
       let updateProperties = provarDxUtils.prepareRawProperties(rawProperties);
       let jarPath = properties.provarHome +'/provardx/provardx.jar';
+      // console.info('[INFO]  USER INFO STRING: ' + userInfoString);
       execSync('java -cp "' + jarPath + '" com.provar.provardx.DxCommandExecuter ' + updateProperties + " " + userInfoString + " " + "Runtests", 
         {   stdio: 'inherit'});
       return {};
