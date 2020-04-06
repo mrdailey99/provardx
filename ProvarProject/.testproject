@@ -36,7 +36,7 @@
       <summary/>
       <values>
         <testVariableValue>
-          <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1</value>
+          <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1,--headless</value>
         </testVariableValue>
       </values>
     </testVariable>
