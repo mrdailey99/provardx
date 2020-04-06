@@ -9,7 +9,7 @@ trigger:
 - dev
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Azure Pipelines
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
 steps:
