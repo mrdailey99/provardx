@@ -23,7 +23,7 @@
   },
   "email": {
      "sendEmail" : true,
-        "toRecipients": ["michael.dailey@provartesting.com"]
+      "toRecipients": ["michael.dailey@provartesting.com"]
    },
   "testCase":[
      "/Sandbox/Opportunity/CreateNewOpportunity.testcase"  

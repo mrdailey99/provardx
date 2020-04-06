@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="6" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
+<testCase id="32" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: TestCaseStart">
@@ -24,6 +24,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -31,11 +34,7 @@
         <argument id="resultName">
           <value class="value" valueClass="string">Admin</value>
         </argument>
-        <argument argId="399d86d5-e665-4a63-935a-f280f6ae7fd6" id="reuseConnectionName">
-          <value class="variable">
-            <path element="reuseConnectionName"/>
-          </value>
-        </argument>
+        <argument argId="399d86d5-e665-4a63-935a-f280f6ae7fd6" id="reuseConnectionName"/>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
@@ -576,7 +575,7 @@
       </resultAssertions>
       <parameterValueSources/>
       <parameterGeneratorProperties>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Lead</propertyValue>
       </parameterGeneratorProperties>
       <generatedParameters>
@@ -595,10 +594,10 @@
       <clauses>
         <clause name="hidden" testItemId="52">
           <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/MRD/Copado/Callable/Create Test Case.testcase" testItemId="53">
+            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Create Test Case.testcase" testItemId="54">
               <arguments>
                 <argument id="TestCaseName">
-                  <value class="funcCall" id="TestCaseName"/>
+                  <value class="value" valueClass="string">TestCaseName</value>
                 </argument>
                 <argument id="TestCaseStart">
                   <value class="variable">

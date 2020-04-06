@@ -134,7 +134,7 @@
                       </arguments>
                       <parameterValueSources/>
                       <parameterGeneratorProperties>
-                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
                         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Case_Execution__c</propertyValue>
                       </parameterGeneratorProperties>
                       <generatedParameters>
@@ -193,7 +193,7 @@
                         </argument>
                       </arguments>
                       <parameterGeneratorProperties>
-                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
                         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Case_Execution__c</propertyValue>
                       </parameterGeneratorProperties>
                       <generatedParameters>
@@ -272,10 +272,12 @@
       <value class="value" valueClass="string">TestCaseName</value>
     </argument>
     <argument id="TestCaseStart">
-      <value class="value" escapingDisabled="true" valueClass="string">{TestCaseStart()}</value>
+      <value class="variable">
+        <path element="TestCaseStart"/>
+      </value>
     </argument>
     <argument id="reuseConnectionName">
-      <value class="value" valueClass="string">Admin_Sandbox</value>
+      <value class="value" valueClass="string">Admin</value>
     </argument>
   </args>
   <outputArgs>

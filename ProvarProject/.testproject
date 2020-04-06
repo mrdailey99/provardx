@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
-  <title>/ProvarDevOps/.testproject</title>
+  <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
   <templatesPath>templates</templatesPath>
@@ -36,7 +36,7 @@
       <summary/>
       <values>
         <testVariableValue>
-          <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1,--headless</value>
+          <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1</value>
         </testVariableValue>
       </values>
     </testVariable>

@@ -29,6 +29,14 @@ steps:
     npm install openssl-nodejs
   displayName: 'Node Install: sfdx-cli, yarn, and openssl'
 
+# - bash: |
+#     ## Setup to install latest chromium
+#     apt -y update && apt install -y
+#     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+#     echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list 
+#     apt update -y && apt install -y -qq google-chrome-stable google-chrome-beta 
+#   displayName: 'Install Chromium'
+  
 - task: Bash@3
   inputs:
     targetType: 'inline'

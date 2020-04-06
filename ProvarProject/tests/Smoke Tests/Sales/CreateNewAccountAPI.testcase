@@ -23,13 +23,16 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="72" title="Salesforce Connect: Admin_Sandbox (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="72" title="Salesforce Connect: Admin (Test)">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -149,7 +152,7 @@
           <value class="value" valueClass="string">AccountId</value>
         </argument>
         <argument id="apexConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="assignmentRuleId"/>
         <argument id="resultScope">
@@ -170,7 +173,7 @@
         </argument>
       </arguments>
       <parameterGeneratorProperties>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
       </parameterGeneratorProperties>
       <generatedParameters>
@@ -182,7 +185,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="66" title="On SF Account View screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin_Sandbox</value>
+          <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=View"/>
@@ -306,10 +309,10 @@
       <clauses>
         <clause name="hidden" testItemId="75">
           <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/MRD/Copado/Callable/Create Test Case.testcase" testItemId="76">
+            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Create Test Case.testcase" testItemId="78">
               <arguments>
                 <argument id="TestCaseName">
-                  <value class="funcCall" id="TestCaseName"/>
+                  <value class="value" valueClass="string">TestCaseName</value>
                 </argument>
                 <argument id="TestCaseStart">
                   <value class="variable">
@@ -317,7 +320,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
               </arguments>
               <outputArguments>

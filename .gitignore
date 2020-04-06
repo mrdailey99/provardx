@@ -7,3 +7,6 @@ com.provar.plugins.provardx/package-lock.json
 com.provar.plugins.provardx/oclif.manifest.json
 ProvarHome/
 .provarCaches/
+/.metadata/
+.chromeProfiles/
+.testCycles/
