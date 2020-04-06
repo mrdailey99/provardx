@@ -45,6 +45,7 @@ steps:
 - bash: |
     sfdx force:project:create -n ProvarDX
     cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
+    cp package.xml ProvarDX/package.xml
   displayName: 'Creates SFDX Project with some sample configuration files'
 
 - bash: |
@@ -70,6 +71,7 @@ steps:
 - bash: |
     sfdx force:user:password:generate --targetusername $(scratch_org_username)
   displayName: 'Generate a password for Scratch Org for given user'
+
 - bash: |
     cd ProvarDX
     sfdx force:mdapi:retrieve -r ./package -u $(dev_hub_username) -k ./package.xml
