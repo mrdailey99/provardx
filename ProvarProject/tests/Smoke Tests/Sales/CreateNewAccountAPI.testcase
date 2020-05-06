@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="69">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="77" title="Set Values: TestCaseStart">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">TestCaseStart</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="variable">
-                  <path element="NOW"/>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="72" title="Salesforce Connect: Admin (Test)">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -39,7 +16,7 @@
         </argument>
         <argument id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="uiApplicationName">
           <value class="value" valueClass="string">LightningSales</value>
@@ -168,9 +145,6 @@
             <path element="Phone"/>
           </value>
         </argument>
-        <argument id="Active__c">
-          <value class="value" valueClass="string">Yes</value>
-        </argument>
       </arguments>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
@@ -179,7 +153,6 @@
       <generatedParameters>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Name"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Active__c" name="Active__c" title="Active__c"/>
       </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="66" title="On SF Account View screen">
@@ -299,39 +272,6 @@
           </type>
         </apiParam>
       </generatedParameters>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="74" title="Finally: Create Test Case in SF Org">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Create Test Case in SF Org</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="75">
-          <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Create Test Case.testcase" testItemId="78">
-              <arguments>
-                <argument id="TestCaseName">
-                  <value class="value" valueClass="string">TestCaseName</value>
-                </argument>
-                <argument id="TestCaseStart">
-                  <value class="variable">
-                    <path element="TestCaseStart"/>
-                  </value>
-                </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="TestCaseExecutionId">
-                  <name class="value" valueClass="string">TestCaseExecutionId</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
     </apiCall>
   </steps>
 </testCase>

@@ -30,7 +30,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>

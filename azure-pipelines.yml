@@ -28,6 +28,10 @@ steps:
     npm install -g yarn
     npm install openssl-nodejs
   displayName: 'Node Install: sfdx-cli, yarn, and openssl'
+
+# - script: |
+#     apt-get install jq
+#   displayName: 'Install JQ JSON Parser'
   
 # - bash: |
 #     ## Setup to install latest chromium
@@ -77,6 +81,10 @@ steps:
     sfdx force:org:display -u $(scratch_org_username)
   displayName: 'Create Scratch Org and Org description'
 
+# - bash: |
+#     sfdx force:user:password:generate --targetusername $(scratch_org_username)
+#   displayName: 'Generate a password for Scratch Org for given user'
+
 - bash: |
     cd ProvarDX
     sfdx force:mdapi:retrieve -r ./package -u $(dev_hub_username) -k ./package.xml
@@ -94,6 +102,10 @@ steps:
     cd /home/vsts/work/1/s/ProvarHome
     ls -la
   displayName: 'Install Provar'
+
+# - bash: |
+#     sfdx force:org:display -u $(scratch_org_alias) --json
+#   displayName: 'Update REST connections with ProvarDX Credentials'
 
 - bash: |
     cd com.provar.plugins.provardx

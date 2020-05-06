@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="29" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
+<testCase id="59" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="11" title="Set Values: TestCaseStart">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">TestCaseStart</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="variable">
-                  <path element="NOW"/>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -39,7 +16,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="uiApplicationName"/>
         <argument id="closeAllPrimaryTabs">
@@ -67,6 +44,63 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="20" title="Set Values: InitialOppStage">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">InitialOppStage</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Prospecting</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="21" title="Set Values: OppProbability">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">OppProbability</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">10.0</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: ConvertedLeadStatus">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">ConvertedLeadStatus</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Qualified</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
     <caseCall testCaseId="3b131cbc-43bd-4fa2-90a1-d120123fc715" testCasePath="tests/Sandbox/Lead/CreateNewLead.testcase" testItemId="2">
       <arguments>
         <argument id="reuseConnectionName">
@@ -89,6 +123,12 @@
         <outputArgument id="LeadName">
           <name class="value" valueClass="string">LeadName</name>
         </outputArgument>
+        <outputArgument id="Email">
+          <name class="value" valueClass="string">Email</name>
+        </outputArgument>
+        <outputArgument id="Title">
+          <name class="value" valueClass="string">Title</name>
+        </outputArgument>
       </outputArguments>
     </caseCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConvertLead" name="ApexConvertLead" testItemId="3" title="Convert Lead:  =&gt; //">
@@ -105,7 +145,9 @@
         <argument id="contactId"/>
         <argument id="ownerId"/>
         <argument id="convertedStatus">
-          <value class="value" valueClass="string">Closed - Converted</value>
+          <value class="variable">
+            <path element="ConvertedLeadStatus"/>
+          </value>
         </argument>
         <argument id="createOpportunity">
           <value class="value" valueClass="boolean">true</value>
@@ -119,7 +161,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="sendNotificationEmail">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="resultAccountIdName">
           <value class="value" valueClass="string">convertedAccountId</value>
@@ -211,6 +253,16 @@
                     <path element="LeadCompany"/>
                   </expected>
                 </resultAssertion>
+                <resultAssertion resultName="StageName" title="Check StageName">
+                  <expected class="variable">
+                    <path element="InitialOppStage"/>
+                  </expected>
+                </resultAssertion>
+                <resultAssertion resultName="Probability" title="Check Probability">
+                  <expected class="variable">
+                    <path element="OppProbability"/>
+                  </expected>
+                </resultAssertion>
               </resultAssertions>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
@@ -220,6 +272,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Name" name="Name" title="Opportunity Name"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=StageName" name="StageName" title="Stage"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=CloseDate" name="CloseDate" title="Close Date"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Probability" name="Probability" title="Probability (%)"/>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="7" title="Read Object: Lead = {leadId}">
@@ -249,7 +302,9 @@
                   </expected>
                 </resultAssertion>
                 <resultAssertion resultName="Status" title="Check Status">
-                  <expected class="value" valueClass="string">Closed - Converted</expected>
+                  <expected class="variable">
+                    <path element="ConvertedLeadStatus"/>
+                  </expected>
                 </resultAssertion>
               </resultAssertions>
               <parameterGeneratorProperties>
@@ -300,39 +355,6 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="13" title="Finally: Record Test Status in SF">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Record Test Status in SF</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="52">
-          <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Create Test Case.testcase" testItemId="54">
-              <arguments>
-                <argument id="TestCaseName">
-                  <value class="value" valueClass="string">TestCaseName</value>
-                </argument>
-                <argument id="TestCaseStart">
-                  <value class="variable">
-                    <path element="TestCaseStart"/>
-                  </value>
-                </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="TestCaseExecutionId">
-                  <name class="value" valueClass="string">TestCaseExecutionId</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
   </steps>
   <params>
     <param name="LeadId" title="LeadId">
@@ -348,7 +370,47 @@
       </type>
     </param>
   </params>
+  <outputParams>
+    <param name="convertedContactId" title="convertedContactId">
+      <summary>ID of the new Contact (if a new contact was specified) or the ID of the contact specified when convertLead() was invoked.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="convertedContactId"/>
+      </sourceValue>
+    </param>
+    <param name="convertedAccountId" title="convertedAccountId">
+      <summary>ID of the new Account (if a new account was specified) or the ID of the account specified when convertLead() was invoked.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="convertedAccountId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
   <args>
     <argument id="LeadId"/>
   </args>
+  <outputArgs>
+    <outputArgument id="convertedContactId">
+      <name class="value" valueClass="string">convertedContactId</name>
+    </outputArgument>
+    <outputArgument id="convertedAccountId">
+      <name class="value" valueClass="string">convertedAccountId</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedWebBrowserType="Chrome_Headless">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -23,6 +23,9 @@
     <environment name="PROD">
       <summary/>
     </environment>
+    <environment name="Scratch">
+      <summary>Scratch Org</summary>
+    </environment>
   </environments>
   <variables>
     <testVariable name="_chromeOptions">
@@ -44,46 +47,18 @@
   <connectionClasses>
     <connectionClass name="webservice">
       <connections>
-        <connection name="Amiibo_API">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="restservice:url=https://www.amiiboapi.com/api/amiibo;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="LicenseManager">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="09b7cdc9-9eed-4f96-9577-a752576394b6" url="restservice:url=https://online.license4j.com/e;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="JSON_Placeholder_API">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="restservice:url=https://jsonplaceholder.typicode.com;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="QTest_Management_API">
-          <summary>qTest API base URI</summary>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="34a6f753-fb34-486b-950f-2c0f61c6dfbb" url="restservice:url=https://toscatesttrial.qtestnet.com;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="ElementsCloud_API">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="restservice:url=https://api.q9elements.com/api;authenticationType=NO_AUTHENTICATION">
-              <customHeaders>
-                <customHeader key="Authorization" value="token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWFiMTM3MDA5ZTZlZWQwNTI1MGI2ZTc1IiwiaWF0IjoxNTg1MTY3MTIxLCJleHAiOjE1ODU3NzE5MjF9.66QYhvvIqz1-CLTR-gnvC_0ossrCyARnkXXwzZpTsao"/>
-              </customHeaders>
-            </connectionUrl>
-          </connectionUrls>
-        </connection>
         <connection name="SF_Rest">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https://login.salesforce.com;user=provartrial57@gmail.com;password={password};authenticationType=BASIC_AUTHENTICATION">
+            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https://provardx.my.salesforce.com;user=michael.dailey@provardx.com;password={password};clientId=3MVG9Kip4IKAZQEUIkrj7zWwUivImKykmB1PqARq_4q3699WUB0Sry0i82h1Gpwqp3UPvUh2VnQ==;clientSecret={clientSecret};authorizeUrl=https://login.salesforce.com/services/oauth2/token;authenticationType=OAUTH_PASSWORD">
               <customHeaders>
                 <customHeader key="Content-Type" value="application/json"/>
+              </customHeaders>
+            </connectionUrl>
+            <connectionUrl envName="Scratch" secureStorageNodeId="43a3c1a8-3dc9-4280-8e1d-b3a910abbf46" url="restservice:url=instanceUrl;user=username;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+                <customHeader key="Authorization" value="Bearer accessToken"/>
               </customHeaders>
             </connectionUrl>
           </connectionUrls>
@@ -128,7 +103,7 @@
         <connection name="Admin">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
@@ -260,7 +235,7 @@
         </browserProviderDevice>
       </devices>
       <properties>
-        <browserPlatformProperty name="userName" value="Mrdailey999"/>
+        <browserPlatformProperty name="userName" value="provar.integrations"/>
         <browserPlatformProperty name="dataCenter" value="us-west-1"/>
         <browserPlatformProperty name="extendedDebugging" type="DesiredCapability" value="true"/>
         <browserPlatformProperty name="capturePerformance" type="DesiredCapability" value="true"/>

@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="32" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
+<testCase id="63" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: TestCaseStart">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">TestCaseStart</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="variable">
-                  <path element="NOW"/>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -39,7 +16,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="uiApplicationName"/>
         <argument id="closeAllPrimaryTabs">
@@ -114,6 +91,54 @@
         </argument>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: Email">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Email</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <value valueClass="string">test</value>
+                    <funcCall id="UniqueId">
+                      <argument id="length">
+                        <value class="value" valueClass="decimal">4</value>
+                      </argument>
+                    </funcCall>
+                    <value valueClass="string">@test.com</value>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="20" title="Set Values: Title">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Title</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Sr. QA Engineer</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: LeadPhone">
       <arguments>
         <argument id="values">
@@ -177,7 +202,7 @@
                 <value class="value" valueClass="string">LeadStatus</value>
               </namedValue>
               <namedValue name="value">
-                <value class="value" valueClass="string">Open - Not Contacted</value>
+                <value class="value" valueClass="string">Open</value>
               </namedValue>
               <namedValue name="valueScope">
                 <value class="value" valueClass="string">Test</value>
@@ -245,12 +270,26 @@
                   <value class="value" valueClass="string">Click the New button</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="hover" title="Hover before Clicking">
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
                   <summary>Whether the mouse should hover over the field before it is clicked.</summary>
                   <type>
                     <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
                   </type>
                 </apiParam>
               </generatedParameters>
@@ -461,6 +500,109 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Title field to {Title}">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:locator?name=Title&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DLead%26field%3DTitle"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Title field to {Title}</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="value">
+                  <value class="variable">
+                    <path element="Title"/>
+                  </value>
+                </argument>
+                <argument id="blur"/>
+                <argument id="pressEnter"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Title" name="value" seq="10000" title="Value">
+                  <summary>The value to be populated.</summary>
+                  <type>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="maxLength">128</valueConstraint>
+                        <valueConstraint name="maxLines">1</valueConstraint>
+                      </constraints>
+                    </textType>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="23" title="Set the Email field to {Email}">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:locator?name=Email&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DLead%26field%3DEmail"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Email field to {Email}</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="value">
+                  <value class="variable">
+                    <path element="Email"/>
+                  </value>
+                </argument>
+                <argument id="blur"/>
+                <argument id="pressEnter"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Email" name="value" seq="10000" title="Value">
+                  <summary>The value to be populated.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="15" title="Click the Save button">
               <arguments>
                 <argument id="locator">
@@ -572,6 +714,16 @@
             <path element="LeadStatus"/>
           </expected>
         </resultAssertion>
+        <resultAssertion caseInsensitive="true" resultName="Email" title="Check Email">
+          <expected class="variable">
+            <path element="Email"/>
+          </expected>
+        </resultAssertion>
+        <resultAssertion resultName="Title" title="Check Title">
+          <expected class="variable">
+            <path element="Title"/>
+          </expected>
+        </resultAssertion>
       </resultAssertions>
       <parameterValueSources/>
       <parameterGeneratorProperties>
@@ -583,40 +735,9 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Company" name="Company" title="Company"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Phone" name="Phone" title="Phone"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Status" name="Status" title="Lead Status"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Email" name="Email" title="Email"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Title" name="Title" title="Title"/>
       </generatedParameters>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="21" title="Finally: Record Test Status in SF">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Record Test Status in SF</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="52">
-          <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Create Test Case.testcase" testItemId="54">
-              <arguments>
-                <argument id="TestCaseName">
-                  <value class="value" valueClass="string">TestCaseName</value>
-                </argument>
-                <argument id="TestCaseStart">
-                  <value class="variable">
-                    <path element="TestCaseStart"/>
-                  </value>
-                </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="TestCaseExecutionId">
-                  <name class="value" valueClass="string">TestCaseExecutionId</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
     </apiCall>
   </steps>
   <params>
@@ -693,6 +814,36 @@
         <path element="LeadName"/>
       </sourceValue>
     </param>
+    <param name="Email" title="Email">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="Email"/>
+      </sourceValue>
+    </param>
+    <param name="Title" title="Title">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="Title"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -714,6 +865,12 @@
     </outputArgument>
     <outputArgument id="LeadName">
       <name class="value" valueClass="string">LeadName</name>
+    </outputArgument>
+    <outputArgument id="Email">
+      <name class="value" valueClass="string">Email</name>
+    </outputArgument>
+    <outputArgument id="Title">
+      <name class="value" valueClass="string">Title</name>
     </outputArgument>
   </outputArgs>
 </testCase>
