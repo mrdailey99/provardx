@@ -563,27 +563,6 @@
                         <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="36" title="Set Values: Index">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">Index</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="variable">
-                                  <path element="TotalRecords"/>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
