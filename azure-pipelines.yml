@@ -50,7 +50,7 @@ steps:
   displayName: 'Creates SFDX Project with some sample configuration files'
 
 - bash: |
-    openssl aes-256-cbc -k $(key_password) -md md5 -in assets\\server.key.enc -out assets\\server.key -d
+    openssl aes-256-cbc -k $(key_password) -md md5 -in assets\server.key.enc -out assets\server.key -d
     sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets\\server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
   displayName: 'Authenticates to Dev Hub Org'
 
@@ -85,6 +85,7 @@ steps:
   inputs:
     scriptSource: 'inline'
     script: from urllib.request import urlretrieve; urlretrieve('https://download.provartesting.com/latest/Provar_ANT_latest.zip', 'Provar_ANT_latest.zip')
+  displayName: 'Download Provar ANT Files'
 
 - bash: |
     echo "Install Provar"
