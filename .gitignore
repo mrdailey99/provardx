@@ -10,3 +10,5 @@ ProvarHome/
 /.metadata/
 .chromeProfiles/
 .testCycles/
+ProvarProject/ANT/build_local.xml
+package-lock.json
