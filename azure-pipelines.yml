@@ -6,10 +6,10 @@
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-- dev
+- windows
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-latest'
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
 steps:
@@ -28,18 +28,6 @@ steps:
     npm install -g yarn
     npm install openssl-nodejs
   displayName: 'Node Install: sfdx-cli, yarn, and openssl'
-
-# - script: |
-#     apt-get install jq
-#   displayName: 'Install JQ JSON Parser'
-  
-# - bash: |
-#     ## Setup to install latest chromium
-#     sudo apt -y update && sudo apt install -y
-#     sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-#     sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list 
-#     sudo apt update -y && apt install -y -qq google-chrome-stable google-chrome-beta 
-#   displayName: 'Install Chromium'  
 
 - task: Bash@3
   inputs:
