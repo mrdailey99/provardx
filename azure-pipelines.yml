@@ -67,7 +67,7 @@ steps:
   displayName: 'Authenticates to Dev Hub Org'
 
 - bash: |
-    sfdx force:org:list --clean
+    sfdx force:org:list --clean --skipconnectionstatus
   displayName: 'Cleans stale Org authentications'
 
 - task: ShellScript@2
@@ -98,7 +98,8 @@ steps:
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
     unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
     export PROVAR_HOME=/home/vsts/work/1/s/ProvarHome
-    cp -r /home/vsts/work/1/s/ProvarProject/provardx $PROVAR_HOME/provardx
+    cp -r $PROVAR_HOME/../ProvarProject/provardx $PROVAR_HOME/provardx
+    cp -r $PROVAR_HOME/../ProvarProject/.licenses $PROVAR_HOME/.licenses
     cd /home/vsts/work/1/s/ProvarHome
     ls -la
   displayName: 'Install Provar'
@@ -128,4 +129,4 @@ steps:
   displayName: 'Run Provar Tests'
 
 - bash: |
-    sfdx force:org:delete -a $(scratch_org_alias)
+    sfdx force:org:delete -u $(scratch_org_alias) --noprompt
