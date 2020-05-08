@@ -84,11 +84,11 @@ steps:
 - bash: |
     echo "Install Provar"
     wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
-    unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
-    export PROVAR_HOME=/home/vsts/work/1/s/ProvarHome
+    unzip -q Provar_ANT_latest.zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+    export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
     cp -r $PROVAR_HOME/../ProvarProject/provardx $PROVAR_HOME/provardx
     cp -r $PROVAR_HOME/../ProvarProject/.licenses $PROVAR_HOME/.licenses
-    cd /home/vsts/work/1/s/ProvarHome
+    cd $PROVAR_HOME
     ls -la
   displayName: 'Install Provar'
 
