@@ -14,3 +14,4 @@ ProvarHome/
 .testCycles/
 package-lock.json
 ProvarProject/ANT/build_local.xml
+com.provar.plugins.provardx/provardx-properties-local.json

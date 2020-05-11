@@ -4,7 +4,7 @@
   "resultsPath":"d:\\a\\1\\s\\ProvarProject\\ANT\\Results",
   "smtpPath": "d:\\a\\1\\s\\ProvarProject\\.smtp",
   "resultsPathDisposition": "Replace", 
-  "testOutputLevel":"FINEST",
+  "testOutputLevel":"INFO",
   "pluginOutputlevel":"WARNING",
   "excludeCallable":true,
   "stopOnError":true,

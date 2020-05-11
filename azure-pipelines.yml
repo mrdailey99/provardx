@@ -112,6 +112,12 @@ steps:
 #   displayName: 'Update REST connections with ProvarDX Credentials'
 
 - bash: |
+    ls -la $BUILD_SOURCESDIRECTORY
+    ls -la $BUILD_SOURCESDIRECTORY\\ProvarProject
+    ls -lar $BUILD_SOURCESDIRECTORY\\ProvarProject\\tests
+  displayName: 'List directory structure of Project'
+
+- bash: |
     cd com.provar.plugins.provardx
     sfdx provar:validate
   displayName: 'Validate ProvarDX property file'
