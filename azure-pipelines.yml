@@ -20,6 +20,13 @@ steps:
   inputs:
     secureFile: 'server.key'
 
+    # Download secure file
+# Download a secure file to the agent machine
+- task: DownloadSecureFile@1
+  name: secrets # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+  inputs:
+    secureFile: '.secrets'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -103,6 +110,7 @@ steps:
     export PROVAR_HOME=$BUILD_SOURCESDIRECTORY\\ProvarHome
     cp -r $BUILD_SOURCESDIRECTORY\\ProvarProject\\provardx $PROVAR_HOME\\provardx
     cp -r $BUILD_SOURCESDIRECTORY\\ProvarProject\\.licenses $PROVAR_HOME\\.licenses
+    cp "$(secrets.secureFilePath)" $BUILD_SOURCESDIRECTORY\\ProvarProject\\.secrets
     cd $PROVAR_HOME
     ls -la
   displayName: 'Configure Provar for running ProvarDX'
@@ -111,11 +119,11 @@ steps:
 #     sfdx force:org:display -u $(scratch_org_alias) --json
 #   displayName: 'Update REST connections with ProvarDX Credentials'
 
-- bash: |
-    ls -la $BUILD_SOURCESDIRECTORY
-    ls -la $BUILD_SOURCESDIRECTORY\\ProvarProject
-    ls -lar $BUILD_SOURCESDIRECTORY\\ProvarProject\\tests
-  displayName: 'List directory structure of Project'
+# - bash: |
+#     ls -la $BUILD_SOURCESDIRECTORY
+#     ls -la $BUILD_SOURCESDIRECTORY\\ProvarProject
+#     ls -lar $BUILD_SOURCESDIRECTORY\\ProvarProject\\tests
+#   displayName: 'List directory structure of Project'
 
 - bash: |
     cd com.provar.plugins.provardx
