@@ -56,7 +56,9 @@ steps:
     secureFile: 'server.key'
 
 - bash: |
-    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile $(serverKey.secureFilePath) --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+    echo $(serverKey.secureFilePath)
+    ls -la $(Agent.TempDirectory)
+    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
   displayName: 'Authenticates to Dev Hub Org'
 
 - bash: |
