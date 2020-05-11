@@ -1,4 +1,6 @@
-assets/server.key
+**/server.crt
+**/server.key
+**/server.csr
 ProvarDX
 com.provar.plugins.provardx/lib
 com.provar.plugins.provardx/node_modules
