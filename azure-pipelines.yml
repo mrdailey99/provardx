@@ -48,10 +48,16 @@ steps:
     cp package.xml ProvarDX\\package.xml
     cp .forceignore ProvarDX\\.forceignore
   displayName: 'Creates SFDX Project with some sample configuration files'
+# Download secure file
+# Download a secure file to the agent machine
+- task: DownloadSecureFile@1
+  name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+  inputs:
+    secureFile: server.key
 
 - bash: |
-    openssl aes-256-cbc -k $(key_password) -md md5 -in assets\\server.key.enc -out assets\\server.key -d
-    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets\\server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+
+    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile $(serverKey.secureFilePath) --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
   displayName: 'Authenticates to Dev Hub Org'
 
 - bash: |
