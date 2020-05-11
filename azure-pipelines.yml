@@ -13,6 +13,13 @@ pool:
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
 steps:
+# Download secure file
+# Download a secure file to the agent machine
+- task: DownloadSecureFile@1
+  name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+  inputs:
+    secureFile: 'server.key'
+
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
@@ -26,8 +33,10 @@ steps:
 - script: |
     npm install -g sfdx-cli
     npm install -g yarn
-    npm install openssl-nodejs
-  displayName: 'Node Install: sfdx-cli, yarn, and openssl'
+  displayName: 'Node Install: sfdx-cli, yarn'
+
+- script: pip3 install requests
+  displayName: 'Install Python Requests Module'
 
 - task: Bash@3
   inputs:
@@ -48,12 +57,6 @@ steps:
     cp package.xml ProvarDX\\package.xml
     cp .forceignore ProvarDX\\.forceignore
   displayName: 'Creates SFDX Project with some sample configuration files'
-# Download secure file
-# Download a secure file to the agent machine
-- task: DownloadSecureFile@1
-  name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
-  inputs:
-    secureFile: 'server.key'
 
 - bash: |
     echo $(serverKey.secureFilePath)
@@ -91,18 +94,18 @@ steps:
 - task: PythonScript@0
   inputs:
     scriptSource: 'inline'
-    script: from urllib.request import urlretrieve; urlretrieve('https://download.provartesting.com/latest/Provar_ANT_latest.zip', 'Provar_ANT_latest.zip')
+    script: import requests; url = 'https://download.provartesting.com/latest/Provar_ANT_latest.zip'; req = requests.get(url, allow_redirects=True); open('Provar_ANT_latest.zip', 'wb').write(req.content);
   displayName: 'Download Provar ANT Files'
 
 - bash: |
-    echo "Install Provar"
+    echo "Unzip Provar ANT Files"
     unzip -q Provar_ANT_latest.zip -d $BUILD_SOURCESDIRECTORY\\ProvarHome
     export PROVAR_HOME=$BUILD_SOURCESDIRECTORY\\ProvarHome
     cp -r $BUILD_SOURCESDIRECTORY\\ProvarProject\\provardx $PROVAR_HOME\\provardx
     cp -r $BUILD_SOURCESDIRECTORY\\ProvarProject\\.licenses $PROVAR_HOME\\.licenses
     cd $PROVAR_HOME
     ls -la
-  displayName: 'Install Provar'
+  displayName: 'Configure Provar for running ProvarDX'
 
 # - bash: |
 #     sfdx force:org:display -u $(scratch_org_alias) --json
