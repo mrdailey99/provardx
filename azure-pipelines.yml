@@ -53,10 +53,10 @@ steps:
 - task: DownloadSecureFile@1
   name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
   inputs:
-    secureFile: server.key
+    secureFile: 'server.key'
 
 - bash: |
-    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile $(Agent.TempDirectory)\\server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile $(serverKey.secureFilePath) --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
   displayName: 'Authenticates to Dev Hub Org'
 
 - bash: |
