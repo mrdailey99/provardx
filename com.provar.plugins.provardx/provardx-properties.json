@@ -26,6 +26,6 @@
       "toRecipients": ["michael.dailey@provartesting.com"]
    },
   "testCase":[
-     "\\Sandbox\\Opportunity\\CreateNewOpportunity.testcase"  
+     "/Sandbox/Opportunity/CreateNewOpportunity.testcase"  
   ]	
 }
