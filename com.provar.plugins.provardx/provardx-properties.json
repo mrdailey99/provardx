@@ -3,10 +3,10 @@
   "projectPath":"d:\\a\\1\\s\\ProvarProject",
   "resultsPath":"d:\\a\\1\\s\\ProvarProject\\ANT\\Results",
   "smtpPath": "d:\\a\\1\\s\\ProvarProject\\.smtp",
-  "resultsPathDisposition": "Replace", 
+  "resultsPathDisposition":"Replace", 
   "testOutputLevel":"INFO",
-  "pluginOutputlevel":"WARNING",
-  "excludeCallable":true,
+  "pluginOutputlevel":"INFO",
+  "excludeCallable":false,
   "stopOnError":true,
   "lightningMode":true,
   "connectionRefreshType":"Reload",
@@ -22,10 +22,12 @@
      "webBrowserDeviceName":"Full Screen"
   },
   "email": {
-     "sendEmail" : true,
-      "toRecipients": ["michael.dailey@provartesting.com"]
+     "sendEmail":true,
+     "toRecipients":["michael.dailey@provartesting.com"]
    },
   "testCase":[
-     "/Sandbox/Opportunity/CreateNewOpportunity.testcase"  
+     "/Sandbox",
+     "/Smoke Tests",
+     "ValidateRelatedListAPI.testcase"
   ]	
 }

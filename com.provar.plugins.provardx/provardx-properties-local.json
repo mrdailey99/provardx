@@ -1,7 +1,7 @@
 {
    "connectionOverride": 
    [
-     { "connection": "Admin", "username": "mrd12@testing.com" }
+     { "connection": "Admin", "username": "mrdtesting@test.com" }
    ],
   "provarHome": "C:\\Program Files\\Provar",
   "projectPath":"C:\\Users\\16156\\git\\provardx\\ProvarProject",
