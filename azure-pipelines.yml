@@ -66,8 +66,6 @@ steps:
   displayName: 'Creates SFDX Project with some sample configuration files'
 
 - bash: |
-    echo $(serverKey.secureFilePath)
-    ls -la $(Agent.TempDirectory)
     sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
   displayName: 'Authenticates to Dev Hub Org'
 
@@ -153,7 +151,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    testResultsFiles: "**/ANT/Results/JUnit html/TESTS-*.xml"
+    testResultsFiles: "**/ANT/**/*.xml"
     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
     #mergeTestResults: false # Optional
     failTaskOnFailedTests: false # Optional

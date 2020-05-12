@@ -3,7 +3,7 @@
    [
      { "connection": "Admin", "username": "mrdtesting@test.com" }
    ],
-  "provarHome": "C:\\Program Files\\Provar",
+  "provarHome":"C:\\Program Files\\Provar",
   "projectPath":"C:\\Users\\16156\\git\\provardx\\ProvarProject",
   "resultsPath":"C:\\Users\\16156\\git\\provardx\\ProvarProject\\ANT\\Results",
   "smtpPath": "C:\\Users\\16156\\git\\provardx\\ProvarProject\\.smtp",
@@ -26,8 +26,8 @@
      "webBrowserDeviceName":"Full Screen"
   },
   "email": {
-     "sendEmail" : true,
-        "toRecipients": ["michael.dailey@provartesting.com"]
+     "sendEmail":true,
+        "toRecipients":["michael.dailey@provartesting.com"]
    },
   "testCase":[
      "/Sandbox/Opportunity/CreateNewOpportunity.testcase"  
