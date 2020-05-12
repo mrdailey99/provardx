@@ -147,3 +147,17 @@ steps:
 
 - bash: |
     sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+
+# Publish Test Results
+# Publish test results to Azure Pipelines
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+    testResultsFiles: "**/ANT/Results/JUnit html/TESTS-*.xml"
+    #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+    #mergeTestResults: false # Optional
+    failTaskOnFailedTests: false # Optional
+    testRunTitle: 'ProvarDX Tests' # Optional
+    #buildPlatform: # Optional
+    #buildConfiguration: # Optional
+    publishRunAttachments: true # Optional
