@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedWebBrowserType="Chrome_Headless">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="Scratch">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -25,6 +25,9 @@
     </environment>
     <environment name="Scratch">
       <summary>Scratch Org</summary>
+    </environment>
+    <environment name="ProvarDX">
+      <summary>Running in scratch org using ProvarDX plugin.</summary>
     </environment>
   </environments>
   <variables>
@@ -104,6 +107,7 @@
           <summary/>
           <connectionUrls>
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="Scratch" secureStorageNodeId="c8f93da1-1b79-4a86-9e71-7701a63152a2" url="sf:user=mrdtesting@test.com;password={password};environment=OTHER;apiLoginUrl=https://ability-enterprise-5093-dev-ed.cs69.my.salesforce.com/;userLoginUrl=https://CS69.salesforce.com;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>

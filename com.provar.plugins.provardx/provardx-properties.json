@@ -4,8 +4,8 @@
   "resultsPath":"d:\\a\\1\\s\\ProvarProject\\ANT\\Results",
   "smtpPath": "d:\\a\\1\\s\\ProvarProject\\.smtp",
   "resultsPathDisposition":"Replace", 
-  "testOutputLevel":"INFO",
-  "pluginOutputlevel":"INFO",
+  "testOutputLevel":"SEVERE",
+  "pluginOutputlevel":"SEVERE",
   "excludeCallable":true,
   "stopOnError":true,
   "lightningMode":true,
@@ -15,7 +15,7 @@
      "cachePath":"d:\\a\\1\\s\\.provarCaches"
   },
   "environment":{
-     "testEnvironment":"",
+     "testEnvironment":"ProvarDX",
      "webBrowser":"Chrome",
      "webBrowserConfig":"Full Screen",
      "webBrowserProviderName":"Desktop",
@@ -25,9 +25,11 @@
      "sendEmail":true,
      "toRecipients":["michael.dailey@provartesting.com"]
    },
-  "testCase":[
-     "/Sandbox",
-     "/Smoke Tests",
-     "ValidateRelatedListAPI.testcase"
-  ]	
+   "testCase":[
+      "/Sandbox/Account/ConvertedLeadToAccount.testcase",
+      "/Sandbox/Account/CreateNewAccount.testcase",
+      "/Sandbox/Lead/CreateNewLead.testcase",
+      "/Sandbox/Opportunity/CreateNewOpportunity.testcase",
+      "/Smoke Tests/Sales"
+   ]	
 }

@@ -145,13 +145,14 @@ steps:
 
 - bash: |
     sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+  displayName: 'Delete Scratch Org'
 
 # Publish Test Results
 # Publish test results to Azure Pipelines
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    testResultsFiles: "**/ANT/**/*.xml"
+    testResultsFiles: "ProvarProject/ANT/**/Index.html"
     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
     #mergeTestResults: false # Optional
     failTaskOnFailedTests: false # Optional
