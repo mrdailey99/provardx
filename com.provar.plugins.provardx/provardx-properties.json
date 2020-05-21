@@ -6,7 +6,7 @@
   "resultsPathDisposition":"Replace", 
   "testOutputLevel":"INFO",
   "pluginOutputlevel":"INFO",
-  "excludeCallable":false,
+  "excludeCallable":true,
   "stopOnError":true,
   "lightningMode":true,
   "connectionRefreshType":"Reload",

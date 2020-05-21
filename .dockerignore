@@ -1,0 +1,8 @@
+ProvarHome
+ProvarDX
+node_modules
+.chromeProfiles
+.metadata
+.provarCaches
+.testcycles
+server.*
