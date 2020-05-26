@@ -70,7 +70,7 @@ steps:
   displayName: 'Authenticates to Dev Hub Org'
 
 - bash: |
-    sfdx force:org:list --clean --skipconnectionstatus
+    sfdx force:org:list --clean
   displayName: 'Cleans stale Org authentications'
 
 - task: ShellScript@2
