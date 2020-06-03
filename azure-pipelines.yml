@@ -159,5 +159,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: "ProvarProject/ANT/Results*/Index.html"
+    targetPath: "ProvarProject/ANT/Results"
     artifactName: TestResults
