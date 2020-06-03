@@ -114,10 +114,6 @@ steps:
   displayName: 'Configure Provar for running ProvarDX'
 
 # - bash: |
-#     sfdx force:org:display -u $(scratch_org_alias) --json
-#   displayName: 'Update REST connections with ProvarDX Credentials'
-
-# - bash: |
 #     ls -la $BUILD_SOURCESDIRECTORY
 #     ls -la $BUILD_SOURCESDIRECTORY\\ProvarProject
 #     ls -lar $BUILD_SOURCESDIRECTORY\\ProvarProject\\tests
@@ -149,14 +145,19 @@ steps:
 
 # Publish Test Results
 # Publish test results to Azure Pipelines
-- task: PublishTestResults@2
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+#     testResultsFiles: "ProvarProject/ANT/**/Index.html"
+#     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+#     #mergeTestResults: false # Optional
+#     failTaskOnFailedTests: false # Optional
+#     testRunTitle: 'ProvarDX Tests' # Optional
+#     #buildPlatform: # Optional
+#     #buildConfiguration: # Optional
+#     publishRunAttachments: true # Optional
+
+- task: PublishPipelineArtifact@1
   inputs:
-    testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-    testResultsFiles: "ProvarProject/ANT/**/Index.html"
-    #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-    #mergeTestResults: false # Optional
-    failTaskOnFailedTests: false # Optional
-    testRunTitle: 'ProvarDX Tests' # Optional
-    #buildPlatform: # Optional
-    #buildConfiguration: # Optional
-    publishRunAttachments: true # Optional
+    targetPath: "ProvarProject/ANT/Results*/Index.html"
+    artifactName: TestResults
