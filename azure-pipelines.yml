@@ -38,7 +38,8 @@ steps:
   displayName: 'npm install'
 
 - script: |
-    npm install -g sfdx-cli@7.57.1
+    # npm install -g sfdx-cli@7.57.1
+    npm install -g sfdx-cli
     npm install -g yarn
   displayName: 'Node Install: sfdx-cli, yarn'
 
