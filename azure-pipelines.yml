@@ -34,11 +34,6 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-  displayName: 'npm install'
-
-- script: |
-    # npm install -g sfdx-cli@7.57.1
     npm install -g sfdx-cli
     npm install -g yarn
   displayName: 'Node Install: sfdx-cli, yarn'
@@ -145,19 +140,6 @@ steps:
   displayName: 'Delete Scratch Org'
 
 # Publish Test Results
-# Publish test results to Azure Pipelines
-# - task: PublishTestResults@2
-#   inputs:
-#     testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-#     testResultsFiles: "ProvarProject/ANT/**/Index.html"
-#     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-#     #mergeTestResults: false # Optional
-#     failTaskOnFailedTests: false # Optional
-#     testRunTitle: 'ProvarDX Tests' # Optional
-#     #buildPlatform: # Optional
-#     #buildConfiguration: # Optional
-#     publishRunAttachments: true # Optional
-
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: "ProvarProject/ANT/Results"
