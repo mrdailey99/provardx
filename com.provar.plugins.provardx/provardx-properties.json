@@ -26,10 +26,6 @@
      "toRecipients":["michael.dailey@provartesting.com"]
    },
    "testCase":[
-      "/Sandbox/Account/ConvertedLeadToAccount.testcase",
-      "/Sandbox/Account/CreateNewAccount.testcase",
-      "/Sandbox/Lead/CreateNewLead.testcase",
-      "/Sandbox/Opportunity/CreateNewOpportunity.testcase",
-      "/Smoke Tests/Sales"
+      "/Smoke Tests/"
    ]	
 }
