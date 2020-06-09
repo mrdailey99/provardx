@@ -25,7 +25,5 @@
      "sendEmail":true,
      "toRecipients":["michael.dailey@provartesting.com"]
    },
-   "testCase":[
-      "/Smoke Tests/"
-   ]	
+   "testCase":[""]	
 }
