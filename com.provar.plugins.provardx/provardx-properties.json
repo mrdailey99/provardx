@@ -25,5 +25,5 @@
      "sendEmail":true,
      "toRecipients":["michael.dailey@provartesting.com"]
    },
-   "testCase":[""]	
+   "testCase":["tests"]	
 }
