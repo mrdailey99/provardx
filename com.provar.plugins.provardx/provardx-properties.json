@@ -21,6 +21,10 @@
      "webBrowserDeviceName":"Full Screen"
    },
    "testCase":[
-      "tests"
+      "/Sandbox",
+      "/Smoke Tests",
+      "Round.testcase",
+      "Connection.setup",
+      "ValidateRelatedListAPI.testcase"
    ]	
 }
