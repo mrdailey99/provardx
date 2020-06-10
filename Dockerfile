@@ -28,10 +28,6 @@ ARG PROJECT_NAME=ProvarProject
 ARG EMAIL_TARGET
 ## Environment Level (Provar Test Environment)
 ARG ENV
-## ANT Target to run in build file
-ARG ANT_TARGET=runtests
-## Build file to run tests
-ARG BUILD_FILE=build.xml
 ## Test Plan to target in build file
 ARG TEST_PLAN
 ## Provar secrets password (input either here or as "--build-arg PROVAR_SECRETS_PASSWORD=YOURSECRETSPASSWORD" in build command)
@@ -40,6 +36,14 @@ ARG ProvarSecretsPassword
 ARG PROVAR_sf_Admin
 ## Salesforce Connection Password
 ARG PROVAR_sf_Admin_password
+## The username sfdx will use to authenticate to the dev hub for Salesforce and create scratch orgs
+ARG DEV_HUB_USERNAME=michael.dailey@brave-otter-7uycux.com
+## The alias used for the dev hub for sfdx
+ARG DEV_HUB_ALIAS=TrailheadHub
+## Consumer Key for dev hub authentication
+ARG CONSUMER_KEY=3MVG9_XwsqeYoueLvGVFqnnMhtgExKjNBKqwww4noS7CNe8B296lnbmBDrvUFNKAa9AufbsfavQChFFPbJWzf
+## The alias for the scratch org (doesn't need to be unique)
+ARG SCRATCH_ORG_ALIAS=ProvarDX
 ## This docker build assumes you run as root (-u root)
 ## Initial stage to build from to get openjdk-8 and ANT installed
 FROM frekele/ant:1.10.3-jdk8
@@ -56,6 +60,11 @@ ARG BUILD_FILE
 ARG ProvarSecretsPassword
 ARG PROVAR_sf_Admin
 ARG PROVAR_sf_Admin_password
+ARG DEV_HUB_USERNAME
+ARG DEV_HUB_ALIAS
+ARG CONSUMER_KEY
+ARG SCRATCH_ORG_ALIAS
+
 # The location to save the Provar binaries to (from downloads page)
 ENV REPO_HOME=/srv/Provar \
     PROVAR_VERSION=${PROVAR_DEFAULT_VERSION} \
@@ -70,14 +79,23 @@ ENV REPO_HOME=/srv/Provar \
     BUILD_FILE=${BUILD_FILE} \
     ProvarSecretsPassword=${ProvarSecretsPassword} \
     PROVAR_sf_Admin=${PROVAR_sf_Admin} \
-    PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password} 
+    PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password} \
+    DEV_HUB_USERNAME=${DEV_HUB_USERNAME} \
+    DEV_HUB_ALIAS=${DEV_HUB_ALIAS} \
+    CONSUMER_KEY=${CONSUMER_KEY} \
+    SCRATCH_ORG_ALIAS=${SCRATCH_ORG_ALIAS}
 
 RUN set -ex \
     && apt -y update -qq && apt install -y \
     xvfb \ 
     wget \
-    npm \
+    curl \
     git \
+    sudo \
+    # Install NodeJS and NPM
+    && curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
+    && apt install -y nodejs \
+    # Install latest chrome release
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
     && apt update -qq \
@@ -85,49 +103,75 @@ RUN set -ex \
     && wget -O /etc/init.d/xvfb https://gist.githubusercontent.com/axilleas/3fc13e0c90ad9f58bee903a41e8a6d48/raw/169a60010635e05eaa902c5f3b4393321f2452f0/xvfb \
     && chmod 0755 /etc/init.d/xvfb \
     && sh -e /etc/init.d/xvfb start \
+    # Install latest Provar libraries
     && mkdir -p ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && wget -qP ${REPO_HOME} https://download.provartesting.com/${PROVAR_MAJOR_VERSION}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     && unzip ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip -d ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
-    && git clone --single-branch --branch development https://github.com/ProvarTesting/provardx.git /home/ \
+    # Retrieve ProvarDX plugin from repo
+    && git clone --single-branch --branch dev https://github.com/mrdailey99/provardx.git /home/ \
     && ant -version \
     && javac -version \
-    && npm -version \
+    && node --version \
+    && npm --version \
     ## Set up project payload && Copy script to PATH
     && mkdir -p ${WORKSPACE}/ANT/Results \
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
-    && mkdir -p ${WORKSPACE}/bin 
+    && mkdir -p ${WORKSPACE}/bin \
+    # Remove additional packages 
+    && apt remove -y git \
+    curl \
+    wget 
+
+COPY assets/server.key /home/assets/server.key
+COPY ProvarProject/.secrets /home/ProvarProject/.secrets
+
+# # Install yarn, sfdx-cli and setup ProvarDX plugin 
+RUN set -ex \
+    && npm install sfdx-cli --global \
+    && npm install yarn --global \
+    && cd /home/com.provar.plugins.provardx \
+    && sfdx plugins:link \
+    && yarn run prepack 
+
+# Setup scratch org project to deploy metadata
+RUN set -ex \
+    && cd /home/ \
+    && sfdx force:project:create -n ProvarDX \
+    && cp /home/project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json \
+    && cp /home/package.xml /home/ProvarDX/package.xml \
+    && cp /home/.forceignore /home/ProvarDX/.forceignore
 
 RUN set -ex \
-    && npm install \
-    && npm install -g sfdx-cli \
-    && npm install -g yarn \
-    && cd /home/com.provar.plugins.provardx | sfdx plugins:link | yarn run prepack \
-    && sfdx force:project:create -n /home/ProvarDX 
+    # Authorize dev hub to generate scratch orgs
+    && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/assets/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} \
+    && sfdx force:org:list --clean \
+    # Generate a random unique scratch org alphanumeric user (16 chars)
+    && export SCRATCH_ORG_USERNAME=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1` \
+    # Create scratch org
+    && sfdx force:org:create -f /home/ProvarDX/config/project-scratch-def.json username=$SCRATCH_ORG_USERNAME -a ${SCRATCH_ORG_ALIAS} \
+    # Override connections in property file with scratch org usernames
+    && awk -v username=$SCRATCH_ORG_USERNAME '{print} /{/ && !n {print "  \"connectionOverride\": \n  [\n    { \"connection\": \"Admin\", \"username\": \""username"\" }\n  ],"; n++}' /home/com.provar.plugins.provardx/provardx-properties.json > tmp && mv tmp /home/com.provar.plugins.provardx/provardx-properties.json \
+    # Deploy metadata to scratch org for admin user
+    && cd /home/ProvarDX \
+    && sfdx force:mdapi:retrieve -r package -u ${DEV_HUB_USERNAME} -k package.xml \
+    && unzip package/unpackaged.zip \
+    && sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app \
+    && sfdx force:source:push -u $SCRATCH_ORG_USERNAME
 
-COPY project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json
-COPY package.xml /home/ProvarDX/package.xml
-COPY .forceignore /home/ProvarDX/.forceignore
-
-RUN set -ex \
-    && sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
 
-## (Optional: Only use for local runs or environments not using a Version Control System) Copy local project files to docker image
-## Otherwise files will be pulled from Git/etc. (in that case comment this line) and placed into ${WORKSPACE} where ${WORKSPACE} contains the .testproject file/etc.
-COPY com.provar.plugins.provardx ${WORKSPACE}/
-COPY ProvarProject ${WORKSPACE}/
-
-## (Optional: Licenses folder must be in same directory as Dockerfile first)
-# Copy Licenses folder to container for execution tracking
-COPY .licenses/ ${PROVAR_HOME}/.licenses 
-COPY .smtp/ ${PROVAR_HOME}/.smtp
-## Set working directory for image
-WORKDIR ${WORKSPACE}
+# ## Set working directory for image
+WORKDIR /home/com.provar.plugins.provardx
+# # Validate ProvarDX property file and compile src in Provar Project
+# RUN set -ex \
+#     && cd /home/com.provar.plugins.provardx \
+#     && sfdx provar:validate -p provardx-properties.json \
+#     && sfdx provar:compile -p provardx-properties.json 
 ## Entrypoint script to run Provar tests
-RUN echo "#!/bin/sh \n xvfb-run ant -f ANT/$BUILD_FILE" > ./entrypoint.sh
+RUN echo "#!/bin/sh \n sfdx provar:runtests -p provardx-properties.json" > ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 CMD

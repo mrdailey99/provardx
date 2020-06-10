@@ -149,5 +149,11 @@ steps:
 - task: publishHtml@1
   inputs:
     artifactName: 'TestResults'
-    htmlFilePath: 'ProvarProject/ANT/Results/Index.html'
+    htmlFilePath: 'ProvarProject/ANT/Results/Overview.html'
   displayName: "Publish Test Results HTML"
+
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'filePath'
+    scriptPath: updateTestResults.py
+  displayName: "Record Test Results to Pipeline"
