@@ -156,5 +156,6 @@ steps:
   inputs:
     scriptSource: 'filePath'
     scriptPath: updateTestResults.py
+    failOnStandardError: 'true'
   displayName: "Record Test Results to Pipeline"
-  failOnStandardError: 'true'
+  
