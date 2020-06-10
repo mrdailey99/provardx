@@ -144,3 +144,10 @@ steps:
   inputs:
     targetPath: "ProvarProject/ANT/Results"
     artifactName: TestResults
+  displayName: "Publish Test Results Artifact"
+
+- task: publishHtml@1
+  inputs:
+    artifactName: 'TestResults'
+    htmlFilePath: 'ProvarProject/ANT/Results'
+  displayName: "Publish Test Results HTML"
