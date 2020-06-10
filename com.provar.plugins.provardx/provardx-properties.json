@@ -5,7 +5,7 @@
    "resultsPathDisposition":"Replace", 
    "testOutputLevel":"SEVERE",
    "pluginOutputlevel":"SEVERE",
-   "excludeCallable":false,
+   "excludeCallable":true,
    "stopOnError":false,
    "lightningMode":true,
    "connectionRefreshType":"Reload",
