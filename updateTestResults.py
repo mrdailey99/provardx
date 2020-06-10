@@ -9,3 +9,5 @@ if (int(numberOfFailedTests) > 0):
     print (numberOfFailedTests + ' Tests Failed')
     os.environ['AGENT_JOBSTATUS'] = 'Failed'
     print(os.environ['AGENT_JOBSTATUS'])
+    raise Exception("The pipeline has failed due to at least 1 test case failing.")
+

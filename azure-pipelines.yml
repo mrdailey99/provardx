@@ -157,3 +157,4 @@ steps:
     scriptSource: 'filePath'
     scriptPath: updateTestResults.py
   displayName: "Record Test Results to Pipeline"
+  failOnStandardError: 'true'
