@@ -152,10 +152,10 @@ steps:
     htmlFilePath: 'ProvarProject/ANT/Results/Overview.html'
   displayName: "Publish Test Results HTML"
 
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath'
-    scriptPath: updateTestResults.py
-    failOnStandardError: 'true'
-  displayName: "Record Test Results to Pipeline"
+# - task: PythonScript@0
+#   inputs:
+#     scriptSource: 'filePath'
+#     scriptPath: updateTestResults.py
+#     failOnStandardError: 'true'
+#   displayName: "Record Test Results to Pipeline"
   
