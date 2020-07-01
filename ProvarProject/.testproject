@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedWebBrowserType="Chrome_Headless">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="DevHub" selectedWebBrowserType="Chrome_Headless">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -8,15 +8,6 @@
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
   <environments>
-    <environment name="Test Env">
-      <summary/>
-    </environment>
-    <environment name="Lightning">
-      <summary/>
-    </environment>
-    <environment name="Dev">
-      <summary/>
-    </environment>
     <environment name="QA">
       <summary/>
     </environment>
@@ -28,6 +19,9 @@
     </environment>
     <environment name="ProvarDX">
       <summary>Running in scratch org using ProvarDX plugin.</summary>
+    </environment>
+    <environment name="DevHub">
+      <summary/>
     </environment>
   </environments>
   <variables>
@@ -108,6 +102,8 @@
           <connectionUrls>
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
             <connectionUrl envName="Scratch" secureStorageNodeId="c8f93da1-1b79-4a86-9e71-7701a63152a2" url="sf:user=mrdtesting@test.com;password={password};environment=OTHER;apiLoginUrl=https://ability-enterprise-5093-dev-ed.cs69.my.salesforce.com/;userLoginUrl=https://CS69.salesforce.com;lightningMode=true"/>
+            <connectionUrl envName="DevHub" secureStorageNodeId="1e2a8a24-a9f0-40a8-8f3b-6d852a52a1d9" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="QA" secureStorageNodeId="064a714c-4cd5-40e2-a80c-aa9ae618c7dc" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>

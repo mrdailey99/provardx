@@ -44,9 +44,14 @@ ARG DEV_HUB_ALIAS=TrailheadHub
 ARG CONSUMER_KEY=3MVG9_XwsqeYoueLvGVFqnnMhtgExKjNBKqwww4noS7CNe8B296lnbmBDrvUFNKAa9AufbsfavQChFFPbJWzf
 ## The alias for the scratch org (doesn't need to be unique)
 ARG SCRATCH_ORG_ALIAS=ProvarDX
+## Dev hub instance URL
+ARG INSTANCE_URL="https://brave-otter-7uycux-dev-ed.my.salesforce.com"
+## ProvarDX Property File used to run tests
+ARG PROVARDX_PROPERTY_FILE=provardx-properties-docker.json
+
 ## This docker build assumes you run as root (-u root)
 ## Initial stage to build from to get openjdk-8 and ANT installed
-FROM frekele/ant:1.10.3-jdk8
+FROM ubuntu:16.04
 LABEL maintainer="Provar Testing <support@provartesting.com>"
 LABEL version="1.0"
 ARG PROVAR_DEFAULT_VERSION
@@ -64,7 +69,8 @@ ARG DEV_HUB_USERNAME
 ARG DEV_HUB_ALIAS
 ARG CONSUMER_KEY
 ARG SCRATCH_ORG_ALIAS
-
+ARG INSTANCE_URL
+ARG PROVARDX_PROPERTY_FILE
 # The location to save the Provar binaries to (from downloads page)
 ENV REPO_HOME=/srv/Provar \
     PROVAR_VERSION=${PROVAR_DEFAULT_VERSION} \
@@ -82,8 +88,9 @@ ENV REPO_HOME=/srv/Provar \
     PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password} \
     DEV_HUB_USERNAME=${DEV_HUB_USERNAME} \
     DEV_HUB_ALIAS=${DEV_HUB_ALIAS} \
-    CONSUMER_KEY=${CONSUMER_KEY} \
-    SCRATCH_ORG_ALIAS=${SCRATCH_ORG_ALIAS}
+    SCRATCH_ORG_ALIAS=${SCRATCH_ORG_ALIAS} \
+    INSTANCE_URL=${INSTANCE_URL} \
+    PROVARDX_PROPERTY_FILE=${PROVARDX_PROPERTY_FILE}
 
 RUN set -ex \
     && apt -y update -qq && apt install -y \
@@ -92,6 +99,10 @@ RUN set -ex \
     curl \
     git \
     sudo \
+    build-essential \
+    openjdk-8-jdk \
+    ant \
+    unzip \
     # Install NodeJS and NPM
     && curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - \
     && apt install -y nodejs \
@@ -110,6 +121,8 @@ RUN set -ex \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     # Retrieve ProvarDX plugin from repo
     && git clone --single-branch --branch dev https://github.com/mrdailey99/provardx.git /home/ \
+    && cp -r /home/ProvarProject/provardx ${REPO_HOME}/Provar_ANT_${PROVAR_VERSION}  \
+    && cp /home/ProvarProject/provardx/${PROVARDX_PROPERTY_FILE} /home/com.provar.plugins.provardx/${PROVARDX_PROPERTY_FILE} \
     && ant -version \
     && javac -version \
     && node --version \
@@ -141,18 +154,18 @@ RUN set -ex \
     && sfdx force:project:create -n ProvarDX \
     && cp /home/project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json \
     && cp /home/package.xml /home/ProvarDX/package.xml \
-    && cp /home/.forceignore /home/ProvarDX/.forceignore
+    && cp /home/.forceignore /home/ProvarDX/.forceignore 
 
 RUN set -ex \
     # Authorize dev hub to generate scratch orgs
-    && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/assets/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} \
+    && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile "/home/assets/server.key" --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername \
     && sfdx force:org:list --clean \
     # Generate a random unique scratch org alphanumeric user (16 chars)
-    && export SCRATCH_ORG_USERNAME=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1` \
+    && export SCRATCH_ORG_USERNAME=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`@testing.com \
     # Create scratch org
     && sfdx force:org:create -f /home/ProvarDX/config/project-scratch-def.json username=$SCRATCH_ORG_USERNAME -a ${SCRATCH_ORG_ALIAS} \
     # Override connections in property file with scratch org usernames
-    && awk -v username=$SCRATCH_ORG_USERNAME '{print} /{/ && !n {print "  \"connectionOverride\": \n  [\n    { \"connection\": \"Admin\", \"username\": \""username"\" }\n  ],"; n++}' /home/com.provar.plugins.provardx/provardx-properties.json > tmp && mv tmp /home/com.provar.plugins.provardx/provardx-properties.json \
+    && awk -v username=$SCRATCH_ORG_USERNAME '{print} /{/ && !n {print "  \"connectionOverride\": \n  [\n    { \"connection\": \"Admin\", \"username\": \""username"\" }\n  ],"; n++}' /home/com.provar.plugins.provardx/${PROVARDX_PROPERTY_FILE} > tmp1 && mv tmp1 /home/com.provar.plugins.provardx/${PROVARDX_PROPERTY_FILE} \
     # Deploy metadata to scratch org for admin user
     && cd /home/ProvarDX \
     && sfdx force:mdapi:retrieve -r package -u ${DEV_HUB_USERNAME} -k package.xml \
@@ -165,13 +178,13 @@ ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
 
 # ## Set working directory for image
 WORKDIR /home/com.provar.plugins.provardx
-# # Validate ProvarDX property file and compile src in Provar Project
-# RUN set -ex \
-#     && cd /home/com.provar.plugins.provardx \
-#     && sfdx provar:validate -p provardx-properties.json \
-#     && sfdx provar:compile -p provardx-properties.json 
+# Validate ProvarDX property file and compile src in Provar Project
+RUN set -ex \
+    && cd /home/com.provar.plugins.provardx \
+    && sfdx provar:validate -p ${PROVARDX_PROPERTY_FILE} \
+    && sfdx provar:compile -p ${PROVARDX_PROPERTY_FILE} 
 ## Entrypoint script to run Provar tests
-RUN echo "#!/bin/sh \n sfdx provar:runtests -p provardx-properties.json" > ./entrypoint.sh
+RUN echo "#!/bin/sh \n sfdx provar:runtests -p ${PROVARDX_PROPERTY_FILE}" > ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 CMD

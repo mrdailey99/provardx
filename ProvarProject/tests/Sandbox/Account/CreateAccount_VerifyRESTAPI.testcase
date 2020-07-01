@@ -2,7 +2,7 @@
 <testCase id="4">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: AccountPhone">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: Website">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -72,6 +72,17 @@
                 <value class="value" valueClass="string">Test</value>
               </namedValue>
             </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Website</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">tonsoftesting.com</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
           </value>
         </argument>
       </arguments>
@@ -86,6 +97,11 @@
         <argument id="AccountPhone">
           <value class="variable">
             <path element="AccountPhone"/>
+          </value>
+        </argument>
+        <argument id="Website">
+          <value class="variable">
+            <path element="Website"/>
           </value>
         </argument>
       </arguments>
