@@ -122,7 +122,6 @@ RUN set -ex \
     # Retrieve ProvarDX plugin from repo
     && git clone --single-branch --branch dev https://github.com/mrdailey99/provardx.git /home/ \
     && cp -r /home/ProvarProject/provardx ${REPO_HOME}/Provar_ANT_${PROVAR_VERSION}  \
-    && cp /home/ProvarProject/provardx/${PROVARDX_PROPERTY_FILE} /home/com.provar.plugins.provardx/${PROVARDX_PROPERTY_FILE} \
     && ant -version \
     && javac -version \
     && node --version \
