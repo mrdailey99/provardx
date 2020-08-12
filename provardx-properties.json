@@ -1,0 +1,34 @@
+{
+    "connectionOverride": 
+    [
+      {"connection": "CONNECTION_NAME", "username": "SCRATCH_ORG_USERNAME"}
+    ],
+    "provarHome":"/home/vsts/work/1/s/ProvarHome",
+    "projectPath":"/home/vsts/work/1/s/ProvarProject",
+    "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
+    "resultsPathDisposition":"Replace", 
+    "testOutputLevel":"WARNING",
+    "pluginOutputlevel":"WARNING",
+    "excludeCallable":true,
+    "stopOnError":false,
+    "lightningMode":true,
+    "connectionRefreshType":"Reload",
+    "metadata":{
+       "metadataLevel":"Reload",
+       "cachePath":"/home/vsts/work/1/s/.provarCaches"
+    },
+    "testprojectSecrets": "ProvarSecretsPassword", 
+    "environment":{
+      "testEnvironment":"ProvarDX",
+      "webBrowser":"Chrome_Headless",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+    },
+    "testCase":[
+       "Connection.setup",
+       "ValidateRelatedListAPI.testcase",
+       "/Sandbox",
+       "/Smoke Tests"
+    ]	
+ }
