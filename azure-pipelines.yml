@@ -1,8 +1,3 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
@@ -46,7 +41,7 @@ steps:
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
       cp package.xml ProvarDX/package.xml
       cp .forceignore ProvarDX/.forceignore
-    displayName: 'Creates SFDX Project with some sample configuration files'
+    displayName: "Creates SFDX Project with some sample configuration files"
 
   - bash: |
       sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
@@ -108,12 +103,20 @@ steps:
   - bash: |
       sfdx force:org:delete -u $(scratch_org_alias) --noprompt
     displayName: "Delete Scratch Org"
+    
+  # Publish pipeline artifact
+  # Publish (upload) a file or directory as a named artifact for the current run
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "ProvarProject/ANT/Results"
+      artifactName: TestResults
+    displayName: "Publish Test Results Artifact"
 
   # Publish Test Results
   - task: PublishTestResults@2
     inputs:
-      testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
-      testResultsFiles: '**/Results/*.xml'
+      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: "**/Results/*.xml"
       #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
       #mergeTestResults: false # Optional
       failTaskOnFailedTests: true # Optional
