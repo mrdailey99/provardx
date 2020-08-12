@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="6">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -78,7 +78,17 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="5" title="Web Connect: SF_Rest">
+    <caseCall testCaseId="e13fa2ab-51c6-4e23-ada8-495ccc180a00" testCasePath="tests/GetSessionID.testcase" testItemId="44">
+      <outputArguments>
+        <outputArgument id="sessionID" scope="GroupStep">
+          <name class="value" valueClass="string">sessionID</name>
+        </outputArgument>
+        <outputArgument id="sandboxURL">
+          <name class="value" valueClass="string">sandboxURL</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="43" title="Web Connect: SF_Rest">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">SF_Rest</value>
@@ -111,6 +121,9 @@
         <argument id="restResourceUrl">
           <value class="compound">
             <parts>
+              <variable>
+                <path element="sandboxURL"/>
+              </variable>
               <value valueClass="string">/services/data/v48.0/query/?q=SELECT+Email,Name,Phone,Title+FROM+Contact+WHERE+AccountId='</value>
               <variable>
                 <path element="convertedAccountId"/>
@@ -119,7 +132,16 @@
             </parts>
           </value>
         </argument>
-        <argument id="restRequestHeader"/>
+        <argument id="restRequestHeader">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Authorization: Bearer </value>
+              <variable>
+                <path element="sessionID"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
       </arguments>
       <generatedParameters>
         <apiParam group="request" internal="true" name="restResourceUrl" title="Resource URL">

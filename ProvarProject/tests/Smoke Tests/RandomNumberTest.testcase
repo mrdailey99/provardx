@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase id="28">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: ListValues">
@@ -59,6 +59,24 @@
       <clauses>
         <clause name="substeps" testItemId="2">
           <steps>
+            <apiCall apiId="customapis.MathPower" name="MathPower" testItemId="19" title="Math Power: ⇒ Exponential">
+              <arguments>
+                <argument id="base">
+                  <value class="value" valueClass="decimal">10</value>
+                </argument>
+                <argument id="exponent">
+                  <value class="variable">
+                    <path element="Number"/>
+                  </value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Exponential</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
             <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="9" title="Random Integer: ⇒ IncludingZero">
               <arguments>
                 <argument id="NumberOfDigits">
@@ -73,6 +91,76 @@
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
                 </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="10" title="Assert: 0 LessThanOrEqualTo {IncludingZero}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="value" valueClass="string">0</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="IncludingZero"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">LessThanOrEqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="17" title="Assert: {Exponential} GreaterThan {IncludingZero}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="Exponential"/>
+                  </value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="IncludingZero"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">GreaterThan</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
               </arguments>
             </apiCall>
             <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="8" title="Random Integer: ⇒ ExcludingZero">
@@ -91,6 +179,76 @@
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
                 </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="11" title="Assert: 0 LessThan {ExcludingZero}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="value" valueClass="string">0</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="ExcludingZero"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">LessThan</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="18" title="Assert: {Exponential} GreaterThan {Number}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="Exponential"/>
+                  </value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="Number"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">GreaterThan</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
               </arguments>
             </apiCall>
           </steps>

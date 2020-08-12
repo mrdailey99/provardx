@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="2">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: AccountPhone">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: Website">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -72,6 +72,17 @@
                 <value class="value" valueClass="string">Test</value>
               </namedValue>
             </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Website</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">tonsoftesting.com</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
           </value>
         </argument>
       </arguments>
@@ -88,6 +99,11 @@
             <path element="AccountPhone"/>
           </value>
         </argument>
+        <argument id="Website">
+          <value class="variable">
+            <path element="Website"/>
+          </value>
+        </argument>
       </arguments>
       <outputArguments>
         <outputArgument id="accountId">
@@ -95,7 +111,17 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="1" title="Web Connect: SF_Rest">
+    <caseCall testCaseId="e13fa2ab-51c6-4e23-ada8-495ccc180a00" testCasePath="tests/GetSessionID.testcase" testItemId="13">
+      <outputArguments>
+        <outputArgument id="sessionID" scope="GroupStep">
+          <name class="value" valueClass="string">sessionID</name>
+        </outputArgument>
+        <outputArgument id="sandboxURL">
+          <name class="value" valueClass="string">sandboxURL</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="12" title="Web Connect: SF_Rest">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">SF_Rest</value>
@@ -129,6 +155,9 @@
         <argument id="restResourceUrl">
           <value class="compound">
             <parts>
+              <variable>
+                <path element="sandboxURL"/>
+              </variable>
               <value valueClass="string">/services/data/v48.0/query/?q=SELECT+NAME,PHONE+FROM+ACCOUNT+WHERE+ID='</value>
               <variable>
                 <path element="accountId"/>
@@ -137,7 +166,16 @@
             </parts>
           </value>
         </argument>
-        <argument id="restRequestHeader"/>
+        <argument id="restRequestHeader">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Authorization: Bearer </value>
+              <variable>
+                <path element="sessionID"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
         <argument id="restBody">
           <value class="value" valueClass="string">{\n\t"Name": "ProvarDX Test Account"\n}</value>
         </argument>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="59" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
+<testCase id="18" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -82,24 +82,75 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: ConvertedLeadStatus">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;DevHub&quot;}">
       <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">ConvertedLeadStatus</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="value" valueClass="string">Qualified</value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
+        <argument id="condition">
+          <value class="or">
+            <lhs class="or">
+              <lhs class="eq">
+                <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                <rhs class="value" valueClass="string">ProvarDX</rhs>
+              </lhs>
+              <rhs class="eq">
+                <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                <rhs class="value" valueClass="string">Scratch</rhs>
+              </rhs>
+            </lhs>
+            <rhs class="eq">
+              <lhs class="funcCall" id="GetSelectedEnvironment"/>
+              <rhs class="value" valueClass="string">DevHub</rhs>
+            </rhs>
           </value>
         </argument>
       </arguments>
+      <clauses>
+        <clause name="then" testItemId="23">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="26" title="Set Values: ConvertedLeadStatus">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ConvertedLeadStatus</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Closed - Converted</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="24">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: ConvertedLeadStatus">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ConvertedLeadStatus</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Qualified</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
     </apiCall>
     <caseCall testCaseId="3b131cbc-43bd-4fa2-90a1-d120123fc715" testCasePath="tests/Sandbox/Lead/CreateNewLead.testcase" testItemId="2">
       <arguments>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="61" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
+<testCase id="2" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -30,7 +30,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="autoCleanup">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
@@ -272,6 +272,63 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Set the Website field to {Website}">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:locator?name=Website&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DWebsite"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                </argument>
+                <argument argId="14cad462-2fe0-4ea4-8795-688a3967f2cc" id="value">
+                  <value class="variable">
+                    <path element="Website"/>
+                  </value>
+                </argument>
+                <argument id="blur">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="pressEnter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Website field to {Website}</value>
+                </argument>
+                <argument id="autoRetry"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="value" seq="10000" title="Value">
+                  <summary>The value to be populated.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Click the Save button">
               <arguments>
                 <argument id="locator">
@@ -284,10 +341,10 @@
                   <value class="value" valueClass="boolean">false</value>
                 </argument>
                 <argument id="captureBefore">
-                  <value class="value" valueClass="string">true</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">true</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -379,6 +436,11 @@
             <path element="AccountPhone"/>
           </expected>
         </resultAssertion>
+        <resultAssertion resultName="Website" title="Check Website">
+          <expected class="variable">
+            <path element="Website"/>
+          </expected>
+        </resultAssertion>
       </resultAssertions>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
@@ -387,6 +449,7 @@
       <generatedParameters>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Account Name"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website"/>
       </generatedParameters>
     </apiCall>
   </steps>
@@ -401,6 +464,18 @@
       <summary>The value to be set.</summary>
       <type>
         <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:14cad462-2fe0-4ea4-8795-688a3967f2cc" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
       </type>
     </param>
   </params>
@@ -471,6 +546,9 @@
           </funcCall>
         </parts>
       </value>
+    </argument>
+    <argument id="Website">
+      <value class="value" valueClass="string">testing.com</value>
     </argument>
   </args>
   <outputArgs>

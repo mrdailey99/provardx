@@ -6,134 +6,120 @@
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-- dev
+  - dev
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
+  connection_name: Admin
+  provar_major_version: latest
+  provar_build_version: latest
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-    checkLatest: true
-  displayName: 'Install Node.js'
+  # Download secure file
+  # Download a secure file to the agent machine
+  - task: DownloadSecureFile@1
+    name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+    inputs:
+      secureFile: "server.key"
 
-- script: |
-    npm install
-  displayName: 'npm install'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "10.x"
+      checkLatest: true
+    displayName: "Install Node.js"
 
-- script: |
-    npm install -g sfdx-cli
-    npm install -g yarn
-    npm install openssl-nodejs
-  displayName: 'Node Install: sfdx-cli, yarn, and openssl'
+  - script: |
+      npm install -g sfdx-cli
+    displayName: "Node Install: sfdx-cli"
 
-# - script: |
-#     apt-get install jq
-#   displayName: 'Install JQ JSON Parser'
-  
-# - bash: |
-#     ## Setup to install latest chromium
-#     sudo apt -y update && sudo apt install -y
-#     sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-#     sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list 
-#     sudo apt update -y && apt install -y -qq google-chrome-stable google-chrome-beta 
-#   displayName: 'Install Chromium'  
+  - script: |
+      echo y | sfdx plugins:install @provartesting/provardx 
+      sfdx plugins:update
+    displayName: "Install ProvarDX Plugin via SFDX"
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      cd com.provar.plugins.provardx
-      sfdx plugins:link
-  displayName: 'Link ProvarDX SFDX plugins with SFDX'
+  - script: pip3 install requests
+    displayName: "Install Python Requests Module"
 
-- bash: |
-    cd com.provar.plugins.provardx
-    yarn run prepack
-  displayName: 'Execute yarn command prepack available in package.json file'
+  - bash: |
+      sfdx force:project:create -n ProvarDX
+      cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
+      cp package.xml ProvarDX/package.xml
+      cp .forceignore ProvarDX/.forceignore
+    displayName: 'Creates SFDX Project with some sample configuration files'
 
-- bash: |
-    sfdx force:project:create -n ProvarDX
-    cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
-    cp package.xml ProvarDX/package.xml
-    cp .forceignore ProvarDX/.forceignore
-  displayName: 'Creates SFDX Project with some sample configuration files'
+  - bash: |
+      sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+    displayName: "Authenticates to Dev Hub Org"
 
-- bash: |
-    openssl aes-256-cbc -k $(key_password) -md md5 -in assets/server.key.enc -out assets/server.key -d
-    sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile assets/server.key --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
-  displayName: 'Authenticates to Dev Hub Org'
+  - bash: |
+      sfdx force:org:list --clean
+    displayName: "Cleans stale Org authentications"
 
-- bash: |
-    sfdx force:org:list --clean --skipconnectionstatus
-  displayName: 'Cleans stale Org authentications'
+  - task: ShellScript@2
+    inputs:
+      scriptPath: create_connection_overrides.sh
+      args: $(connection_name) $(scratch_org_username) $(Build.SourcesDirectory)/provardx-properties.json
+    displayName: "Copy Scratch Org user to property file"
 
-- task: ShellScript@2
-  inputs:
-    scriptPath: create_connection_overrides.sh
-    args: $(scratch_org_username)
-  displayName: 'Copy Scratch Org user to property file'
+  - task: ShellScript@2
+    inputs:
+      scriptPath: insert_secrets_password.sh
+      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
+    displayName: "Insert Provar Secrets Password to Property File"
 
-- bash: |
-    sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username) -a $(scratch_org_alias)
-    sfdx force:org:display -u $(scratch_org_username)
-  displayName: 'Create Scratch Org and Org description'
+  - bash: |
+      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username) -a $(scratch_org_alias)
+      sfdx force:org:display -u $(scratch_org_username)
+    displayName: "Create Scratch Org and Org description"
 
-# - bash: |
-#     sfdx force:user:password:generate --targetusername $(scratch_org_username)
-#   displayName: 'Generate a password for Scratch Org for given user'
+  - bash: |
+      cd ProvarDX
+      sfdx force:mdapi:retrieve -r package -u $(dev_hub_username) -k package.xml
+      unzip ./package/unpackaged.zip
+      sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
+      sfdx force:source:push -u $(scratch_org_username)
+    displayName: "Update Scratch Org Admin Profile"
 
-- bash: |
-    cd ProvarDX
-    sfdx force:mdapi:retrieve -r ./package -u $(dev_hub_username) -k ./package.xml
-    unzip ./package/unpackaged.zip
-    sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-    sfdx force:source:push -u $(scratch_org_username)
-  displayName: 'Update Scratch Org Admin Profile'
+  - task: PythonScript@0
+    inputs:
+      scriptSource: "inline"
+      script: import requests; url = 'https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip'; req = requests.get(url, allow_redirects=True); open('Provar_ANT_$(provar_build_version).zip', 'wb').write(req.content);
+    displayName: "Download Provar ANT Files"
 
-- bash: |
-    echo "Install Provar"
-    wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
-    unzip -q Provar_ANT_latest.zip -d /home/vsts/work/1/s/ProvarHome
-    export PROVAR_HOME=/home/vsts/work/1/s/ProvarHome
-    cp -r $PROVAR_HOME/../ProvarProject/provardx $PROVAR_HOME/provardx
-    cp -r $PROVAR_HOME/../ProvarProject/.licenses $PROVAR_HOME/.licenses
-    cd /home/vsts/work/1/s/ProvarHome
-    ls -la
-  displayName: 'Install Provar'
+  - bash: |
+      echo "Unzip Provar ANT Files"
+      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
+      cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
+      ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
+      cd $PROVAR_HOME
+      ls -la
+    displayName: "Configure Provar for running ProvarDX"
 
-# - bash: |
-#     sfdx force:org:display -u $(scratch_org_alias) --json
-#   displayName: 'Update REST connections with ProvarDX Credentials'
+  - bash: |
+      sfdx provar:validate
+    displayName: "Validate ProvarDX property file"
 
-- bash: |
-    cd com.provar.plugins.provardx
-    sfdx provar:validate
-  displayName: 'Validate ProvarDX property file'
+  - bash: |
+      sfdx provar:compile -p provardx-properties.json
+    displayName: "Compile Provar Tests"
 
-- bash: |
-    cd com.provar.plugins.provardx
-    sfdx provar:compile -p provardx-properties.json
-  displayName: 'Compile Provar Tests'
+  - bash: |
+      sfdx provar:runtests -p provardx-properties.json
+    displayName: "Run Provar Tests"
 
-# - bash: |
-#     cd com.provar.plugins.provardx
-#     sfdx provar:metadatacache -m 'refresh' -c '/home/vsts/work/1/s/.provarCaches' -p 'provardx-properties.json'
-#   displayName: 'Refresh Metadata Cache for SF'
+  - bash: |
+      sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+    displayName: "Delete Scratch Org"
 
-- bash: |
-    cd com.provar.plugins.provardx 
-    sfdx provar:runtests -p provardx-properties.json
-  displayName: 'Run Provar Tests'
-
-- bash: |
-    sfdx force:org:delete -u $(scratch_org_alias) --noprompt
-
-# Publish Test Results
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: "ProvarProject/ANT/Results"
-    artifactName: TestResults
-  displayName: "Publish Test Results Artifact"
+  # Publish Test Results
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: '**/Results/*.xml'
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      failTaskOnFailedTests: true # Optional
+      testRunTitle: ProvarDX Test Suite # Optional
+    displayName: "Publish JUnit Test Results"

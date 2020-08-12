@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="63" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
+<testCase id="21" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -30,7 +30,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="autoCleanup">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
@@ -193,24 +193,75 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: LeadStatus">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="24" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;DevHub&quot;}">
       <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">LeadStatus</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="value" valueClass="string">Open</value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
+        <argument id="condition">
+          <value class="or">
+            <lhs class="or">
+              <lhs class="eq">
+                <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                <rhs class="value" valueClass="string">ProvarDX</rhs>
+              </lhs>
+              <rhs class="eq">
+                <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                <rhs class="value" valueClass="string">Scratch</rhs>
+              </rhs>
+            </lhs>
+            <rhs class="eq">
+              <lhs class="funcCall" id="GetSelectedEnvironment"/>
+              <rhs class="value" valueClass="string">DevHub</rhs>
+            </rhs>
           </value>
         </argument>
       </arguments>
+      <clauses>
+        <clause name="then" testItemId="25">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="28" title="Set Values: LeadStatus">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LeadStatus</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Open - Not Contacted</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="26">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: LeadStatus">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">LeadStatus</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Open</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Lead Home screen">
       <arguments>
