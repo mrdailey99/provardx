@@ -102,7 +102,7 @@ steps:
     displayName: "Compile Provar Tests"
 
   - bash: |
-      sfdx provar:runtests -p provardx-properties.json
+      xvfb-run sfdx provar:runtests -p provardx-properties.json
     displayName: "Run Provar Tests"
 
   - bash: |
