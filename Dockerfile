@@ -98,6 +98,10 @@ ENV REPO_HOME=/srv/Provar \
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
 
+RUN set -ex \
+    && echo 'PRINTING ENVIRONMENT VARIABLES' \
+    && echo 'printenv'
+
 COPY ${SERVER_KEY_PATH} /home/assets/server.key
 COPY . /home
 
