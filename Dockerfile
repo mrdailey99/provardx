@@ -13,18 +13,10 @@ ARG PROVAR_DEFAULT_VERSION=latest
 ARG PROVAR_MAJOR_VERSION=latest
 ## This should be your project's name 
 ARG PROJECT_NAME=ProvarProject
-## Email Build Report Target (remember to set this if you wish to email reports as part of your build)
-ARG EMAIL_TARGET
 ## Environment Level (Provar Test Environment)
 ARG ENV
-## Test Plan to target in build file
-ARG TEST_PLAN
 ## Provar secrets password (input either here or as "--build-arg PROVAR_SECRETS_PASSWORD=YOURSECRETSPASSWORD" in build command)
 ARG ProvarSecretsPassword
-## Salesforce Connection Name
-ARG PROVAR_sf_Admin
-## Salesforce Connection Password
-ARG PROVAR_sf_Admin_password
 ## The username sfdx will use to authenticate to the dev hub for Salesforce and create scratch orgs
 ARG DEV_HUB_USERNAME
 ## The alias used for the dev hub for sfdx
@@ -36,8 +28,8 @@ ARG CONSUMER_KEY
 ## The alias for the scratch org (doesn't need to be unique)
 ARG SCRATCH_ORG_ALIAS=ProvarDX
 ## Dev hub instance URL
-ARG INSTANCE_URL
-ARG PROVARDX_PROPERTY_FILE
+ARG INSTANCE_URL="https://login.salesforce.com"
+ARG PROVARDX_PROPERTY_FILE=provardx-properties-docker.json
 ## Connection name for ProvarDX to override
 ARG CONNECTION_NAME=Admin
 ## Duration in days for Scratch Org to persist
@@ -51,14 +43,8 @@ LABEL version="1.0"
 ARG PROVAR_DEFAULT_VERSION
 ARG PROVAR_MAJOR_VERSION
 ARG PROJECT_NAME
-ARG EMAIL_TARGET
 ARG ENV
-ARG ANT_TARGET
-ARG TEST_PLAN
-ARG BUILD_FILE
 ARG ProvarSecretsPassword
-ARG PROVAR_sf_Admin
-ARG PROVAR_sf_Admin_password
 ARG DEV_HUB_USERNAME
 ARG DEV_HUB_ALIAS
 ARG SCRATCH_ORG_USERNAME
@@ -76,13 +62,7 @@ ENV REPO_HOME=/srv/Provar \
     WORKSPACE=/home/${PROJECT_NAME} \
     JAVA_ARGS=-verbose:class \
     ENVIRONMENT=${ENV} \
-    ANT_TARGET=${ANT_TARGET} \
-    EMAIL_TARGET=${EMAIL_TARGET} \
-    TEST_PLAN=${TEST_PLAN} \
-    BUILD_FILE=${BUILD_FILE} \
     ProvarSecretsPassword=${ProvarSecretsPassword} \
-    PROVAR_sf_Admin=${PROVAR_sf_Admin} \
-    PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password} \
     DEV_HUB_USERNAME=${DEV_HUB_USERNAME} \
     DEV_HUB_ALIAS=${DEV_HUB_ALIAS} \
     SCRATCH_ORG_USERNAME=${SCRATCH_ORG_USERNAME} \
