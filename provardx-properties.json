@@ -27,7 +27,6 @@
     },
     "testCase":[
        "Connection.setup",
-       "ValidateRelatedListAPI.testcase",
        "/Sandbox",
        "/Smoke Tests"
     ]	

@@ -104,14 +104,6 @@ steps:
       sfdx force:org:delete -u $(scratch_org_alias) --noprompt
     displayName: "Delete Scratch Org"
     
-  # Publish pipeline artifact
-  # Publish (upload) a file or directory as a named artifact for the current run
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: "ProvarProject/ANT/Results"
-      artifactName: TestResults
-    displayName: "Publish Test Results Artifact"
-
   # Publish Test Results
   - task: PublishTestResults@2
     inputs:
