@@ -22,8 +22,11 @@ steps:
       secureFile: "server.key"
 
   - script: |
+      cp $(serverKey.secureFilePath) $(System.DefaultWorkingDirectory)
+    displayName: "Copy server key to Docker build context (base working dir)"
+
+  - script: |
       docker build -t provar/$(Build.BuildId) . --build-arg CONSUMER_KEY=$(consumer_key) \
-      --build-arg SERVER_KEY_PATH=$(serverKey.secureFilePath) \
       --build-arg CONNECTION_NAME=$(connection_name) \
       --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) \
       --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) \
@@ -37,7 +40,7 @@ steps:
       --build-arg ENV=$(test_environment) \
       --build-arg INSTANCE_URL=$(instance_url) \
       --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file)
-    displayName: 'Build ProvarDX Docker Image'
+    displayName: "Build ProvarDX Docker Image"
 
   - script: |
       docker run --name provardx-docker --rm -d provar/$(Build.BuildId)

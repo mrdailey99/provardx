@@ -103,7 +103,6 @@ RUN set -ex \
     && echo `printenv` \
     && echo ${SERVER_KEY_PATH}
 
-COPY ${SERVER_KEY_PATH} /home/server.key
 COPY . /home
 
 RUN set -ex \
