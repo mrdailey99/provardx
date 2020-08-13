@@ -33,8 +33,6 @@ ARG DEV_HUB_ALIAS
 ARG SCRATCH_ORG_USERNAME
 ## Consumer Key for dev hub authentication
 ARG CONSUMER_KEY
-## The path on the server to the server.key for authenticating to dev hub
-ARG SERVER_KEY_PATH
 ## The alias for the scratch org (doesn't need to be unique)
 ARG SCRATCH_ORG_ALIAS=ProvarDX
 ## Dev hub instance URL
@@ -65,7 +63,6 @@ ARG DEV_HUB_USERNAME
 ARG DEV_HUB_ALIAS
 ARG SCRATCH_ORG_USERNAME
 ARG CONSUMER_KEY
-ARG SERVER_KEY_PATH
 ARG SCRATCH_ORG_ALIAS
 ARG INSTANCE_URL
 ARG PROVARDX_PROPERTY_FILE
@@ -97,11 +94,6 @@ ENV REPO_HOME=/srv/Provar \
 
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
-
-RUN set -ex \
-    && echo 'PRINTING ENVIRONMENT VARIABLES' \
-    && echo `printenv` \
-    && echo ${SERVER_KEY_PATH}
 
 COPY . /home
 
