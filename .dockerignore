@@ -1,0 +1,8 @@
+.gitignore
+README.md
+**/.smtp
+**/.licenses
+**/bin
+**/Results*
+**/*.pdf
+**/plans

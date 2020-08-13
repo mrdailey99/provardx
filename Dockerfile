@@ -1,14 +1,3 @@
-## Pre-Build:
-## (Optional Execution License): 
-## Make a copy of your local .licenses/MYLICENSE.properties file
-## Replace the existing key with your execution-only license key 
-## Create a .licenses folder in your test project directory and place the execution-only properties file there
-## (Optional SMTP Configuration): 
-## Ensure you have setup an email account for sending emails through Provar. This is done via the email configuration tab 
-## on the ANT build screen. 
-## Copy the contents of your $USER_HOME/Provar/.smtp folder to your test project directory.
-## (Run script): Make sure runProvarTests.sh is present in the test project directory.
-
 ## Build: 
 ## > cd <directory containing Dockerfile/script/.testproject>
 ## > docker build -t MyImageName .
@@ -37,18 +26,20 @@ ARG PROVAR_sf_Admin
 ## Salesforce Connection Password
 ARG PROVAR_sf_Admin_password
 ## The username sfdx will use to authenticate to the dev hub for Salesforce and create scratch orgs
-# ARG DEV_HUB_USERNAME=michael.dailey@provardx.com
-ARG DEV_HUB_USERNAME=michael.dailey@brave-otter-7uycux.com
+ARG DEV_HUB_USERNAME
 ## The alias used for the dev hub for sfdx
-ARG DEV_HUB_ALIAS=TrailheadHub
+ARG DEV_HUB_ALIAS
+## The unique username for the Scratch Org to be created with
+ARG SCRATCH_ORG_USERNAME
 ## Consumer Key for dev hub authentication
-# ARG CONSUMER_KEY=3MVG9Kip4IKAZQEUIkrj7zWwUivImKykmB1PqARq_4q3699WUB0Sry0i82h1Gpwqp3UPvUh2VnQ==
-ARG CONSUMER_KEY=3MVG9_XwsqeYoueLvGVFqnnMhtgExKjNBKqwww4noS7CNe8B296lnbmBDrvUFNKAa9AufbsfavQChFFPbJWzf
+ARG CONSUMER_KEY
+## The path on the server to the server.key for authenticating to dev hub
+ARG SERVER_KEY_PATH
 ## The alias for the scratch org (doesn't need to be unique)
 ARG SCRATCH_ORG_ALIAS=ProvarDX
 ## Dev hub instance URL
-ARG INSTANCE_URL="https://login.salesforce.com"
-ARG PROVARDX_PROPERTY_FILE=provardx-properties-docker.json
+ARG INSTANCE_URL
+ARG PROVARDX_PROPERTY_FILE
 ## Connection name for ProvarDX to override
 ARG CONNECTION_NAME=Admin
 ## Duration in days for Scratch Org to persist
@@ -72,13 +63,14 @@ ARG PROVAR_sf_Admin
 ARG PROVAR_sf_Admin_password
 ARG DEV_HUB_USERNAME
 ARG DEV_HUB_ALIAS
+ARG SCRATCH_ORG_USERNAME
 ARG CONSUMER_KEY
+ARG SERVER_KEY_PATH
 ARG SCRATCH_ORG_ALIAS
 ARG INSTANCE_URL
 ARG PROVARDX_PROPERTY_FILE
 ARG CONNECTION_NAME
 ARG SCRATCH_ORG_DURATION
-# VOLUME /c/Users/16156/.sfdx ~/.sfdx
 
 # The location to save the Provar binaries to (from downloads page)
 ENV REPO_HOME=/srv/Provar \
@@ -96,6 +88,7 @@ ENV REPO_HOME=/srv/Provar \
     PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password} \
     DEV_HUB_USERNAME=${DEV_HUB_USERNAME} \
     DEV_HUB_ALIAS=${DEV_HUB_ALIAS} \
+    SCRATCH_ORG_USERNAME=${SCRATCH_ORG_USERNAME} \
     SCRATCH_ORG_ALIAS=${SCRATCH_ORG_ALIAS} \
     INSTANCE_URL=${INSTANCE_URL} \
     PROVARDX_PROPERTY_FILE=${PROVARDX_PROPERTY_FILE} \
@@ -104,6 +97,9 @@ ENV REPO_HOME=/srv/Provar \
 
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
+
+COPY ${SERVER_KEY_PATH} /home/assets/server.key
+COPY . /home
 
 RUN set -ex \
     && apt -y update -qq && apt install -y \
@@ -132,10 +128,9 @@ RUN set -ex \
     && wget -qP ${REPO_HOME} https://download.provartesting.com/${PROVAR_MAJOR_VERSION}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     && unzip ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip -d ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
-    # Retrieve ProvarDX plugin from repo
-    && git clone --single-branch --branch windows https://github.com/mrdailey99/provardx.git /home/ \
-    && cp -r /home/ProvarProject/provardx ${REPO_HOME}/Provar_ANT_${PROVAR_VERSION}  \
+    # Setup ProvarDX property file 
     && sed -i "s|PROVAR_HOME|$PROVAR_HOME|" /home/${PROVARDX_PROPERTY_FILE} \
+    && sed -i "s|ENVIRONMENT|$ENVIRONMENT|" /home/${PROVARDX_PROPERTY_FILE} \
     && javac -version \
     && node --version \
     && npm --version \
@@ -149,14 +144,13 @@ RUN set -ex \
     curl \
     wget 
 
-COPY assets/server.key /home/assets/server.key
-
 # # Install sfdx-cli and setup ProvarDX plugin 
 RUN set -ex \
     && npm install sfdx-cli --global \
     ## noprompt option not available, so piping echoed 'y' to approve plugin
     && echo y | sfdx plugins:install @provartesting/provardx \
-    && sfdx plugins:update 
+    && sfdx plugins:update \
+    && cp -r $WORKSPACE/provardx $PROVAR_HOME
 
 # Setup scratch org project to deploy metadata
 RUN set -ex \
@@ -170,10 +164,7 @@ RUN set -ex \
     && cd /home/ProvarDX \
     # Authorize dev hub to generate scratch orgs
     && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/assets/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} --instanceurl ${INSTANCE_URL} \
-    # && sfdx force:org:list --clean \
     && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} \
-    # Generate a random unique scratch org alphanumeric user (16 chars but no caps as SFDX usernames are always lower-case)
-    && export SCRATCH_ORG_USERNAME=`cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 16 | head -n 1`@testing.com \
     # Create scratch org with SCRATCH_ORG_USERNAME set in project JSON
     && sed -i "s|SCRATCH_ORG_USERNAME|$SCRATCH_ORG_USERNAME|" config/project-scratch-def.json \
     && cat config/project-scratch-def.json \
