@@ -100,9 +100,10 @@ ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
 
 RUN set -ex \
     && echo 'PRINTING ENVIRONMENT VARIABLES' \
-    && echo `printenv`
+    && echo `printenv` \
+    && echo ${SERVER_KEY_PATH}
 
-COPY ${SERVER_KEY_PATH} /home/assets/server.key
+COPY ${SERVER_KEY_PATH} /home/server.key
 COPY . /home
 
 RUN set -ex \
@@ -167,7 +168,7 @@ RUN set -ex \
 RUN set -ex \
     && cd /home/ProvarDX \
     # Authorize dev hub to generate scratch orgs
-    && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/assets/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} --instanceurl ${INSTANCE_URL} \
+    && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} --instanceurl ${INSTANCE_URL} \
     && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} \
     # Create scratch org with SCRATCH_ORG_USERNAME set in project JSON
     && sed -i "s|SCRATCH_ORG_USERNAME|$SCRATCH_ORG_USERNAME|" config/project-scratch-def.json \
