@@ -26,37 +26,37 @@ steps:
       ls -la $(System.DefaultWorkingDirectory)
     displayName: "Copy server key to Docker build context (base working dir)"
 
-  # - script: |
-  #     docker build -t provar/$(Build.BuildId) . --build-arg CONSUMER_KEY=$(consumer_key) \
-  #     --build-arg CONNECTION_NAME=$(connection_name) \
-  #     --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) \
-  #     --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) \
-  #     --build-arg PROVAR_MAJOR_VERSION=$(provar_major_version) \
-  #     --build-arg DEV_HUB_USERNAME=$(dev_hub_username) \
-  #     --build-arg DEV_HUB_ALIAS=$(dev_hub_alias) \
-  #     --build-arg PROVAR_sf_Admin_password=$(PROVAR_sf_Admin_password) \
-  #     --build-arg PROVAR_sf_Admin=$(PROVAR_sf_Admin) \
-  #     --build-arg SCRATCH_ORG_ALIAS=$(scratch_org_alias) \
-  #     --build-arg ProvarSecretsPassword=$(secrets_password) \
-  #     --build-arg ENV=$(test_environment) \
-  #     --build-arg INSTANCE_URL=$(instance_url) \
-  #     --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file)
-  #   displayName: "Build ProvarDX Docker Image"
+  - script: |
+      docker build -t provar/$(Build.BuildId) . --build-arg CONSUMER_KEY=$(consumer_key) \
+      --build-arg CONNECTION_NAME=$(connection_name) \
+      --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) \
+      --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) \
+      --build-arg PROVAR_MAJOR_VERSION=$(provar_major_version) \
+      --build-arg DEV_HUB_USERNAME=$(dev_hub_username) \
+      --build-arg DEV_HUB_ALIAS=$(dev_hub_alias) \
+      --build-arg PROVAR_sf_Admin_password=$(PROVAR_sf_Admin_password) \
+      --build-arg PROVAR_sf_Admin=$(PROVAR_sf_Admin) \
+      --build-arg SCRATCH_ORG_ALIAS=$(scratch_org_alias) \
+      --build-arg ProvarSecretsPassword=$(secrets_password) \
+      --build-arg ENV=$(test_environment) \
+      --build-arg INSTANCE_URL=$(instance_url) \
+      --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file)
+    displayName: "Build ProvarDX Docker Image"
 
-  # - script: |
-  #     docker run --name provardx-docker -i provar/$(Build.BuildId)
-  #     docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
-  #     docker exec provardx-docker sfdx force:org:delete -u $(scratch_org_alias) --noprompt
-  #     docker stop provardx-docker
-  #   displayName: "Run Provar Tests in Docker container & Copy Results"
+  - script: |
+      docker run --name provardx-docker -i provar/$(Build.BuildId)
+      docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
+      docker exec provardx-docker sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+      docker stop provardx-docker
+    displayName: "Run Provar Tests in Docker container & Copy Results"
 
-  # # Publish Test Results
-  # - task: PublishTestResults@2
-  #   inputs:
-  #     testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
-  #     testResultsFiles: "**/Results/*.xml"
-  #     #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-  #     #mergeTestResults: false # Optional
-  #     failTaskOnFailedTests: true # Optional
-  #     testRunTitle: ProvarDX Test Suite # Optional
-  #   displayName: "Publish JUnit Test Results"
+  # Publish Test Results
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: "**/Results/*.xml"
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      failTaskOnFailedTests: true # Optional
+      testRunTitle: ProvarDX Test Suite # Optional
+    displayName: "Publish JUnit Test Results"
