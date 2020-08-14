@@ -44,9 +44,8 @@ steps:
     displayName: "Build ProvarDX Docker Image"
 
   - script: |
-      docker run --name provardx-docker -t provar/$(Build.BuildId) -v "/home/ProvarProject/ANT/Results:$(System.DefaultWorkingDirectory)"
-      ## docker cp provardx-docker:/home/ProvarProject/ANT/Results(1) $(System.DefaultWorkingDirectory)
-      ## docker exec provardx-docker sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+      docker run --name provardx-docker -t provar/$(Build.BuildId)
+      docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
       docker stop provardx-docker
       docker container prune -f
     displayName: "Run Provar Tests in Docker container & Copy Results"
@@ -56,7 +55,7 @@ steps:
     inputs:
       testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
       testResultsFiles: "**/JUnit.xml"
-      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
       #mergeTestResults: false # Optional
       failTaskOnFailedTests: true # Optional
       testRunTitle: ProvarDX Test Suite # Optional
