@@ -44,7 +44,7 @@ steps:
     displayName: "Build ProvarDX Docker Image"
 
   - script: |
-      docker run --name provardx-docker -t provar/$(Build.BuildId) -v /home/ProvarProject/ANT/Results(1):$(System.DefaultWorkingDirectory)
+      docker run --name provardx-docker -t provar/$(Build.BuildId) -v "/home/ProvarProject/ANT/Results(1):$(System.DefaultWorkingDirectory)"
       ## docker cp provardx-docker:/home/ProvarProject/ANT/Results(1) $(System.DefaultWorkingDirectory)
       docker exec provardx-docker sfdx force:org:delete -u $(scratch_org_alias) --noprompt
       docker stop provardx-docker
