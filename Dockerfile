@@ -114,7 +114,7 @@ RUN set -ex \
     ## Set up project payload && Copy script to PATH
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
-    && mkdir -p ${WORKSPACE}/bin \
+    && mkdir -p ${WORKSPACE}/bin 
     # Remove additional packages 
     # && apt remove -y git \
     # curl \
