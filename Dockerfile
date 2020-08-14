@@ -110,15 +110,15 @@ RUN set -ex \
     && javac -version \
     && node --version \
     && npm --version \
+    # && google-chrome --version \
     ## Set up project payload && Copy script to PATH
-    && mkdir -p ${WORKSPACE}/ANT/Results \
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
     && mkdir -p ${WORKSPACE}/bin \
     # Remove additional packages 
-    && apt remove -y git \
-    curl \
-    wget 
+    # && apt remove -y git \
+    # curl \
+    # wget 
 
 ## Install sfdx-cli and setup ProvarDX plugin 
 RUN set -ex \
@@ -167,7 +167,7 @@ RUN set -ex \
     && sfdx provar:validate -p /home/${PROVARDX_PROPERTY_FILE} \
     && sfdx provar:compile -p /home/${PROVARDX_PROPERTY_FILE} 
 # Entrypoint script to run Provar tests
-RUN echo "#!/bin/sh \n xvfb-run sfdx provar:runtests -p /home/${PROVARDX_PROPERTY_FILE}" > /home/entrypoint.sh
+RUN echo "#!/bin/sh \n xvfb-run sfdx provar:runtests -p /home/${PROVARDX_PROPERTY_FILE} \n sfdx force:org:delete -u $SCRATCH_ORG_ALIAS --noprompt" > /home/entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
 CMD
