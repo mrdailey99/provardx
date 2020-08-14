@@ -120,7 +120,7 @@ RUN set -ex \
     curl \
     wget 
 
-# # Install sfdx-cli and setup ProvarDX plugin 
+## Install sfdx-cli and setup ProvarDX plugin 
 RUN set -ex \
     && npm install sfdx-cli --global \
     ## noprompt option not available, so piping echoed 'y' to approve plugin
@@ -140,13 +140,13 @@ RUN set -ex \
     && cd /home/ProvarDX \
     # Authorize dev hub to generate scratch orgs
     && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} --instanceurl ${INSTANCE_URL} \
-    && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} \
+    && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} --global \
     # Create scratch org with SCRATCH_ORG_USERNAME set in project JSON
     && sed -i "s|SCRATCH_ORG_USERNAME|$SCRATCH_ORG_USERNAME|" config/project-scratch-def.json \
     && cat config/project-scratch-def.json \
     && sfdx force:org:create -f config/project-scratch-def.json --setalias ${SCRATCH_ORG_ALIAS} --durationdays ${SCRATCH_ORG_DURATION} --setdefaultusername --json --loglevel fatal \
     # && sfdx force:user:password:generate --targetusername ${SCRATCH_ORG_ALIAS} \
-    && sfdx force:config:set defaultusername=$SCRATCH_ORG_USERNAME \
+    && sfdx force:config:set defaultusername=$SCRATCH_ORG_USERNAME --global \
     && sfdx force:org:display -u ${SCRATCH_ORG_ALIAS} \
     # Override connections in property file with scratch org usernames
     && chmod +x /home/create_connection_overrides.sh \
@@ -160,7 +160,7 @@ RUN set -ex \
     && sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app \
     && sfdx force:source:push --targetusername $SCRATCH_ORG_USERNAME
 
-# # ## Set working directory for image
+# Set working directory for image
 WORKDIR /home
 # Validate ProvarDX property file and compile src in Provar Project
 RUN set -ex \
