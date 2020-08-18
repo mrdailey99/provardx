@@ -3,48 +3,85 @@ name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 trigger:
   - docker
 
-pool:
-  vmImage: "ubuntu-latest"
-variables:
-  scratch_org_username: $(Build.BuildNumber)@provartesting.com
-  connection_name: Admin
-  provar_major_version: latest
-  provar_default_version: latest
-  instance_url: https://login.salesforce.com
-  test_environment: ProvarDX
-  provardx_property_file: provardx-properties-docker.json
-steps:
-  # Download secure file
-  # Download a secure file to the agent machine
-  - task: DownloadSecureFile@1
-    name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+jobs:
+- job: Build
+  displayName: "Build ProvarDX Docker Image"
+  pool:
+    vmImage: "ubuntu-latest"
+  variables:
+    scratch_org_username: $(Build.BuildNumber)@provartesting.com
+    connection_name: Admin
+    provar_major_version: latest
+    provar_default_version: latest
+    instance_url: https://login.salesforce.com
+    test_environment: ProvarDX
+    provardx_property_file: provardx-properties-docker.json
+  steps:
+    # Download secure file
+    # Download a secure file to the agent machine
+    - task: DownloadSecureFile@1
+      name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+      inputs:
+        secureFile: "server.key"
+
+    - script: |
+        cp $(serverKey.secureFilePath) $(System.DefaultWorkingDirectory)
+        ls -la $(System.DefaultWorkingDirectory)
+      displayName: "Copy server key to Docker build context (base working dir)"
+
+    - script: |
+        docker build -t provar/$(Build.BuildId) . --build-arg CONSUMER_KEY=$(consumer_key) \
+        --build-arg CONNECTION_NAME=$(connection_name) \
+        --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) \
+        --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) \
+        --build-arg PROVAR_MAJOR_VERSION=$(provar_major_version) \
+        --build-arg DEV_HUB_USERNAME=$(dev_hub_username) \
+        --build-arg DEV_HUB_ALIAS=$(dev_hub_alias) \
+        --build-arg PROVAR_sf_Admin_password=$(PROVAR_sf_Admin_password) \
+        --build-arg PROVAR_sf_Admin=$(PROVAR_sf_Admin) \
+        --build-arg SCRATCH_ORG_ALIAS=$(scratch_org_alias) \
+        --build-arg ProvarSecretsPassword=$(secrets_password) \
+        --build-arg ENV=$(test_environment) \
+        --build-arg INSTANCE_URL=$(instance_url) \
+        --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file)
+      displayName: "Build ProvarDX Docker Image"
+
+- job: Linux
+  dependsOn: Build_Docker_Image
+  pool: 
+    vmImage: 'ubuntu-latest'
+  variables: 
+    provardx_property_file: provardx-properties-docker.json
+  displayName: "Run tests on ProvarDX container on Linux"
+  steps:
+  - script: |
+      docker run --name provardx-docker --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provar/$(Build.BuildId)
+      docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
+      docker stop provardx-docker
+      docker container prune -f
+    displayName: "Run Provar Tests in Docker container & Copy Results"
+
+  # Publish Test Results
+  - task: PublishTestResults@2
     inputs:
-      secureFile: "server.key"
+      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: "**/JUnit.xml"
+      searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      failTaskOnFailedTests: true # Optional
+      testRunTitle: ProvarDX Test Suite # Optional
+    displayName: "Publish JUnit Test Results"
 
+- job: Windows
+  dependsOn: Build_Docker_Image
+  pool: 
+    vmImage: 'windows-latest'
+  variables: 
+    provardx_property_file: provardx-properties-docker-smoke.json
+  displayName: "Run tests on ProvarDX container on Windows"
+  steps:
   - script: |
-      cp $(serverKey.secureFilePath) $(System.DefaultWorkingDirectory)
-      ls -la $(System.DefaultWorkingDirectory)
-    displayName: "Copy server key to Docker build context (base working dir)"
-
-  - script: |
-      docker build -t provar/$(Build.BuildId) . --build-arg CONSUMER_KEY=$(consumer_key) \
-      --build-arg CONNECTION_NAME=$(connection_name) \
-      --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) \
-      --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) \
-      --build-arg PROVAR_MAJOR_VERSION=$(provar_major_version) \
-      --build-arg DEV_HUB_USERNAME=$(dev_hub_username) \
-      --build-arg DEV_HUB_ALIAS=$(dev_hub_alias) \
-      --build-arg PROVAR_sf_Admin_password=$(PROVAR_sf_Admin_password) \
-      --build-arg PROVAR_sf_Admin=$(PROVAR_sf_Admin) \
-      --build-arg SCRATCH_ORG_ALIAS=$(scratch_org_alias) \
-      --build-arg ProvarSecretsPassword=$(secrets_password) \
-      --build-arg ENV=$(test_environment) \
-      --build-arg INSTANCE_URL=$(instance_url) \
-      --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file)
-    displayName: "Build ProvarDX Docker Image"
-
-  - script: |
-      docker run --name provardx-docker -t provar/$(Build.BuildId)
+      docker run --name provardx-docker --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provar/$(Build.BuildId)
       docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
       docker stop provardx-docker
       docker container prune -f
