@@ -28,23 +28,6 @@ jobs:
         ls -la $(System.DefaultWorkingDirectory)
       displayName: "Copy server key to Docker build context (base working dir)"
 
-    # - script: |
-    #     docker build -t provar/$(Build.BuildId) . --build-arg CONSUMER_KEY=$(consumer_key) \
-    #     --build-arg CONNECTION_NAME=$(connection_name) \
-    #     --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) \
-    #     --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) \
-    #     --build-arg PROVAR_MAJOR_VERSION=$(provar_major_version) \
-    #     --build-arg DEV_HUB_USERNAME=$(dev_hub_username) \
-    #     --build-arg DEV_HUB_ALIAS=$(dev_hub_alias) \
-    #     --build-arg PROVAR_sf_Admin_password=$(PROVAR_sf_Admin_password) \
-    #     --build-arg PROVAR_sf_Admin=$(PROVAR_sf_Admin) \
-    #     --build-arg SCRATCH_ORG_ALIAS=$(scratch_org_alias) \
-    #     --build-arg ProvarSecretsPassword=$(secrets_password) \
-    #     --build-arg ENV=$(test_environment) \
-    #     --build-arg INSTANCE_URL=$(instance_url) \
-    #     --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file)
-    #   displayName: "Build ProvarDX Docker Image"
-
     - task: Docker@2
       inputs:
         command: build
@@ -82,6 +65,10 @@ jobs:
     provardx_property_file: provardx-properties-docker.json
   displayName: "Run tests on ProvarDX container on Linux"
   steps:
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'Provar Testing Docker Hub'
+      command: 'login'
   - script: |
       docker run --name provardx-docker --env PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provartesting/provar:provardx
       docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
@@ -108,6 +95,10 @@ jobs:
     provardx_property_file: provardx-properties-docker-smoke.json
   displayName: "Run tests on ProvarDX container on Windows"
   steps:
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'Provar Testing Docker Hub'
+      command: 'login'
   - script: |
       docker run --name provardx-docker --env PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provartesting/provar:provardx
       docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
