@@ -47,7 +47,7 @@ jobs:
       displayName: "Build ProvarDX Docker Image"
 
 - job: Linux
-  dependsOn: Build_Docker_Image
+  dependsOn: Build
   pool: 
     vmImage: 'ubuntu-latest'
   variables: 
@@ -73,7 +73,7 @@ jobs:
     displayName: "Publish JUnit Test Results"
 
 - job: Windows
-  dependsOn: Build_Docker_Image
+  dependsOn: Build
   pool: 
     vmImage: 'windows-latest'
   variables: 
