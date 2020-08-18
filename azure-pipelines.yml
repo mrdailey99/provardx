@@ -55,7 +55,7 @@ jobs:
   displayName: "Run tests on ProvarDX container on Linux"
   steps:
   - script: |
-      docker run --name provardx-docker --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provar/$(Build.BuildId)
+      docker run --name provardx-docker --env PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provar/$(Build.BuildId)
       docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
       docker stop provardx-docker
       docker container prune -f
@@ -81,7 +81,7 @@ jobs:
   displayName: "Run tests on ProvarDX container on Windows"
   steps:
   - script: |
-      docker run --name provardx-docker --build-arg PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provar/$(Build.BuildId)
+      docker run --name provardx-docker --env PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provar/$(Build.BuildId)
       docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
       docker stop provardx-docker
       docker container prune -f
