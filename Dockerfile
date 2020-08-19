@@ -114,7 +114,10 @@ RUN set -ex \
     ## Set up project payload && Copy script to PATH
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
-    && mkdir -p ${WORKSPACE}/bin 
+    && mkdir -p ${WORKSPACE}/bin \
+    && chmod +x /home/create_scratch_org.sh \
+    && chmod +x /home/delete_scratch_org.sh \
+    && chmod +x /home/run_provar_tests.sh 
     # Remove additional packages 
     # && apt remove -y git \
     # curl \
