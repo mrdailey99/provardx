@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Validate ProvarDX property file with plugin
 echo "Validate ProvarDX property file with plugin"
 sfdx provar:validate -p /home/$PROVARDX_PROPERTY_FILE 

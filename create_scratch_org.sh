@@ -1,5 +1,4 @@
 #!/bin/sh
-
 # Authorize dev hub to generate scratch orgs
 echo "Authorize Dev Hub in container"
 sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --jwtkeyfile /home/server.key --username $DEV_HUB_USERNAME --setdefaultdevhubusername --setalias $DEV_HUB_ALIAS --instanceurl $INSTANCE_URL
@@ -15,12 +14,10 @@ sfdx force:org:display -u $SCRATCH_ORG_ALIAS
 echo "---------Scratch Org Successfully Created-----------"
 # Override connections in property file with scratch org usernames
 echo "Override connections in ProvarDX property file"
-chmod +x /home/create_connection_overrides.sh 
 /home/create_connection_overrides.sh $CONNECTION_NAME $SCRATCH_ORG_USERNAME /home/$PROVARDX_PROPERTY_FILE 
 echo "---------Connections Successfully Overridden-----------"
 # Insert secrets password into property file (if present)
 echo "Insert secrets password into ProvarDX property file"
-chmod +x /home/insert_secrets_password.sh 
 /home/insert_secrets_password.sh $ProvarSecretsPassword /home/$PROVARDX_PROPERTY_FILE 
 # Deploy metadata to scratch org for admin user
 echo "Retrieve metadata from Dev Hub and push to Scratch Org"

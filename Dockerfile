@@ -105,8 +105,8 @@ RUN set -ex \
     && unzip ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip -d ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     # Setup ProvarDX property file 
-    && sed -i "s|PROVAR_HOME|$PROVAR_HOME|" /home/${PROVARDX_PROPERTY_FILE} \
-    && sed -i "s|ENVIRONMENT|$ENVIRONMENT|" /home/${PROVARDX_PROPERTY_FILE} \
+    && sed -i "s|PROVAR_HOME|$PROVAR_HOME|" /home/$PROVARDX_PROPERTY_FILE \
+    && sed -i "s|ENVIRONMENT|$ENVIRONMENT|" /home/$PROVARDX_PROPERTY_FILE \
     && javac -version \
     && node --version \
     && npm --version \
@@ -117,7 +117,9 @@ RUN set -ex \
     && mkdir -p ${WORKSPACE}/bin \
     && chmod +x /home/create_scratch_org.sh \
     && chmod +x /home/delete_scratch_org.sh \
-    && chmod +x /home/run_provar_tests.sh 
+    && chmod +x /home/run_provar_tests.sh \
+    && chmod +x /home/insert_secrets_password.sh \
+    && chmod +x /home/create_connection_overrides.sh
     # Remove additional packages 
     # && apt remove -y git \
     # curl \
@@ -129,15 +131,17 @@ RUN set -ex \
     ## noprompt option not available, so piping echoed 'y' to approve plugin
     && echo y | sfdx plugins:install @provartesting/provardx \
     && sfdx plugins:update \
-    && cp -r $WORKSPACE/provardx $PROVAR_HOME
+    && cp -r $WORKSPACE/provardx $PROVAR_HOME \
+    # verify SFDX CLI version
+    && sfdx --version 
 
 # Setup scratch org project to deploy metadata
-RUN set -ex \
-    && cd /home/ \
+RUN if [[ $(sfdx plugins) == *@provartesting/provardx* ]]; then cd /home/ \
     && sfdx force:project:create -n ProvarDX \
     && cp /home/project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json \
     && cp /home/package.xml /home/ProvarDX/package.xml \
-    && cp /home/.forceignore /home/ProvarDX/.forceignore 
+    && cp /home/.forceignore /home/ProvarDX/.forceignore ; \
+    else echo "ProvarDX plugin not successfully installed" ; fi
 
 # Set working directory for image
 WORKDIR /home/ProvarDX
