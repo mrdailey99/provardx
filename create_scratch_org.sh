@@ -1,4 +1,5 @@
 #!/bin/sh
+cd /home/ProvarDX
 # Authorize dev hub to generate scratch orgs
 echo "Authorize Dev Hub in container"
 sfdx force:auth:jwt:grant --clientid $CONSUMER_KEY --jwtkeyfile /home/server.key --username $DEV_HUB_USERNAME --setdefaultdevhubusername --setalias $DEV_HUB_ALIAS --instanceurl $INSTANCE_URL
@@ -6,9 +7,9 @@ sfdx force:config:set defaultdevhubusername=$DEV_HUB_USERNAME --global
 echo "---------Dev Hub Successfully Authorized-----------"
 # Create scratch org with SCRATCH_ORG_USERNAME set in project JSON
 echo "Create Scratch Org"
-sed -i "s|SCRATCH_ORG_USERNAME|$SCRATCH_ORG_USERNAME|" config/project-scratch-def.json 
+sed -i "s|SCRATCH_ORG_USERNAME|$SCRATCH_ORG_USERNAME|" /home/ProvarDX/config/project-scratch-def.json 
 cat config/project-scratch-def.json 
-sfdx force:org:create -f config/project-scratch-def.json --setalias $SCRATCH_ORG_ALIAS --durationdays $SCRATCH_ORG_DURATION --setdefaultusername --json --loglevel fatal 
+sfdx force:org:create -f /home/ProvarDX/config/project-scratch-def.json --setalias $SCRATCH_ORG_ALIAS --durationdays $SCRATCH_ORG_DURATION --setdefaultusername --json --loglevel fatal 
 sfdx force:config:set defaultusername=$SCRATCH_ORG_USERNAME --global 
 sfdx force:org:display -u $SCRATCH_ORG_ALIAS 
 echo "---------Scratch Org Successfully Created-----------"
@@ -21,8 +22,8 @@ echo "Insert secrets password into ProvarDX property file"
 /home/insert_secrets_password.sh $ProvarSecretsPassword /home/$PROVARDX_PROPERTY_FILE 
 # Deploy metadata to scratch org for admin user
 echo "Retrieve metadata from Dev Hub and push to Scratch Org"
-sfdx force:mdapi:retrieve -r package -u $DEV_HUB_USERNAME -k package.xml 
-unzip package/unpackaged.zip 
+sfdx force:mdapi:retrieve -r package -u $DEV_HUB_USERNAME -k /home/ProvarDX/package.xml 
+unzip /home/ProvarDX/package/unpackaged.zip 
 sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app 
 sfdx force:source:push --targetusername $SCRATCH_ORG_USERNAME
 echo "---------Metadata Successfully Pushed to Scratch Org-----------"

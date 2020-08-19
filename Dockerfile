@@ -136,7 +136,7 @@ RUN set -ex \
     && sfdx --version 
 
 # Setup scratch org project to deploy metadata
-RUN if [[ $(sfdx plugins) == *@provartesting/provardx* ]]; then cd /home/ \
+RUN if [ $(sfdx plugins) == *@provartesting/provardx* ]; then cd /home/ \
     && sfdx force:project:create -n ProvarDX \
     && cp /home/project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json \
     && cp /home/package.xml /home/ProvarDX/package.xml \
