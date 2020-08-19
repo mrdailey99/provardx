@@ -70,7 +70,7 @@ jobs:
 
   steps:
   - script: |
-      /home/create_scratch_orgs.sh
+      /home/create_scratch_org.sh
     displayName: "Create Scratch Org and Deploy Metadata"
   - script: |
       /home/run_provar_tests.sh
