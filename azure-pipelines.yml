@@ -9,12 +9,8 @@ jobs:
   pool:
     vmImage: "ubuntu-latest"
   variables:
-    scratch_org_username: $(Build.BuildNumber)@provartesting.com
-    connection_name: Admin
     provar_major_version: latest
     provar_default_version: latest
-    instance_url: https://login.salesforce.com
-    test_environment: ProvarDX
   steps:
     # Download secure file
     # Download a secure file to the agent machine
@@ -34,19 +30,9 @@ jobs:
         containerRegistry: 'Provar Testing Docker Hub'
         repository: 'provartesting/provar'
         tags: provardx
-        arguments: --label buildtype=azure --build-arg CONSUMER_KEY=$(consumer_key) 
-          --build-arg CONNECTION_NAME=$(connection_name) 
-          --build-arg SCRATCH_ORG_USERNAME=$(scratch_org_username) 
+        arguments: --label buildtype=azure 
           --build-arg PROVAR_DEFAULT_VERISON=$(provar_default_version) 
           --build-arg PROVAR_MAJOR_VERSION=$(provar_major_version) 
-          --build-arg DEV_HUB_USERNAME=$(dev_hub_username) 
-          --build-arg DEV_HUB_ALIAS=$(dev_hub_alias) 
-          --build-arg PROVAR_sf_Admin_password=$(PROVAR_sf_Admin_password) 
-          --build-arg PROVAR_sf_Admin=$(PROVAR_sf_Admin) 
-          --build-arg SCRATCH_ORG_ALIAS=$(scratch_org_alias) 
-          --build-arg ProvarSecretsPassword=$(secrets_password) 
-          --build-arg ENV=$(test_environment) 
-          --build-arg INSTANCE_URL=$(instance_url) 
       displayName: "Build ProvarDX Docker image"
 
     - task: Docker@2
@@ -59,52 +45,39 @@ jobs:
 
 - job: Linux
   dependsOn: Build
+  variables:     
+    scratch_org_username: $(Build.BuildNumber)@provartesting.com
+    connection_name: Admin
+    instance_url: https://login.salesforce.com
+    test_environment: ProvarDX
+    provardx_property_file: provardx-properties-docker.json
   pool: 
     vmImage: 'ubuntu-latest'
-  variables: 
-    provardx_property_file: provardx-properties-docker.json
-  displayName: "Run tests on ProvarDX container on Linux"
-  steps:
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'Provar Testing Docker Hub'
-      command: 'login'
-  - script: |
-      docker run --name provardx-docker --env PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provartesting/provar:provardx
-      docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
-      docker stop provardx-docker
-      docker container prune -f
-    displayName: "Run Provar Tests in Docker container & Copy Results"
+  container: 
+    image: provartesting/provar:provardx
+    endpoint: 'Provar Testing Docker Hub'
+    volumes:
+      - $(System.DefaultWorkingDirectory):/home/ProvarProject/ANT/Results
+    options: --env CONSUMER_KEY=$(consumer_key) 
+          --env SCRATCH_ORG_USERNAME=$(scratch_org_username) 
+          --env DEV_HUB_USERNAME=$(dev_hub_username) 
+          --env DEV_HUB_ALIAS=$(dev_hub_alias) 
+          --env SCRATCH_ORG_ALIAS=$(scratch_org_alias) 
+          --env ProvarSecretsPassword=$(secrets_password) 
+          --env ENV=$(test_environment) 
+          --env INSTANCE_URL=$(instance_url) 
+          --env PROVARDX_PROPERTY_FILE=$(provardx_property_file)
 
-  # Publish Test Results
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
-      testResultsFiles: "**/JUnit.xml"
-      searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-      #mergeTestResults: false # Optional
-      failTaskOnFailedTests: true # Optional
-      testRunTitle: ProvarDX Test Suite # Optional
-    displayName: "Publish JUnit Test Results"
-
-- job: Windows
-  dependsOn: Build
-  pool: 
-    vmImage: 'windows-latest'
-  variables: 
-    provardx_property_file: provardx-properties-docker-smoke.json
-  displayName: "Run tests on ProvarDX container on Windows"
   steps:
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'Provar Testing Docker Hub'
-      command: 'login'
   - script: |
-      docker run --name provardx-docker --env PROVARDX_PROPERTY_FILE=$(provardx_property_file) -t provartesting/provar:provardx
-      docker cp provardx-docker:/home/ProvarProject/ANT/Results $(System.DefaultWorkingDirectory)
-      docker stop provardx-docker
-      docker container prune -f
-    displayName: "Run Provar Tests in Docker container & Copy Results"
+      /home/create_scratch_orgs.sh
+    displayName: "Create Scratch Org and Deploy Metadata"
+  - script: |
+      /home/run_provar_tests.sh
+    displayName: "Run Provar Tests in Docker Container"
+  - script: |
+      /home/delete_scratch_org.sh
+    displayName: "Delete Scratch Org"
 
   # Publish Test Results
   - task: PublishTestResults@2

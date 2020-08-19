@@ -136,38 +136,6 @@ RUN set -ex \
     && cp /home/package.xml /home/ProvarDX/package.xml \
     && cp /home/.forceignore /home/ProvarDX/.forceignore 
 
-RUN set -ex \
-    && cd /home/ProvarDX \
-    # Authorize dev hub to generate scratch orgs
-    && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} --instanceurl ${INSTANCE_URL} \
-    && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} --global \
-    # Create scratch org with SCRATCH_ORG_USERNAME set in project JSON
-    && sed -i "s|SCRATCH_ORG_USERNAME|$SCRATCH_ORG_USERNAME|" config/project-scratch-def.json \
-    && cat config/project-scratch-def.json \
-    && sfdx force:org:create -f config/project-scratch-def.json --setalias ${SCRATCH_ORG_ALIAS} --durationdays ${SCRATCH_ORG_DURATION} --setdefaultusername --json --loglevel fatal \
-    # && sfdx force:user:password:generate --targetusername ${SCRATCH_ORG_ALIAS} \
-    && sfdx force:config:set defaultusername=$SCRATCH_ORG_USERNAME --global \
-    && sfdx force:org:display -u ${SCRATCH_ORG_ALIAS} \
-    # Override connections in property file with scratch org usernames
-    && chmod +x /home/create_connection_overrides.sh \
-    && /home/create_connection_overrides.sh ${CONNECTION_NAME} $SCRATCH_ORG_USERNAME /home/${PROVARDX_PROPERTY_FILE} \
-    # Insert secrets password into property file (if present)
-    && chmod +x /home/insert_secrets_password.sh \
-    && /home/insert_secrets_password.sh ${ProvarSecretsPassword} /home/${PROVARDX_PROPERTY_FILE} \
-    # Deploy metadata to scratch org for admin user
-    && sfdx force:mdapi:retrieve -r package -u ${DEV_HUB_USERNAME} -k package.xml \
-    && unzip package/unpackaged.zip \
-    && sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app \
-    && sfdx force:source:push --targetusername $SCRATCH_ORG_USERNAME
-
 # Set working directory for image
-WORKDIR /home
-# Validate ProvarDX property file and compile src in Provar Project
-RUN set -ex \
-    && sfdx provar:validate -p /home/${PROVARDX_PROPERTY_FILE} \
-    && sfdx provar:compile -p /home/${PROVARDX_PROPERTY_FILE} 
-# Entrypoint script to run Provar tests
-RUN echo "#!/bin/sh \n xvfb-run sfdx provar:runtests -p /home/${PROVARDX_PROPERTY_FILE} \n sfdx force:org:delete -u $SCRATCH_ORG_ALIAS --noprompt" > /home/entrypoint.sh
-RUN chmod +x ./entrypoint.sh
-ENTRYPOINT ["./entrypoint.sh"]
-CMD
+WORKDIR /home/ProvarDX
+CMD []
