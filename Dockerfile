@@ -141,7 +141,9 @@ RUN set -ex \
     && sfdx force:project:create -n ProvarDX \
     && cp /home/project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json \
     && cp /home/package.xml /home/ProvarDX/package.xml \
-    && cp /home/.forceignore /home/ProvarDX/.forceignore ; \
+    && cp /home/.forceignore /home/ProvarDX/.forceignore \
+    && echo "Set permissions on all project folders/files" \
+    && chmod 755 -R /home/; \
     else echo "ProvarDX plugin not successfully installed" ; fi
 
 # Set working directory for image
