@@ -133,10 +133,10 @@ RUN set -ex \
     && sfdx plugins:update \
     && cp -r $WORKSPACE/provardx $PROVAR_HOME \
     # verify SFDX CLI version
-    && sfdx --version 
-
-# Setup scratch org project to deploy metadata
-RUN if [ $(sfdx plugins) == *@provartesting/provardx* ]; then cd /home/ \
+    && sfdx --version \
+    && export PROVARDX_VERSION=`sfdx plugins | grep @provartesting/provardx` \
+    # Setup scratch org project to deploy metadata
+    && if [[ PROVARDX_VERSION != "" ]]; then cd /home/ \
     && sfdx force:project:create -n ProvarDX \
     && cp /home/project-scratch-def.json /home/ProvarDX/config/project-scratch-def.json \
     && cp /home/package.xml /home/ProvarDX/package.xml \

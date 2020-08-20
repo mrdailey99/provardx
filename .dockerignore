@@ -5,3 +5,9 @@ README.md
 **/bin
 **/*.pdf
 **/plans
+.chromeProfiles
+.metadata
+.provarCaches
+.testCycles
+package-lock.json
+provardx-properties-local.json
