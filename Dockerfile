@@ -143,7 +143,7 @@ RUN set -ex \
     && cp /home/package.xml /home/ProvarDX/package.xml \
     && cp /home/.forceignore /home/ProvarDX/.forceignore \
     && echo "Set permissions on all project folders/files" \
-    && chmod 755 -R /home/; \
+    && chmod 777 -R /home/; \
     else echo "ProvarDX plugin not successfully installed" ; fi
 
 # Set working directory for image

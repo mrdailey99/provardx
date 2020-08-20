@@ -58,7 +58,8 @@ jobs:
     endpoint: 'Provar Testing Docker Hub'
     volumes:
       - /home/vsts/work/1/s/:/home/ProvarProject/ANT/Results
-    options: --env CONSUMER_KEY=$(consumer_key) 
+    options: --privileged 
+          --env CONSUMER_KEY=$(consumer_key) 
           --env SCRATCH_ORG_USERNAME=$(scratch_org_username) 
           --env DEV_HUB_USERNAME=$(dev_hub_username) 
           --env DEV_HUB_ALIAS=$(dev_hub_alias) 
