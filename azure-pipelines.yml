@@ -70,6 +70,10 @@ jobs:
 
   steps:
   - script: |
+      ls -la
+      ls -la /home/ProvarDX
+      ls -la /home/ProvarProject
+  - script: |
       /home/create_scratch_org.sh
     workingDirectory: /home/ProvarDX
     displayName: "Create Scratch Org and Deploy Metadata"
