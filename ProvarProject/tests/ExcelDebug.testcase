@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="11">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="1" title="Set Values: {}">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>C:/Users/16156/git/provardx/ProvarProject/templates/AccountData.xlsx;1581008862853</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="AccountName"/>
+            <apiParam name="Phone"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="AccountName" whereValue="Test4">
+            <workbookPath class="value" valueClass="string">templates/AccountData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:B10</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="2" title="Write: TestingInsert=&gt;templates/AccountData.xlsx">
+      <arguments>
+        <argument id="data">
+          <value class="value" valueClass="string">TestingInsert</value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="excelTarget" debug="true" sheetWriteMode="Update">
+            <workbookPath class="value" valueClass="string">templates/AccountData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+          </value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">templates/AccountData.xlsx</value>
+        </argument>
+        <argument id="updateValueRange">
+          <value class="value" valueClass="string">B1:B10</value>
+        </argument>
+        <argument id="updateColumnNames">
+          <value class="value" valueClass="string">FirstRowOfRange</value>
+        </argument>
+        <argument id="updateMatchType">
+          <value class="value" valueClass="string">RowOrColNumber</value>
+        </argument>
+        <argument id="updateMatchLocator">
+          <value class="value" valueClass="string">5</value>
+        </argument>
+      </arguments>
+      <generatedParameters>
+        <apiParam group="result" name="updateValueRange" title="Values Range">
+          <summary>The range of cells that needs to updated. If nothing is specified entire sheet is targeted</summary>
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="disableTemplateEditor">true</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="result" name="updateColumnNames" title="Column Names">
+          <summary>Identifies where the column names are in the spreadsheet:</summary>
+          <defaultValue>FirstRowOfRange</defaultValue>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">FirstRowOfRange:Across the first row|FirstColumnOfRange:Down the first column</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="result" internal="true" name="updateMatchType" title="">
+          <summary/>
+          <defaultValue>RowOrColNumber</defaultValue>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">RowOrColNumber:Match by Position|Where:Match on Condition|MatchColumns:Match by Columns</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="result" manuallyResolved="true" name="updateMatchLocator" title="Match Locator">
+          <summary>Identifies which rows in the Range will be updated. \n It can either be a row number (where the first row = 1) or a filtering condition against one or more columns (e.g. {firstName = "Joe" and surname = "Bloggs"}.</summary>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>

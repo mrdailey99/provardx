@@ -1,2 +1,7 @@
 #!/bin/sh
-awk -v username=$1 '{print} /{/ && !n {print "  \"connectionOverride\": \n  [\n    { \"connection\": \"Admin\", \"username\": \""username"\" }\n  ],"; n++}' com.provar.plugins.provardx/provardx-properties.json > tmp && mv tmp com.provar.plugins.provardx/provardx-properties.json
+if [ "$#" -ne 3 ]; then
+    echo "Usage (requires 3 parameters): create_connection_overrides.sh CONNECTION_NAME SCRATCH_ORG_USERNAME PROPERTY_FILE_JSON"
+    exit 1  
+fi
+sed -i "s|CONNECTION_NAME|$1|" $3
+sed -i "s|SCRATCH_ORG_USERNAME|$2|" $3

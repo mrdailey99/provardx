@@ -1,67 +1,94 @@
 {
-  "name": "@provartesting/provardx",
-  "description": "sfdx custom plugin to run provar testcases",
-  "version": "0.0.1",
-  "author": "Himanshu Sharma",
-  "bugs": "https://github.com/provardx/provardx/issues",
-  "dependencies": {
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
-    "@oclif/errors": "^1",
-    "@salesforce/command": "^1.4.1",
-    "@salesforce/core": "^1.3.2",
-    "jsonschema": "^1.2.4",
-    "tslib": "^1"
-  },
-  "devDependencies": {
-    "@oclif/dev-cli": "^1",
-    "@oclif/plugin-help": "^2",
-    "@oclif/test": "^1",
-    "@salesforce/dev-config": "1.4.1",
-    "@types/chai": "^4",
-    "@types/mocha": "^5",
-    "@types/node": "^10",
-    "chai": "^4",
-    "globby": "^8",
-    "mocha": "^5",
-    "nyc": "^13",
-    "rimraf": "^2.6.3",
-    "ts-node": "^8",
-    "tslint": "^5",
-    "typescript": "~3.3"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "files": [
-    "/lib",
-    "/messages",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
-  ],
-  "homepage": "https://github.com/provardx/provardx",
-  "keywords": [
-    "sfdx-plugin"
-  ],
-  "license": "MIT",
-  "oclif": {
-    "commands": "./lib/commands",
-    "bin": "sfdx",
-    "topics": {
-      "hello": {
-        "description": "Commands to say hello."
-      }
+    "name": "@provartesting/provardx",
+    "description": "A plugin for the Salesforce CLI to run provar testcases",
+    "version": "0.2.3",
+    "author": "Provar",
+    "bugs": "https://github.com/ProvarTesting/provardx/issues",
+    "dependencies": {
+        "@oclif/command": "^1",
+        "@oclif/config": "^1",
+        "@oclif/errors": "^1",
+        "@salesforce/command": "^2",
+        "@salesforce/core": "^2",
+        "jsonschema": "^1.2.4",
+        "tslib": "^1"
     },
-    "devPlugins": [
-      "@oclif/plugin-help"
-    ]
-  },
-  "repository": "provardx/provardx",
-  "scripts": {
-    "postpack": "rimraf oclif.manifest.json",
-    "posttest": "tslint -p test -t stylish",
-    "prepack": "rimraf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
-  }
+    "devDependencies": {
+        "@oclif/dev-cli": "^1",
+        "@oclif/plugin-help": "^2",
+        "@oclif/test": "^1",
+        "@salesforce/dev-config": "1.4.1",
+        "@types/chai": "^4",
+        "@types/mocha": "^5",
+        "@types/node": "^10",
+        "chai": "^4",
+        "eslint": "^7.3.1",
+        "globby": "^8",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
+        "mocha": "^5",
+        "nyc": "^14",
+        "prettier": "^2.0.5",
+        "ts-node": "^8",
+        "tslint": "^5",
+        "typescript": "3.9"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "files": [
+        "/lib",
+        "/messages",
+        "/npm-shrinkwrap.json",
+        "/oclif.manifest.json"
+    ],
+    "homepage": "https://github.com/ProvarTesting/provardx",
+    "keywords": [
+        "sfdx-plugin"
+    ],
+    "license": "BSD-3-Clause",
+    "oclif": {
+        "commands": "./lib/commands",
+        "bin": "sfdx",
+        "topics": {
+            "provar": {
+                "description": "Developer tools for executing Provar tests from a command line and using Salesforce DevHub aliases"
+            },
+            "provar:compile": {
+                "description": "Pre-compiles any /src PageObject or PageControl Java source files into object code to use in runtests"
+            },
+            "provar:metadacache": {
+                "description": "Command to pre-download any required metadata for a specified user or provar connection"
+            },
+            "provar:runtests": {
+                "description": "Runs a specified list of Provar test cases against a specified DevHub user alias or username"
+            },
+            "provar:validate": {
+                "description": "Verify a property file to confirm it is a well formed provardx property file"
+            }
+        },
+        "devPlugins": [
+            "@oclif/plugin-help"
+        ]
+    },
+    "repository": "ProvarTesting/provardx",
+    "scripts": {
+        "postpack": "rm -f oclif.manifest.json",
+        "posttest": "tslint -p test -t stylish",
+        "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+        "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+        "version": "oclif-dev readme && git add README.md",
+        "prettier": "prettier --write \"**/*.{json,md,ts}\"",
+        "prettier:verify": "prettier --list-different \"**/*.{json,md,ts}\""
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.{json,md,ts}": [
+            "prettier --write"
+        ]
+    }
 }

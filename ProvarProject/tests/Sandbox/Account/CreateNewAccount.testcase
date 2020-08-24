@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="2" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="17" title="Set Values: TestCaseStart">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">TestCaseStart</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="variable">
-                  <path element="NOW"/>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <tags/>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -36,7 +16,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="uiApplicationName"/>
         <argument id="closeAllPrimaryTabs">
@@ -50,7 +30,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="autoCleanup">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
@@ -62,88 +42,6 @@
           <value class="value" valueClass="string">default</value>
         </argument>
         <argument id="webBrowser"/>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: AccountName">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">AccountName</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="compound">
-                  <parts>
-                    <value valueClass="string">Smoke </value>
-                    <funcCall id="UniqueId">
-                      <argument id="length">
-                        <value class="value" valueClass="decimal">6</value>
-                      </argument>
-                    </funcCall>
-                  </parts>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: AccountPhone">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">AccountPhone</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="compound">
-                  <parts>
-                    <funcCall id="UniqueId">
-                      <argument id="length">
-                        <value class="value" valueClass="decimal">3</value>
-                      </argument>
-                      <argument id="format">
-                        <value class="variable">
-                          <path element="NUMERIC"/>
-                        </value>
-                      </argument>
-                    </funcCall>
-                    <value valueClass="string">-</value>
-                    <funcCall id="UniqueId">
-                      <argument id="length">
-                        <value class="value" valueClass="decimal">3</value>
-                      </argument>
-                      <argument id="format">
-                        <value class="variable">
-                          <path element="NUMERIC"/>
-                        </value>
-                      </argument>
-                    </funcCall>
-                    <value valueClass="string">-</value>
-                    <funcCall id="UniqueId">
-                      <argument id="length">
-                        <value class="value" valueClass="decimal">4</value>
-                      </argument>
-                      <argument id="format">
-                        <value class="variable">
-                          <path element="NUMERIC"/>
-                        </value>
-                      </argument>
-                    </funcCall>
-                  </parts>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="4" title="On SF Account Home screen">
@@ -292,19 +190,24 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="value" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
-                    <textType/>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="maxLength">255</valueConstraint>
+                        <valueConstraint name="maxLines">1</valueConstraint>
+                      </constraints>
+                    </textType>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="blur" title="Tab off field">
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
                   <summary>Whether the tab key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="pressEnter" title="Press Enter">
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
                   <summary>Whether the Enter key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
@@ -369,6 +272,63 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Set the Website field to {Website}">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:locator?name=Website&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DWebsite"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                </argument>
+                <argument argId="14cad462-2fe0-4ea4-8795-688a3967f2cc" id="value">
+                  <value class="variable">
+                    <path element="Website"/>
+                  </value>
+                </argument>
+                <argument id="blur">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="pressEnter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Website field to {Website}</value>
+                </argument>
+                <argument id="autoRetry"/>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="value" seq="10000" title="Value">
+                  <summary>The value to be populated.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Click the Save button">
               <arguments>
                 <argument id="locator">
@@ -381,10 +341,10 @@
                   <value class="value" valueClass="boolean">false</value>
                 </argument>
                 <argument id="captureBefore">
-                  <value class="value" valueClass="string">true</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">true</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -476,48 +436,124 @@
             <path element="AccountPhone"/>
           </expected>
         </resultAssertion>
+        <resultAssertion resultName="Website" title="Check Website">
+          <expected class="variable">
+            <path element="Website"/>
+          </expected>
+        </resultAssertion>
       </resultAssertions>
       <parameterGeneratorProperties>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
       </parameterGeneratorProperties>
       <generatedParameters>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="Name" title="Account Name"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="13" title="Finally: Record Test Status in SF">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Record Test Status in SF</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="52">
-          <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/MRD/Copado/Callable/Create Test Case.testcase" testItemId="53">
-              <arguments>
-                <argument id="TestCaseName">
-                  <value class="funcCall" id="TestCaseName"/>
-                </argument>
-                <argument id="TestCaseStart">
-                  <value class="variable">
-                    <path element="TestCaseStart"/>
-                  </value>
-                </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="TestCaseExecutionId">
-                  <name class="value" valueClass="string">TestCaseExecutionId</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
   </steps>
+  <params>
+    <param name="AccountName" title="Account Name">
+      <summary>The value to be set.</summary>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param name="AccountPhone" title="Account Phone">
+      <summary>The value to be set.</summary>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:14cad462-2fe0-4ea4-8795-688a3967f2cc" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <outputParams>
+    <param name="accountId" title="accountId">
+      <summary>The name under which the resulting Object Id will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="accountId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="AccountName">
+      <value class="compound">
+        <parts>
+          <value valueClass="string">Smoke </value>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">6</value>
+            </argument>
+          </funcCall>
+        </parts>
+      </value>
+    </argument>
+    <argument id="AccountPhone">
+      <value class="compound">
+        <parts>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">3</value>
+            </argument>
+            <argument id="format">
+              <value class="variable">
+                <path element="NUMERIC"/>
+              </value>
+            </argument>
+          </funcCall>
+          <value valueClass="string">-</value>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">3</value>
+            </argument>
+            <argument id="format">
+              <value class="variable">
+                <path element="NUMERIC"/>
+              </value>
+            </argument>
+          </funcCall>
+          <value valueClass="string">-</value>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">4</value>
+            </argument>
+            <argument id="format">
+              <value class="variable">
+                <path element="NUMERIC"/>
+              </value>
+            </argument>
+          </funcCall>
+        </parts>
+      </value>
+    </argument>
+    <argument id="Website">
+      <value class="value" valueClass="string">testing.com</value>
+    </argument>
+  </args>
+  <outputArgs>
+    <outputArgument id="accountId">
+      <name class="value" valueClass="string">accountId</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>

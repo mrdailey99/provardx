@@ -1,6 +1,6 @@
 {
     "commandDescription": "Pre-compiles any /src PageObject or PageControl Java source files into object code to use in runtests",
-    "propertyFileFlagDescription" : "Specify custom property file.",
+    "propertyFileFlagDescription": "Specify custom property file.",
     "provarHomeFlagDescription": "Specify provar home override",
     "projectPathFlagDescription": "Specify project path override",
     "loglevelFlagDescription": "Specify log level for command output"
