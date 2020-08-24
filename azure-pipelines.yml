@@ -67,8 +67,14 @@ steps:
   - task: ShellScript@2
     inputs:
       scriptPath: create_connection_overrides.sh
-      args: $(scratch_org_username)
-    displayName: 'Copy Scratch Org user to property file'
+      args: $(connection_name) $(scratch_org_username) $(Build.SourcesDirectory)/provardx-properties.json
+    displayName: "Copy Scratch Org user to property file"
+
+  - task: ShellScript@2
+    inputs:
+      scriptPath: insert_secrets_password.sh
+      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
+    displayName: "Insert Provar Secrets Password to Property File"
 
   - bash: |
       sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username) -a $(scratch_org_alias)
