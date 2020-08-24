@@ -12,6 +12,8 @@ pool:
   vmImage: 'ubuntu-latest'
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
+  provar_major_version: latest
+  provar_build_version: latest
 steps:
   # Download secure file
   # Download a secure file to the agent machine
