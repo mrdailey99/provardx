@@ -112,12 +112,22 @@ steps:
       sfdx provar:compile -p ../provardx-properties.json
     displayName: 'Compile Provar Tests'
 
-  # - bash: |
-  #     cd com.provar.plugins.provardx
-  #     sfdx provar:metadatacache -m 'refresh' -c '/home/vsts/work/1/s/.provarCaches' -p 'provardx-properties.json'
-  #   displayName: 'Refresh Metadata Cache for SF'
-
   - bash: |
       cd com.provar.plugins.provardx 
       sfdx provar:runtests -p ../provardx-properties.json
     displayName: 'Run Provar Tests'
+
+  - bash: |
+      sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+    displayName: "Delete Scratch Org"
+    
+  # Publish Test Results
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: "**/Results/*.xml"
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      failTaskOnFailedTests: true # Optional
+      testRunTitle: ProvarDX Test Suite # Optional
+    displayName: "Publish JUnit Test Results"
