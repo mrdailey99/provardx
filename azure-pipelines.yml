@@ -11,7 +11,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  scratch_org_username: $(Build.BuildNumber)@provartesting.com
+  scratch_org_username: $(Build.BuildNumber)@provartesting.com.ToLower()
 steps:
   # Download secure file
   # Download a secure file to the agent machine
