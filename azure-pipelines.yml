@@ -104,12 +104,12 @@ steps:
 
   - bash: |
       cd com.provar.plugins.provardx
-      sfdx provar:validate
+      sfdx provar:validate -p ../provardx-properties.json
     displayName: 'Validate ProvarDX property file'
 
   - bash: |
       cd com.provar.plugins.provardx
-      sfdx provar:compile -p provardx-properties.json
+      sfdx provar:compile -p ../provardx-properties.json
     displayName: 'Compile Provar Tests'
 
   # - bash: |
@@ -119,5 +119,5 @@ steps:
 
   - bash: |
       cd com.provar.plugins.provardx 
-      sfdx provar:runtests -p provardx-properties.json
+      sfdx provar:runtests -p ../provardx-properties.json
     displayName: 'Run Provar Tests'
