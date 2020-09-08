@@ -24,7 +24,7 @@ echo "Insert secrets password into ProvarDX property file"
 echo "Retrieve metadata from Dev Hub and push to Scratch Org"
 sfdx force:mdapi:retrieve -r package -u $DEV_HUB_USERNAME -k /home/ProvarDX/package.xml 
 unzip /home/ProvarDX/package/unpackaged.zip 
-sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app 
+sfdx force:mdapi:convert --rootdir /home/ProvarDX/unpackaged --outputdir /home/ProvarDX/force-app 
 sfdx force:source:push --targetusername $SCRATCH_ORG_USERNAME
 echo "---------Metadata Successfully Pushed to Scratch Org-----------"
 
