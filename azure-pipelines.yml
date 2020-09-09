@@ -73,12 +73,12 @@ steps:
       sfdx force:source:push -u $(scratch_org_username)
     displayName: "Update Scratch Org Admin Profile"
 
-  - task: ExtractFiles@1
-    inputs:
-      archiveFilePatterns: 'Provar_ANT_2.2.0.00.zip'
-      destinationFolder: '$BUILD_SOURCESDIRECTORY/ProvarHome'
-      cleanDestinationFolder: false
-    displayName: "Extract Provar ANT Libraries"
+  # - task: ExtractFiles@1
+  #   inputs:
+  #     archiveFilePatterns: 'Provar_ANT_2.2.0.00.zip'
+  #     destinationFolder: '$BUILD_SOURCESDIRECTORY/ProvarHome'
+  #     cleanDestinationFolder: false
+  #   displayName: "Extract Provar ANT Libraries"
 
   - bash: |
       # echo "Download Provar Libraries"
