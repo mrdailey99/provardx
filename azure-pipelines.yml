@@ -8,8 +8,8 @@ pool:
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
   connection_name: Admin
-  provar_major_version: latest
-  provar_build_version: latest
+  provar_major_version: 2.2.0
+  provar_build_version: 2.2.0.00
 steps:
   # Download secure file
   # Download a secure file to the agent machine
@@ -75,7 +75,7 @@ steps:
 
   - bash: |
       echo "Download Provar Libraries"
-      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      # wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
       echo "Unzip Provar ANT Files"
       unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
