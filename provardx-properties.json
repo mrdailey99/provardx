@@ -9,7 +9,7 @@
     "resultsPathDisposition":"Replace", 
     "testOutputLevel":"WARNING",
     "pluginOutputlevel":"WARNING",
-    "excludeCallable":true,
+    "excludeCallable":false,
     "stopOnError":false,
     "lightningMode":true,
     "connectionRefreshType":"Reload",
@@ -27,7 +27,6 @@
     },
     "testCase":[
        "Connection.setup",
-       "/Sandbox",
-       "/Smoke Tests"
+       "/Sandbox"
     ]	
  }
