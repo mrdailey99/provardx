@@ -8,8 +8,8 @@ pool:
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
   connection_name: Admin
-  provar_major_version: 2.2.0
-  provar_build_version: 2.2.0.00
+  provar_major_version: latest
+  provar_build_version: latest
 steps:
   # Download secure file
   # Download a secure file to the agent machine
@@ -73,21 +73,11 @@ steps:
       sfdx force:source:push -u $(scratch_org_username)
     displayName: "Update Scratch Org Admin Profile"
 
-  # - task: ExtractFiles@1
-  #   inputs:
-  #     archiveFilePatterns: 'Provar_ANT_2.2.0.00.zip'
-  #     destinationFolder: '$BUILD_SOURCESDIRECTORY/ProvarHome'
-  #     cleanDestinationFolder: false
-  #   displayName: "Extract Provar ANT Libraries"
-
   - bash: |
-      # echo "Download Provar Libraries"
-      # wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      echo "Download Provar Libraries"
+      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
       echo "Unzip Provar ANT Files"
-      zip -FF Provar_ANT_$(provar_build_version).zip --out RepairedZip.zip | unzip
-      mv -r ant $BUILD_SOURCESDIRECTORY/ProvarHome/ant
-      mv -r lib $BUILD_SOURCESDIRECTORY/ProvarHome/lib
-      # unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
       cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
       ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
