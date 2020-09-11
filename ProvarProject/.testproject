@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="DevHub">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -8,9 +8,6 @@
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
   <environments>
-    <environment name="QA">
-      <summary/>
-    </environment>
     <environment name="ProvarDX">
       <summary>Running in scratch org using ProvarDX plugin.</summary>
     </environment>
@@ -28,41 +25,6 @@
       <values>
         <testVariableValue>
           <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1</value>
-        </testVariableValue>
-      </values>
-    </testVariable>
-    <testVariable name="App">
-      <valueType class="textType">
-        <constraints>
-          <valueConstraint name="minLength">0</valueConstraint>
-          <valueConstraint name="maxLength">9999</valueConstraint>
-          <valueConstraint name="regex"/>
-        </constraints>
-      </valueType>
-      <summary/>
-      <values>
-        <testVariableValue>
-          <value class="value" valueClass="string">Dreamhouse</value>
-        </testVariableValue>
-        <testVariableValue envName="Visualforce2LWC">
-          <valueType class="textType">
-            <constraints>
-              <valueConstraint name="minLength">0</valueConstraint>
-              <valueConstraint name="maxLength">9999</valueConstraint>
-              <valueConstraint name="regex"/>
-            </constraints>
-          </valueType>
-          <value class="value" valueClass="string">Visualforce_to_LWC</value>
-        </testVariableValue>
-        <testVariableValue envName="Ebikes">
-          <valueType class="textType">
-            <constraints>
-              <valueConstraint name="minLength">0</valueConstraint>
-              <valueConstraint name="maxLength">9999</valueConstraint>
-              <valueConstraint name="regex"/>
-            </constraints>
-          </valueType>
-          <value class="value" valueClass="string">Ebikes</value>
         </testVariableValue>
       </values>
     </testVariable>
