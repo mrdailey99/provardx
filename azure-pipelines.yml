@@ -55,7 +55,7 @@ steps:
     displayName: "Insert Provar Secrets Password to Property File"
 
   - bash: |
-      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -u $(scratch_org_username) -a $(scratch_org_alias)
+      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username) -a $(scratch_org_alias)
       sfdx force:org:display -u $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
