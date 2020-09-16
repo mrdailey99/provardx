@@ -46,7 +46,6 @@ jobs:
 - job: Linux
   dependsOn: Build
   variables:     
-    scratch_org_username: $(Build.BuildNumber)@provartesting.com
     connection_name: Admin
     instance_url: https://login.salesforce.com
     test_environment: ProvarDX
@@ -60,10 +59,8 @@ jobs:
       - /home/vsts/work/1/s/:/home/ProvarProject/ANT/Results
     options: --privileged 
           --env CONSUMER_KEY=$(consumer_key) 
-          --env SCRATCH_ORG_USERNAME=$(scratch_org_username) 
           --env DEV_HUB_USERNAME=$(dev_hub_username) 
           --env DEV_HUB_ALIAS=$(dev_hub_alias) 
-          --env SCRATCH_ORG_ALIAS=$(scratch_org_alias) 
           --env ProvarSecretsPassword=$(secrets_password) 
           --env ENVIRONMENT=$(test_environment) 
           --env INSTANCE_URL=$(instance_url) 

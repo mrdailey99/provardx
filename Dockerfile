@@ -21,12 +21,8 @@ ARG ProvarSecretsPassword
 ARG DEV_HUB_USERNAME
 ## The alias used for the dev hub for sfdx
 ARG DEV_HUB_ALIAS
-## The unique username for the Scratch Org to be created with
-ARG SCRATCH_ORG_USERNAME
 ## Consumer Key for dev hub authentication
 ARG CONSUMER_KEY
-## The alias for the scratch org (doesn't need to be unique)
-ARG SCRATCH_ORG_ALIAS=ProvarDX
 ## Dev hub instance URL
 ARG INSTANCE_URL="https://login.salesforce.com"
 ARG PROVARDX_PROPERTY_FILE=provardx-properties-docker.json
@@ -47,9 +43,7 @@ ARG ENV
 ARG ProvarSecretsPassword
 ARG DEV_HUB_USERNAME
 ARG DEV_HUB_ALIAS
-ARG SCRATCH_ORG_USERNAME
 ARG CONSUMER_KEY
-ARG SCRATCH_ORG_ALIAS
 ARG INSTANCE_URL
 ARG PROVARDX_PROPERTY_FILE
 ARG CONNECTION_NAME
@@ -65,8 +59,6 @@ ENV REPO_HOME=/srv/Provar \
     ProvarSecretsPassword=${ProvarSecretsPassword} \
     DEV_HUB_USERNAME=${DEV_HUB_USERNAME} \
     DEV_HUB_ALIAS=${DEV_HUB_ALIAS} \
-    SCRATCH_ORG_USERNAME=${SCRATCH_ORG_USERNAME} \
-    SCRATCH_ORG_ALIAS=${SCRATCH_ORG_ALIAS} \
     INSTANCE_URL=${INSTANCE_URL} \
     PROVARDX_PROPERTY_FILE=${PROVARDX_PROPERTY_FILE} \
     CONNECTION_NAME=${CONNECTION_NAME} \
@@ -118,8 +110,7 @@ RUN set -ex \
     && chmod +x /home/create_scratch_org.sh \
     && chmod +x /home/delete_scratch_org.sh \
     && chmod +x /home/run_provar_tests.sh \
-    && chmod +x /home/insert_secrets_password.sh \
-    && chmod +x /home/create_connection_overrides.sh
+    && chmod +x /home/insert_secrets_password.sh 
     # Remove additional packages 
     # && apt remove -y git \
     # curl \
