@@ -1,7 +1,7 @@
 {
     "connectionOverride": 
     [
-      {"connection": "CONNECTION_NAME", "username": "SCRATCH_ORG_USERNAME"}
+      {"connection": "Admin", "username": "ProvarDX"}
     ],
     "provarHome":"/home/vsts/work/1/s/ProvarHome",
     "projectPath":"/home/vsts/work/1/s/ProvarProject",
