@@ -16,16 +16,19 @@ import com.provar.core.testapi.annotations.*;
 public class propertyFilter {
 
 	@TextType()
-	@FindBy(xpath = ".//c-property-filter//lightning-input//input[@type='text']")
+	@FindBy(xpath = ".//c-property-filter//lightning-input//input")
 	public WebElement searchKey;
 	@TextType()
-	@FindBy(xpath = ".//c-property-filter//label[normalize-space(.)='Max Price0-1200000']/following-sibling::div//input")
+	@JavascriptBy(jspath = "return {provarContext}.querySelector('c-property-filter').shadowRoot.querySelector('lightning-slider').shadowRoot.querySelector('input.slds-slider__range')")
 	public WebElement maxPrice;
 	@TextType()
-	@FindBy(xpath = ".//c-property-filter//label[normalize-space(.)='Bedrooms0-6']/following-sibling::div//input")
+	@JavascriptBy(jspath = "return {provarContext}.querySelector('c-property-filter').shadowRoot.querySelectorAll('lightning-slider.slds-form-element')[1].shadowRoot.querySelector('input.slds-slider__range')")
 	public WebElement bedrooms;
 	@TextType()
-	@FindBy(xpath = ".//c-property-filter//label[normalize-space(.)='Bathrooms0-6']/following-sibling::div//input")
+	@JavascriptBy(jspath = "return {provarContext}.querySelector('c-property-filter').shadowRoot.querySelectorAll('lightning-slider.slds-form-element')[2].shadowRoot.querySelector('input.slds-slider__range')")
 	public WebElement bathrooms;
+	@ButtonType()
+	@FindBy(xpath = ".//c-property-filter//button[normalize-space(.)='Reset']")
+	public WebElement reset;
 	
 }

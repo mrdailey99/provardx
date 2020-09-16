@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="6">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -109,7 +109,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.propertyFilter&amp;flexiPage=Property_Explorer&amp;dataComponentId=propertyFilter&amp;flexiPath=left%3A%3A0&amp;lightningComponent=propertyFilter"/>
+          <value class="uiTarget" uri="sf:ui:target?flexiPage=Property_Explorer&amp;flexiPath=left%3A%3A0&amp;lightningComponent=propertyFilter&amp;dataComponentId=propertyFilter&amp;pageObject=pageobjects.propertyFilter"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
@@ -197,42 +197,34 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="22" title="Set the Max Price field to {PropertyData.AskingPrice}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="59" title="Set the Max Price field to {PropertyData.AskingPrice}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=maxPrice"/>
                 </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Max Price field to {PropertyData.AskingPrice}</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Max Price field to {PropertyData.AskingPrice}</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                </argument>
+                <argument id="pressEnter"/>
                 <argument id="value">
                   <value class="variable">
                     <path element="PropertyData"/>
                     <path element="AskingPrice"/>
                   </value>
                 </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
+                <argument id="blur"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="value" seq="10000" title="Value">
@@ -259,7 +251,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="51" title="Set the Bedrooms field to {PropertyData.Beds}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="64" title="Set the Bedrooms field to {PropertyData.Beds}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=bedrooms"/>
@@ -267,34 +259,26 @@
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
-                <argument id="value">
-                  <value class="variable">
-                    <path element="PropertyData"/>
-                    <path element="Beds"/>
-                  </value>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Bedrooms field to {PropertyData.Beds}</value>
                 </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
+                <argument id="value">
+                  <value class="variable">
+                    <path element="PropertyData"/>
+                    <path element="Beds"/>
+                  </value>
                 </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Bedrooms field to {PropertyData.Beds}</value>
-                </argument>
-                <argument id="autoRetry"/>
+                <argument id="blur"/>
+                <argument id="pressEnter"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="value" seq="10000" title="Value">
@@ -321,7 +305,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="55" title="Set the Bathrooms field to {PropertyData.Baths}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="65" title="Set the Bathrooms field to {PropertyData.Baths}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=bathrooms"/>
@@ -329,34 +313,26 @@
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
-                <argument id="value">
-                  <value class="variable">
-                    <path element="PropertyData"/>
-                    <path element="Baths"/>
-                  </value>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Bathrooms field to {PropertyData.Baths}</value>
                 </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
+                <argument id="value">
+                  <value class="variable">
+                    <path element="PropertyData"/>
+                    <path element="Baths"/>
+                  </value>
                 </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Bathrooms field to {PropertyData.Baths}</value>
-                </argument>
-                <argument id="autoRetry"/>
+                <argument id="blur"/>
+                <argument id="pressEnter"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="value" seq="10000" title="Value">
@@ -401,7 +377,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.propertyTileList&amp;flexiPage=Property_Explorer&amp;dataComponentId=propertyTileList&amp;flexiPath=center%3A%3A0&amp;lightningComponent=propertyTileList"/>
+          <value class="uiTarget" uri="sf:ui:target?flexiPage=Property_Explorer&amp;flexiPath=center%3A%3A0&amp;lightningComponent=propertyTileList&amp;pageObject=pageobjects.propertyTileList"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -775,7 +751,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="46" title="Validate Baths Count is 4 or more">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="46" title="Validate Baths Count is 3 or more">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -817,7 +793,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="17" title="Validate Beds Count is 5 or more">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="17" title="Validate Beds Count is 3 or more">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -919,7 +895,7 @@
                           </value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
+                          <value class="value" valueClass="string">true</value>
                         </argument>
                         <argument id="columnAssertions">
                           <value class="valueList" mutable="Mutable"/>
@@ -948,4 +924,7 @@
       </clauses>
     </apiCall>
   </steps>
+  <tagReferences>
+    <tagRef tagName="Search Properties Test Time" tagTypeName="sla"/>
+  </tagReferences>
 </testCase>

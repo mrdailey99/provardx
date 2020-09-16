@@ -1,0 +1,31 @@
+{    
+   "connectionOverride": 
+   [
+     {"connection": "Admin", "username": "dreamhouse"}
+   ],
+    "provarHome":"C:/Program Files/Provar22",
+    "projectPath":"c:/Users/16156/git/provardx/ProvarProject",
+    "resultsPath":"c:/Users/16156/git/provardx/ProvarProject/ANT/Results",
+    "smtpPath": "",
+    "resultsPathDisposition": "Increment", 
+    "testOutputLevel":"WARNING",
+    "pluginOutputlevel":"WARNING",
+    "stopOnError":false,
+    "lightningMode":true,
+    "connectionRefreshType":"Reload",
+    "metadata":{
+       "metadataLevel":"Reuse",
+       "cachePath":"../.provarCaches"
+    },
+    "testprojectSecrets": "ProvarDX2020", 
+    "environment":{
+       "testEnvironment":"",
+       "webBrowser":"Chrome_Headless",
+       "webBrowserConfig":"Full Screen",
+       "webBrowserProviderName":"Desktop",
+       "webBrowserDeviceName":"Full Screen"
+    }
+    ,"testCase":[
+         "/Search Properties.testcase"  
+     ]
+ }

@@ -23,5 +23,8 @@ public class ProductExplorer {
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//slot[@name='title']/span")
 	public WebElement productName;
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='EXPLORE MORE']")
+	public WebElement eXPLOREMORE;
 			
 }

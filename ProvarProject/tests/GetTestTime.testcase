@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="0">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="11" title="Set Values: StartTime">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">StartTime</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="NOW"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="18" title="Pausing Test for X seconds">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Pausing Test for X seconds</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="19">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="20" title="Sleep for {5} seconds">
+              <arguments>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">5</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="12" title="Finally: ">
+      <arguments>
+        <argument id="description"/>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="13">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="14" title="Set Values: EndTime">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">EndTime</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="NOW"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="customapis.GetTimeDifference" name="GetTimeDifference" testItemId="22" title="Get Time Difference: ⇒ TotalRunTime">
+              <arguments>
+                <argument id="startTime">
+                  <value class="variable">
+                    <path element="StartTime"/>
+                  </value>
+                </argument>
+                <argument id="endTime">
+                  <value class="variable">
+                    <path element="EndTime"/>
+                  </value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">TotalRunTime</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

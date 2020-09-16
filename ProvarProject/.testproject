@@ -71,6 +71,19 @@
       </connections>
     </connectionClass>
   </connectionClasses>
+  <tagTypes>
+    <tagType name="sla" tagClass="sla" title="SLA Requirement">
+      <summary>Service Level Agreement requirement</summary>
+      <tags>
+        <slaTag expectedDurationMs="92000" maximumDurationMs="120000" name="Search Properties Test Time">
+          <summary>The time it should take to complete the Search Properties test case.</summary>
+        </slaTag>
+      </tags>
+      <tagTypeTargets>
+        <tagTypeTarget targetName="com.provar.core.model.test.api.ITestItem"/>
+      </tagTypeTargets>
+    </tagType>
+  </tagTypes>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
       <summary>Full screen with Test Builder adjustment</summary>

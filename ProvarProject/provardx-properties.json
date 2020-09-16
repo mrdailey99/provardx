@@ -1,7 +1,7 @@
 {    
    "connectionOverride": 
    [
-     {"connection": "Admin", "username": "SCRATCH_ORG_USERNAME"}
+     {"connection": "Admin", "username": "dreamhouse"}
    ],
     "provarHome":"C:/Program Files/Provar22",
     "projectPath":"c:/Users/16156/git/provardx/ProvarProject",
@@ -17,7 +17,7 @@
        "metadataLevel":"Reuse",
        "cachePath":"../.provarCaches"
     },
-    "testprojectSecrets": "ProvarSecretsPassword", 
+    "testprojectSecrets": "ProvarDX2020", 
     "environment":{
        "testEnvironment":"",
        "webBrowser":"Chrome",
