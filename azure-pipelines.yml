@@ -8,8 +8,8 @@ pool:
 variables:
   scratch_org_username: $(Build.BuildNumber)@provartesting.com
   connection_name: Admin
-  provar_major_version: latest
-  provar_build_version: latest
+  provar_major_version: 2.1.1
+  provar_build_version: 2.1.1.09
 steps:
   # Download secure file
   # Download a secure file to the agent machine
