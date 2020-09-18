@@ -69,7 +69,7 @@ steps:
       sfdx force:mdapi:retrieve -r package -u $(dev_hub_username) -k package.xml
       unzip ./package/unpackaged.zip
       sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-      sfdx force:source:push -u $(scratch_org_alias)
+      sfdx force:source:push -u $(scratch_org_alias) -f
     displayName: "Update Scratch Org Admin Profile"
 
   - bash: |
