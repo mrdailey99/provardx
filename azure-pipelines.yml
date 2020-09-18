@@ -6,7 +6,6 @@ trigger:
 pool:
   vmImage: "ubuntu-latest"
 variables:
-  scratch_org_username: $(Build.BuildNumber)@provartesting.com
   connection_name: Admin
   provar_major_version: latest
   provar_build_version: latest
@@ -55,7 +54,7 @@ steps:
     displayName: "Insert Provar Secrets Password to Property File"
 
   - bash: |
-      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json username=$(scratch_org_username) -a $(scratch_org_alias)
+      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a $(scratch_org_alias)
       sfdx force:org:display -u $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
