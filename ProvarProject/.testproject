@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="CopadoHub">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -10,6 +10,9 @@
   <environments>
     <environment name="ProvarDX">
       <summary>Running in scratch org using ProvarDX plugin.</summary>
+    </environment>
+    <environment name="CopadoHub">
+      <summary/>
     </environment>
   </environments>
   <variables>
@@ -66,6 +69,7 @@
           <summary/>
           <connectionUrls>
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
