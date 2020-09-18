@@ -16,7 +16,7 @@ import com.provar.core.testapi.annotations.*;
 public class propertyFilter {
 
 	@TextType()
-	@FindBy(xpath = ".//c-property-filter//lightning-input//input")
+	@FindBy(xpath = ".//c-property-filter//lightning-input//input[@type='text']")
 	public WebElement searchKey;
 	@TextType()
 	@JavascriptBy(jspath = "return {provarContext}.querySelector('c-property-filter').shadowRoot.querySelector('lightning-slider').shadowRoot.querySelector('input.slds-slider__range')")

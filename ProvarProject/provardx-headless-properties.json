@@ -12,12 +12,11 @@
     "pluginOutputlevel":"WARNING",
     "stopOnError":false,
     "lightningMode":true,
-    "connectionRefreshType":"Reload",
+    "connectionRefreshType":"Reuse",
     "metadata":{
        "metadataLevel":"Reuse",
        "cachePath":"../.provarCaches"
     },
-    "testprojectSecrets": "ProvarDX2020", 
     "environment":{
        "testEnvironment":"",
        "webBrowser":"Chrome_Headless",
