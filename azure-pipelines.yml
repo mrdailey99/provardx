@@ -110,3 +110,9 @@ steps:
       failTaskOnFailedTests: true # Optional
       testRunTitle: ProvarDX Test Suite # Optional
     displayName: "Publish JUnit Test Results"
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: "$(System.DefaultWorkingDirectory)/ProvarProject/ANT/Results"
+      artifactName: "TestResults"
+    displayName: "Publish Test Results Zip"
