@@ -27,6 +27,6 @@
     },
     "testCase":[
        "Connection.setup",
-       "/Sandbox"
+       "/Regression"
     ]	
  }
