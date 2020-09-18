@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="DevHub">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -8,29 +8,8 @@
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
   <environments>
-    <environment name="QA">
-      <summary/>
-    </environment>
-    <environment name="PROD">
-      <summary/>
-    </environment>
-    <environment name="Scratch">
-      <summary>Scratch Org</summary>
-    </environment>
     <environment name="ProvarDX">
       <summary>Running in scratch org using ProvarDX plugin.</summary>
-    </environment>
-    <environment name="DevHub">
-      <summary/>
-    </environment>
-    <environment name="Visualforce2LWC">
-      <summary/>
-    </environment>
-    <environment name="Ebikes">
-      <summary/>
-    </environment>
-    <environment name="Dreamhouse">
-      <summary/>
     </environment>
   </environments>
   <variables>
@@ -46,41 +25,6 @@
       <values>
         <testVariableValue>
           <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1</value>
-        </testVariableValue>
-      </values>
-    </testVariable>
-    <testVariable name="App">
-      <valueType class="textType">
-        <constraints>
-          <valueConstraint name="minLength">0</valueConstraint>
-          <valueConstraint name="maxLength">9999</valueConstraint>
-          <valueConstraint name="regex"/>
-        </constraints>
-      </valueType>
-      <summary/>
-      <values>
-        <testVariableValue>
-          <value class="value" valueClass="string">Dreamhouse</value>
-        </testVariableValue>
-        <testVariableValue envName="Visualforce2LWC">
-          <valueType class="textType">
-            <constraints>
-              <valueConstraint name="minLength">0</valueConstraint>
-              <valueConstraint name="maxLength">9999</valueConstraint>
-              <valueConstraint name="regex"/>
-            </constraints>
-          </valueType>
-          <value class="value" valueClass="string">Visualforce_to_LWC</value>
-        </testVariableValue>
-        <testVariableValue envName="Ebikes">
-          <valueType class="textType">
-            <constraints>
-              <valueConstraint name="minLength">0</valueConstraint>
-              <valueConstraint name="maxLength">9999</valueConstraint>
-              <valueConstraint name="regex"/>
-            </constraints>
-          </valueType>
-          <value class="value" valueClass="string">Ebikes</value>
         </testVariableValue>
       </values>
     </testVariable>
@@ -116,45 +60,30 @@
         </connection>
       </connections>
     </connectionClass>
-    <connectionClass name="ui">
-      <connections>
-        <connection name="testConnection">
-          <summary>\t</summary>
-          <connectionUrls>
-            <connectionUrl url="se:baseUrl=http://google.com"/>
-            <connectionUrl envName="QA" url="se:baseUrl=http://google2.com"/>
-          </connectionUrls>
-        </connection>
-        <connection name="ProvarWebsite">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="se:baseUrl=https://www.provartesting.com/contact/"/>
-          </connectionUrls>
-        </connection>
-        <connection name="Amazon">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="se:baseUrl=http://amazon.com"/>
-          </connectionUrls>
-        </connection>
-      </connections>
-    </connectionClass>
     <connectionClass name="sf">
       <connections>
         <connection name="Admin">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-            <connectionUrl envName="Scratch" secureStorageNodeId="c8f93da1-1b79-4a86-9e71-7701a63152a2" url="sf:user=mrdtesting@test.com;password={password};environment=OTHER;apiLoginUrl=https://ability-enterprise-5093-dev-ed.cs69.my.salesforce.com/;userLoginUrl=https://CS69.salesforce.com;lightningMode=true"/>
-            <connectionUrl envName="DevHub" secureStorageNodeId="1e2a8a24-a9f0-40a8-8f3b-6d852a52a1d9" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;clientId=3MVG9_XwsqeYoueLvGVFqnnMhtgExKjNBKqwww4noS7CNe8B296lnbmBDrvUFNKAa9AufbsfavQChFFPbJWzf;clientSecret={clientSecret};lightningMode=true"/>
-            <connectionUrl envName="Visualforce2LWC" secureStorageNodeId="6403db10-c275-4691-b9b0-ca106b992ddb" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-            <connectionUrl envName="Ebikes" secureStorageNodeId="1eaf314e-f510-4bfc-a487-d5f80acfd851" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-            <connectionUrl envName="Dreamhouse" secureStorageNodeId="c4fc5729-2552-4507-b488-8e49b0f5bfcc" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
     </connectionClass>
   </connectionClasses>
+  <tagTypes>
+    <tagType name="sla" tagClass="sla" title="SLA Requirement">
+      <summary>Service Level Agreement requirement</summary>
+      <tags>
+        <slaTag expectedDurationMs="92000" maximumDurationMs="120000" name="Search Properties Test Time">
+          <summary>The time it should take to complete the Search Properties test case.</summary>
+        </slaTag>
+      </tags>
+      <tagTypeTargets>
+        <tagTypeTarget targetName="com.provar.core.model.test.api.ITestItem"/>
+      </tagTypeTargets>
+    </tagType>
+  </tagTypes>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
       <summary>Full screen with Test Builder adjustment</summary>

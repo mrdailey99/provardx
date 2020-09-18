@@ -152,7 +152,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="3b131cbc-43bd-4fa2-90a1-d120123fc715" testCasePath="tests/Sandbox/Lead/CreateNewLead.testcase" testItemId="2">
+    <caseCall testCaseId="3b131cbc-43bd-4fa2-90a1-d120123fc715" testCasePath="tests/Regression/Lead/CreateNewLead.testcase" testItemId="2">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">Admin</value>

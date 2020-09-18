@@ -41,7 +41,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="0526716c-2bea-4277-8e58-7385b0ee675d" testCasePath="tests/Sandbox/Account/ConvertLeadToAccount.testcase" testItemId="3">
+    <caseCall testCaseId="0526716c-2bea-4277-8e58-7385b0ee675d" testCasePath="tests/Regression/Account/ConvertLeadToAccount.testcase" testItemId="3">
       <arguments>
         <argument id="LeadId"/>
       </arguments>

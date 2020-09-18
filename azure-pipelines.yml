@@ -58,6 +58,12 @@ steps:
       sfdx force:org:display -u $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
+  - task: ShellScript@2
+    inputs:
+      scriptPath: setup_dreamhouse.sh
+      args: $(scratch_org_alias)
+    displayName: "Deploy and Setup Dreamhouse App"
+
   - bash: |
       cd ProvarDX
       sfdx force:mdapi:retrieve -r package -u $(dev_hub_username) -k package.xml

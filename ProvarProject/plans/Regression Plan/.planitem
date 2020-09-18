@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testPlan>
-  <planSettings>
-    <planSetting name="browserProvider">
-      <value valueClass="string">Desktop:Full Screen</value>
-    </planSetting>
-    <planSetting name="webBrowser">
-      <value valueClass="string">Chrome</value>
-    </planSetting>
-  </planSettings>
+  <planSettings/>
   <planFeatures>
-    <planFeature enabled="true" name="PIECHART" type="OUTPUT">
-      <settings mutable="Mutable">
-        <namedValue name="enabled">
-          <value class="value" valueClass="boolean">true</value>
-        </namedValue>
-        <namedValue name="artifactName">
-          <value class="value" valueClass="string">pieChart.png</value>
-        </namedValue>
-        <namedValue name="includeLegend">
-          <value class="value" valueClass="boolean">true</value>
-        </namedValue>
-      </settings>
-    </planFeature>
     <planFeature enabled="true" name="PDF" type="OUTPUT">
       <settings mutable="Mutable">
         <namedValue name="enabled">
@@ -54,16 +34,13 @@
         <namedValue name="includeTestStepTime">
           <value class="value" valueClass="boolean">true</value>
         </namedValue>
+        <namedValue name="includeTestCaseWarningMessages">
+          <value class="value" valueClass="boolean">true</value>
+        </namedValue>
         <namedValue name="includeTestCaseInfoMessages">
           <value class="value" valueClass="boolean">false</value>
         </namedValue>
         <namedValue name="includeTestCaseDebugMessages">
-          <value class="value" valueClass="boolean">false</value>
-        </namedValue>
-        <namedValue name="artifactName">
-          <value class="value" valueClass="string">executionReport.pdf</value>
-        </namedValue>
-        <namedValue name="includeTestCaseWarningMessages">
           <value class="value" valueClass="boolean">false</value>
         </namedValue>
         <namedValue name="includeTestCaseScreenshots">
@@ -72,21 +49,37 @@
         <namedValue name="includeFullScreenShot">
           <value class="value" valueClass="boolean">false</value>
         </namedValue>
+        <namedValue name="artifactName">
+          <value class="value" valueClass="string">executionReport.pdf</value>
+        </namedValue>
       </settings>
     </planFeature>
-    <planFeature enabled="false" name="EMAIL" type="NOTIFICATION">
+    <planFeature enabled="true" name="EMAIL" type="NOTIFICATION">
       <settings mutable="Mutable">
+        <namedValue name="to">
+          <value class="value" valueClass="string"/>
+        </namedValue>
         <namedValue name="cc">
-          <value class="value"/>
+          <value class="value" valueClass="string"/>
         </namedValue>
         <namedValue name="subject">
-          <value class="value" valueClass="string">Smoke Test Plan Execution </value>
+          <value class="value" valueClass="string">Test Plan Execution</value>
         </namedValue>
         <namedValue name="emailBody">
-          <value class="value" valueClass="string">&lt;h3&gt;&lt;font size="4"&gt;Here are the results from the most recent Smoke Test!&lt;/font&gt;&lt;/h3&gt;&lt;div&gt;&lt;font size="4"&gt;&lt;br&gt;&lt;/font&gt;&lt;div&gt;&lt;font size="4"&gt;{TestArtifact('pieChart.png')}&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font size="4"&gt;{TestArtifact('executionReport.pdf')}&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font size="3"&gt;Passed: {SuccessfulCount}&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font size="3"&gt;Failed:&amp;nbsp;{FailureCount}&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font size="3"&gt;Skipped:&amp;nbsp;{SkippedCount}&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</value>
+          <value class="value" valueClass="string">Test Plan Run Report</value>
         </namedValue>
-        <namedValue name="to">
-          <value class="value" valueClass="string">michael.dailey@provartesting.com</value>
+      </settings>
+    </planFeature>
+    <planFeature enabled="true" name="PIECHART" type="OUTPUT">
+      <settings mutable="Mutable">
+        <namedValue name="enabled">
+          <value class="value" valueClass="boolean">true</value>
+        </namedValue>
+        <namedValue name="includeLegend">
+          <value class="value" valueClass="boolean">true</value>
+        </namedValue>
+        <namedValue name="artifactName">
+          <value class="value" valueClass="string">pieChart.png</value>
         </namedValue>
       </settings>
     </planFeature>
