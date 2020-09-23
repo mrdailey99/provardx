@@ -115,7 +115,7 @@ steps:
   # Publish (upload) a file or directory as a named artifact for the current run
   - task: PublishPipelineArtifact@1
     inputs:
-      targetPath: '$(Pipeline.Workspace)'
+      targetPath: '$(System.DefaultWorkingDirectory)/ProvarProject/ANT/Results'
       artifact: 'Test Results'
       publishLocation: 'pipeline'
     displayName: "Publish Test Results Zip"
