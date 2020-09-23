@@ -102,6 +102,7 @@ steps:
     
   # Publish Test Results
   - task: PublishTestResults@2
+    continueOnError: true
     inputs:
       testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
       testResultsFiles: "**/Results/*.xml"
