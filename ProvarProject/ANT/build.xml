@@ -1,8 +1,8 @@
 <project default="runtests">
 	<property environment="env"/>
-	<property name="provar.home" value="C:/Program Files/Provar21/"/>
-	<property name="testproject.home" value=".."/>
-	<property name="testproject.results" value="../ANT/Results"/>
+	<property name="provar.home" value="C:/Program Files/Provar22/"/>
+	<property value="C:\Users\16156\git\provardx\ProvarProject" name="testproject.home"/>
+    <property value="C:\Users\16156\git\provardx\ProvarProject\ANT\Results" name="testproject.results"/>
 	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
 	<property name="testenvironment.secretspassword" value="${env.ProvarSecretsPassword_EnvName}"/>
 	
@@ -21,9 +21,9 @@
 				resultsPathDisposition="Increment" 
 				testEnvironment="" 
 				webBrowser="Chrome_Headless" 
-				webBrowserConfiguration="Full Screen"
+				webBrowserConfiguration="1920x1080"
 				webBrowserProviderName="Desktop"
-				webBrowserDeviceName="Full Screen" 
+				webBrowserDeviceName="1920x1080" 
 				excludeCallableTestCases="true" 
 				salesforceMetadataCache="Reload" 
 				projectCachePath="../../.provarCaches"
@@ -35,7 +35,7 @@
 				invokeTestRunMonitor="true"
 				>
 		
-			<fileset dir="../tests/Sandbox/Account"><include name="CreateNewAccount.testcase"/></fileset>
+			<fileset dir="${testproject.home}/tests/Regression/Dreamhouse"></fileset>
 
 		</Run-Test-Case>
 
