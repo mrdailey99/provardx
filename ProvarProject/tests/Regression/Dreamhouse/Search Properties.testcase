@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -106,7 +106,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?lightningComponent=propertyFilter&amp;pageObject=pageobjects.propertyFilter&amp;flexiPage=Property_Explorer&amp;flexiPath=left%3A%3A0&amp;dataComponentId=propertyFilter"/>
+          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.propertyFilter&amp;flexiPage=Property_Explorer&amp;flexiPath=left%3A%3A0&amp;dataComponentId=propertyFilter&amp;lightningComponent=propertyFilter"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
@@ -374,7 +374,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?lightningComponent=propertyTileList&amp;pageObject=pageobjects.propertyTileList&amp;flexiPage=Property_Explorer&amp;flexiPath=center%3A%3A0&amp;dataComponentId=propertyTileList"/>
+          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.propertyTileList&amp;flexiPage=Property_Explorer&amp;flexiPath=center%3A%3A0&amp;dataComponentId=propertyTileList&amp;lightningComponent=propertyTileList"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -469,7 +469,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?lightningComponent=propertySummary&amp;pageObject=pageobjects.propertySummary&amp;flexiPage=Property_Explorer&amp;flexiPath=right%3A%3A0"/>
+          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.propertySummary&amp;flexiPage=Property_Explorer&amp;flexiPath=right%3A%3A0&amp;lightningComponent=propertySummary"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -922,7 +922,7 @@
                   <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?dataComponentId=brokerCard&amp;flexiPath=sidebar%3A%3A0&amp;flexiPage=Property_Record_Page&amp;pageObject=pageobjects.brokerCard&amp;lightningComponent=brokerCard"/>
+                  <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.brokerCard&amp;flexiPage=Property_Record_Page&amp;flexiPath=sidebar%3A%3A0&amp;dataComponentId=brokerCard&amp;lightningComponent=brokerCard"/>
                 </argument>
                 <argument id="navigate">
                   <value class="value" valueClass="string">Dont</value>
