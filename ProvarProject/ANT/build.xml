@@ -19,7 +19,7 @@
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Increment" 
-				testEnvironment="" 
+				testEnvironment="ProvarDX" 
 				webBrowser="Chrome_Headless" 
 				webBrowserConfiguration="1920x1080"
 				webBrowserProviderName="Desktop"

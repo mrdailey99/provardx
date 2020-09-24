@@ -49,25 +49,7 @@
           <value class="value" valueClass="string">Read Property Data from Excel</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="PropertyData" variableScope="Test">
-          <cacheToken>C:/Users/16156/git/provardx/ProvarProject/templates/WebinarData.xlsx;1600437817782</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="City"/>
-            <apiParam name="State"/>
-            <apiParam name="AskingPrice"/>
-            <apiParam name="Beds"/>
-            <apiParam name="Baths"/>
-            <apiParam name="Broker"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/WebinarData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Properties</worksheetName>
-            <valuesRange class="value" valueClass="string">A1:F2</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="20">
           <steps>
@@ -746,9 +728,7 @@
                             <uiFieldAssertion resultName="Price__c">
                               <fieldLocator uri="ui:locator?name=Price__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DPrice__c"/>
                               <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="None" normalize="true">
-                                  <value class="value" valueClass="string">$450,000</value>
-                                </uiAttributeAssertion>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
                               </attributeAssertions>
                             </uiFieldAssertion>
                           </value>
