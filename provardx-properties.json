@@ -21,9 +21,9 @@
     "environment":{
       "testEnvironment":"ProvarDX",
       "webBrowser":"Chrome_Headless",
-      "webBrowserConfig":"Full Screen",
+      "webBrowserConfig":"1920x1080",
       "webBrowserProviderName":"Desktop",
-      "webBrowserDeviceName":"Full Screen"
+      "webBrowserDeviceName":"1920x1080"
     },
     "testCase":[
        "Connection.setup",

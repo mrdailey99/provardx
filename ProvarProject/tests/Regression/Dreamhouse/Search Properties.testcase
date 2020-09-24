@@ -85,13 +85,13 @@
               <clauses>
                 <clause name="then" testItemId="83">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="86" title="Set Values: ProperyData.City">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="86" title="Set Values: PropertyData.City">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
                             <namedValues mutable="Mutable">
                               <namedValue name="valuePath">
-                                <value class="value" valueClass="string">ProperyData.City</value>
+                                <value class="value" valueClass="string">PropertyData.City</value>
                               </namedValue>
                               <namedValue name="value">
                                 <value class="value" valueClass="string">Cambridge</value>
@@ -964,7 +964,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="26" title="Validate City of Property">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="26" title="Validate State of Property">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1000,7 +1000,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="25" title="Validate State of Property">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="25" title="Validate City of Property">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
