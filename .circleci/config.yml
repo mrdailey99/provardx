@@ -70,7 +70,7 @@ jobs:
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "/home/ProvarProject/ANT/Results/JUnit.xml"
+                path: "/home/ProvarProject/ANT/Results"
             # - store_artifacts:
             #     path: test_results.zip
             #     destination: Test_Results.zip
