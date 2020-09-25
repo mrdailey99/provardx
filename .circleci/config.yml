@@ -66,11 +66,11 @@ jobs:
             # Compress artifacts 
             - run:
                 name: Compress Artifacts
-                command: tar -cvf test_results.tar ProvarProject/ANT/Results
+                command: zip -r test_results.zip /home/ProvarProject/ANT/Results
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "ProvarProject/ANT/Results/JUnit.xml"
+                path: "/home/ProvarProject/ANT/Results/JUnit.xml"
             - store_artifacts:
-                path: test_results.tar
+                path: test_results.zip
                 destination: Test_Results.zip
