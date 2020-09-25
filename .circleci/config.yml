@@ -44,9 +44,21 @@ jobs:
                     # fallback to using the latest cache if no exact match is found
                     - v1-dependencies-
             - run:
+                name: "Outputting working directory for debugging"
+                command: ls -laR
+
+            - run:
+                name: "Echoing env vars for debugging"
+                command: printenv
+            
+            - run:
                 name: "Create Secrets Key file for Dev Hub Authentication"
                 command: echo $JWT_SECRETS_KEY > /home/secrets.key
-                
+
+            - run:
+                name: "Echoing env vars for debugging"
+                command: cat /home/secrets.key
+            
             - run:
                 name: "Create Scratch Org and Deploy Metadata"
                 command: /home/create_scratch_org.sh
