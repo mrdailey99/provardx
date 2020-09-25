@@ -17,12 +17,9 @@ jobs:
                 CONNECTION_NAME: Admin
                 DEV_HUB_USERNAME: michael.dailey@brave-otter-7uycux.com
                 DEV_HUB_ALIAS: TrailheadHub
-                CONSUMER_KEY: $CONSUMER_KEY_DEV_HUB
                 PROVARDX_PROPERTY_FILE: provardx-properties-docker.json
                 PROVAR_MAJOR_VERSION: latest
                 PROVAR_DEFAULT_VERSION: latest
-                PROVAR_SECRETS_PASSWORD: $SECRETS_PASSWORD
-                JWT_SECRETS_KEY: $SECRETS_KEY
         # Specify service dependencies here if necessary
         # CircleCI maintains a library of pre-built images
         # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -43,21 +40,17 @@ jobs:
                     - v1-dependencies-{{ checksum "provardx-properties-docker.json" }}
                     # fallback to using the latest cache if no exact match is found
                     - v1-dependencies-
-            - run:
-                name: "Outputting working directory for debugging"
-                command: ls -laR
+            # - run:
+            #     name: "Outputting working directory for debugging"
+            #     command: ls -laR
 
-            - run:
-                name: "Echoing env vars for debugging"
-                command: printenv
+            # - run:
+            #     name: "Echoing env vars for debugging"
+            #     command: printenv
             
             - run:
                 name: "Create Secrets Key file for Dev Hub Authentication"
-                command: echo $JWT_SECRETS_KEY > /home/secrets.key
-
-            - run:
-                name: "Echoing env vars for debugging"
-                command: cat /home/secrets.key
+                command: echo $SECRETS_KEY > /home/secrets.key
             
             - run:
                 name: "Create Scratch Org and Deploy Metadata"
