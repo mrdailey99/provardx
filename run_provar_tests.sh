@@ -1,5 +1,7 @@
 #!/bin/sh
 cd /home
+# Copy ProvarDX jar to Provar Home
+cp -r /home/ProvarProject/provardx $PROVAR_HOME
 # Validate ProvarDX property file with plugin
 echo "Validate ProvarDX property file with plugin"
 sfdx provar:validate -p /home/$PROVARDX_PROPERTY_FILE 
