@@ -15,8 +15,6 @@ jobs:
                 ENVIRONMENT: ProvarDX
                 WORKSPACE: /root/ProvarProject
                 CONNECTION_NAME: Admin
-                DEV_HUB_USERNAME: michael.dailey@brave-otter-7uycux.com
-                DEV_HUB_ALIAS: TrailheadHub
                 PROVARDX_PROPERTY_FILE: provardx-properties-docker.json
         # Specify service dependencies here if necessary
         # CircleCI maintains a library of pre-built images
@@ -68,11 +66,11 @@ jobs:
             # Compress artifacts 
             - run:
                 name: Compress Artifacts
-                command: tar -cvf test_results.tar ProvarDevOps/ANT/Results
+                command: tar -cvf test_results.tar ProvarProject/ANT/Results
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "ProvarDevOps/ANT/Results/JUnit.xml"
+                path: "ProvarProject/ANT/Results/JUnit.xml"
             - store_artifacts:
                 path: test_results.tar
                 destination: Test_Results.zip
