@@ -64,13 +64,13 @@ jobs:
                 working_directory: /home                
 
             # Compress artifacts 
-            - run:
-                name: Compress Artifacts
-                command: zip -r test_results.zip /home/ProvarProject/ANT/Results
+            # - run:
+                # name: Compress Artifacts
+                # command: zip -r test_results.zip /home/ProvarProject/ANT/Results
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
                 path: "/home/ProvarProject/ANT/Results/JUnit.xml"
-            - store_artifacts:
-                path: test_results.zip
-                destination: Test_Results.zip
+            # - store_artifacts:
+            #     path: test_results.zip
+            #     destination: Test_Results.zip
