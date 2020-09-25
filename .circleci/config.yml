@@ -13,14 +13,14 @@ jobs:
               environment:
                 # Set up environment variables here that don’t need to be secure
                 ENVIRONMENT: ProvarDX
-                WORKSPACE: /root/ProvarProject
+                WORKSPACE: /root/ProvarDX/ProvarProject
                 CONNECTION_NAME: Admin
                 PROVARDX_PROPERTY_FILE: provardx-properties-docker.json
         # Specify service dependencies here if necessary
         # CircleCI maintains a library of pre-built images
         # documented at https://circleci.com/docs/2.0/circleci-images/
         # No further dependencies required for Provar
-        working_directory: ~/ProvarDX
+        working_directory: /root/ProvarDX
 
         steps:
             # Retrieve the contents of the repo
@@ -46,31 +46,23 @@ jobs:
             
             - run:
                 name: "Create Secrets Key file for Dev Hub Authentication"
-                command: echo $SECRETS_KEY > /home/secrets.key
+                command: echo $SECRETS_KEY > /root/ProvarDX/secrets.key
             
             - run:
                 name: "Create Scratch Org and Deploy Metadata"
-                command: /home/create_scratch_org.sh
-                working_directory: /home/ProvarDX
+                command: /root/ProvarDX/create_scratch_org.sh
+                working_directory: /root/ProvarDX
             
             - run:
                 name: "Run Provar Tests"
-                command: /home/run_provar_tests.sh
-                working_directory: /home                
+                command: /root/ProvarDX/run_provar_tests.sh
+                working_directory: /root/ProvarDX       
 
             - run:
                 name: "Delete Scratch Org"
-                command: /home/delete_scratch_org.sh
-                working_directory: /home                
-
-            # Compress artifacts 
-            # - run:
-                # name: Compress Artifacts
-                # command: zip -r test_results.zip /home/ProvarProject/ANT/Results
+                command: /root/ProvarDX/delete_scratch_org.sh
+                working_directory: /root/ProvarDX                
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "/root/ProvarProject/ANT/Results"
-            # - store_artifacts:
-            #     path: test_results.zip
-            #     destination: Test_Results.zip
+                path: "/root/ProvarDX/ProvarProject/ANT/Results"
