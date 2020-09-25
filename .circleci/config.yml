@@ -18,8 +18,6 @@ jobs:
                 DEV_HUB_USERNAME: michael.dailey@brave-otter-7uycux.com
                 DEV_HUB_ALIAS: TrailheadHub
                 PROVARDX_PROPERTY_FILE: provardx-properties-docker.json
-                PROVAR_MAJOR_VERSION: latest
-                PROVAR_DEFAULT_VERSION: latest
         # Specify service dependencies here if necessary
         # CircleCI maintains a library of pre-built images
         # documented at https://circleci.com/docs/2.0/circleci-images/
