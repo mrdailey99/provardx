@@ -14,6 +14,9 @@
     <environment name="CopadoHub">
       <summary/>
     </environment>
+    <environment name="DXDevHub">
+      <summary/>
+    </environment>
   </environments>
   <variables/>
   <connectionClasses>
@@ -54,6 +57,7 @@
           <connectionUrls>
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
             <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="DXDevHub" secureStorageNodeId="23e6820e-02dc-481e-af06-a05097012fed" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
