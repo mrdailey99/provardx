@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="4">
+  <summary/>
+  <steps>
+    <apiCall apiId="customapis.SubString" name="SubString" testItemId="1" title="Substring: ⇒ Substring">
+      <arguments>
+        <argument id="InputText">
+          <value class="value" valueClass="string">StringToTrim</value>
+        </argument>
+        <argument id="Digits">
+          <value class="value" valueClass="decimal">4</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Substring</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.ConvertCase" name="ConvertCase" testItemId="2" title="Convert Case: ⇒ LowerCase">
+      <arguments>
+        <argument id="InputText">
+          <value class="value" valueClass="string">LOWERCASE</value>
+        </argument>
+        <argument id="Upper"/>
+        <argument id="resultName">
+          <value class="value" valueClass="string">LowerCase</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.ConvertCase" name="ConvertCase" testItemId="4" title="Convert Case: ⇒ UpperCase">
+      <arguments>
+        <argument id="InputText">
+          <value class="value" valueClass="string">uppercase</value>
+        </argument>
+        <argument id="Upper">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">UpperCase</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.FormatPhoneNumber" name="FormatPhoneNumber" testItemId="3" title="Format Phone Number: ⇒ PhoneNumber">
+      <arguments>
+        <argument id="phoneNumber">
+          <value class="value" valueClass="string">1234567890</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">PhoneNumber</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="5" title="Random Integer: ⇒ RandomNum">
+      <arguments>
+        <argument id="NumberOfDigits">
+          <value class="value" valueClass="decimal">3</value>
+        </argument>
+        <argument id="ExcludeZero">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">RandomNum</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.MathPower" name="MathPower" testItemId="6" title="Math Power: ⇒ Exponential">
+      <arguments>
+        <argument id="base">
+          <value class="value" valueClass="decimal">2</value>
+        </argument>
+        <argument id="exponent">
+          <value class="value" valueClass="decimal">3</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Exponential</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

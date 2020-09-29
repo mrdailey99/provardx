@@ -13,14 +13,14 @@ jobs:
               environment:
                 # Set up environment variables here that don’t need to be secure
                 ENVIRONMENT: ProvarDX
-                WORKSPACE: /root/ProvarDX/ProvarProject
+                WORKSPACE: /home/ProvarDX/ProvarProject
                 CONNECTION_NAME: Admin
                 PROVARDX_PROPERTY_FILE: provardx-properties-docker.json
         # Specify service dependencies here if necessary
         # CircleCI maintains a library of pre-built images
         # documented at https://circleci.com/docs/2.0/circleci-images/
         # No further dependencies required for Provar
-        working_directory: /root/ProvarDX
+        working_directory: /home/ProvarDX
 
         steps:
             # Retrieve the contents of the repo
@@ -46,23 +46,24 @@ jobs:
             
             - run:
                 name: "Create Secrets Key file for Dev Hub Authentication"
-                command: echo $SECRETS_KEY > /root/ProvarDX/secrets.key
+                command: echo $SECRETS_KEY > /home/ProvarDX/secrets.key
             
             - run:
                 name: "Create Scratch Org and Deploy Metadata"
-                command: /root/ProvarDX/create_scratch_org.sh
-                working_directory: /root/ProvarDX
+                command: /home/ProvarDX/create_scratch_org.sh
+                working_directory: /home/ProvarDX
             
+                
             - run:
                 name: "Run Provar Tests"
-                command: /root/ProvarDX/run_provar_tests.sh
-                working_directory: /root/ProvarDX       
+                command: /home/ProvarDX/run_provar_tests.sh
+                working_directory: /home/ProvarDX       
 
             - run:
                 name: "Delete Scratch Org"
-                command: /root/ProvarDX/delete_scratch_org.sh
-                working_directory: /root/ProvarDX                
+                command: /home/ProvarDX/delete_scratch_org.sh
+                working_directory: /home/ProvarDX                
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "/root/ProvarDX/ProvarProject/ANT/Results"
+                path: "/home/ProvarDX/ProvarProject/ANT/Results"
