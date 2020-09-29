@@ -4,8 +4,8 @@
      {"connection": "Admin", "username": "ProvarDX"}
    ],
     "provarHome":"/srv/Provar/Provar_ANT_latest",
-    "projectPath": "/home/ProvarDX/ProvarProject",
-    "resultsPath":"/home/ProvarDX/ProvarProject/ANT/Results",
+    "projectPath": "/home/ProvarProject",
+    "resultsPath":"/home/ProvarProject/ANT/Results",
     "resultsPathDisposition":"Replace", 
     "testOutputLevel":"SEVERE",
     "pluginOutputlevel":"SEVERE",
@@ -15,7 +15,7 @@
     "connectionRefreshType":"Reload",
     "metadata":{
        "metadataLevel":"Reload",
-       "cachePath":"/home/ProvarDX/.provarCaches"
+       "cachePath":"/home/.provarCaches"
     },
     "testprojectSecrets":"ProvarSecretsPassword",
     "environment":{
