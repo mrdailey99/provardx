@@ -67,7 +67,9 @@ ENV REPO_HOME=/srv/Provar \
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
 
-COPY . /home
+COPY . /home/
+COPY ProvarProject/provardx $PROVAR_HOME
+COPY ProvarProject/.smtp $PROVAR_HOME/.smtp
 
 RUN set -ex \
     && apt -y update -qq && apt install -y \
@@ -107,10 +109,10 @@ RUN set -ex \
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
     && mkdir -p ${WORKSPACE}/bin \
-    && chmod +x /home/create_scratch_org.sh \
-    && chmod +x /home/delete_scratch_org.sh \
-    && chmod +x /home/run_provar_tests.sh \
-    && chmod +x /home/insert_secrets_password.sh 
+    && chmod 777 /home/create_scratch_org.sh \
+    && chmod 777 /home/delete_scratch_org.sh \
+    && chmod 777 /home/run_provar_tests.sh \
+    && chmod 777 /home/insert_secrets_password.sh 
     # Remove additional packages 
     # && apt remove -y git \
     # curl \
@@ -122,7 +124,6 @@ RUN set -ex \
     ## noprompt option not available, so piping echoed 'y' to approve plugin
     && echo y | sfdx plugins:install @provartesting/provardx \
     && sfdx plugins:update \
-    && cp -r $WORKSPACE/provardx $PROVAR_HOME \
     # verify SFDX CLI version
     && sfdx --version \
     && export PROVARDX_VERSION="$(sfdx plugins | grep @provartesting/provardx)" \
@@ -138,5 +139,5 @@ RUN set -ex \
     else echo "ProvarDX plugin not successfully installed" ; fi
 
 # Set working directory for image
-WORKDIR /home/ProvarDX
+WORKDIR /home
 CMD []

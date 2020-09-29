@@ -11,3 +11,10 @@ README.md
 .testCycles
 package-lock.json
 provardx-properties-local.json
+ProvarProject
+!ProvarProject/provardx
+!ProvarProject/.smtp
+ProvarDX
+dreamhouse-lwc
+CopadoHub
+azure-pipelines.yml
