@@ -3,7 +3,7 @@
    [
      {"connection": "Admin", "username": "ProvarDX"}
    ],
-    "provarHome":"PROVAR_HOME",
+    "provarHome":"/srv/Provar/Provar_ANT_latest",
     "projectPath": "/home/ProvarDX/ProvarProject",
     "resultsPath":"/home/ProvarDX/ProvarProject/ANT/Results",
     "resultsPathDisposition":"Replace", 

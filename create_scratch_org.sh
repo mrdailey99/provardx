@@ -13,13 +13,9 @@ sfdx force:org:create -f /home/ProvarDX/config/project-scratch-def.json --setali
 sfdx force:config:set defaultusername=$scratch_org_alias --global 
 sfdx force:org:display -u $scratch_org_alias 
 echo "---------Scratch Org Successfully Created-----------"
-# Override connections in property file with scratch org usernames
-echo "Override connections in ProvarDX property file"
-/home/create_connection_overrides.sh $CONNECTION_NAME $scratch_org_alias /home/$PROVARDX_PROPERTY_FILE 
-echo "---------Connections Successfully Overridden-----------"
 # Insert secrets password into property file (if present)
 echo "Insert secrets password into ProvarDX property file"
-/home/insert_secrets_password.sh $ProvarSecretsPassword /home/$PROVARDX_PROPERTY_FILE 
+sh /home/insert_secrets_password.sh $ProvarSecretsPassword /home/$PROVARDX_PROPERTY_FILE 
 # Deploy metadata to scratch org for admin user
 echo "Retrieve metadata from Dev Hub and push to Scratch Org"
 sfdx force:mdapi:retrieve -r package -u $DEV_HUB_USERNAME -k /home/package.xml 
