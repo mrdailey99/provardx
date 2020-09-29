@@ -68,7 +68,7 @@ ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
 
 COPY . /home/
-COPY ProvarProject/provardx $PROVAR_HOME
+COPY ProvarProject/provardx $PROVAR_HOME/provardx
 COPY ProvarProject/.smtp $PROVAR_HOME/.smtp
 
 RUN set -ex \
