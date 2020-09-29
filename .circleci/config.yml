@@ -50,18 +50,18 @@ jobs:
             
             - run:
                 name: "Create Scratch Org and Deploy Metadata"
-                command: /home/create_scratch_org.sh
+                command: sh /home/create_scratch_org.sh
                 working_directory: /home
             
 
             - run:
                 name: "Run Provar Tests"
-                command: /home/run_provar_tests.sh
+                command: sh /home/run_provar_tests.sh
                 working_directory: /home       
 
             - run:
                 name: "Delete Scratch Org"
-                command: /home/delete_scratch_org.sh
+                command: sh /home/delete_scratch_org.sh
                 working_directory: /home                
 
             # Store Test Results (JUnit and zipped report)
