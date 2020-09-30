@@ -93,7 +93,7 @@ steps:
     displayName: "Compile Provar Tests"
 
   - bash: |
-      xvfb-run sfdx provar:runtests -p provardx-properties.json
+      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json
     displayName: "Run Provar Tests"
 
   - bash: |
