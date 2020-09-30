@@ -2,7 +2,7 @@
 <testPlan>
   <planSettings>
     <planSetting name="browserProvider">
-      <value valueClass="string">Desktop:1920x1080</value>
+      <value valueClass="string">Desktop:Full Screen</value>
     </planSetting>
     <planSetting name="webBrowser">
       <value valueClass="string">Chrome_Headless</value>
@@ -79,14 +79,14 @@
         <namedValue name="cc">
           <value class="value"/>
         </namedValue>
+        <namedValue name="subject">
+          <value class="value" valueClass="string">Test Plan Execution</value>
+        </namedValue>
         <namedValue name="to">
           <value class="value" valueClass="string">michael.dailey@provartesting.com</value>
         </namedValue>
-        <namedValue name="subject">
-          <value class="value" valueClass="string">Regression Plan Execution</value>
-        </namedValue>
         <namedValue name="emailBody">
-          <value class="value" valueClass="string">&lt;p&gt;Test Plan Run Report{TestArtifact('pieChart.png')}{TestArtifact('executionReport.pdf')}&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Passed: {SuccessfulCount}&lt;/li&gt;&lt;li&gt;Failed: {FailureCount}&lt;/li&gt;&lt;li&gt;Skipped: {SkippedCount}&lt;/li&gt;&lt;/ul&gt;</value>
+          <value class="value" valueClass="string">&lt;p&gt;{TestArtifact('executionReport.pdf')}&lt;/p&gt;&lt;p&gt;Test Plan Run Report&lt;/p&gt;&lt;p&gt;Passed: {SuccessfulCount}{TestArtifact('pieChart.png')}&lt;/p&gt;</value>
         </namedValue>
       </settings>
     </planFeature>

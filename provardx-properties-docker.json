@@ -25,11 +25,13 @@
       "webBrowserProviderName":"Desktop",
       "webBrowserDeviceName":"Full Screen"
     },
-    "testCase":[
-      "Connection.setup",
-      "/Regression/Account",
-      "/Regression/Lead",
-      "/Regression/Opportunity"
-    ]	
+    "testPlan":[
+      "Regression"
+   ],
+   "testplanFeatures": [
+      {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
+      {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
+      {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"}
+   ]
  }
  
