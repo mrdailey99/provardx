@@ -70,4 +70,4 @@ jobs:
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "/home/ProvarProject/ANT/Results"
+                path: "/home/ProvarProject/ANT/Results*"

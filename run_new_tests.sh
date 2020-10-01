@@ -1,9 +1,9 @@
 #!/bin/sh
 cd /home/ProvarProject
 
-git ls-files -o --exclude-standard --full-name > new_tests.txt
-sed -i 's/ProvarProject\/tests\///' new_tests.txt
-$new_tests=$(cat new_tests.txt)
+git ls-files -o --exclude-standard --full-name > /home/new_tests.txt
+sed -i 's/ProvarProject\/tests\///' /home/new_tests.txt
+$new_tests=cat /home/new_tests.txt
 sed -i "s|NEWTESTS|$new_tests|" /home/provardx-properties-dev.json
 
 cd /home
