@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
-  <title>/ProvarDevOps/.testproject</title>
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+  <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
   <templatesPath>templates</templatesPath>
@@ -8,97 +8,32 @@
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
   <environments>
-    <environment name="Test Env">
+    <environment name="ProvarDX">
+      <summary>Running in scratch org using ProvarDX plugin.</summary>
+    </environment>
+    <environment name="CopadoHub">
       <summary/>
     </environment>
-    <environment name="Lightning">
-      <summary/>
-    </environment>
-    <environment name="Dev">
-      <summary/>
-    </environment>
-    <environment name="QA">
-      <summary/>
-    </environment>
-    <environment name="PROD">
+    <environment name="DXDevHub">
       <summary/>
     </environment>
   </environments>
-  <variables>
-    <testVariable name="_chromeOptions">
-      <valueType class="textType">
-        <constraints>
-          <valueConstraint name="minLength">0</valueConstraint>
-          <valueConstraint name="maxLength">9999</valueConstraint>
-          <valueConstraint name="regex"/>
-        </constraints>
-      </valueType>
-      <summary/>
-      <values>
-        <testVariableValue>
-          <value class="value" valueClass="string">--whitelisted-ips=,--enable-logging,--v=1</value>
-        </testVariableValue>
-      </values>
-    </testVariable>
-    <testVariable name="Email">
-      <valueType class="textType">
-        <constraints>
-          <valueConstraint name="minLength">0</valueConstraint>
-          <valueConstraint name="maxLength">9999</valueConstraint>
-          <valueConstraint name="regex"/>
-        </constraints>
-      </valueType>
-      <summary/>
-      <values>
-        <testVariableValue>
-          <value class="value" valueClass="string">richard.clark@provartesting.com</value>
-        </testVariableValue>
-      </values>
-    </testVariable>
-  </variables>
+  <variables/>
   <connectionClasses>
     <connectionClass name="webservice">
       <connections>
-        <connection name="Amiibo_API">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="restservice:url=https://www.amiiboapi.com/api/amiibo;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="LicenseManager">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="09b7cdc9-9eed-4f96-9577-a752576394b6" url="restservice:url=https://online.license4j.com/e;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="JSON_Placeholder_API">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="restservice:url=https://jsonplaceholder.typicode.com;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="QTest_Management_API">
-          <summary>qTest API base URI</summary>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="34a6f753-fb34-486b-950f-2c0f61c6dfbb" url="restservice:url=https://toscatesttrial.qtestnet.com;authenticationType=NO_AUTHENTICATION"/>
-          </connectionUrls>
-        </connection>
-        <connection name="ElementsCloud_API">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="restservice:url=https://api.q9elements.com/api;authenticationType=NO_AUTHENTICATION">
-              <customHeaders>
-                <customHeader key="Authorization" value="token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNWFiMTM3MDA5ZTZlZWQwNTI1MGI2ZTc1IiwiaWF0IjoxNTg1MTY3MTIxLCJleHAiOjE1ODU3NzE5MjF9.66QYhvvIqz1-CLTR-gnvC_0ossrCyARnkXXwzZpTsao"/>
-              </customHeaders>
-            </connectionUrl>
-          </connectionUrls>
-        </connection>
         <connection name="SF_Rest">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https://login.salesforce.com;user=provartrial57@gmail.com;password={password};authenticationType=BASIC_AUTHENTICATION">
+            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https:;authenticationType=NO_AUTHENTICATION">
               <customHeaders>
                 <customHeader key="Content-Type" value="application/json"/>
+              </customHeaders>
+            </connectionUrl>
+            <connectionUrl envName="Scratch" secureStorageNodeId="43a3c1a8-3dc9-4280-8e1d-b3a910abbf46" url="restservice:url=instanceUrl;user=username;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+                <customHeader key="Authorization" value="Bearer accessToken"/>
               </customHeaders>
             </connectionUrl>
           </connectionUrls>
@@ -110,30 +45,7 @@
         <connection name="ProvarDocker">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;password={password};authenticationType=PASSWORD"/>
-          </connectionUrls>
-        </connection>
-      </connections>
-    </connectionClass>
-    <connectionClass name="ui">
-      <connections>
-        <connection name="testConnection">
-          <summary>\t</summary>
-          <connectionUrls>
-            <connectionUrl url="se:baseUrl=http://google.com"/>
-            <connectionUrl envName="QA" url="se:baseUrl=http://google2.com"/>
-          </connectionUrls>
-        </connection>
-        <connection name="ProvarWebsite">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="se:baseUrl=https://www.provartesting.com/contact/"/>
-          </connectionUrls>
-        </connection>
-        <connection name="Amazon">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl url="se:baseUrl=http://amazon.com"/>
+            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;accessToken={accessToken};refreshToken={refreshToken};expiry=1594134628000"/>
           </connectionUrls>
         </connection>
       </connections>
@@ -143,12 +55,27 @@
         <connection name="Admin">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="DXDevHub" secureStorageNodeId="23e6820e-02dc-481e-af06-a05097012fed" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
     </connectionClass>
   </connectionClasses>
+  <tagTypes>
+    <tagType name="sla" tagClass="sla" title="SLA Requirement">
+      <summary>Service Level Agreement requirement</summary>
+      <tags>
+        <slaTag expectedDurationMs="92000" maximumDurationMs="120000" name="Search Properties Test Time">
+          <summary>The time it should take to complete the Search Properties test case.</summary>
+        </slaTag>
+      </tags>
+      <tagTypeTargets>
+        <tagTypeTarget targetName="com.provar.core.model.test.api.ITestItem"/>
+      </tagTypeTargets>
+    </tagType>
+  </tagTypes>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
       <summary>Full screen with Test Builder adjustment</summary>
@@ -251,34 +178,27 @@
         <browserPlatformProperty name="gridUrl" value="http://localhost:4444/hub"/>
       </properties>
     </browserProvider>
-    <browserProvider name="SauceLabs" secureStorageNodeId="6126dcdc-10f7-494e-aed8-bb2df28a447b" type="SauceLabsDesktop">
+    <browserProvider name="SauceLabs" secureStorageNodeId="7683dcf5-d27c-4ee1-b040-3b54d1d93fbf" type="SauceLabsDesktop">
       <devices>
         <browserProviderDevice name="WIN10 chrome" platform="WIN10">
           <properties>
             <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
           </properties>
         </browserProviderDevice>
-        <browserProviderDevice name="LINUX firefox" platform="LINUX">
+        <browserProviderDevice name="LINUX chrome" platform="LINUX">
           <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="firefox"/>
-          </properties>
-        </browserProviderDevice>
-        <browserProviderDevice name="WIN10 internet explorer" platform="WIN10">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="internet explorer"/>
-          </properties>
-        </browserProviderDevice>
-        <browserProviderDevice name="WIN10 MicrosoftEdge" platform="WIN10">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="MicrosoftEdge"/>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
           </properties>
         </browserProviderDevice>
       </devices>
       <properties>
-        <browserPlatformProperty name="userName" value="Mrdailey999"/>
+        <browserPlatformProperty name="userName" value="provar.integrations"/>
         <browserPlatformProperty name="dataCenter" value="us-west-1"/>
-        <browserPlatformProperty name="extendedDebugging" type="DesiredCapability" value="true"/>
-        <browserPlatformProperty name="capturePerformance" type="DesiredCapability" value="true"/>
+        <browserPlatformProperty name="commandTimeout" platform="WIN10" type="DesiredCapability" value="600"/>
+        <browserPlatformProperty name="idleTimeout" platform="WIN10" type="DesiredCapability" value="1000"/>
+        <browserPlatformProperty name="extendedDebugging" platform="WIN10" type="DesiredCapability" value="false"/>
+        <browserPlatformProperty name="capturePerformance" platform="WIN10" type="DesiredCapability" value="false"/>
+        <browserPlatformProperty name="maxDuration" platform="WIN10" type="DesiredCapability" value="3600"/>
       </properties>
     </browserProvider>
   </browserProviders>
