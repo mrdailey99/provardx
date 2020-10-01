@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/ProvarProject
+cd /home/ProvarProject/tests
 
 git ls-files -o --exclude-standard --full-name > /home/new_tests.txt
 sed -i 's/ProvarProject\/tests\///' /home/new_tests.txt
