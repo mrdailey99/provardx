@@ -53,6 +53,10 @@ jobs:
                 command: sh /home/create_scratch_org.sh
                 working_directory: /home
             
+            - run:
+                name: "Run new Provar Tests"
+                command: sh /home/run_new_tests.sh
+                working_directory: /home       
 
             - run:
                 name: "Run Provar Tests"

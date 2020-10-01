@@ -16,6 +16,7 @@ echo "---------Scratch Org Successfully Created-----------"
 # Insert secrets password into property file (if present)
 echo "Insert secrets password into ProvarDX property file"
 sh /home/insert_secrets_password.sh $ProvarSecretsPassword /home/$PROVARDX_PROPERTY_FILE 
+sh /home/insert_secrets_password.sh $ProvarSecretsPassword /home/provardx-properties-dev.json
 # Deploy metadata to scratch org for admin user
 echo "Retrieve metadata from Dev Hub and push to Scratch Org"
 sfdx force:mdapi:retrieve -r package -u $DEV_HUB_USERNAME -k /home/package.xml 
