@@ -26,9 +26,9 @@
       "webBrowserDeviceName":"Full Screen"
     },
     "testPlan":[
-      "Regression Plan/Account",
-      "Regression Plan/Lead",
-      "Regression Plan/Opportunity"
+      "Regression Plan/Regression/Account",
+      "Regression Plan/Regression/Lead",
+      "Regression Plan/Regression/Opportunity"
    ],
    "testplanFeatures": [
       {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
