@@ -53,6 +53,10 @@ jobs:
                 command: sh /home/create_scratch_org.sh
                 working_directory: /home
             
+            - run:
+                name: "Run new Provar Tests"
+                command: sh /home/run_new_tests.sh
+                working_directory: /home       
 
             - run:
                 name: "Run Provar Tests"
@@ -66,4 +70,4 @@ jobs:
 
             # Store Test Results (JUnit and zipped report)
             - store_test_results:
-                path: "/home/ProvarProject/ANT/Results"
+                path: "/home/ProvarProject/ANT/Results*"
