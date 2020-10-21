@@ -1,17 +1,4 @@
-**/server.crt
-**/server.key
-**/server.csr
-ProvarDX
-node_modules
-ProvarHome/
 .provarCaches/
 .metadata/
 .chromeProfiles/
 .testCycles/
-package-lock.json
-ProvarProject/ANT/build_local.xml
-**/provardx-properties-local.json
-ebikes-lwc
-**/.licenses
-dreamhouse-lwc/
-CopadoHub
