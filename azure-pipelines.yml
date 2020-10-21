@@ -25,24 +25,12 @@ steps:
   - task: Ant@1
     inputs:
       buildFile: 'build.xml'
-      options: '-DsecretsPassword=$(secrets_password)'
+      options: '-DsecretsPassword=$(google_secrets_password)'
       publishJUnitResults: true
       testResultsFiles: '**/Results/*.xml'
       testRunTitle: 'Google POC Test Run'
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: '1.8'
-
-    # Publish Test Results
-  - task: PublishTestResults@2
-    continueOnError: true
-    inputs:
-      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
-      testResultsFiles: "**/Results/*.xml"
-      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-      #mergeTestResults: false # Optional
-      failTaskOnFailedTests: true # Optional
-      testRunTitle: ProvarDX Test Suite # Optional
-    displayName: "Publish JUnit Test Results"
 
   # Publish (upload) a file or directory as a named artifact for the current run
   - task: PublishPipelineArtifact@1
