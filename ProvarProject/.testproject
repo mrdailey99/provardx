@@ -1,81 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
-  <title>/ProvarProject/.testproject</title>
+  <title>/GooglePOC/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
+  <testPlansPath>plans</testPlansPath>
   <templatesPath>templates</templatesPath>
   <sourcePath>src</sourcePath>
   <secureStoragePath>.secrets</secureStoragePath>
   <browserDebugPort>0</browserDebugPort>
-  <environments>
-    <environment name="ProvarDX">
-      <summary>Running in scratch org using ProvarDX plugin.</summary>
-    </environment>
-    <environment name="CopadoHub">
-      <summary/>
-    </environment>
-    <environment name="DXDevHub">
-      <summary/>
-    </environment>
-  </environments>
-  <variables/>
   <connectionClasses>
-    <connectionClass name="webservice">
-      <connections>
-        <connection name="SF_Rest">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https:;authenticationType=NO_AUTHENTICATION">
-              <customHeaders>
-                <customHeader key="Content-Type" value="application/json"/>
-              </customHeaders>
-            </connectionUrl>
-            <connectionUrl envName="Scratch" secureStorageNodeId="43a3c1a8-3dc9-4280-8e1d-b3a910abbf46" url="restservice:url=instanceUrl;user=username;password={password};authenticationType=BASIC_AUTHENTICATION">
-              <customHeaders>
-                <customHeader key="Content-Type" value="application/json"/>
-                <customHeader key="Authorization" value="Bearer accessToken"/>
-              </customHeaders>
-            </connectionUrl>
-          </connectionUrls>
-        </connection>
-      </connections>
-    </connectionClass>
-    <connectionClass name="google">
-      <connections>
-        <connection name="ProvarDocker">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;accessToken={accessToken};refreshToken={refreshToken};expiry=1594134628000"/>
-          </connectionUrls>
-        </connection>
-      </connections>
-    </connectionClass>
     <connectionClass name="sf">
       <connections>
         <connection name="Admin">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-            <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-            <connectionUrl envName="DXDevHub" secureStorageNodeId="23e6820e-02dc-481e-af06-a05097012fed" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="15fbf7e9-4567-471d-83f9-57f237e29f68" url="sf:user=provar@provar-gc-poc.com;password={password};securityToken={securityToken};environment=SANDBOX;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection id="287d0c7c-a3dc-4ee9-bc33-8204ff06118f" name="BusinessBOM">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="sf:user=alexlun@google.com.gc.provarpoc;environment=PROD_DEV;logonAsConnection=Admin;lightningMode=true"/>
           </connectionUrls>
         </connection>
       </connections>
     </connectionClass>
   </connectionClasses>
-  <tagTypes>
-    <tagType name="sla" tagClass="sla" title="SLA Requirement">
-      <summary>Service Level Agreement requirement</summary>
-      <tags>
-        <slaTag expectedDurationMs="92000" maximumDurationMs="120000" name="Search Properties Test Time">
-          <summary>The time it should take to complete the Search Properties test case.</summary>
-        </slaTag>
-      </tags>
-      <tagTypeTargets>
-        <tagTypeTarget targetName="com.provar.core.model.test.api.ITestItem"/>
-      </tagTypeTargets>
-    </tagType>
-  </tagTypes>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
       <summary>Full screen with Test Builder adjustment</summary>
@@ -93,8 +43,6 @@
       <summary>Fixed 1920x1080</summary>
     </browserConfiguration>
   </browserConfigurations>
-  <antPath>ANT</antPath>
-  <testCyclePath>TestCycle</testCyclePath>
   <browserApplications>
     <browserApplication connectionTypes="sf" name="Salesforce1">
       <properties>
@@ -157,49 +105,6 @@
           </properties>
         </browserProviderDevice>
       </devices>
-      <properties/>
-    </browserProvider>
-    <browserProvider name="SeleniumGrid" type="SeleniumGrid">
-      <devices>
-        <browserProviderDevice name="WIN10 Chrome ANY" platform="WIN10">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Chrome"/>
-            <browserPlatformProperty name="version" type="DesiredCapability" value="ANY"/>
-          </properties>
-        </browserProviderDevice>
-        <browserProviderDevice name="WIN10 Edge ANY" platform="WIN10">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Edge"/>
-            <browserPlatformProperty name="version" type="DesiredCapability" value="ANY"/>
-          </properties>
-        </browserProviderDevice>
-      </devices>
-      <properties>
-        <browserPlatformProperty name="gridUrl" value="http://localhost:4444/hub"/>
-      </properties>
-    </browserProvider>
-    <browserProvider name="SauceLabs" secureStorageNodeId="7683dcf5-d27c-4ee1-b040-3b54d1d93fbf" type="SauceLabsDesktop">
-      <devices>
-        <browserProviderDevice name="WIN10 chrome" platform="WIN10">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
-          </properties>
-        </browserProviderDevice>
-        <browserProviderDevice name="LINUX chrome" platform="LINUX">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
-          </properties>
-        </browserProviderDevice>
-      </devices>
-      <properties>
-        <browserPlatformProperty name="userName" value="provar.integrations"/>
-        <browserPlatformProperty name="dataCenter" value="us-west-1"/>
-        <browserPlatformProperty name="commandTimeout" platform="WIN10" type="DesiredCapability" value="600"/>
-        <browserPlatformProperty name="idleTimeout" platform="WIN10" type="DesiredCapability" value="1000"/>
-        <browserPlatformProperty name="extendedDebugging" platform="WIN10" type="DesiredCapability" value="false"/>
-        <browserPlatformProperty name="capturePerformance" platform="WIN10" type="DesiredCapability" value="false"/>
-        <browserPlatformProperty name="maxDuration" platform="WIN10" type="DesiredCapability" value="3600"/>
-      </properties>
     </browserProvider>
   </browserProviders>
 </testProject>
