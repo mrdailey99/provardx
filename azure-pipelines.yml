@@ -1,76 +1,14 @@
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  - dev
+  - google-poc
 
 pool:
   vmImage: "ubuntu-latest"
 variables:
-  connection_name: Admin
   provar_major_version: latest
   provar_build_version: latest
 steps:
-  # Download secure file
-  # Download a secure file to the agent machine
-  - task: DownloadSecureFile@1
-    name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
-    inputs:
-      secureFile: "server.key"
-
-  - task: NodeTool@0
-    inputs:
-      versionSpec: "10.x"
-      checkLatest: true
-    displayName: "Install Node.js"
-
-  - script: |
-      npm install -g sfdx-cli
-    displayName: "Node Install: sfdx-cli"
-
-  - script: |
-      echo y | sfdx plugins:install @provartesting/provardx 
-      sfdx plugins:update
-    displayName: "Install ProvarDX Plugin via SFDX"
-
-  - bash: |
-      sfdx force:project:create -n ProvarDX
-      cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
-      cp package.xml ProvarDX/package.xml
-      cp .forceignore ProvarDX/.forceignore
-    displayName: "Creates SFDX Project with some sample configuration files"
-
-  - bash: |
-      sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
-    displayName: "Authenticates to Dev Hub Org"
-
-  - bash: |
-      sfdx force:org:list --clean
-    displayName: "Cleans stale Org authentications"
-
-  - task: ShellScript@2
-    inputs:
-      scriptPath: insert_secrets_password.sh
-      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
-    displayName: "Insert Provar Secrets Password to Property File"
-
-  - bash: |
-      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a $(scratch_org_alias)
-      sfdx force:org:display -u $(scratch_org_alias)
-    displayName: "Create Scratch Org and Org description"
-
-  - task: ShellScript@2
-    inputs:
-      scriptPath: setup_dreamhouse.sh
-      args: $(scratch_org_alias)
-    displayName: "Deploy and Setup Dreamhouse App"
-
-  - bash: |
-      cd ProvarDX
-      sfdx force:mdapi:retrieve -r package -u $(dev_hub_username) -k package.xml
-      unzip ./package/unpackaged.zip
-      sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-      sfdx force:source:push -u $(scratch_org_alias) -f
-    displayName: "Update Scratch Org Admin Profile"
 
   - bash: |
       echo "Download Provar Libraries"
@@ -82,25 +20,19 @@ steps:
       ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
       cd $PROVAR_HOME
       ls -la
-    displayName: "Install & Configure Provar for running ProvarDX"
+    displayName: "Install & Configure Provar"
 
-  - bash: |
-      sfdx provar:validate
-    displayName: "Validate ProvarDX property file"
+  - task: Ant@1
+    inputs:
+      buildFile: 'build.xml'
+      options: '-DsecretsPassword=$(secrets_password)'
+      publishJUnitResults: true
+      testResultsFiles: '**/Results/*.xml'
+      testRunTitle: 'Google POC Test Run'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.8'
 
-  - bash: |
-      sfdx provar:compile -p provardx-properties.json
-    displayName: "Compile Provar Tests"
-
-  - bash: |
-      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json
-    displayName: "Run Provar Tests"
-
-  - bash: |
-      sfdx force:org:delete -u $(scratch_org_alias) --noprompt
-    displayName: "Delete Scratch Org"
-    
-  # Publish Test Results
+    # Publish Test Results
   - task: PublishTestResults@2
     continueOnError: true
     inputs:
