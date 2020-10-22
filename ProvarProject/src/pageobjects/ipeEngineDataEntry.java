@@ -123,4 +123,34 @@ public class ipeEngineDataEntry {
        @FindBy(xpath = ".//td[@data-label='Incl?']")
        public WebElement Included;
    }
+   @FindBy(xpath = ".//c-ipe-engine-data-entry//table/tbody/tr")
+    @PageTable(firstRowContainsHeaders = false, row = SSRListItems.class)
+    public List<SSRListItems> SSRList;
+    @PageRow()
+    public static class SSRListItems {
+       @LinkType
+       @FindBy(xpath = ".//th[@data-label='IPE GSKU SSR Name']")
+       public WebElement IPE_GSKU_SSR_Name;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='GSKU']")
+       public WebElement GSKU;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='Product Desc']")
+       public WebElement ProductDescription;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='Reason']")
+       public WebElement Reason;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='Date']")
+       public WebElement Date;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='SSR IPP']")
+       public WebElement SSR_IPP;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='SSR Override']")
+       public WebElement SSROverride;
+       @LinkType
+       @FindBy(xpath = ".//td[@data-label='Last Mod']")
+       public WebElement LastMod;
+   }
 }

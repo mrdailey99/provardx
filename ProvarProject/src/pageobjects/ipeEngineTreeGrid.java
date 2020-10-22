@@ -2,6 +2,8 @@ package pageobjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,6 +17,10 @@ import com.provar.core.testapi.annotations.*;
      )             
 public class ipeEngineTreeGrid {
 
+	WebDriver driver;
+	
+	public ipeEngineTreeGrid(WebDriver driver) {this.driver = driver;}
+	
 	@TextType()
 	@FindBy(xpath = ".//c-ipe-engine-tree-grid//tbody/tr/th//button[@title='Expand AT20003']")
 	public WebElement AT20003Expander;
@@ -31,4 +37,9 @@ public class ipeEngineTreeGrid {
 	@FindBy(xpath = ".//c-ipe-engine-tree-grid//table/tbody/tr[contains(@data-row-key-value, 'Replen')]/td[@data-label='OCT 2021']//lightning-base-formatted-text")
 	public WebElement October2021ReplenValue;
 	
+	public String RetrieveDateFromTable(String Row, String Date) {
+	// DATE = OCT 2021
+		WebElement currentDate = driver.findElement(By.xpath(".//c-ipe-engine-tree-grid//table/tbody/tr[contains(@data-row-key-value, '" + Row + "')]/td[@data-label='" + Date + "']//lightning-base-formatted-text"));
+		return currentDate.getText();
+	}
 }

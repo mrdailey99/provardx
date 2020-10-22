@@ -29,7 +29,7 @@
       <clauses>
         <clause name="hidden" testItemId="8">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: TodaysDateNextYearFormatted">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: TodaysDateNextYear">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -65,9 +65,42 @@
                         <value class="value" valueClass="string">Test</value>
                       </namedValue>
                     </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">TodaysDateNextYear</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="funcCall" id="DateFormat">
+                          <argument id="date">
+                            <value class="funcCall" id="DateAdd">
+                              <argument id="date">
+                                <value class="variable">
+                                  <path element="NOW"/>
+                                </value>
+                              </argument>
+                              <argument id="amount">
+                                <value class="value" valueClass="decimal">1</value>
+                              </argument>
+                              <argument id="unit">
+                                <value class="variable">
+                                  <path element="YEAR"/>
+                                </value>
+                              </argument>
+                            </value>
+                          </argument>
+                          <argument id="outputFormat">
+                            <value class="value" valueClass="string">yyyy-MM-dd</value>
+                          </argument>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
                   </value>
                 </argument>
               </arguments>
+              <parameterValueSources/>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="24" title="Set Values: TodaysDateFormatted">
               <arguments>
@@ -87,6 +120,34 @@
                           <argument id="outputFormat">
                             <value class="value" valueClass="string">MMM d, yyy</value>
                           </argument>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="117" title="Set Values: Reason">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Reason</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Regression Testing </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
@@ -141,6 +202,77 @@
         </argument>
         <argument id="webBrowser"/>
       </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="110" title="Query GSKU SSR rows created by test user and delete">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Query GSKU SSR rows created by test user and delete</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="111">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="116" title="SOQL Query: select Id from IPE_GSKU_SSR_Data__c\nWHERE CreatedByID = '0051Y000009LDBbQAO'\nAND Date__c &gt;= {TODAY}=&gt;IPE_GSKU_SSR_DataRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id from IPE_GSKU_SSR_Data__c\nWHERE CreatedByID = '0051Y000009LDBbQAO'\nAND Date__c &gt;= </value>
+                      <variable>
+                        <path element="TODAY"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">BusinessBOM</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">IPE_GSKU_SSR_DataRows</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="113" title="For Each: {IPE_GSKU_SSR_DataRows}=&gt;GSKU_SSR_Row">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="IPE_GSKU_SSR_DataRows"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">GSKU_SSR_Row</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="114">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="115" title="Delete Object: {GSKU_SSR_Row.Id}">
+                      <arguments>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">BusinessBOM</value>
+                        </argument>
+                        <argument id="objectId">
+                          <value class="variable">
+                            <path element="GSKU_SSR_Row"/>
+                            <path element="Id"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="49" title="On SF ipeEngineDataEntry component in IPE Workspace view">
       <arguments>
@@ -420,7 +552,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="55" title="Set the Reason to {SSRTestData.Reason}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="55" title="Set the Reason to {Reason}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?pageId=pageobjects.AddRowModal&amp;field=reason"/>
@@ -430,7 +562,6 @@
                 </argument>
                 <argument id="value">
                   <value class="variable">
-                    <path element="SSRTestData"/>
                     <path element="Reason"/>
                   </value>
                 </argument>
@@ -453,7 +584,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Reason to {SSRTestData.Reason}</value>
+                  <value class="value" valueClass="string">Set the Reason to {Reason}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -814,6 +945,125 @@
                 </argument>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="118" title="With SSR List rows {Reason = $Reason}">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">BusinessBOM</value>
+                </argument>
+                <argument id="locator">
+                  <value class="uiLocator" uri="sf:ui:locator:row?table=SSRList"/>
+                </argument>
+                <argument id="uiRowLocator">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="Reason"/>
+                    </lhs>
+                    <rhs class="variable" topLevel="true">
+                      <path element="Reason"/>
+                    </rhs>
+                  </value>
+                </argument>
+                <argument id="locatorDescription">
+                  <value class="value" valueClass="string">With SSR List rows {Reason = $Reason}</value>
+                </argument>
+                <argument id="failIfNotFound">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="debugRowLocator"/>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Row</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Local</value>
+                </argument>
+                <argument id="autoRetry"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="119">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="120" title="Assert Date">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="Date">
+                              <fieldLocator uri="ui:locator?name=Date"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
+                                  <value class="variable">
+                                    <path element="TodaysDateNextYear"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="122" title="Assert SSR">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="SSROverride">
+                              <fieldLocator uri="ui:locator?name=SSROverride"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
+                                  <value class="variable">
+                                    <path element="SSRTestData"/>
+                                    <path element="Override"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="options" name="autoRetry" title="Auto Retry">
+                  <summary>Whether to wait for the rows to be visible.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -1039,7 +1289,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="75" title="On SF ipeEngineTreeGrid component in IPE Workspace view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="94" title="On SF ipeEngineTreeGrid component in IPE Workspace view">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">BusinessBOM</value>
@@ -1076,7 +1326,7 @@
       <clauses>
         <clause name="substeps" testItemId="76">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="77" title="Assert October 2021 SSR Value">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="95" title="Assert October 2021 SSR Value">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">October2021SSR</value>
@@ -1109,16 +1359,16 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="83" title="Get Total PUF Value and format for calculation">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="96" title="Get Total PUF Value and format for calculation">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Get Total PUF Value and format for calculation</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="84">
+                <clause name="hidden" testItemId="108">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="78" title="Get October 2021 Total PUF Value">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="97" title="Get October 2021 Total PUF Value">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">October2021TotalPUF</value>
@@ -1149,7 +1399,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="81" title="Set Values: October2021TotalPUFCalculation">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="98" title="Set Values: October2021TotalPUFCalculation">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -1184,7 +1434,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="87" title="Get Replen Value and format for calculation">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="109" title="Get Replen Value and format for calculation">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Get Replen Value and format for calculation</value>
