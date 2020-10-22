@@ -24,7 +24,7 @@ steps:
 
   - task: Ant@1
     inputs:
-      buildFile: 'build.xml'
+      buildFile: '$BUILD_SOURCESDIRECTORY/ProvarProject/ANT/build.xml'
       options: '-DsecretsPassword=$(google_secrets_password)'
       publishJUnitResults: true
       testResultsFiles: '**/Results/*.xml'
