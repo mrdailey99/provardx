@@ -102,6 +102,9 @@ public class ipeEngineDataEntry {
        @FindBy(xpath = ".//td[@data-label='Product Desc']")
        public WebElement ProductDescription;
        @LinkType
+       @FindBy(xpath = ".//td[@data-label='Activity']")
+       public WebElement Activity;
+       @LinkType
        @FindBy(xpath = ".//td[@data-label='Reason']")
        public WebElement Reason;
        @LinkType

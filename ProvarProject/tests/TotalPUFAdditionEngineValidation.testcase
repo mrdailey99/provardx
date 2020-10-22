@@ -1,46 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="22">
+<testCase id="41">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="82" title="Salesforce Connect: BusinessBOM (Test)">
-      <arguments>
-        <argument id="connectionName">
-          <value class="value" valueClass="string">BusinessBOM</value>
-        </argument>
-        <argument id="resultName">
-          <value class="value" valueClass="string">BusinessBOM</value>
-        </argument>
-        <argument id="resultScope">
-          <value class="value" valueClass="string">Test</value>
-        </argument>
-        <argument id="reuseConnectionName"/>
-        <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
-        </argument>
-        <argument id="uiApplicationName"/>
-        <argument id="closeAllPrimaryTabs">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="quickUiLogin">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="privateBrowsingMode"/>
-        <argument id="enableObjectIdLogging">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="autoCleanup"/>
-        <argument id="cleanupConnectionName"/>
-        <argument id="logFileLocation"/>
-        <argument id="username"/>
-        <argument id="password"/>
-        <argument id="securityToken"/>
-        <argument id="environment"/>
-        <argument id="lightningMode">
-          <value class="value" valueClass="string">default</value>
-        </argument>
-        <argument id="webBrowser"/>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="72" title="Set Data &amp; Read from Excel">
       <arguments>
         <argument id="description">
@@ -164,6 +125,144 @@
                   </value>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="121" title="Set Values: Notes">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Notes</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">Regression Testing </value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">5</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="82" title="Salesforce Connect: BusinessBOM (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">BusinessBOM</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">BusinessBOM</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="101" title="Query Total PUF rows created by test user and delete">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Query Total PUF rows created by test user and delete</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="102">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="83" title="SOQL Query: select Id from IPE_Total_PUF_Data__c\nWHERE CreatedByID = '0051Y000009LDBbQAO'\nAND Date__c &gt;= {TODAY}=&gt;IPE_Total_PUF_DataRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id from IPE_Total_PUF_Data__c\nWHERE CreatedByID = '0051Y000009LDBbQAO'\nAND Date__c &gt;= </value>
+                      <variable>
+                        <path element="TODAY"/>
+                      </variable>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">BusinessBOM</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">IPE_Total_PUF_DataRows</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="84" title="For Each: {IPE_Total_PUF_DataRows}=&gt;TotalPUFRow">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="IPE_Total_PUF_DataRows"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">TotalPUFRow</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="85">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="87" title="Delete Object: {TotalPUFRow.Id}">
+                      <arguments>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">BusinessBOM</value>
+                        </argument>
+                        <argument id="objectId">
+                          <value class="variable">
+                            <path element="TotalPUFRow"/>
+                            <path element="Id"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
           </steps>
         </clause>
@@ -486,7 +585,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="29" title="Set the Notes to {TotalPUFTestData.Notes}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="29" title="Set the Notes to {Notes}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?pageId=pageobjects.AddRowModal&amp;field=notes"/>
@@ -496,7 +595,6 @@
                 </argument>
                 <argument id="value">
                   <value class="variable">
-                    <path element="TotalPUFTestData"/>
                     <path element="Notes"/>
                   </value>
                 </argument>
@@ -519,7 +617,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Notes to {TotalPUFTestData.Notes}</value>
+                  <value class="value" valueClass="string">Set the Notes to {Notes}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -976,6 +1074,171 @@
                 </argument>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="115" title="With Total PUF List rows {Notes = $Notes}">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">BusinessBOM</value>
+                </argument>
+                <argument id="locator">
+                  <value class="uiLocator" uri="sf:ui:locator:row?table=TotalPUFList"/>
+                </argument>
+                <argument id="uiRowLocator">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="Notes"/>
+                    </lhs>
+                    <rhs class="variable" topLevel="true">
+                      <path element="Notes"/>
+                    </rhs>
+                  </value>
+                </argument>
+                <argument id="locatorDescription">
+                  <value class="value" valueClass="string">With Total PUF List rows {Notes = $Notes}</value>
+                </argument>
+                <argument id="failIfNotFound">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="debugRowLocator">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Row</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Local</value>
+                </argument>
+                <argument id="autoRetry"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="116">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="119" title="Assert Total Units">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="TotalUnits">
+                              <fieldLocator uri="ui:locator?name=TotalUnits"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="funcCall" id="NumberFormat">
+                                    <argument id="numberToFormat">
+                                      <value class="variable" topLevel="true">
+                                        <path element="TotalPUFTestData"/>
+                                        <path element="Units"/>
+                                      </value>
+                                    </argument>
+                                    <argument id="outputFormat">
+                                      <value class="value" valueClass="string">##,###</value>
+                                    </argument>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="126" title="Assert Reason">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="Reason">
+                              <fieldLocator uri="ui:locator?name=Reason"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
+                                  <value class="variable">
+                                    <path element="TotalPUFTestData"/>
+                                    <path element="PrimaryReason"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="128" title="Assert Included Checked">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="Included">
+                              <fieldLocator uri="ui:locator?name=Included"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">True</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="options" name="autoRetry" title="Auto Retry">
+                  <summary>Whether to wait for the rows to be visible.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -1201,82 +1464,6 @@
           </type>
         </apiParam>
       </generatedParameters>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="80" title="Finally: Remove Total PUF Entry">
-      <tags>
-        <string>disabled</string>
-      </tags>
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Remove Total PUF Entry</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="81">
-          <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="83" title="SOQL Query: select Id from IPE_Total_PUF_Data__c\nWHERE CreatedByID = '0051Y000009LDBbQAO'\nAND Notes__c = '{TotalPUFTestData.Notes}'=&gt;IPE_Total_PUF_DataRows">
-              <arguments>
-                <argument id="soqlQuery">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">select Id from IPE_Total_PUF_Data__c\nWHERE CreatedByID = '0051Y000009LDBbQAO'\nAND Notes__c = '</value>
-                      <variable>
-                        <path element="TotalPUFTestData"/>
-                        <path element="Notes"/>
-                      </variable>
-                      <value valueClass="string">'</value>
-                    </parts>
-                  </value>
-                </argument>
-                <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">BusinessBOM</value>
-                </argument>
-                <argument id="resultListName">
-                  <value class="value" valueClass="string">IPE_Total_PUF_DataRows</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="84" title="For Each: {IPE_Total_PUF_DataRows}=&gt;TotalPUFRow">
-              <arguments>
-                <argument id="list">
-                  <value class="variable">
-                    <path element="IPE_Total_PUF_DataRows"/>
-                  </value>
-                </argument>
-                <argument id="fromItem">
-                  <value class="value" valueClass="decimal">1</value>
-                </argument>
-                <argument id="valueName">
-                  <value class="value" valueClass="string">TotalPUFRow</value>
-                </argument>
-                <argument id="continueOnFailure"/>
-              </arguments>
-              <clauses>
-                <clause name="substeps" testItemId="85">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="87" title="Delete Object: {TotalPUFRow.Id}">
-                      <arguments>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">BusinessBOM</value>
-                        </argument>
-                        <argument id="objectId">
-                          <value class="variable">
-                            <path element="TotalPUFRow"/>
-                            <path element="Id"/>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
     </apiCall>
   </steps>
 </testCase>
