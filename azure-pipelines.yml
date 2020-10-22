@@ -25,7 +25,7 @@ steps:
   - task: Ant@1
     inputs:
       buildFile: '$(Build.SourcesDirectory)/ProvarProject/ANT/build.xml'
-      options: '-DsecretsPassword=$(google_secrets_password)'
+      options: '-DsecretsPassword=$(secrets_password)'
       publishJUnitResults: true
       testResultsFiles: '**/Results/*.xml'
       testRunTitle: 'Google POC Test Run'
