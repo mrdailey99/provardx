@@ -1,0 +1,43 @@
+<project default="runtests">
+	<property name="version" value="2.0.2.000"/>
+	<property environment="env"/>
+	<property name="provar.home" value="${env.PROVAR_HOME}"/>
+	<property name="testproject.home" value="C:/Users/16156/git/provardx/ProvarProject"/>
+	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
+
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<Run-Test-Case provarHome="${provar.home}" 
+				projectPath="${testproject.home}" 
+				resultsPath="${testproject.results}" 
+				resultsPathDisposition="Replace" 
+				testEnvironment="" 
+				webBrowser="Chrome_Headless" 
+				webBrowserConfiguration="Full Screen"
+				webBrowserProviderName="Desktop"
+				webBrowserDeviceName="Full Screen" 
+				salesforceMetadataCache="Refresh"
+				excludeCallableTestCases="true" 
+				projectCachePath="${testproject.home}/../.provarCaches"
+				testOutputlevel="WARNING" 
+				pluginOutputlevel="WARNING"
+				stopTestRunOnError="false"
+				secretsPassword="${secretsPassword}"
+		>
+			<fileset id="testplan" dir="${testproject.home}/plans/POC"></fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="false"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="false"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="false"/>
+
+			<emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+			<attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+		</Run-Test-Case>
+
+	</target>
+
+</project>
