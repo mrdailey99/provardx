@@ -16,11 +16,16 @@ import com.provar.core.testapi.annotations.*;
                , namespacePrefix=""
      )             
 public class ipeEngineTreeGrid {
-
 	WebDriver driver;
+	public ipeEngineTreeGrid(WebDriver driver){ this.driver = driver;}
 	
-	public ipeEngineTreeGrid(WebDriver driver) {this.driver = driver;}
-	
+	public String RetrieveDateFromTable(String Row, String Date) {
+		// DATE = OCT 2021, NOV 2021, DEC 2021
+		// ROW = Total PUF, Fill, SSR, Replen
+		WebElement currentDate = driver.findElement(By.xpath(".//c-ipe-engine-tree-grid//table/tbody/tr[contains(@data-row-key-value, '" + Row + "')]/td[@data-label='" + Date.toUpperCase() + "']//lightning-base-formatted-text"));
+		return currentDate.getText();
+	}
+
 	@TextType()
 	@FindBy(xpath = ".//c-ipe-engine-tree-grid//tbody/tr/th//button[@title='Expand AT20003']")
 	public WebElement AT20003Expander;
@@ -37,9 +42,4 @@ public class ipeEngineTreeGrid {
 	@FindBy(xpath = ".//c-ipe-engine-tree-grid//table/tbody/tr[contains(@data-row-key-value, 'Replen')]/td[@data-label='OCT 2021']//lightning-base-formatted-text")
 	public WebElement October2021ReplenValue;
 	
-	public String RetrieveDateFromTable(String Row, String Date) {
-	// DATE = OCT 2021
-		WebElement currentDate = driver.findElement(By.xpath(".//c-ipe-engine-tree-grid//table/tbody/tr[contains(@data-row-key-value, '" + Row + "')]/td[@data-label='" + Date + "']//lightning-base-formatted-text"));
-		return currentDate.getText();
-	}
 }

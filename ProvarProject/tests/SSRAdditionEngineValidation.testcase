@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="10">
+<testCase id="11">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="41" title="Set Data &amp; Read from Excel">
@@ -1295,7 +1295,7 @@
           <value class="value" valueClass="string">BusinessBOM</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?flexiPage=IPE_Workspace_Page&amp;flexiPath=subheader%3AFacet-9e3a2345-c3a7-4ffc-bf36-39342f9ebbfc%3A0&amp;lightningComponent=ipeEngineTreeGrid&amp;pageObject=pageobjects.ipeEngineTreeGrid&amp;dataComponentId=ipeEngineTreeGrid"/>
+          <value class="uiTarget" uri="sf:ui:target?flexiPath=subheader%3AFacet-9e3a2345-c3a7-4ffc-bf36-39342f9ebbfc%3A0&amp;flexiPage=IPE_Workspace_Page&amp;lightningComponent=ipeEngineTreeGrid&amp;pageObject=pageobjects.ipeEngineTreeGrid&amp;dataComponentId=ipeEngineTreeGrid"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -1326,95 +1326,242 @@
       <clauses>
         <clause name="substeps" testItemId="76">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="95" title="Assert October 2021 SSR Value">
-              <arguments>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">October2021SSR</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-                <argument id="fieldAssertions">
-                  <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="October2021SSRValue">
-                      <fieldLocator uri="ui:locator?name=October2021SSRValue"/>
-                      <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                          <value class="value" valueClass="string">2.25</value>
-                        </uiAttributeAssertion>
-                      </attributeAssertions>
-                    </uiFieldAssertion>
-                  </value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="columnAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="pageAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="beforeWait"/>
-                <argument id="autoRetry"/>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="96" title="Get Total PUF Value and format for calculation">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="123" title="SSR - Call method for dynamic date in Engine and assert SSR value">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Get Total PUF Value and format for calculation</value>
+                  <value class="value" valueClass="string">SSR - Call method for dynamic date in Engine and assert SSR value</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="108">
+                <clause name="hidden" testItemId="134">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="97" title="Get October 2021 Total PUF Value">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="129" title="Call the RetrieveDateFromTable method">
                       <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">October2021TotalPUF</value>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.ipeEngineTreeGrid&amp;operation=RetrieveDateFromTable"/>
                         </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                         </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="October2021TotalPUFValue">
-                              <fieldLocator uri="ui:locator?name=October2021TotalPUFValue"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the RetrieveDateFromTable method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
                           <value class="value" valueClass="string">false</value>
                         </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
+                        <argument id="param_Row">
+                          <value class="value" valueClass="string">SSR</value>
                         </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
+                        <argument id="param_Date">
+                          <value class="funcCall" id="DateFormat">
+                            <argument id="date">
+                              <value class="funcCall" id="DateAdd">
+                                <argument id="date">
+                                  <value class="variable">
+                                    <path element="TODAY"/>
+                                  </value>
+                                </argument>
+                                <argument id="amount">
+                                  <value class="value" valueClass="decimal">1</value>
+                                </argument>
+                                <argument id="unit">
+                                  <value class="variable">
+                                    <path element="YEAR"/>
+                                  </value>
+                                </argument>
+                              </value>
+                            </argument>
+                            <argument id="outputFormat">
+                              <value class="value" valueClass="string">MMM yyyy</value>
+                            </argument>
+                          </value>
                         </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
+                        <argument id="param_resultName">
+                          <value class="value" valueClass="string">EngineSSRValue</value>
+                        </argument>
+                        <argument id="param_resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_Row" title="Row">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_Date" seq="1" title="Date">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                          <defaultValue>Test</defaultValue>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="131" title="Assert: {EngineSSRValue} EqualTo {SSRTestData.Override}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="EngineSSRValue"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="SSRTestData"/>
+                            <path element="Override"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="numeric">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="retainDecimals">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="98" title="Set Values: October2021TotalPUFCalculation">
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="128" title="Total PUF - Call dynamic date method in Engine and format value for calculation">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Total PUF - Call dynamic date method in Engine and format value for calculation</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="132">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="130" title="Call the RetrieveDateFromTable method">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.ipeEngineTreeGrid&amp;operation=RetrieveDateFromTable"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the RetrieveDateFromTable method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="param_Row">
+                          <value class="value" valueClass="string">Total PUF</value>
+                        </argument>
+                        <argument id="param_Date">
+                          <value class="funcCall" id="DateFormat">
+                            <argument id="date">
+                              <value class="funcCall" id="DateAdd">
+                                <argument id="date">
+                                  <value class="variable">
+                                    <path element="TODAY"/>
+                                  </value>
+                                </argument>
+                                <argument id="amount">
+                                  <value class="value" valueClass="decimal">1</value>
+                                </argument>
+                                <argument id="unit">
+                                  <value class="variable">
+                                    <path element="YEAR"/>
+                                  </value>
+                                </argument>
+                              </value>
+                            </argument>
+                            <argument id="outputFormat">
+                              <value class="value" valueClass="string">MMM yyyy</value>
+                            </argument>
+                          </value>
+                        </argument>
+                        <argument id="param_resultName">
+                          <value class="value" valueClass="string">EngineTotalPUFValue</value>
+                        </argument>
+                        <argument id="param_resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_Row" title="Row">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_Date" seq="1" title="Date">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                          <defaultValue>Test</defaultValue>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="138" title="Set Values: TotalPUFCalculation">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
                             <namedValues mutable="Mutable">
                               <namedValue name="valuePath">
-                                <value class="value" valueClass="string">October2021TotalPUFCalculation</value>
+                                <value class="value" valueClass="string">TotalPUFCalculation</value>
                               </namedValue>
                               <namedValue name="value">
                                 <value class="funcCall" id="NumberFormat">
                                   <argument id="numberToFormat">
                                     <value class="variable" topLevel="true">
-                                      <path element="October2021TotalPUF"/>
-                                      <path element="fields"/>
-                                      <path element="October2021TotalPUFValue"/>
-                                      <path element="value"/>
+                                      <path element="EngineTotalPUFValue"/>
                                     </value>
                                   </argument>
                                   <argument id="outputFormat">
@@ -1434,62 +1581,110 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="109" title="Get Replen Value and format for calculation">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="139" title="Replen - Call dynamic date method in Engine and format value for calculation">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Get Replen Value and format for calculation</value>
+                  <value class="value" valueClass="string">Replen - Call dynamic date method in Engine and format value for calculation</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="88">
+                <clause name="hidden" testItemId="140">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="91" title="Get October 2021 Replen Value">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="141" title="Call the RetrieveDateFromTable method">
                       <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">October2021Replen</value>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.ipeEngineTreeGrid&amp;operation=RetrieveDateFromTable"/>
                         </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                         </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="October2021ReplenValue">
-                              <fieldLocator uri="ui:locator?name=October2021ReplenValue"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the RetrieveDateFromTable method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
                           <value class="value" valueClass="string">false</value>
                         </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
+                        <argument id="param_Row">
+                          <value class="value" valueClass="string">Replen</value>
                         </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
+                        <argument id="param_Date">
+                          <value class="funcCall" id="DateFormat">
+                            <argument id="date">
+                              <value class="funcCall" id="DateAdd">
+                                <argument id="date">
+                                  <value class="variable">
+                                    <path element="TODAY"/>
+                                  </value>
+                                </argument>
+                                <argument id="amount">
+                                  <value class="value" valueClass="decimal">1</value>
+                                </argument>
+                                <argument id="unit">
+                                  <value class="variable">
+                                    <path element="YEAR"/>
+                                  </value>
+                                </argument>
+                              </value>
+                            </argument>
+                            <argument id="outputFormat">
+                              <value class="value" valueClass="string">MMM yyyy</value>
+                            </argument>
+                          </value>
                         </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
+                        <argument id="param_resultName">
+                          <value class="value" valueClass="string">EngineReplenValue</value>
+                        </argument>
+                        <argument id="param_resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
                       </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_Row" title="Row">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_Date" seq="1" title="Date">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                          <defaultValue>Test</defaultValue>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="90" title="Set Values: October2021ReplenCalculation">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="142" title="Set Values: ReplenCalculation">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
                             <namedValues mutable="Mutable">
                               <namedValue name="valuePath">
-                                <value class="value" valueClass="string">October2021ReplenCalculation</value>
+                                <value class="value" valueClass="string">ReplenCalculation</value>
                               </namedValue>
                               <namedValue name="value">
                                 <value class="funcCall" id="NumberFormat">
                                   <argument id="numberToFormat">
                                     <value class="variable" topLevel="true">
-                                      <path element="October2021Replen"/>
-                                      <path element="fields"/>
-                                      <path element="October2021ReplenValue"/>
-                                      <path element="value"/>
+                                      <path element="EngineReplenValue"/>
                                     </value>
                                   </argument>
                                   <argument id="outputFormat">
@@ -1516,11 +1711,10 @@
                     <argument id="numberToFormat">
                       <value class="mult">
                         <lhs class="variable">
-                          <path element="October2021TotalPUFCalculation"/>
+                          <path element="TotalPUFCalculation"/>
                         </lhs>
                         <rhs class="variable">
-                          <path element="SSRTestData"/>
-                          <path element="Override"/>
+                          <path element="EngineSSRValue"/>
                         </rhs>
                       </value>
                     </argument>
@@ -1531,7 +1725,7 @@
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="October2021ReplenCalculation"/>
+                    <path element="ReplenCalculation"/>
                   </value>
                 </argument>
                 <argument id="comparisonType">
