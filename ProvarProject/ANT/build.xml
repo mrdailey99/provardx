@@ -2,7 +2,7 @@
 	<property name="version" value="2.0.2.000"/>
 	<property environment="env"/>
 	<property name="provar.home" value="${env.PROVAR_HOME}"/>
-	<property name="testproject.home" value="${env.BUILD_SOURCESDIRECTORY}/ProvarProject"/>
+	<property name="testproject.home" value="${env.WORKSPACE}/ProvarProject"/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
 
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
