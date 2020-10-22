@@ -4,7 +4,7 @@ trigger:
   - google-poc
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: "windows-latest"
 variables:
   provar_major_version: latest
   provar_build_version: latest
@@ -31,6 +31,7 @@ steps:
       testRunTitle: 'Google POC Test Run'
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: '1.8'
+    displayName: "Run Provar Tests"
 
   # Publish (upload) a file or directory as a named artifact for the current run
   - task: PublishPipelineArtifact@1
