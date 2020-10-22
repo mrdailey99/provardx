@@ -28,6 +28,7 @@
 				pluginOutputlevel="WARNING"
 				stopTestRunOnError="false"
 				secretsPassword="${secretsPassword}"
+				licensePath="${env.PROVAR_HOME}/.licenses"
 		>
 			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="false"/>
