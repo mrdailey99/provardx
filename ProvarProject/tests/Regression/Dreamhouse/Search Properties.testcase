@@ -586,7 +586,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.propertyTileList&amp;flexiPage=Property_Explorer&amp;flexiPath=center%3A%3A0&amp;dataComponentId=propertyTileList&amp;lightningComponent=propertyTileList"/>
+          <value class="uiTarget" uri="sf:ui:target?dataComponentId=propertyTileList&amp;pageObject=pageobjects.propertyTileList&amp;lightningComponent=propertyTileList&amp;flexiPage=Property_Explorer&amp;flexiPath=center%3A%3A0"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -681,7 +681,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?dataComponentId=propertySummary&amp;lightningComponent=propertySummary&amp;flexiPath=right%3A%3A0&amp;flexiPage=Property_Explorer&amp;pageObject=pageobjects.propertySummary"/>
+          <value class="uiTarget" uri="sf:ui:target?dataComponentId=propertySummary&amp;pageObject=pageobjects.propertySummary&amp;lightningComponent=propertySummary&amp;flexiPage=Property_Explorer&amp;flexiPath=right%3A%3A0"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -1128,7 +1128,7 @@
                   <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.brokerCard&amp;flexiPage=Property_Record_Page&amp;flexiPath=sidebar%3A%3A0&amp;dataComponentId=brokerCard&amp;lightningComponent=brokerCard"/>
+                  <value class="uiTarget" uri="sf:ui:target?dataComponentId=brokerCard&amp;pageObject=pageobjects.brokerCard&amp;lightningComponent=brokerCard&amp;flexiPage=Property_Record_Page&amp;flexiPath=sidebar%3A%3A0"/>
                 </argument>
                 <argument id="navigate">
                   <value class="value" valueClass="string">Dont</value>
