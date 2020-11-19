@@ -56,7 +56,7 @@ jobs:
   - task: ShellScript@2
     inputs:
       scriptPath: insert_secrets_password.sh
-      args: $(secrets_password) $(Build.SourcesDirectory)\\provardx-properties.json
+      args: $(secrets_password) $(Build.SourcesDirectory)\\provardx-properties-windows.json
     displayName: "Insert Provar Secrets Password to Property File"
 
   - bash: |
