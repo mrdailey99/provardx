@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Regression
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -52,6 +52,24 @@ jobs:
               cp package.xml ProvarDX/package.xml
               cp .forceignore ProvarDX/.forceignore
 
+        - name: List Directory Contents
+          run: |
+              echo "PWD"
+              pwd
+              echo "*******"
+              echo "Listing PWD"
+              ls -la $pwd
+              echo "*******"
+              echo "Listing Github Workspace"
+              ls -la $GITHUB_WORKSPACE
+              echo "*******"
+              echo "Listing Github Workspace/ProvarDX"
+              ls -la $GITHUB_WORKSPACE/ProvarDX
+              echo "*******"
+              echo "Listing Github Workspace/ProvarProject"
+              ls -la $GITHUB_WORKSPACE/ProvarProject
+              echo "**************************"
+              
         - name: Insert Secrets Password
           run: .$GITHUB_WORKSPACE/insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-windows.json
 
