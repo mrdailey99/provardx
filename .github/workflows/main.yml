@@ -56,7 +56,7 @@ jobs:
               cp .forceignore ProvarDX/.forceignore
 
         - name: Insert Secrets Password
-          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-windows.json
+          run: ./$GITHUB_WORKSPACE/insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-windows.json
 
         - name: Create Scratch Org 
           run: |
@@ -64,11 +64,11 @@ jobs:
             sfdx force:org:display -u ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Deploy and Setup Dreamhouse App
-          run: ./setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
+          run: ./$GITHUB_WORKSPACE/setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Update Scratch Org Admin Profile
           run: |
-            cd ProvarDX
+            cd $GITHUB_WORKSPACE/ProvarDX
             sfdx force:mdapi:retrieve -r package -u ${{ env.dev_hub_username }} -k package.xml
             unzip ./package/unpackaged.zip
             sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
@@ -79,7 +79,7 @@ jobs:
             echo "Download Provar Libraries"
             wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
             echo "Unzip Provar ANT Files"
-            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/rovarHome
+            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
             cd ${{ env.provar_home }}
             ls -la
