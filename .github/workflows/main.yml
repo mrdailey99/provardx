@@ -79,12 +79,12 @@ jobs:
             sfdx force:data:tree:import -p data/sample-data-plan.json -u ${{ env.scratch_org_alias }}
 
         - name: Update Scratch Org Admin Profile
-          working-directory: $GITHUB_WORKSPACE/ProvarDX
           run: |
+            cd ProvarDX
             sfdx force:mdapi:retrieve -r package -u ${{ env.dev_hub_alias }} -k package.xml
             unzip ./package/unpackaged.zip
             sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-            sfdx force:source:push -u $scratch_org_alias -f
+            sfdx force:source:push -u ${{ env.scratch_org_alias }} -f
 
         - name: Download and Setup Provar CLI
           working-directory: $GITHUB_WORKSPACE
