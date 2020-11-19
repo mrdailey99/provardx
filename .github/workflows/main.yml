@@ -42,8 +42,22 @@ jobs:
             echo y | sfdx plugins:install @provartesting/provardx
             sfdx plugins:update
 
-        - name: List Authenticated Orgs
-          run: sfdx force:org:list --clean
+        - name: Download Provar CLI
+          uses: wei/wget@v1.1.1
+          with:
+            args: -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
+
+        - name: Setup Provar CLI
+          run: |
+            echo "Unzip Provar ANT Files"
+            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
+            cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
+            ls -la ${{ env.provar_home }}
+            
+        - name: List Authenticated Orgs and Set Default Username
+          run: |
+            sfdx force:org:list --clean
+            sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
 
         - name: Create SFDX Project with config
           run: |
@@ -53,60 +67,71 @@ jobs:
               cp .forceignore ProvarDX/.forceignore
               
         - name: Insert Secrets Password
-          working-directory: $GITHUB_WORKSPACE
-          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-github.json
+          run: sed -i "s|ProvarSecretsPassword|${{ secrets.SECRETS_PASSWORD }}|" $GITHUB_WORKSPACE/provardx-properties-github.json
 
         - name: Create Scratch Org 
-          working-directory: $GITHUB_WORKSPACE
           run: |
-            sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a ${{ secrets.SCRATCH_ORG_ALIAS }}
-            sfdx force:org:display -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
+            sfdx force:org:display -u ${{ env.scratch_org_alias }}
 
         - name: Deploy and Setup Dreamhouse App
-          working-directory: $GITHUB_WORKSPACE
-          run: ./setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
+          run: |
+            ## Clone Dreamhouse App
+            echo "--- Clone Dreamhouse App Scratch Org project ---"
+            git clone https://github.com/dreamhouseapp/dreamhouse-lwc
+            cd dreamhouse-lwc
+            ## Deploy Dreamhouse to Scratch Org
+            echo "--- Deploy Dreamhouse to Scratch Org ---"
+            sfdx force:source:push -u ${{ env.scratch_org_alias }}
+            ## Assign dreamhouse permission set to the default user
+            echo "--- Assign dreamhouse permission set to the default user ---"
+            sfdx force:user:permset:assign -n dreamhouse -u ${{ env.scratch_org_alias }}
+            ## Import sample data into Scratch Org
+            echo "--- Import sample data into Scratch Org ---"
+            sfdx force:data:tree:import -p data/sample-data-plan.json -u ${{ env.scratch_org_alias }}
 
         - name: Update Scratch Org Admin Profile
-          working-directory: $GITHUB_WORKSPACE/ProvarDX
           run: |
+            cd ProvarDX
             sfdx force:mdapi:retrieve -r package -u ${{ env.dev_hub_alias }} -k package.xml
             unzip ./package/unpackaged.zip
             sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-            sfdx force:source:push -u $scratch_org_alias -f
-
-        - name: Download and Setup Provar CLI
-          working-directory: $GITHUB_WORKSPACE
-          run: |
-            echo "Download Provar Libraries"
-            wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
-            echo "Unzip Provar ANT Files"
-            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
-            cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
-            ls -la ${{ env.provar_home }}
+            sfdx force:source:push -u ${{ env.scratch_org_alias }} -f
 
         - name: Validate ProvarDX property file
-          working-directory: $GITHUB_WORKSPACE
           run: sfdx provar:validate -p provardx-properties-github.json
 
         - name: Compile Provar Project
-          working-directory: $GITHUB_WORKSPACE
           run: sfdx provar:compile -p provardx-properties-github.json
 
         - name: Reload Metadata Cache
-          working-directory: $GITHUB_WORKSPACE
           run: sfdx provar:metadatacache -m 'reload' -c '.provarCaches' -p provardx-properties-github.json
 
         - name: Run Provar Tests
-          working-directory: $GITHUB_WORKSPACE
           run: echo y | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
 
         - name: Delete Scratch Org
           run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
-
-        # Publish Test Results
-        - name: Publish JUnit Test Report
-          uses: mikepenz/action-junit-report@v1
+            
+        - name: Publish Test Results
+          uses: EnricoMi/publish-unit-test-result-action@v1.5
           with:
-            report_paths: '**/Results/*.xml'
             github_token: ${{ secrets.GITHUB_TOKEN }}
             check_name: "Provar Regression Test Report"
+            # File pattern of test result files
+            files: '**/Results/*.xml'
+            # Individual runs of the same test may see different failures. Reports all individual failures when set "true" or the first only otherwise
+            report_individual_runs: true
+            # De-duplicates classes with same name by their file name when set "true", combines test results for those classes otherwise
+            deduplicate_classes_by_file_name: false
+
+        - name: Upload Test Results Folder
+          uses: actions/upload-artifact@v2.2.1
+          with:
+            # Artifact name
+            name: TestResults# optional, default is artifact
+            # A file, directory or wildcard pattern that describes what to upload
+            path: '**/ANT/Results'
+            # The desired behavior if no files are found using the provided path.
+            if-no-files-found: warn
+            retention-days: 14 # optional
