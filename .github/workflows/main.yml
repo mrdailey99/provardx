@@ -53,7 +53,7 @@ jobs:
               cp .forceignore ProvarDX/.forceignore
               
         - name: Insert Secrets Password
-          run: .$GITHUB_WORKSPACE/insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-github.json
+          run: sed -i "s|ProvarSecretsPassword|${{ secrets.SECRETS_PASSWORD }}|" $GITHUB_WORKSPACE/provardx-properties-github.json
 
         - name: Create Scratch Org 
           run: |
@@ -61,7 +61,20 @@ jobs:
             sfdx force:org:display -u ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Deploy and Setup Dreamhouse App
-          run: .$GITHUB_WORKSPACE/setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
+          run: |
+            ## Clone Dreamhouse App
+            echo "--- Clone Dreamhouse App Scratch Org project ---"
+            git clone https://github.com/dreamhouseapp/dreamhouse-lwc
+            cd dreamhouse-lwc
+            ## Deploy Dreamhouse to Scratch Org
+            echo "--- Deploy Dreamhouse to Scratch Org ---"
+            sfdx force:source:push -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            ## Assign dreamhouse permission set to the default user
+            echo "--- Assign dreamhouse permission set to the default user ---"
+            sfdx force:user:permset:assign -n dreamhouse -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            ## Import sample data into Scratch Org
+            echo "--- Import sample data into Scratch Org ---"
+            sfdx force:data:tree:import -p data/sample-data-plan.json -u ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Update Scratch Org Admin Profile
           working-directory: $GITHUB_WORKSPACE/ProvarDX
