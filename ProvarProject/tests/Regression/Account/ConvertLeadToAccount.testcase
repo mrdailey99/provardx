@@ -82,7 +82,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;DevHub&quot;}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot;}">
       <arguments>
         <argument id="condition">
           <value class="or">
@@ -98,7 +98,7 @@
             </lhs>
             <rhs class="eq">
               <lhs class="funcCall" id="GetSelectedEnvironment"/>
-              <rhs class="value" valueClass="string">DevHub</rhs>
+              <rhs class="value" valueClass="string">&lt;default&gt;</rhs>
             </rhs>
           </value>
         </argument>

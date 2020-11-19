@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="21" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
+<testCase id="0" registryId="3b131cbc-43bd-4fa2-90a1-d120123fc715" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -193,7 +193,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="24" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;DevHub&quot;}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="24" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot;}">
       <arguments>
         <argument id="condition">
           <value class="or">
@@ -209,7 +209,7 @@
             </lhs>
             <rhs class="eq">
               <lhs class="funcCall" id="GetSelectedEnvironment"/>
-              <rhs class="value" valueClass="string">DevHub</rhs>
+              <rhs class="value" valueClass="string">&lt;default&gt;</rhs>
             </rhs>
           </value>
         </argument>

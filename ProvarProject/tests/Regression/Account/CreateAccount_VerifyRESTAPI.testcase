@@ -87,7 +87,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" testCasePath="tests/Sandbox/Account/CreateNewAccount.testcase" testItemId="6">
+    <caseCall testCaseId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" testCasePath="tests/Regression/Account/CreateNewAccount.testcase" testItemId="6">
       <arguments>
         <argument id="AccountName">
           <value class="variable">
