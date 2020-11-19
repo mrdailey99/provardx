@@ -53,6 +53,7 @@ jobs:
             unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
             ls -la ${{ env.provar_home }}
+            ls -la ${{ env.provar_home }}/provardx
             
         - name: List Authenticated Orgs and Set Default Username
           run: |
