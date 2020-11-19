@@ -57,8 +57,8 @@ jobs:
 
         - name: Create Scratch Org 
           run: |
-            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ secrets.SCRATCH_ORG_ALIAS }}
-            sfdx force:org:display -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
+            sfdx force:org:display -u ${{ secrets.scratch_org_alias }}
 
         - name: Deploy and Setup Dreamhouse App
           run: |
@@ -68,13 +68,13 @@ jobs:
             cd dreamhouse-lwc
             ## Deploy Dreamhouse to Scratch Org
             echo "--- Deploy Dreamhouse to Scratch Org ---"
-            sfdx force:source:push -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:source:push -u ${{ env.scratch_org_alias }}
             ## Assign dreamhouse permission set to the default user
             echo "--- Assign dreamhouse permission set to the default user ---"
-            sfdx force:user:permset:assign -n dreamhouse -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:user:permset:assign -n dreamhouse -u ${{ env.scratch_org_alias }}
             ## Import sample data into Scratch Org
             echo "--- Import sample data into Scratch Org ---"
-            sfdx force:data:tree:import -p data/sample-data-plan.json -u ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:data:tree:import -p data/sample-data-plan.json -u ${{ env.scratch_org_alias }}
 
         - name: Update Scratch Org Admin Profile
           working-directory: $GITHUB_WORKSPACE/ProvarDX
