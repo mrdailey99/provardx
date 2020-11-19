@@ -54,7 +54,7 @@ jobs:
               
         - name: Insert Secrets Password
           working-directory: $GITHUB_WORKSPACE
-          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} provardx-properties-github.json
+          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-github.json
 
         - name: Create Scratch Org 
           working-directory: $GITHUB_WORKSPACE
