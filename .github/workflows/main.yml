@@ -53,18 +53,15 @@ jobs:
               cp .forceignore ProvarDX/.forceignore
               
         - name: Insert Secrets Password
-          working-directory: $GITHUB_WORKSPACE
-          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-github.json
+          run: .$GITHUB_WORKSPACE/insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-github.json
 
         - name: Create Scratch Org 
-          working-directory: $GITHUB_WORKSPACE
           run: |
-            sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ secrets.SCRATCH_ORG_ALIAS }}
             sfdx force:org:display -u ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Deploy and Setup Dreamhouse App
-          working-directory: $GITHUB_WORKSPACE
-          run: ./setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
+          run: .$GITHUB_WORKSPACE/setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Update Scratch Org Admin Profile
           working-directory: $GITHUB_WORKSPACE/ProvarDX
