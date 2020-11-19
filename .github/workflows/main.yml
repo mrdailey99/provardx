@@ -42,8 +42,10 @@ jobs:
             echo y | sfdx plugins:install @provartesting/provardx
             sfdx plugins:update
 
-        - name: List Authenticated Orgs
-          run: sfdx force:org:list --clean
+        - name: List Authenticated Orgs and Set Default Username
+          run: |
+            sfdx force:org:list --clean
+            sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
 
         - name: Create SFDX Project with config
           run: |
@@ -58,7 +60,7 @@ jobs:
         - name: Create Scratch Org 
           run: |
             sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
-            sfdx force:org:display -u ${{ secrets.scratch_org_alias }}
+            sfdx force:org:display -u ${{ env.scratch_org_alias }}
 
         - name: Deploy and Setup Dreamhouse App
           run: |
@@ -112,11 +114,26 @@ jobs:
 
         - name: Delete Scratch Org
           run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
-
-        # Publish Test Results
-        - name: Publish JUnit Test Report
-          uses: mikepenz/action-junit-report@v1
+            
+        - name: Publish Test Results
+          uses: EnricoMi/publish-unit-test-result-action@v1.5
           with:
-            report_paths: '**/Results/*.xml'
             github_token: ${{ secrets.GITHUB_TOKEN }}
             check_name: "Provar Regression Test Report"
+            # File pattern of test result files
+            files: '**/Results/*.xml'
+            # Individual runs of the same test may see different failures. Reports all individual failures when set "true" or the first only otherwise
+            report_individual_runs: true
+            # De-duplicates classes with same name by their file name when set "true", combines test results for those classes otherwise
+            deduplicate_classes_by_file_name: false
+
+        - name: Upload Test Results Folder
+          uses: actions/upload-artifact@v2.2.1
+          with:
+            # Artifact name
+            name: TestResults# optional, default is artifact
+            # A file, directory or wildcard pattern that describes what to upload
+            path: '**/ANT/Results'
+            # The desired behavior if no files are found using the provided path.
+            if-no-files-found: warn
+            retention-days: 14 # optional
