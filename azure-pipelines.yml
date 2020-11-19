@@ -107,7 +107,7 @@ jobs:
     displayName: "Reload Metadata Cache"
 
   - bash: |
-      sfdx provar:runtests -p provardx-properties-windows.json
+      echo y | sfdx provar:runtests -p provardx-properties-windows.json
     displayName: "Run Provar Tests"
 
   - bash: |
