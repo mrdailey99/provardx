@@ -2,7 +2,7 @@
 <testPlan>
   <planSettings>
     <planSetting name="browserProvider">
-      <value valueClass="string">Desktop:Full Screen</value>
+      <value valueClass="string">Desktop:1920x1080</value>
     </planSetting>
     <planSetting name="webBrowser">
       <value valueClass="string">Chrome_Headless</value>
