@@ -71,25 +71,29 @@ jobs:
               echo "**************************"
               
         - name: Insert Secrets Password
-          run: .$GITHUB_WORKSPACE/insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} $GITHUB_WORKSPACE/provardx-properties-windows.json
+          working-directory: $GITHUB_WORKSPACE
+          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} provardx-properties-windows.json
 
         - name: Create Scratch Org 
+          working-directory: $GITHUB_WORKSPACE
           run: |
-            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ secrets.SCRATCH_ORG_ALIAS }}
+            sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a ${{ secrets.SCRATCH_ORG_ALIAS }}
             sfdx force:org:display -u ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Deploy and Setup Dreamhouse App
-          run: .$GITHUB_WORKSPACE/setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
+          working-directory: $GITHUB_WORKSPACE
+          run: ./setup_dreamhouse.sh ${{ secrets.SCRATCH_ORG_ALIAS }}
 
         - name: Update Scratch Org Admin Profile
+          working-directory: $GITHUB_WORKSPACE/ProvarDX
           run: |
-            cd $GITHUB_WORKSPACE/ProvarDX
             sfdx force:mdapi:retrieve -r package -u ${{ env.dev_hub_alias }} -k package.xml
             unzip ./package/unpackaged.zip
             sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
             sfdx force:source:push -u $scratch_org_alias -f
 
         - name: Download and Setup Provar CLI
+          working-directory: $GITHUB_WORKSPACE
           run: |
             echo "Download Provar Libraries"
             wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
@@ -100,16 +104,20 @@ jobs:
             ls -la
 
         - name: Validate ProvarDX property file
-          run: sfdx provar:validate -p $GITHUB_WORKSPACE/provardx-properties-github.json
+          working-directory: $GITHUB_WORKSPACE
+          run: sfdx provar:validate -p provardx-properties-github.json
 
         - name: Compile Provar Project
-          run: sfdx provar:compile -p $GITHUB_WORKSPACE/provardx-properties-github.json
+          working-directory: $GITHUB_WORKSPACE
+          run: sfdx provar:compile -p provardx-properties-github.json
 
         - name: Reload Metadata Cache
-          run: sfdx provar:metadatacache -m 'reload' -c '$GITHUB_WORKSPACE/.provarCaches' -p $GITHUB_WORKSPACE/provardx-properties-github.json
+          working-directory: $GITHUB_WORKSPACE
+          run: sfdx provar:metadatacache -m 'reload' -c '.provarCaches' -p provardx-properties-github.json
 
         - name: Run Provar Tests
-          run: echo y | xvfb-run sfdx provar:runtests -p $GITHUB_WORKSPACE/provardx-properties-github.json
+          working-directory: $GITHUB_WORKSPACE
+          run: echo y | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
 
         - name: Delete Scratch Org
           run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
