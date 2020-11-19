@@ -51,28 +51,10 @@ jobs:
               cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
               cp package.xml ProvarDX/package.xml
               cp .forceignore ProvarDX/.forceignore
-
-        - name: List Directory Contents
-          run: |
-              echo "PWD"
-              pwd
-              echo "*******"
-              echo "Listing PWD"
-              ls -la $pwd
-              echo "*******"
-              echo "Listing Github Workspace"
-              ls -la $GITHUB_WORKSPACE
-              echo "*******"
-              echo "Listing Github Workspace/ProvarDX"
-              ls -la $GITHUB_WORKSPACE/ProvarDX
-              echo "*******"
-              echo "Listing Github Workspace/ProvarProject"
-              ls -la $GITHUB_WORKSPACE/ProvarProject
-              echo "**************************"
               
         - name: Insert Secrets Password
           working-directory: $GITHUB_WORKSPACE
-          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} provardx-properties-windows.json
+          run: ./insert_secrets_password.sh ${{ secrets.SECRETS_PASSWORD }} provardx-properties-github.json
 
         - name: Create Scratch Org 
           working-directory: $GITHUB_WORKSPACE
@@ -100,8 +82,7 @@ jobs:
             echo "Unzip Provar ANT Files"
             unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
-            cd ${{ env.provar_home }}
-            ls -la
+            ls -la ${{ env.provar_home }}
 
         - name: Validate ProvarDX property file
           working-directory: $GITHUB_WORKSPACE
