@@ -7,7 +7,7 @@
     "projectPath":"/home/vsts/work/1/s/ProvarProject",
     "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
     "resultsPathDisposition":"Replace", 
-    "testOutputLevel":"WARNING",
+    "testOutputLevel":"FINEST",
     "pluginOutputlevel":"WARNING",
     "excludeCallable":false,
     "stopOnError":false,

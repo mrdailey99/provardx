@@ -18,9 +18,7 @@
           <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="uiApplicationName">
-          <value class="variable">
-            <path element="App"/>
-          </value>
+          <value class="value" valueClass="string">Visualforce_to_LWC</value>
         </argument>
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>

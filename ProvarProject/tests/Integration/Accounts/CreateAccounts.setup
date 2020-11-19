@@ -17,11 +17,7 @@
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Fail</value>
         </argument>
-        <argument id="uiApplicationName">
-          <value class="variable">
-            <path element="App"/>
-          </value>
-        </argument>
+        <argument id="uiApplicationName"/>
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
