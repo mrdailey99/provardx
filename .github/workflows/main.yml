@@ -42,6 +42,18 @@ jobs:
             echo y | sfdx plugins:install @provartesting/provardx
             sfdx plugins:update
 
+        - name: Download Provar CLI
+          uses: wei/wget@v1.1.1
+          with:
+            args: -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
+
+        - name: Setup Provar CLI
+          run: |
+            echo "Unzip Provar ANT Files"
+            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
+            cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
+            ls -la ${{ env.provar_home }}
+            
         - name: List Authenticated Orgs and Set Default Username
           run: |
             sfdx force:org:list --clean
@@ -86,30 +98,16 @@ jobs:
             sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
             sfdx force:source:push -u ${{ env.scratch_org_alias }} -f
 
-        - name: Download and Setup Provar CLI
-          working-directory: $GITHUB_WORKSPACE
-          run: |
-            echo "Download Provar Libraries"
-            wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
-            echo "Unzip Provar ANT Files"
-            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
-            cp -r $GITHUB_WORKSPACE/ProvarProject/provardx ${{ env.provar_home }}/provardx
-            ls -la ${{ env.provar_home }}
-
         - name: Validate ProvarDX property file
-          working-directory: $GITHUB_WORKSPACE
           run: sfdx provar:validate -p provardx-properties-github.json
 
         - name: Compile Provar Project
-          working-directory: $GITHUB_WORKSPACE
           run: sfdx provar:compile -p provardx-properties-github.json
 
         - name: Reload Metadata Cache
-          working-directory: $GITHUB_WORKSPACE
           run: sfdx provar:metadatacache -m 'reload' -c '.provarCaches' -p provardx-properties-github.json
 
         - name: Run Provar Tests
-          working-directory: $GITHUB_WORKSPACE
           run: echo y | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
 
         - name: Delete Scratch Org
