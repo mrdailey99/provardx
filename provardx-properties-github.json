@@ -7,14 +7,14 @@
     "projectPath":"/home/runner/work/provardx/provardx/ProvarProject",
     "resultsPath":"/home/runner/work/provardx/provardx/ProvarProject/ANT/Results",
     "resultsPathDisposition":"Replace", 
-    "testOutputLevel":"FINEST",
-    "pluginOutputlevel":"WARNING",
+    "testOutputLevel":"SEVERE",
+    "pluginOutputlevel":"SEVERE",
     "excludeCallable":false,
     "stopOnError":false,
     "lightningMode":true,
-    "connectionRefreshType":"Reload",
+    "connectionRefreshType":"Reuse",
     "metadata":{
-       "metadataLevel":"Reload",
+       "metadataLevel":"Reuse",
        "cachePath":"/home/runner/work/provardx/provardx/.provarCaches"
     },
     "testprojectSecrets": "ProvarSecretsPassword", 
