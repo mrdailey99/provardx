@@ -1,2 +1,4 @@
 automerge:
-  - ./**/**
+  - any: ['ProvarProject/**/**']
+  - any: ['github/**/**']
+  - any: ['./**/**']

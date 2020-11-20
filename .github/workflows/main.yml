@@ -25,6 +25,13 @@ on:
   status: {}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+    triage:
+      runs-on: ubuntu-latest
+      steps:
+        # Auto-label PRs to enable automatically merging of PRs once process is complete.
+        - uses: actions/labeler@main
+          with:
+            repo-token: "${{ secrets.GITHUB_TOKEN }}"
   # This workflow contains a single job called "build"
     linux_regression:
       # The type of runner that the job will run on
@@ -37,10 +44,6 @@ jobs:
         provar_home: ${{ github.workspace }}/ProvarHome
       # Steps represent a sequence of tasks that will be executed as part of the job
       steps:
-        # Auto-label PRs to enable automatically merging of PRs once process is complete.
-        - uses: actions/labeler@main
-          with:
-            repo-token: "${{ secrets.GITHUB_TOKEN }}"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - uses: actions/checkout@v2
         - uses: actions/setup-java@v1
