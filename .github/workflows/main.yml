@@ -5,11 +5,24 @@ name: Regression
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
-
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  check_suite:
+    types:
+      - completed
+  status: {}
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -24,6 +37,10 @@ jobs:
         provar_home: ${{ github.workspace }}/ProvarHome
       # Steps represent a sequence of tasks that will be executed as part of the job
       steps:
+        # Auto-label PRs to enable automatically merging of PRs once process is complete.
+        - uses: actions/labeler@main
+          with:
+            repo-token: "${{ secrets.GITHUB_TOKEN }}"
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - uses: actions/checkout@v2
         - uses: actions/setup-java@v1
@@ -102,13 +119,12 @@ jobs:
           uses: actions/upload-artifact@v2.2.1
           with:
             # Artifact name
-            name: TestResults# optional, default is artifact
+            name: TestResults # optional, default is artifact
             # A file, directory or wildcard pattern that describes what to upload
-            path: '**/ANT/Results/JUnit.xml'
+            path: '**/ANT/Results'
             # The desired behavior if no files are found using the provided path.
             if-no-files-found: error
             retention-days: 14 # optional
-            
     test_results:
       name: "Publish Test Results"
       needs: linux_regression
@@ -132,3 +148,12 @@ jobs:
             report_individual_runs: true
             # De-duplicates classes with same name by their file name when set "true", combines test results for those classes otherwise
             deduplicate_classes_by_file_name: false
+    automerge:
+      needs: test_results
+      runs-on: ubuntu-latest
+      if: success()
+      steps:
+        - name: automerge
+          uses: "pascalgn/automerge-action@v0.12.0"
+          env:
+            GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
