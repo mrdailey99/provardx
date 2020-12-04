@@ -139,7 +139,7 @@ jobs:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             check_name: "Provar Regression Test Report"
             # File pattern of test result files
-            files: 'JUnit.xml'
+            files: '**/Results/*.xml'
             # Individual runs of the same test may see different failures. Reports all individual failures when set "true" or the first only otherwise
             report_individual_runs: true
             # De-duplicates classes with same name by their file name when set "true", combines test results for those classes otherwise
