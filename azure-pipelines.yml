@@ -74,11 +74,12 @@ steps:
 
   - bash: |
       echo "Download Provar Libraries"
-      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      # wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      wget -nv https://www.dropbox.com/sh/so91w11x53zrpnt/AABdAcUEi7bf84Vq7sqWbl9Na/2.3.0.029/Provar_ANT_2.3.0.029.zip?dl=0
       echo "Unzip Provar ANT Files"
-      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      # unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      unzip -q Provar_ANT_2.3.0.029.zip?dl=0' -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
-      cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
       ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
       cd $PROVAR_HOME
       ls -la
