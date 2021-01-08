@@ -58,11 +58,11 @@ steps:
       sfdx force:org:display -u $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
-  - task: ShellScript@2
-    inputs:
-      scriptPath: setup_dreamhouse.sh
-      args: $(scratch_org_alias)
-    displayName: "Deploy and Setup Dreamhouse App"
+  # - task: ShellScript@2
+  #   inputs:
+  #     scriptPath: setup_dreamhouse.sh
+  #     args: $(scratch_org_alias)
+  #   displayName: "Deploy and Setup Dreamhouse App"
 
   - bash: |
       cd ProvarDX
@@ -93,7 +93,7 @@ steps:
     displayName: "Compile Provar Tests"
 
   - bash: |
-      sfdx provar:metadatacache -m 'reload' -c '/home/vsts/work/1/s/.provarCaches' -p provardx-properties.json
+      sfdx provar:metadatacache -m 'Reload' -c '/home/vsts/work/1/s/.provarCaches' -p provardx-properties.json
     displayName: "Reload Metadata Cache"
 
   - bash: |
