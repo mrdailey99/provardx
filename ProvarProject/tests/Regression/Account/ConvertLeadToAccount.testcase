@@ -72,7 +72,7 @@
                 <value class="value" valueClass="string">OppProbability</value>
               </namedValue>
               <namedValue name="value">
-                <value class="value" valueClass="string">10.0</value>
+                <value class="value" valueClass="string">15.0</value>
               </namedValue>
               <namedValue name="valueScope">
                 <value class="value" valueClass="string">Test</value>
