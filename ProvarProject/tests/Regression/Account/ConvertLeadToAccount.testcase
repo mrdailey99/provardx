@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
+<testCase id="3" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
