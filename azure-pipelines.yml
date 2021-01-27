@@ -97,7 +97,7 @@ steps:
     displayName: "Reload Metadata Cache"
 
   - bash: |
-      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json
+      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json -m 'Reuse' 
     displayName: "Run Provar Tests"
 
   - bash: |
