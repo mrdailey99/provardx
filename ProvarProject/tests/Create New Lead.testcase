@@ -43,6 +43,5 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="a6ffe840-abb4-42f3-a0fd-7c31fbe9ff4e" testCasePath="tests/Create New Opp.testcase" testItemId="2"/>
   </steps>
 </testCase>
