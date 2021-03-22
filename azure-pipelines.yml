@@ -7,8 +7,8 @@ pool:
   vmImage: "ubuntu-latest"
 variables:
   connection_name: Admin
-  provar_major_version: 2.3.0
-  provar_build_version: 2.3.0.04
+  provar_major_version: latest
+  provar_build_version: latest
 steps:
   # Download secure file
   # Download a secure file to the agent machine
