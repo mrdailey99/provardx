@@ -33,6 +33,18 @@ steps:
     displayName: "Install ProvarDX Plugin via SFDX"
 
   - bash: |
+      echo "Download Provar Libraries"
+      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      echo "Unzip Provar ANT Files"
+      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
+      cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
+      ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
+      cd $PROVAR_HOME
+      ls -la
+    displayName: "Install & Configure Provar for running ProvarDX"
+
+  - bash: |
       sfdx force:project:create -n ProvarDX
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
       cp package.xml ProvarDX/package.xml
@@ -71,18 +83,6 @@ steps:
       sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
       sfdx force:source:push -u $(scratch_org_alias) -f
     displayName: "Update Scratch Org Admin Profile"
-
-  - bash: |
-      echo "Download Provar Libraries"
-      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
-      echo "Unzip Provar ANT Files"
-      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
-      export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
-      cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
-      ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
-      cd $PROVAR_HOME
-      ls -la
-    displayName: "Install & Configure Provar for running ProvarDX"
 
   - bash: |
       sfdx provar:validate

@@ -24,5 +24,8 @@ public class createRecordWithPrepopulatedValuesWrapper {
 	@ButtonType()
 	@FindBy(xpath = "//button[@name='create']")
 	public WebElement save;
+	@TextType()
+	@FindBy(xpath = ".//c-create-record-with-prepopulated-values-wrapper//input[@name='Phone']")
+	public WebElement phone;
 	
 }
