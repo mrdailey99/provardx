@@ -7,7 +7,7 @@ pool:
   vmImage: "ubuntu-latest"
 variables:
   connection_name: Admin
-  provar_major_version: latest
+  provar_major_version: 2.3.1
   provar_build_version: latest
 steps:
   # Download secure file
@@ -34,9 +34,9 @@ steps:
 
   - bash: |
       echo "Download Provar Libraries"
-      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      wget -nv https://download.provartesting.com/$(provar_major_version)/ProvarCLI.zip
       echo "Unzip Provar ANT Files"
-      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      unzip -q ProvarCLI.zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
       cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
       ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
