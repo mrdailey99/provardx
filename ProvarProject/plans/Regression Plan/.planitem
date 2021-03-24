@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testPlan>
-  <planSettings>
-    <planSetting name="browserProvider">
-      <value valueClass="string">Desktop:1920x1080</value>
-    </planSetting>
-    <planSetting name="webBrowser">
-      <value valueClass="string">Chrome_Headless</value>
-    </planSetting>
-  </planSettings>
+  <planSettings/>
   <planFeatures>
     <planFeature enabled="true" name="PIECHART" type="OUTPUT">
       <settings mutable="Mutable">
