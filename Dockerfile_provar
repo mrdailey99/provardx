@@ -1,0 +1,63 @@
+## Environment Level (Provar Test Environment)
+ARG ENV
+## ANT Target to run in build file
+ARG ANT_TARGET=runtests
+## Build file to run tests
+ARG BUILD_FILE=smoke_build.xml
+## Test Plan to target in build file
+ARG TEST_PLAN="Regression Plan"
+## Provar secrets password (input either here or as "--build-arg PROVAR_SECRETS_PASSWORD=YOURSECRETSPASSWORD" in build command)
+ARG ProvarSecretsPassword=ProvarDevOps2021
+## Salesforce Connection Name
+ARG PROVAR_sf_Admin
+## Salesforce Connection Password
+ARG PROVAR_sf_Admin_password
+## The name of the project folder
+ARG PROJECT_NAME=ProvarProject
+## This docker build assumes you run as root (-u root)
+## Initial stage to use base image with ANT and Oracle JDK 8
+FROM  provar/provarcli:2.3.1
+LABEL maintainer="Provar Testing <support@provartesting.com>"
+LABEL version="1.0"
+ARG PROJECT_NAME
+ARG EMAIL_TARGET
+ARG ENV
+ARG ANT_TARGET
+ARG TEST_PLAN
+ARG BUILD_FILE
+ARG ProvarSecretsPassword
+ARG PROVAR_sf_Admin
+ARG PROVAR_sf_Admin_password
+# The location to save the Provar binaries to (from downloads page)
+ENV REPO_HOME=/srv/Provar \
+    PROVAR_VERSION=${PROVAR_DEFAULT_VERSION} \
+    ## Set the WORKSPACE for execution
+    WORKSPACE=/home/${PROJECT_NAME} \
+    DISPLAY=:99.0 \
+    JAVA_ARGS=-verbose:class \
+    ENVIRONMENT=${ENV} \
+    ANT_TARGET=${ANT_TARGET} \
+    EMAIL_TARGET=${EMAIL_TARGET} \
+    TEST_PLAN=${TEST_PLAN} \
+    BUILD_FILE=${BUILD_FILE} \
+    ProvarSecretsPassword=${ProvarSecretsPassword} \
+    PROVAR_sf_Admin=${PROVAR_sf_Admin} \
+    PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password}
+
+ENV PROVAR_HOME=${REPO_HOME}/Provar_Home \
+    CACHEPATH=${WORKSPACE}/../.provarCaches
+
+## (Optional: Only use for local runs or environments not using a Version Control System) Copy local project files to docker image
+## Otherwise files will be pulled from Git/etc. (in that case comment this line) and placed into ${WORKSPACE} where ${WORKSPACE} contains the .testproject file/etc.
+COPY . ${WORKSPACE}/
+## (Optional: Licenses folder must be in same directory as Dockerfile first)
+# Copy Licenses folder to container for execution tracking
+COPY .licenses/ ${PROVAR_HOME}/.licenses
+COPY .smtp/ ${PROVAR_HOME}/.smtp
+## Set working directory for image
+WORKDIR ${WORKSPACE}
+## Entrypoint script to run Provar tests
+RUN echo "#!/bin/sh \n xvfb-run ant -Dprovar.home=$PROVAR_HOME -Dtestproject.home=$WORKSPACE -f ANT/$BUILD_FILE" > ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+ENTRYPOINT ["./entrypoint.sh"]
+CMD

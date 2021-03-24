@@ -1,5 +1,4 @@
 <project default="runtests">
-	<property name="version" value="2.0.2.000"/>
 	<property environment="env"/>
 	<property name="provar.home" value="${env.PROVAR_HOME}"/>
 	<property name="testproject.home" value="${env.WORKSPACE}"/>
@@ -18,7 +17,7 @@
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Replace" 
-				testEnvironment="Dev" 
+				testEnvironment="" 
 				webBrowser="Chrome_Headless" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
@@ -26,7 +25,7 @@
 				salesforceMetadataCache="Refresh"
 				excludeCallableTestCases="true" 
 				projectCachePath="${testproject.home}/../.provarCaches"
-				testOutputlevel="WARNING" 
+				testOutputlevel="BASIC" 
 				pluginOutputlevel="WARNING"
 				stopTestRunOnError="false"
 				secretsPassword="${secrets.password}"
@@ -37,8 +36,8 @@
 			<planFeature name="PIECHART" type="OUTPUT" enabled="false"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="false"/>
 
-			<emailProperties sendEmail="true" primaryRecipients="${env.EMAIL_TARGET}" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
-			<attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="false" includeDebugMessages="false" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+			<emailProperties sendEmail="true" primaryRecipients="${env.EMAIL_TARGET}" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="false"/>
+			<attachmentProperties includeAllFailuresInSummary="true" includeBdd="false" includeTestCasePathHierarchy="true" includeTestCaseShowSummary="true" includeBasicLogs="true" includeDetailLogs="false" includeDiagnosticTrace="false" includeTestStepTime="true" includeNoScreenshot="false" includeScreenshotThumbnail="true" includeFullScreenShot="false"/>
 		</Run-Test-Case>
 
 	</target>

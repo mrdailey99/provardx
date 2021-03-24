@@ -82,23 +82,29 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot;}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot; OR GetSelectedEnvironment() = &quot;&quot;}">
       <arguments>
         <argument id="condition">
           <value class="or">
             <lhs class="or">
-              <lhs class="eq">
-                <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                <rhs class="value" valueClass="string">ProvarDX</rhs>
+              <lhs class="or">
+                <lhs class="eq">
+                  <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                  <rhs class="value" valueClass="string">ProvarDX</rhs>
+                </lhs>
+                <rhs class="eq">
+                  <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                  <rhs class="value" valueClass="string">Scratch</rhs>
+                </rhs>
               </lhs>
               <rhs class="eq">
                 <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                <rhs class="value" valueClass="string">Scratch</rhs>
+                <rhs class="value" valueClass="string">&lt;default&gt;</rhs>
               </rhs>
             </lhs>
             <rhs class="eq">
               <lhs class="funcCall" id="GetSelectedEnvironment"/>
-              <rhs class="value" valueClass="string">&lt;default&gt;</rhs>
+              <rhs class="value" valueClass="string"/>
             </rhs>
           </value>
         </argument>

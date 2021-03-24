@@ -20,5 +20,8 @@ public class CaseDetails {
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Reply']")
 	public WebElement reply;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//div[2]/div/article//a[normalize-space(.)='Click to expand post']/lightning-icon/lightning-primitive-icon")
+	public WebElement updateTwo;
 			
 }

@@ -84,7 +84,7 @@
         <connection name="ProvarDocker">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;accessToken={accessToken};refreshToken={refreshToken};expiry=1614787345000"/>
+            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;accessToken={accessToken};refreshToken={refreshToken};expiry=1616594165000"/>
           </connectionUrls>
         </connection>
       </connections>
