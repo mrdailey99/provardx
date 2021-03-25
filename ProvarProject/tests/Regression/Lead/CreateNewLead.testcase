@@ -72,25 +72,6 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="29" title="Set Values: TestEnvironment">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">TestEnvironment</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="funcCall" id="GetSelectedEnvironment"/>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: LeadCompany">
       <arguments>
         <argument id="values">
@@ -234,7 +215,7 @@
             </lhs>
             <rhs class="eq">
               <lhs class="funcCall" id="GetSelectedEnvironment"/>
-              <rhs class="value" valueClass="string"/>
+              <rhs class="value"/>
             </rhs>
           </value>
         </argument>
@@ -468,7 +449,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Last Name field to {LeadName} {TestEnvironment}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Last Name field to {LeadName}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=LastName&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DLead%26field%3DLastName"/>
@@ -477,7 +458,7 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Last Name field to {LeadName} {TestEnvironment}</value>
+                  <value class="value" valueClass="string">Set the Last Name field to {LeadName}</value>
                 </argument>
                 <argument id="beforeWait"/>
                 <argument id="afterWait"/>
@@ -489,16 +470,8 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="value">
-                  <value class="compound">
-                    <parts>
-                      <variable>
-                        <path element="LeadName"/>
-                      </variable>
-                      <value valueClass="string"> </value>
-                      <variable>
-                        <path element="TestEnvironment"/>
-                      </variable>
-                    </parts>
+                  <value class="variable">
+                    <path element="LeadName"/>
                   </value>
                 </argument>
                 <argument id="blur"/>
