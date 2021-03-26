@@ -281,6 +281,13 @@
                 <clause name="substeps" testItemId="11"/>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="39" title="Sleep for {10} seconds">
+              <arguments>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">10</value>
+                </argument>
+              </arguments>
+            </apiCall>
           </steps>
         </clause>
       </clauses>

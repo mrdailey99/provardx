@@ -79,7 +79,8 @@ ARG PROVARDX_PROPERTY_FILE
 ARG CONNECTION_NAME
 ARG SCRATCH_ORG_DURATION
 # VOLUME /c/Users/16156/.sfdx ~/.sfdx
-
+# # ## Set working directory for image
+WORKDIR /home
 # The location to save the Provar binaries to (from downloads page)
 ENV REPO_HOME=/srv/Provar \
     PROVAR_VERSION=${PROVAR_DEFAULT_VERSION} \
@@ -105,6 +106,8 @@ ENV REPO_HOME=/srv/Provar \
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
 
+# COPY . /home/
+
 RUN set -ex \
     && apt -y update -qq && apt install -y \
     xvfb \ 
@@ -123,7 +126,7 @@ RUN set -ex \
     # Install latest chrome release    
     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list \
-    && apt update -qq  && apt install -qq -y google-chrome-stable \
+    && apt update -qq  && apt install -qq -y google-chrome-stable --fix-missing \
     && wget -O /etc/init.d/xvfb https://gist.githubusercontent.com/axilleas/3fc13e0c90ad9f58bee903a41e8a6d48/raw/169a60010635e05eaa902c5f3b4393321f2452f0/xvfb \
     && chmod 0755 /etc/init.d/xvfb \
     && sh -e /etc/init.d/xvfb start \
@@ -133,8 +136,8 @@ RUN set -ex \
     && unzip ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip -d ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     # Retrieve ProvarDX plugin from repo
-    && git clone --single-branch --branch windows https://github.com/mrdailey99/provardx.git /home/ \
-    && cp -r /home/ProvarProject/provardx ${REPO_HOME}/Provar_ANT_${PROVAR_VERSION}  \
+    # && git clone --single-branch --branch windows https://github.com/mrdailey99/provardx.git /home/ \
+    # && cp -r /home/ProvarProject/provardx ${REPO_HOME}/Provar_ANT_${PROVAR_VERSION}  \
     && sed -i "s|PROVAR_HOME|$PROVAR_HOME|" /home/${PROVARDX_PROPERTY_FILE} \
     && javac -version \
     && node --version \
@@ -143,13 +146,16 @@ RUN set -ex \
     && mkdir -p ${WORKSPACE}/ANT/Results \
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
-    && mkdir -p ${WORKSPACE}/bin \
+    && mkdir -p ${WORKSPACE}/bin 
+    # Insert secrets password into property file (if present)
+    # && chmod +x /home/insert_secrets_password.sh \
+    # && insert_secrets_password.sh ${ProvarSecretsPassword} /home/${PROVARDX_PROPERTY_FILE} 
     # Remove additional packages 
-    && apt remove -y git \
-    curl \
-    wget 
+    # && apt remove -y git \
+    # curl \
+    # wget 
 
-COPY assets/server.key /home/assets/server.key
+# COPY assets/server.key /home/assets/server.key
 
 # # Install sfdx-cli and setup ProvarDX plugin 
 RUN set -ex \
@@ -171,7 +177,7 @@ RUN set -ex \
     # Authorize dev hub to generate scratch orgs
     && sfdx force:auth:jwt:grant --clientid ${CONSUMER_KEY} --jwtkeyfile /home/assets/server.key --username ${DEV_HUB_USERNAME} --setdefaultdevhubusername --setalias ${DEV_HUB_ALIAS} --instanceurl ${INSTANCE_URL} \
     # && sfdx force:org:list --clean \
-    && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} \
+    && sfdx force:config:set defaultdevhubusername=${DEV_HUB_USERNAME} --global \
     # Generate a random unique scratch org alphanumeric user (16 chars but no caps as SFDX usernames are always lower-case)
     && export SCRATCH_ORG_USERNAME=`cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 16 | head -n 1`@testing.com \
     # Create scratch org with SCRATCH_ORG_USERNAME set in project JSON
@@ -179,28 +185,23 @@ RUN set -ex \
     && cat config/project-scratch-def.json \
     && sfdx force:org:create -f config/project-scratch-def.json --setalias ${SCRATCH_ORG_ALIAS} --durationdays ${SCRATCH_ORG_DURATION} --setdefaultusername --json --loglevel fatal \
     # && sfdx force:user:password:generate --targetusername ${SCRATCH_ORG_ALIAS} \
-    && sfdx force:config:set defaultusername=$SCRATCH_ORG_USERNAME \
+    && sfdx force:config:set defaultusername=${SCRATCH_ORG_ALIAS} --global \
     && sfdx force:org:display -u ${SCRATCH_ORG_ALIAS} \
-    # Override connections in property file with scratch org usernames
-    && chmod +x /home/create_connection_overrides.sh \
-    && /home/create_connection_overrides.sh ${CONNECTION_NAME} $SCRATCH_ORG_USERNAME /home/${PROVARDX_PROPERTY_FILE} \
-    # Insert secrets password into property file (if present)
-    && chmod +x /home/insert_secrets_password.sh \
-    && /home/insert_secrets_password.sh ${ProvarSecretsPassword} /home/${PROVARDX_PROPERTY_FILE} \
     # Deploy metadata to scratch org for admin user
     && sfdx force:mdapi:retrieve -r package -u ${DEV_HUB_USERNAME} -k package.xml \
     && unzip package/unpackaged.zip \
     && sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app \
-    && sfdx force:source:push --targetusername $SCRATCH_ORG_USERNAME
+    && sfdx force:source:push --targetusername $SCRATCH_ORG_ALIAS
 
-# # ## Set working directory for image
-WORKDIR /home
 # Validate ProvarDX property file and compile src in Provar Project
 RUN set -ex \
     && sfdx provar:validate -p /home/${PROVARDX_PROPERTY_FILE} \
     && sfdx provar:compile -p /home/${PROVARDX_PROPERTY_FILE} 
-# Entrypoint script to run Provar tests
+
+RUN chmod +x /home/insert_secrets_password.sh \
+    && /home/insert_secrets_password.sh ${ProvarSecretsPassword} /home/${PROVARDX_PROPERTY_FILE} 
+# # Entrypoint script to run Provar tests
 RUN echo "#!/bin/sh \n xvfb-run sfdx provar:runtests -p /home/${PROVARDX_PROPERTY_FILE}" > /home/entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
-CMD
+CMD ["/bin/bash"]
