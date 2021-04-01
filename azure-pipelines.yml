@@ -123,3 +123,19 @@ steps:
       artifact: 'Test Results'
       publishLocation: 'pipeline'
     displayName: "Publish Test Results Zip"
+
+  # Email results 
+  - task: EmailReport@1
+    inputs:
+      sendMailConditionConfig: 'Always'
+      subject: '[{environmentStatus}] {passPercentage} tests passed in $(Release.EnvironmentName) stage for $(Build.BuildNumber)'
+      toAddress: '$(EMAIL_TARGET)'
+      defaultDomain: 'gmail.com'
+      includeResultsStr: '1, 2'
+      groupTestResultsBy: 'run'
+      includeCommits: true
+      maxTestFailuresToShow: '15'
+      includeOthersInTotal: true
+      usePreviousEnvironment: false
+      smtpConnectionEndpoint: 'ProvarGmail'
+    displayName: "Email Test Results"
