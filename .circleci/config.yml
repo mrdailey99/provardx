@@ -6,7 +6,6 @@ jobs:
         executor:
             name: provar/default
             tag: 8-jdk-stretch-node-browsers
-            working_directory: ~/ProvarProject
         parameters:
             build_file:
                 default: build_circleci.xml
@@ -22,4 +21,4 @@ jobs:
             ant -Dprovar.home="/home/circleci/project/Provar_Home" -f << parameters.project_name >>/<< parameters.build_file >>
         # Store Test Results (JUnit and zipped report)
         - store_test_results:
-            path: "<< parameters.working_directory >>/ANT/Results*"
+            path: "~/ProvarProject/ANT/Results*"
