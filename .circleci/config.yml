@@ -34,4 +34,4 @@ jobs:
             name: "Run Provar Tests"
         # Store Test Results (JUnit and zipped report)
         - store_test_results:
-            path: "ProvarProject/ANT/Results"
+            path: "ProvarProject/ANT/Results/JUnit.xml"
