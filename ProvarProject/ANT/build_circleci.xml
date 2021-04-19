@@ -30,8 +30,8 @@
 				stopTestRunOnError="false"
 				secretsPassword="${secrets.password}"
 				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
-				licensePath="/home/circleci/project/.licenses"
-				smtpPath="/home/circleci/project/.smtp"
+				licensePath="${testproject.home}/.licenses"
+				smtpPath="${testproject.home}/.smtp"
 		>
 			<fileset id="testplan" dir="${testproject.home}/plans/${test.plan}"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="false"/>
