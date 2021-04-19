@@ -18,7 +18,7 @@ jobs:
         - checkout
         - provar/setup_provar
         - run: >-
-            ant -Dprovar.home="/home/circleci/project/Provar_Home" -f << parameters.project_name >>/<< parameters.build_file >>
+            ant -Dprovar.home="/home/circleci/project/Provar_Home" -f ~/<< parameters.project_name >>/<< parameters.build_file >>
         # Store Test Results (JUnit and zipped report)
         - store_test_results:
             path: "~/ProvarProject/ANT/Results*"
