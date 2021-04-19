@@ -13,7 +13,7 @@ jobs:
             project_name:
                 default: ProvarProject
                 type: string
-
+        working_directory: ~/ProvarProject 
         steps:
         - checkout
         - provar/setup_provar
