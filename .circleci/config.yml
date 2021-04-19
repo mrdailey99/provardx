@@ -1,73 +1,37 @@
 version: 2.1
-
+orbs:
+    provar: provartesting/provar@2.3.1
 jobs:
     build:
-        docker:
-        #     # Use latest Provar image pushed to docker hub (private image)
-        #     # all prerequisites for Provar testing
-        #     # If you are building this, modify config file for building & using the image
-            - image: provartesting/provar:provardx
-              auth: 
-                username: $DOCKERHUB_USERNAME 
-                password: $DOCKERHUB_PASSWORD
-              environment:
-                # Set up environment variables here that don’t need to be secure
-                ENVIRONMENT: ProvarDX
-                WORKSPACE: /home/ProvarProject
-                CONNECTION_NAME: Admin
-                PROVARDX_PROPERTY_FILE: provardx-properties-docker.json
-        # Specify service dependencies here if necessary
-        # CircleCI maintains a library of pre-built images
-        # documented at https://circleci.com/docs/2.0/circleci-images/
-        # No further dependencies required for Provar
-        working_directory: /home/
-
+        executor:
+            name: provar/default
+            tag: 8-jdk-stretch-node-browsers
+        parameters:
+            build_file:
+                default: build_circleci.xml
+                type: string
+            project_name:
+                default: ProvarProject
+                type: string
+            test_plan:
+                default: "Regression Plan"
+                type: string
+            environment:
+                default: ""
+                type: string
+            email_target:
+                default: michael.dailey@provartesting.com
+                type: string
+        # working_directory: ~/ProvarProject 
         steps:
-            # Retrieve the contents of the repo
-            - checkout
-
-            # Only available in paid circleci option
-            # - setup_remote_docker:
-            #     docker_layer_caching: true 
-
-            # Download and cache dependencies
-            - restore_cache:
-                keys:
-                    - v1-dependencies-{{ checksum "provardx-properties-docker.json" }}
-                    # fallback to using the latest cache if no exact match is found
-                    - v1-dependencies-
-            # - run:
-            #     name: "Outputting working directory for debugging"
-            #     command: ls -laR
-
-            # - run:
-            #     name: "Echoing env vars for debugging"
-            #     command: printenv
-            
-            - run:
-                name: "Create Secrets Key file for Dev Hub Authentication"
-                command: echo $SECRETS_KEY > /home/secrets.key
-            
-            - run:
-                name: "Create Scratch Org and Deploy Metadata"
-                command: sh /home/create_scratch_org.sh
-                working_directory: /home
-            
-            - run:
-                name: "Run new Provar Tests"
-                command: sh /home/run_new_tests.sh
-                working_directory: /home       
-
-            - run:
-                name: "Run Provar Tests"
-                command: sh /home/run_provar_tests.sh
-                working_directory: /home       
-
-            - run:
-                name: "Delete Scratch Org"
-                command: sh /home/delete_scratch_org.sh
-                working_directory: /home                
-
-            # Store Test Results (JUnit and zipped report)
-            - store_test_results:
-                path: "/home/ProvarProject/ANT/Results*"
+        - checkout
+        - provar/setup_provar
+        # - run:
+        #     command: ls -laR
+        #     name: "Outputting directory contents for debugging"
+        - run: 
+            command: ant -Dprovar.home="/home/circleci/project/Provar_Home" -Dtest.plan="<< parameters.test_plan >>" -Denvironment="<< parameters.environment >>" -Demail.target=<< parameters.email_target >> -f << parameters.project_name >>/ANT/<< parameters.build_file >>
+            name: "Run Provar Tests"
+        # Store Test Results (JUnit and zipped report)
+        - store_test_results:
+            path: "ProvarProject/ANT/Results/JUnit html/"
