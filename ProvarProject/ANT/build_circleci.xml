@@ -17,7 +17,7 @@
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Replace" 
-				testEnvironment="" 
+				testEnvironment="${environment}" 
 				webBrowser="Chrome_Headless" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
@@ -31,12 +31,12 @@
 				secretsPassword="${secrets.password}"
 				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
 		>
-			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
+			<fileset id="testplan" dir="${testproject.home}/plans/${test.plan}"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="false"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="false"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="false"/>
 
-			<emailProperties sendEmail="true" primaryRecipients="${env.EMAIL_TARGET}" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="false"/>
+			<emailProperties sendEmail="true" primaryRecipients="${email.target}" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="false"/>
 			<attachmentProperties includeAllFailuresInSummary="true" includeBdd="false" includeTestCasePathHierarchy="true" includeTestCaseShowSummary="true" includeBasicLogs="true" includeDetailLogs="false" includeDiagnosticTrace="false" includeTestStepTime="true" includeNoScreenshot="false" includeScreenshotThumbnail="true" includeFullScreenShot="false"/>
 		</Run-Test-Case>
 
