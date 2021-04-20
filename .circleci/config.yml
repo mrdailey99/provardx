@@ -22,15 +22,12 @@ jobs:
             email_target:
                 default: michael.dailey@provartesting.com
                 type: string
-        # working_directory: ~/ProvarProject 
         steps:
         - checkout
         - provar/setup_provar
-        # - run:
-        #     command: ls -laR
-        #     name: "Outputting directory contents for debugging"
         - run: 
-            command: ant -Dprovar.home="/home/circleci/project/Provar_Home" -Dtest.plan="<< parameters.test_plan >>" -Denvironment="<< parameters.environment >>" -Demail.target=<< parameters.email_target >> -f << parameters.project_name >>/ANT/<< parameters.build_file >>
+            command: ant -Dprovar.home="/home/circleci/project/Provar_Home" -Dtest.plan="<< parameters.test_plan >>" 
+                -Denvironment="<< parameters.environment >>" -Demail.target=<< parameters.email_target >> -f << parameters.project_name >>/ANT/<< parameters.build_file >>
             name: "Run Provar Tests"
         # Store Test Results (JUnit and zipped report)
         - store_test_results:
