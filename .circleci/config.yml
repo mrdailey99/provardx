@@ -28,11 +28,9 @@ jobs:
         - run: 
             command: |
                 echo "${CIRCLE_WORKING_DIRECTORY}/Provar_Home"
-                echo "${CIRCLE_WORKING_DIRECTORY}"
-                echo $CIRCLE_WORKING_DIRECTORY
-                echo ${CIRCLE_WORKING_DIRECTORY}/Provar_Home
+                ls -la "/home/circleci/project"
+                ls -la "/home/circleci"
                 ls -la "${CIRCLE_WORKING_DIRECTORY}/Provar_Home"
-                ls -la ${CIRCLE_WORKING_DIRECTORY}/Provar_Home
                 ant -Dprovar.home="${CIRCLE_WORKING_DIRECTORY}/Provar_Home" -Dtest.plan="<< parameters.test_plan >>" 
                 -Denvironment="<< parameters.environment >>" -Demail.target=<< parameters.email_target >> -f << parameters.project_name >>/ANT/<< parameters.build_file >>
             name: "Run Provar Tests"
