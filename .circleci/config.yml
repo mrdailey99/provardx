@@ -26,9 +26,7 @@ jobs:
         - checkout
         - provar/setup_provar
         - run: 
-            command: |
-                ls -la "${CIRCLE_WORKING_DIRECTORY}/project/Provar_Home"
-                ant -Dprovar.home="${CIRCLE_WORKING_DIRECTORY}/project/Provar_Home" -Dtest.plan="<< parameters.test_plan >>" 
+            command: ant -Dtest.plan="<< parameters.test_plan >>" 
                 -Denvironment="<< parameters.environment >>" -Demail.target=<< parameters.email_target >> -f << parameters.project_name >>/ANT/<< parameters.build_file >>
             name: "Run Provar Tests"
         # Store Test Results (JUnit and zipped report)
