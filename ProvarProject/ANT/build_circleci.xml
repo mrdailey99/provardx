@@ -1,6 +1,6 @@
 <project default="runtests">
 	<property environment="env"/>
-	<property name="provar.home" value="${env.CIRCLE_WORKING_DIRECTORY}/Provar_Home"/>
+	<property name="provar.home" value="/home/circleci/project/Provar_Home"/>
 	<property name="testproject.home" value="${env.CIRCLE_WORKING_DIRECTORY}/ProvarProject"/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
 	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
