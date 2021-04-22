@@ -28,6 +28,8 @@ jobs:
         - run: 
             command: |
                 echo "${CIRCLE_WORKING_DIRECTORY}/Provar_Home"
+                echo "${CIRCLE_WORKING_DIRECTORY}"
+                echo $CIRCLE_WORKING_DIRECTORY
                 echo ${CIRCLE_WORKING_DIRECTORY}/Provar_Home
                 ls -la "${CIRCLE_WORKING_DIRECTORY}/Provar_Home"
                 ls -la ${CIRCLE_WORKING_DIRECTORY}/Provar_Home
