@@ -33,3 +33,6 @@ jobs:
         # Store Test Results (JUnit and zipped report)
         - store_test_results:
             path: "ProvarProject/ANT/Results/JUnit html/"
+        
+        - store_artifacts:
+              path: ProvarProject/ANT/Results
