@@ -34,8 +34,8 @@
 				smtpPath="${testproject.home}/.smtp"
 		>
 			<fileset id="testplan" dir="${testproject.home}/plans/${test.plan}"></fileset>
-			<planFeature name="PDF" type="OUTPUT" enabled="false"/>
-			<planFeature name="PIECHART" type="OUTPUT" enabled="false"/>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="false"/>
 
 			<emailProperties sendEmail="true" primaryRecipients="${email.target}" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="false"/>

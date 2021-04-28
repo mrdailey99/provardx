@@ -7,18 +7,23 @@ jobs:
             name: provar/default
             tag: 8-jdk-stretch-node-browsers
         parameters:
+            # Name of the builf file to execute
             build_file:
                 default: build_circleci.xml
                 type: string
+            # This is just for extra parameterization and shouldn't be changed unless you need to
             project_name:
                 default: ProvarProject
                 type: string
+            # The name of your test plan to execute
             test_plan:
                 default: "Regression Plan"
                 type: string
+            # Used to define the Provar Test Environment for Environment Overrides
             environment:
                 default: ""
                 type: string
+            # Email address to send test results/reports to
             email_target:
                 default: michael.dailey@provartesting.com
                 type: string
