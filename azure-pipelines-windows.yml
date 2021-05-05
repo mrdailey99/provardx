@@ -1,0 +1,50 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+- master
+
+variables:
+  PROVAR_HOME: $(Build.SourcesDirectory)/Provar_ANT_latest
+  TEST_PLAN: "Regression Plan"
+  ENVIRONMENT: default
+  
+jobs:
+- job: Windows
+  # strategy:
+  #   maxParallel: "2"
+  #   matrix:
+  #     Feature-1:
+  #       TEST_PLAN: Feature-1
+  #     Regression:
+  #       TEST_PLAN: Regression
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+    - script: 'pip3 install requests'
+      displayName: 'Install Python Requests Module'
+    
+    - task: PythonScript@0
+      displayName: 'Download latest Provar files'
+      inputs:
+        scriptSource: inline
+        script: ' import requests; url = ''https://download.provartesting.com/latest/Provar_ANT_latest.zip''; req = requests.get(url, allow_redirects=True); open(''Provar_ANT_latest.zip'', ''wb'').write(req.content);'
+
+    - task: PowerShell@2
+      displayName: 'PowerShell Script - Run Provar Tests'
+      inputs:
+        targetType: filePath
+        filePath: './runProvarTests.ps1'
+        arguments: '-secretsPassword "$(secrets_password)"'
+      continueOnError: true
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results **/ANT/Results/*.xml'
+      inputs:
+        testResultsFiles: '**/ANT/Results/*.xml'
+        testRunTitle: 'Windows-$(TEST_PLAN) Report'
+      condition: succeededOrFailed()  

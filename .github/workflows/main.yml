@@ -21,6 +21,7 @@ on:
     types:
       - submitted
   check_suite:
+    branches: [ master ]
     types:
       - completed
   status: {}
