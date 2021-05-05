@@ -35,7 +35,7 @@
 				invokeTestRunMonitor="true"
 				>
 		
-			<fileset id="testcases" dir="../tests"></fileset>
+			<!-- <fileset id="testcases" dir="../tests"></fileset> -->
 
 		</Run-Test-Case>
 
