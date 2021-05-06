@@ -24,7 +24,7 @@ jobs:
   pool: 
     name: Local
     demands: 
-    - Agent.InteractiveSession -equals True
+    - InteractiveSession -equals True
   #   vmImage: 'windows-latest'
   steps:
   #   - script: 'pip3 install requests'
