@@ -10,7 +10,7 @@ trigger:
 
 variables:
   TEST_PLAN: "Regression Plan"
-  ENVIRONMENT: default
+  ENVIRONMENT: ""
   
 jobs:
 - job: Windows
