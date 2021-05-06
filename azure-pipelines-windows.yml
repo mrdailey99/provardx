@@ -9,7 +9,6 @@ trigger:
 - master
 
 variables:
-  PROVAR_HOME: $(Build.SourcesDirectory)/ProvarHome
   TEST_PLAN: "Regression Plan"
   ENVIRONMENT: default
   
