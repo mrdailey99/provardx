@@ -34,14 +34,20 @@ jobs:
   #       scriptSource: inline
   #       script: ' import requests; url = ''https://download.provartesting.com/latest/Provar_ANT_latest.zip''; req = requests.get(url, allow_redirects=True); open(''Provar_ANT_latest.zip'', ''wb'').write(req.content);'
 
+    # - task: PowerShell@2
+    #   displayName: 'PowerShell Script - Run Provar Tests'
+    #   inputs:
+    #     targetType: filePath
+    #     filePath: './runProvarTests.ps1'
+    #     arguments: '-secretsPassword "$(secrets_password)"'
+    #   continueOnError: true
     - task: PowerShell@2
       displayName: 'PowerShell Script - Run Provar Tests'
       inputs:
-        targetType: filePath
-        filePath: './runProvarTests.ps1'
-        arguments: '-secretsPassword "$(secrets_password)"'
-      continueOnError: true
-
+        targetType: 'inline'
+        script: |
+          # Write your PowerShell commands here.          
+          ant -f $(Build.SourcesDirectory)/ProvarProject/ANT/build_azure.xml -lib $Env:PROVAR_HOME -v -DprovarSecretsPassword=$(secrets_password)
     - task: PublishTestResults@2
       displayName: 'Publish Test Results **/ANT/Results/*.xml'
       inputs:
