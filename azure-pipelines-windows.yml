@@ -21,7 +21,10 @@ jobs:
   #       TEST_PLAN: Feature-1
   #     Regression:
   #       TEST_PLAN: Regression
-  # pool:
+  pool: 
+    name: Local
+    demands: 
+    - Agent.InteractiveSession -equals true
   #   vmImage: 'windows-latest'
   steps:
   #   - script: 'pip3 install requests'
@@ -46,7 +49,7 @@ jobs:
         targetType: 'inline'
         script: |
           # Write your PowerShell commands here.          
-          ant -f $(Build.SourcesDirectory)/ProvarProject/ANT/build_azure.xml -lib $Env:PROVAR_HOME -v -DprovarSecretsPassword=$(secrets_password)
+          ant -f $(Build.SourcesDirectory)/ProvarProject/ANT/build_azure.xml -v -DprovarSecretsPassword=$(secrets_password)
     - task: PublishTestResults@2
       displayName: 'Publish Test Results **/ANT/Results/*.xml'
       inputs:
