@@ -17,7 +17,7 @@
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Replace" 
 				testEnvironment="${env.ENVIRONMENT}" 
-				webBrowser="Chrome_Headless" 
+				webBrowser="${env.BROWSER}" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
 				webBrowserDeviceName="Full Screen" 
