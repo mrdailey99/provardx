@@ -1,7 +1,7 @@
 <project default="runtests">
 	<property environment="env"/>
 	<property name="provar.home" value="${env.PROVAR_HOME}"/>
-	<property name="testproject.home" value="${env.BUILD_SOURCESDIRECTORY}"/>
+	<property name="testproject.home" value="${env.BUILD_SOURCESDIRECTORY}/ProvarProject"/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
 	<property name="secrets.password" value="${provarSecretsPassword}"/>
 
