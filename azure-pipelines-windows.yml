@@ -23,8 +23,8 @@ jobs:
   #       TEST_PLAN: Regression
   pool: 
     name: Local
-    demands: 
-    - InteractiveSession -equals True
+    # demands: 
+    # - InteractiveSession -equals True
   #   vmImage: 'windows-latest'
   steps:
   #   - script: 'pip3 install requests'
