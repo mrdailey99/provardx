@@ -4,34 +4,33 @@ pipeline:
       image: 'frekele/ant:1.10.3-jdk8'
   parameters:
     - "string(name: 'test_plan', defaultValue: 'Regression Plan', description: 'Name of test plan to execute.')"
-    - "string(name: 'build_file', defaultValue: 'build.xml', description: 'The name of the build file for ANT to target for the test run.')"
+    - "string(name: 'build_file', defaultValue: 'smoke_build.xml', description: 'The name of the build file for ANT to target for the test run.')"
     - "string(name: 'provar_major_version', defaultValue: 'latest', description: 'The X.X.X version of Provar to install.')"
     - "string(name: 'provar_build_version', defaultValue: 'latest', description: 'The X.X.X.X version of Provar to install.')"
   stages:
     - stage: "Install Latest Chrome & Verify JDK/ANT installations"
-      steps:
-        - apt-get update && apt-get install -y xvfb wget -qq
-        - java -version
-        - ant -version
-        - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-        - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-        - apt-get update -qq
-        - apt-get install -qq google-chrome-stable
-        - export DISPLAY=:99.0
-        - wget -O /etc/init.d/xvfb 
+      steps: |
+        apt-get update && apt-get install -y xvfb wget -qq
+        java -version
+        ant -version
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+        echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+        apt-get update -qq
+        apt-get install -qq google-chrome-stable
+        export DISPLAY=:99.0
+        wget -O /etc/init.d/xvfb 
     - stage: "Install Provar CLI"
-      steps:
-        - mkdir -p ${WORKSPACE}/Provar_ANT_${provar_build_version}
-        - wget -qP ${WORKSPACE} https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip
-        - unzip ${WORKSPACE}/Provar_ANT_${provar_build_version}.zip -d ${WORKSPACE}/Provar_ANT_${provar_build_version} 
-        - rm -rf ${WORKSPACE}/Provar_ANT_${provar_build_version}.zip 
+      steps: |
+        mkdir -p ${WORKSPACE}/Provar_ANT_${provar_build_version}
+        wget -qP ${WORKSPACE} https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip
+        unzip ${WORKSPACE}/Provar_ANT_${provar_build_version}.zip -d ${WORKSPACE}/Provar_ANT_${provar_build_version} 
+        rm -rf ${WORKSPACE}/Provar_ANT_${provar_build_version}.zip 
     - stage: "Run Provar Tests"
-      steps:
-        - export PROVAR_HOME=${WORKSPACE}/Provar_ANT_${provar_build_version}
-        - xvfb-run ant -f ${WORKSPACE}/ProvarProject/ANT/${build_file} -v
+      steps: |
+        export PROVAR_HOME=${WORKSPACE}/Provar_ANT_${provar_build_version}
+        xvfb-run ant -f ${WORKSPACE}/ProvarProject/ANT/${build_file} -v
   post:
     always:
-      - junit allowEmptyResults: true
-      - testResults: '**/ANT/Results/*.xml'
-      - cleanWs notFailBuild: true /* cleans up the workspace */
-    
+      - junit:
+        allowEmptyResults: true 
+        testResults: '**/ANT/Results/*.xml'    
