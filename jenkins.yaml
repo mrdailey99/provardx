@@ -1,24 +1,12 @@
 pipeline:
   agent: 
     docker:
-      - image: 'frekele/ant:1.10.3-jdk8'
+      image: 'frekele/ant:1.10.3-jdk8'
   parameters:
-    - string:
-        name: test_plan
-        default: 'Regression Plan'
-        description: Name of test plan to execute.
-    - string:
-        name: build_file
-        default: 'build.xml'
-        description: The name of the build file for ANT to target for the test run.
-    - string:
-        name: provar_major_version
-        default: 'latest'
-        description: The X.X.X version of Provar to install.
-    - string:
-        name: provar_build_version
-        default: 'latest'
-        description: The X.X.X.X version of Provar to install.          
+    - "string(name: 'test_plan', defaultValue: 'Regression Plan', description: 'Name of test plan to execute.')"
+    - "string(name: 'build_file', defaultValue: 'build.xml', description: 'The name of the build file for ANT to target for the test run.')"
+    - "string(name: 'provar_major_version', defaultValue: 'latest', description: 'The X.X.X version of Provar to install.')"
+    - "string(name: 'provar_build_version', defaultValue: 'latest', description: 'The X.X.X.X version of Provar to install.')"
   stages:
     - stage: "Install Latest Chrome & Verify JDK/ANT installations"
       steps:
