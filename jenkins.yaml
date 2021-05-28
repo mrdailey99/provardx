@@ -9,26 +9,29 @@ pipeline:
     - "string(name: 'provar_build_version', defaultValue: 'latest', description: 'The X.X.X.X version of Provar to install.')"
   stages:
     - stage: "Install Latest Chrome & Verify JDK/ANT installations"
-      steps: |
-        apt-get update && apt-get install -y xvfb wget -qq
-        java -version
-        ant -version
-        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-        echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-        apt-get update -qq
-        apt-get install -qq google-chrome-stable
-        export DISPLAY=:99.0
-        wget -O /etc/init.d/xvfb 
+      steps: 
+        script: |
+          sh "apt-get update && apt-get install -y xvfb wget -qq"
+          sh "java -version"
+          sh "ant -version"
+          sh "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -"
+          sh "echo \"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\" >> /etc/apt/sources.list.d/google.list"
+          sh "apt-get update -qq"
+          sh "apt-get install -qq google-chrome-stable"
+          sh "export DISPLAY=:99.0"
+          sh "wget -O /etc/init.d/xvfb"
     - stage: "Install Provar CLI"
-      steps: |
-        mkdir -p ${WORKSPACE}/Provar_ANT_${provar_build_version}
-        wget -qP ${WORKSPACE} https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip
-        unzip ${WORKSPACE}/Provar_ANT_${provar_build_version}.zip -d ${WORKSPACE}/Provar_ANT_${provar_build_version} 
-        rm -rf ${WORKSPACE}/Provar_ANT_${provar_build_version}.zip 
+      steps: 
+        script: |
+          sh "mkdir -p env.WORKSPACE/Provar_ANT_${provar_build_version}"
+          sh "wget -qP env.WORKSPACE} https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip"
+          sh "unzip env.WORKSPACE/Provar_ANT_${provar_build_version}.zip -d ${WORKSPACE}/Provar_ANT_${provar_build_version}"
+          sh "rm -rf env.WORKSPACE/Provar_ANT_${provar_build_version}.zip"
     - stage: "Run Provar Tests"
-      steps: |
-        export PROVAR_HOME=${WORKSPACE}/Provar_ANT_${provar_build_version}
-        xvfb-run ant -f ${WORKSPACE}/ProvarProject/ANT/${build_file} -v
+      steps: 
+        script: |
+          sh "export PROVAR_HOME=${WORKSPACE}/Provar_ANT_${provar_build_version}"
+          sh "xvfb-run ant -f ${WORKSPACE}/ProvarProject/ANT/${build_file} -v"
   post:
     always:
       - junit:
