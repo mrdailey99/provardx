@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedWebBrowserType="Chrome_Headless">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -73,6 +73,14 @@
           <summary/>
           <connectionUrls>
             <connectionUrl url="restservice:url=http://jsonplaceholder.typicode.com;authenticationType=NO_AUTHENTICATION">
+              <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection id="b5d123b8-afbc-4cd4-a56c-351c36706363" name="MuleSoft">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=https://hellomuleprovar.us-e2.cloudhub.io;authenticationType=NO_AUTHENTICATION">
               <customHeaders/>
             </connectionUrl>
           </connectionUrls>
