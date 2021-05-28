@@ -9,8 +9,7 @@ pipeline:
     - "string(name: 'provar_build_version', defaultValue: 'latest', description: 'The X.X.X.X version of Provar to install.')"
   stages:
     - stage: "Install Latest Chrome & Verify JDK/ANT installations"
-      steps: 
-        script: |
+      steps: |
           sh "apt-get update && apt-get install -y xvfb wget -qq"
           sh "java -version"
           sh "ant -version"
@@ -21,15 +20,13 @@ pipeline:
           sh "export DISPLAY=:99.0"
           sh "wget -O /etc/init.d/xvfb"
     - stage: "Install Provar CLI"
-      steps: 
-        script: |
+      steps: |
           sh "mkdir -p env.WORKSPACE/Provar_ANT_${provar_build_version}"
           sh "wget -qP env.WORKSPACE} https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip"
           sh "unzip env.WORKSPACE/Provar_ANT_${provar_build_version}.zip -d ${WORKSPACE}/Provar_ANT_${provar_build_version}"
           sh "rm -rf env.WORKSPACE/Provar_ANT_${provar_build_version}.zip"
     - stage: "Run Provar Tests"
-      steps: 
-        script: |
+      steps: |
           sh "export PROVAR_HOME=${WORKSPACE}/Provar_ANT_${provar_build_version}"
           sh "xvfb-run ant -f ${WORKSPACE}/ProvarProject/ANT/${build_file} -v"
   post:
