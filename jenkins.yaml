@@ -11,21 +11,21 @@ pipeline:
     - "string(name: 'provar_build_version', defaultValue: 'latest', description: 'The X.X.X.X version of Provar to install.')"
   stages:
     - stage: "Install Chocolatey"
-      steps: |
-        powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
-        powershell "choco feature enable -n allowGlobalConfirmation"
+      steps:
+        - powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+        - powershell "choco feature enable -n allowGlobalConfirmation"
     - stage: "Install Latest Chrome & ANT"
-      steps: |
-        powershell "java -version"
-        powershell "choco install googlechrome"
-        powershell "choco install ant"
-        powershell "ant -version"
+      steps:
+        - powershell "java -version"
+        - powershell "choco install googlechrome"
+        - powershell "choco install ant"
+        - powershell "ant -version"
     - stage: "Install Provar CLI"
-      steps: |
-        powershell "curl https://download.provartesting.com/latest/Provar_ANT_latest.zip --output Provar_CLI.zip"
-        powershell "mkdir PROVAR_HOME"
-        powershell "tar xf Provar_CLI.zip --directory PROVAR_HOME
-        powershell "rmdir /Q/S Provar_CLI.zip"
+      steps:
+        - powershell "curl https://download.provartesting.com/latest/Provar_ANT_latest.zip --output Provar_CLI.zip"
+        - powershell "mkdir PROVAR_HOME"
+        - powershell "tar xf Provar_CLI.zip --directory PROVAR_HOME
+        - powershell "rmdir /Q/S Provar_CLI.zip"
     - stage: "Run Provar Tests"
       steps:
         - powershell "ant -f $env:WORKSPACE/ProvarProject/ANT/$env:BUILD_FILE -v"
