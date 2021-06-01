@@ -11,23 +11,22 @@ pipeline:
     - "string(name: 'provar_build_version', defaultValue: 'latest', description: 'The X.X.X.X version of Provar to install.')"
   stages:
     - stage: "Install Chocolatey"
-      steps:
-        - powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-        - powershell -Command choco feature enable -n allowGlobalConfirmation
+      steps: |
+        powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+        powershell -Command choco feature enable -n allowGlobalConfirmation
     - stage: "Install Latest Chrome & ANT"
-      steps:
-        # - sh "apt-get update && apt-get install -y xvfb wget -qq"
-        - powershell -Command java -version
-        - powershell -Command choco install googlechrome
-        - powershell -Command choco install ant
-        - powershell -Command ant -version
+      steps: |
+        powershell -Command java -version
+        powershell -Command choco install googlechrome
+        powershell -Command choco install ant
+        powershell -Command ant -version
     - stage: "Install Provar CLI"
-      steps:
-        - powershell -Command curl https://download.provartesting.com/latest/Provar_ANT_latest.zip --output Provar_CLI.zip
-        - powershell -Command mkdir PROVAR_HOME
-        - powershell -Command tar xf Provar_CLI.zip --directory PROVAR_HOME
-        - powershell -Command set PROVAR_HOME=C:\PROVAR_HOME
-        - powershell -Command rmdir /Q/S Provar_CLI.zip
+      steps: |
+        powershell -Command curl https://download.provartesting.com/latest/Provar_ANT_latest.zip --output Provar_CLI.zip
+        powershell -Command mkdir PROVAR_HOME
+        powershell -Command tar xf Provar_CLI.zip --directory PROVAR_HOME
+        powershell -Command set PROVAR_HOME=C:\PROVAR_HOME
+        powershell -Command rmdir /Q/S Provar_CLI.zip
     - stage: "Run Provar Tests"
       steps:
         - powershell -Command ant -f $env:WORKSPACE/ProvarProject/ANT/$env:BUILD_FILE -v
@@ -36,24 +35,3 @@ pipeline:
       - junit:
         allowEmptyResults: true
         testResults: '**/ANT/Results/*.xml'
-    #     - sh "wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -"
-    #     - sh "echo \"deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\" >> /etc/apt/sources.list.d/google.list"
-    #     - sh "apt-get update -qq"
-    #     - sh "apt-get install -qq google-chrome-stable"
-    #     - sh "export DISPLAY=:99.0"
-    #     - sh "wget -O /etc/init.d/xvfb"
-    # - stage: "Install Provar CLI"
-    #   steps: 
-    #     - sh "mkdir -p env.WORKSPACE/Provar_ANT_${provar_build_version}"
-    #     - sh "wget -qP env.WORKSPACE} https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip"
-    #     - sh "unzip env.WORKSPACE/Provar_ANT_${provar_build_version}.zip -d ${WORKSPACE}/Provar_ANT_${provar_build_version}"
-    #     - sh "rm -rf env.WORKSPACE/Provar_ANT_${provar_build_version}.zip"
-    # - stage: "Run Provar Tests"
-    #   steps: 
-    #     - sh "export PROVAR_HOME=${WORKSPACE}/Provar_ANT_${provar_build_version}"
-    #     - sh "xvfb-run ant -f ${WORKSPACE}/ProvarProject/ANT/${build_file} -v"
-      # post:
-      #   always:
-      #     - junit:
-      #       allowEmptyResults: true 
-      #       testResults: '**/ANT/Results/*.xml'    
