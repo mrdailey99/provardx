@@ -27,6 +27,10 @@ pipeline:
         - powershell -Command mkdir PROVAR_HOME
         - powershell -Command tar xf Provar_CLI.zip --directory PROVAR_HOME
         - powershell -Command set PROVAR_HOME=C:\PROVAR_HOME
+        - powershell -Command rmdir /Q/S Provar_CLI.zip
+    - stage: "Run Provar Tests"
+      steps:
+        - powershell -Command ant -f $env:WORKSPACE/ProvarProject/ANT/$env:BUILD_FILE -v
   post:
     always:
       - junit:
