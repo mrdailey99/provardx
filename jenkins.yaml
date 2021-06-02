@@ -20,7 +20,7 @@ pipeline:
         - powershell "ant -version"
     - stage: "Install Provar CLI"
       steps:
-        - powershell "curl https://download.provartesting.com/latest/Provar_ANT_latest.zip --output Provar_CLI.zip"
+        - powershell "curl https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip -o Provar_CLI.zip"
         - powershell "mkdir PROVAR_HOME"
         - powershell "tar xf Provar_CLI.zip --directory PROVAR_HOME"
         - powershell "rmdir /Q/S Provar_CLI.zip"
