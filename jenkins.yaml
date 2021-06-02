@@ -1,8 +1,6 @@
 pipeline:
   agent: 
     docker:
-      # linux images broken on jenkins running on windows
-      # image: 'frekele/ant:1.10.3-jdk8'
       image: 'openjdk:8u292-jdk'
   parameters:
     - "string(name: 'test_plan', defaultValue: 'Regression Plan', description: 'Name of test plan to execute.')"
@@ -24,13 +22,15 @@ pipeline:
       steps:
         - powershell "curl https://download.provartesting.com/latest/Provar_ANT_latest.zip --output Provar_CLI.zip"
         - powershell "mkdir PROVAR_HOME"
-        - powershell "tar xf Provar_CLI.zip --directory PROVAR_HOME
+        - powershell "tar xf Provar_CLI.zip --directory PROVAR_HOME"
         - powershell "rmdir /Q/S Provar_CLI.zip"
     - stage: "Run Provar Tests"
       steps:
         - powershell "ant -f $env:WORKSPACE/ProvarProject/ANT/$env:BUILD_FILE -v"
-  post:
-    always:
-      - junit:
-        allowEmptyResults: true
-        testResults: '**/ANT/Results/*.xml'
+  # post:
+  #   always:
+  #     - junit:
+  #       allowEmptyResults: true
+  #       testResults: '**/ANT/Results/*.xml'
+  #     - cleanWs:
+  #       notFailBuild: true
