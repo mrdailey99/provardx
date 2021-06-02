@@ -23,7 +23,7 @@ pipeline:
         - powershell "curl https://download.provartesting.com/${provar_major_version}/Provar_ANT_${provar_build_version}.zip -o Provar_CLI.zip"
         - powershell "mkdir PROVAR_HOME"
         - powershell "tar xf Provar_CLI.zip --directory PROVAR_HOME"
-        - powershell "rmdir /Q/S Provar_CLI.zip"
+        - powershell "rmdir Provar_CLI.zip"
     - stage: "Run Provar Tests"
       steps:
         - powershell "ant -f $env:WORKSPACE/ProvarProject/ANT/$env:BUILD_FILE -v"
@@ -31,6 +31,6 @@ pipeline:
   #   always:
   #     - junit:
   #       allowEmptyResults: true
-  #       testResults: '**/ANT/Results/*.xml'
+  #       testResults: "**/ANT/Results/*.xml"
   #     - cleanWs:
   #       notFailBuild: true
