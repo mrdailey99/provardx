@@ -10,6 +10,7 @@ pipeline:
   stages:
     - stage: "Install Chocolatey"
       steps:
+        - powershell "ls"
         - powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
         - powershell "choco feature enable -n allowGlobalConfirmation"
     - stage: "Install Latest Chrome & ANT"
@@ -26,7 +27,7 @@ pipeline:
         - powershell "rmdir Provar_CLI.zip"
     - stage: "Run Provar Tests"
       steps:
-        - powershell "ant -f $env:WORKSPACE/ProvarProject/ANT/$env:BUILD_FILE -v"
+        - powershell "ant -f $WORKSPACE/ProvarProject/ANT/$BUILD_FILE -v"
   # post:
   #   always:
   #     - junit:
