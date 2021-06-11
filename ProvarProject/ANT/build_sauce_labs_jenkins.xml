@@ -31,6 +31,8 @@
 				secretsPassword="${secrets.password}"
 				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
 				invokeTestRunMonitor="true"
+				smtpPath="${testproject.home}/.smtp"
+				licensePath="${testproject.home}/.licenses"
 				>
 		
 			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
