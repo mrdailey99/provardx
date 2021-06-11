@@ -2,7 +2,7 @@
 	<property environment="env"/>
     <property value="${env.PROVAR_HOME}" name="provar.home"/>
     <property value="${env.WORKSPACE}\ProvarProject" name="testproject.home"/>
-    <property value="${testproject.home}" name="testproject.results"/>
+    <property value="${testproject.home}\ANT\Results" name="testproject.results"/>
 	<property value="${ProvarSecretsPassword}" name="secrets.password"/>
 	
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
