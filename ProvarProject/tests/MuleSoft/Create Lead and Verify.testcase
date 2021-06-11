@@ -547,7 +547,7 @@
                   <value class="value" valueClass="string">Test</value>
                 </argument>
                 <argument id="alreadyOpenBehaviour">
-                  <value class="value" valueClass="string">Fail</value>
+                  <value class="value" valueClass="string">Reuse</value>
                 </argument>
                 <argument id="uiApplicationName">
                   <value class="value" valueClass="string">LightningSales</value>
