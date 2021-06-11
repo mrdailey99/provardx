@@ -25,6 +25,6 @@ public class ProductExplorer {
 	public WebElement productName;
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='EXPLORE MORE']")
-	public WebElement eXPLOREMORE;
+	public WebElement exploreMore;
 			
 }

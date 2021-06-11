@@ -253,7 +253,7 @@
         <browserPlatformProperty name="extendedDebugging" platform="WIN10" type="DesiredCapability" value="false"/>
         <browserPlatformProperty name="capturePerformance" platform="WIN10" type="DesiredCapability" value="false"/>
         <browserPlatformProperty name="maxDuration" platform="WIN10" type="DesiredCapability" value="3600"/>
-        <browserPlatformProperty name="factoryClass"/>
+        <browserPlatformProperty name="recordVideo" type="DesiredCapability" value="false"/>
       </properties>
     </browserProvider>
   </browserProviders>
