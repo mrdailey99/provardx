@@ -36,7 +36,7 @@
 				smtpPath="${testproject.home}/.smtp"
 				>
 
-			<fileset id="testplan" dir="${testproject.home}/${env.TEST_PLAN}"></fileset>
+			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
