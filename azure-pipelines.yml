@@ -4,7 +4,7 @@ trigger:
   - dev
 
 pool:
-  vmImage: "ubuntu-16.04"
+  vmImage: "ubuntu-latest"
 variables:
   connection_name: Admin
   provar_major_version: latest
