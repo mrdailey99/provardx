@@ -32,6 +32,13 @@ steps:
       sfdx plugins:update
     displayName: "Install ProvarDX Plugin via SFDX"
 
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '8'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+    displayName: "Configure JDK 8"
+    
   - bash: |
       echo "Download Provar Libraries"
       wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
