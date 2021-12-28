@@ -125,7 +125,7 @@
     </apiCall>
   </steps>
   <outputParams>
-    <param defaultScope="GroupStep" name="sessionID" title="sessionID">
+    <param defaultScope="Test" name="sessionID" title="sessionID">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -157,7 +157,7 @@
     </param>
   </outputParams>
   <outputArgs>
-    <outputArgument id="sessionID" scope="GroupStep">
+    <outputArgument id="sessionID">
       <name class="value" valueClass="string">sessionID</name>
     </outputArgument>
     <outputArgument id="sandboxURL">

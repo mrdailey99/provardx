@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
+<testCase id="0" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -11,7 +11,11 @@
         <argument id="resultName">
           <value class="value" valueClass="string">Admin</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument argId="0d25a8a7-65ee-46f9-99f9-9bbcf087c728" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
@@ -478,6 +482,17 @@
         </textType>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:0d25a8a7-65ee-46f9-99f9-9bbcf087c728" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="accountId" title="accountId">
@@ -550,6 +565,7 @@
     <argument id="Website">
       <value class="value" valueClass="string">testing.com</value>
     </argument>
+    <argument id="reuseConnectionName"/>
   </args>
   <outputArgs>
     <outputArgument id="accountId">

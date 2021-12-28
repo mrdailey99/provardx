@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedWebBrowserType="Chrome_Headless">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -15,6 +15,9 @@
       <summary/>
     </environment>
     <environment name="DXDevHub">
+      <summary/>
+    </environment>
+    <environment name="SIT">
       <summary/>
     </environment>
   </environments>
@@ -77,6 +80,14 @@
             </connectionUrl>
           </connectionUrls>
         </connection>
+        <connection id="51de676a-b770-4a84-930c-0761d21fba40" name="JenkinsTrigger">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="8b568664-b585-4d8e-bb78-a1321a1a5246" url="restservice:url=http://34.213.101.120/job/;user=admin;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
       </connections>
     </connectionClass>
     <connectionClass name="google">
@@ -97,6 +108,7 @@
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
             <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
             <connectionUrl envName="DXDevHub" secureStorageNodeId="23e6820e-02dc-481e-af06-a05097012fed" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="SIT" secureStorageNodeId="e8dee971-c161-4468-ae1c-5bfd61e8aa68" url="sf:user=admin_sit@test.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
           </connectionUrls>
         </connection>
         <connection id="03340e4c-cb4e-4ddf-9841-f602b73b3710" name="CPQ">
