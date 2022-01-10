@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -85,6 +85,16 @@
           <connectionUrls>
             <connectionUrl secureStorageNodeId="8b568664-b585-4d8e-bb78-a1321a1a5246" url="restservice:url=http://34.213.101.120/job/;user=admin;password={password};authenticationType=BASIC_AUTHENTICATION">
               <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection id="50e31601-bbc6-4a6b-a67e-1e1768f1bfb6" name="APITest">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=https://reqres.in;authenticationType=NO_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+              </customHeaders>
             </connectionUrl>
           </connectionUrls>
         </connection>

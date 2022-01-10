@@ -3,8 +3,22 @@
   "edition": "Developer",
   "features": [],
   "settings": {
-    "lightningExperienceSettings": {
-        "enableS1DesktopEnabled": true
-    }
+      "mobileSettings": {
+        "enableS1EncryptedStoragePref2": true
+      },
+      "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+      },
+      "securitySettings": {
+        "networkAccess":{
+            "ipRanges": [
+              {
+                "description": "ALL",
+                "start": "0.0.0.0",
+                "end": "255.255.255.255" 
+              }
+            ]
+        }
+      }
   }
 }
