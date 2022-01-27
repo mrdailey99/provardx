@@ -13,9 +13,29 @@
         "networkAccess":{
             "ipRanges": [
               {
-                "description": "ALL",
-                "start": "0.0.0.0",
-                "end": "255.255.255.255" 
+                "description": "ADO",
+                "start": "13.107.6.1",
+                "end": "13.107.6.14" 
+              },
+              {
+                "description": "ADO",
+                "start": "13.107.9.1",
+                "end": "13.107.9.14" 
+              },
+              {
+                "description": "ADO",
+                "start": "13.107.42.1",
+                "end": "13.107.42.14" 
+              },
+              {
+                "description": "ADO",
+                "start": "13.107.43.1",
+                "end": "13.107.43.14" 
+              },
+              {
+                "description": "MRD",
+                "start": "98.193.215.44",
+                "end": "98.193.215.44" 
               }
             ]
         }

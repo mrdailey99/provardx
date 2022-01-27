@@ -45,7 +45,6 @@ steps:
       echo "Unzip Provar ANT Files"
       unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
-      cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/provardx $PROVAR_HOME/provardx
       ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
       cd $PROVAR_HOME
       ls -la
