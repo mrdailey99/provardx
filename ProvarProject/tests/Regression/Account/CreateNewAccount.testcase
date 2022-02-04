@@ -493,6 +493,17 @@
         </connectionType>
       </type>
     </param>
+    <param name="Lightning" title="Lightning">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="accountId" title="accountId">
@@ -566,6 +577,9 @@
       <value class="value" valueClass="string">testing.com</value>
     </argument>
     <argument id="reuseConnectionName"/>
+    <argument id="Lightning">
+      <value class="value" valueClass="boolean">false</value>
+    </argument>
   </args>
   <outputArgs>
     <outputArgument id="accountId">

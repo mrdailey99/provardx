@@ -7,4 +7,5 @@ Require-Bundle: com.provar.core.testapi,
  com.provar.core.model.base,
  com.provar.core.lib.selenium,
  com.provar.testrunner,
- com.provar.plugins.sf.apis
+ com.provar.plugins.sf.apis,
+ com.provar.core.model.ui

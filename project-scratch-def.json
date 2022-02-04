@@ -38,6 +38,9 @@
                 "end": "98.193.215.44" 
               }
             ]
+        },
+        "sessionSettings": {
+          "enforceIpRangesEveryRequest": false
         }
       }
   }
