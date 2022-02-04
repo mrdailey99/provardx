@@ -20,7 +20,7 @@
     },
     "testprojectSecrets": "ProvarSecretsPassword", 
     "environment":{
-      "testEnvironment":"ProvarDX",
+      "testEnvironment":"",
       "webBrowser":"Chrome_Headless",
       "webBrowserConfig":"Full Screen",
       "webBrowserProviderName":"Desktop",
