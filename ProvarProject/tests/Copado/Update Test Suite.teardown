@@ -158,11 +158,6 @@
                     <path element="TestRunDuration"/>
                   </value>
                 </argument>
-                <argument id="End_Time__c">
-                  <value class="variable">
-                    <path element="CurrentTime"/>
-                  </value>
-                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">DemoSandbox</propertyValue>
@@ -170,9 +165,6 @@
               </parameterGeneratorProperties>
               <generatedParameters>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Duration__c" name="provarti__Duration__c" title="provarti__Duration__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=End_Time__c" name="End_Time__c" title="End_Time__c">
-                  <summary>The time of day the Test Suite Execution completed.</summary>
-                </apiParam>
               </generatedParameters>
             </apiCall>
           </steps>

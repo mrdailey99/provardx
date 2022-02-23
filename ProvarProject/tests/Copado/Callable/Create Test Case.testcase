@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="65cd0b46-8dd5-4444-a459-b29a03edfda3" visibility="Internal">
+<testCase id="2" registryId="65cd0b46-8dd5-4444-a459-b29a03edfda3" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="12" title="Salesforce Connect: Admin_Sandbox (Test)">
@@ -209,11 +209,9 @@
   </outputParams>
   <args>
     <argument id="TestCaseName">
-      <value class="value" valueClass="string">TestCaseName</value>
+      <value class="funcCall" id="TestCaseName"/>
     </argument>
-    <argument id="TestCaseStart">
-      <value class="value" escapingDisabled="true" valueClass="string">{TestCaseStart()}</value>
-    </argument>
+    <argument id="TestCaseStart"/>
   </args>
   <outputArgs>
     <outputArgument id="TestCaseExecutionId">
