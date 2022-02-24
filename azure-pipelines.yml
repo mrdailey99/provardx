@@ -40,6 +40,16 @@ steps:
     displayName: "Configure JDK 8"
     
   - bash: |
+      echo "Set IP of Azure Agent to Variable"
+      echo "##vso[task.setvariable variable=AGENT_IP;]`curl ifconfig.me`"
+
+  - task: ShellScript@2
+    inputs:
+      scriptPath: replace_ip_in_scratch_org_def.sh
+      args: $(AGENT_IP) $(Build.SourcesDirectory)/project-scratch-def.json
+    displayName: "Insert Whitelist IP in Property File"
+
+  - bash: |
       echo "Download Provar Libraries"
       wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
       echo "Unzip Provar ANT Files"

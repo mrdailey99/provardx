@@ -36,6 +36,11 @@
                 "description": "MRD",
                 "start": "98.193.215.44",
                 "end": "98.193.215.44" 
+              },
+              {
+                "description": "Azure Agent",
+                "start": "IP_WHITELIST",
+                "end": "IP_WHITELIST" 
               }
             ]
         },
