@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="1">
+<testCase failureBehaviour="Continue" id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -57,10 +57,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Dailey%'=&gt;OpportunityRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Smoke%'=&gt;OpportunityRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Opportunity where Name like 'Dailey%'</value>
+          <value class="value" valueClass="string">select Id from Opportunity where Name like 'Smoke%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -89,10 +89,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'DevOps'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'IntegrationTest%'=&gt;AccountRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Account where Name like 'DevOps'</value>
+          <value class="value" valueClass="string">select Id from Account where Name like 'IntegrationTest%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -213,9 +213,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="16" title="For Each: {LeadRows}=&gt;Lead">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -253,9 +251,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="19" title="For Each: {OpportunityRows}=&gt;Opp">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -293,9 +289,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="24" title="For Each: {TaskRowd}=&gt;Task">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="list">
           <value class="variable">

@@ -1,14 +1,13 @@
 <project default="runtests">
+	<property name="version" value="2.260.16.0"/>
 	<property environment="env"/>
-	<property name="provar.home" value="C:/Program Files/Provar22/"/>
-	<property value="C:\Users\16156\git\provardx\ProvarProject" name="testproject.home"/>
-    <property value="C:\Users\16156\git\provardx\ProvarProject\ANT\Results" name="testproject.results"/>
-	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
-	<property name="testenvironment.secretspassword" value="${env.ProvarSecretsPassword_EnvName}"/>
-	
+	<property name="provar.home" value="${env.PROVAR_HOME}"/>
+	<property name="testproject.home" value="${env.WORKSPACE}"/>
+	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
+	<property name="secrets.password" value="${ProvarSecretsPassword}"/>
+
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
 	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
-	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
 	
 	<target name="runtests">
 	
@@ -18,25 +17,25 @@
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Increment" 
-				testEnvironment="ProvarDX" 
-				webBrowser="Chrome_Headless" 
+				testEnvironment="" 
+				webBrowser="Chrome" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
 				webBrowserDeviceName="Full Screen" 
-				excludeCallableTestCases="true" 
-				salesforceMetadataCache="Reload" 
-				projectCachePath="../../.provarCaches"
-				testOutputlevel="WARNING" 
+				salesforceMetadataCache="Reuse" 
+				projectCachePath="../.provarCaches"
+				testOutputlevel="BASIC" 
 				pluginOutputlevel="WARNING"
 				stopTestRunOnError="false"
 				secretsPassword="${secrets.password}"
-				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
-				invokeTestRunMonitor="true"
-				>
-		
-			<fileset dir="${testproject.home}/tests/Regression/Dreamhouse"></fileset>
+		>
+			<fileset id="testplan" dir="../plans/Copado Regression"></fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 
 		</Run-Test-Case>
 
 	</target>
+
 </project>

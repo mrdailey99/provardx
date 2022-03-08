@@ -18,7 +18,9 @@
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
         </argument>
-        <argument id="uiApplicationName"/>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSales</value>
+        </argument>
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>

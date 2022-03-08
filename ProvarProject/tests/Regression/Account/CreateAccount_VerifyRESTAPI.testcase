@@ -104,6 +104,10 @@
             <path element="Website"/>
           </value>
         </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="Lightning">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
       </arguments>
       <outputArguments>
         <outputArgument id="accountId">

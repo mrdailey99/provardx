@@ -75,30 +75,22 @@ steps:
       sfdx force:org:list --clean
     displayName: "Cleans stale Org authentications"
 
+  - bash: |
+      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a $(scratch_org_alias)
+      sfdx force:org:display -u $(scratch_org_alias)
+    displayName: "Create Scratch Org and Org description"
+
   - task: ShellScript@2
     inputs:
       scriptPath: insert_secrets_password.sh
       args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
     displayName: "Insert Provar Secrets Password to Property File"
 
-  - bash: |
-      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a $(scratch_org_alias)
-      sfdx force:org:display -u $(scratch_org_alias)
-    displayName: "Create Scratch Org and Org description"
-
-  # - task: ShellScript@2
-  #   inputs:
-  #     scriptPath: setup_dreamhouse.sh
-  #     args: $(scratch_org_alias)
-  #   displayName: "Deploy and Setup Dreamhouse App"
-
-  # - bash: |
-  #     cd ProvarDX
-  #     sfdx force:mdapi:retrieve -r package -u $(dev_hub_username) -k package.xml
-  #     unzip ./package/unpackaged.zip
-  #     sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-  #     sfdx force:source:push -u $(scratch_org_alias) -f
-  #   displayName: "Update Scratch Org Admin Profile"
+  - task: ShellScript@2
+    inputs:
+      scriptPath: setup_dreamhouse.sh
+      args: $(scratch_org_alias)
+    displayName: "Deploy and Setup Dreamhouse App"
 
   - bash: |
       sfdx provar:validate
