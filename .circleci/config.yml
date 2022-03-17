@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-    provar: provartesting/provar@2.4.0
+    provar: provartesting/provar@2.6.3
 jobs:
     build:
         executor:
