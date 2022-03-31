@@ -1,6 +1,6 @@
 <project default="runtests">
 	<property environment="env"/>
-	<property name="provar.home" value="${env.PROVAR_HOME}"/>
+	<property name="provar.home" value="${provar.home}"/>
 	<property name="testproject.home" value="${env.WORKSPACE}"/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
 	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
@@ -17,7 +17,7 @@
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Replace" 
-				testEnvironment="${env.TEST_ENVIRONMENT}" 
+				testEnvironment="${env.ENVIRONMENT}" 
 				webBrowser="Chrome_Headless" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
@@ -30,12 +30,15 @@
 				stopTestRunOnError="false"
 				secretsPassword="${secrets.password}"
 				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+				licensePath="${license.path}"
 		>
 			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 
+			<emailProperties sendEmail="true" primaryRecipients="${env.EMAIL_TARGET}" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="false"/>
+			<attachmentProperties includeAllFailuresInSummary="true" includeBdd="false" includeTestCasePathHierarchy="true" includeTestCaseShowSummary="true" includeBasicLogs="true" includeDetailLogs="false" includeDiagnosticTrace="false" includeTestStepTime="true" includeNoScreenshot="false" includeScreenshotThumbnail="true" includeFullScreenShot="false"/>
 		</Run-Test-Case>
 
 	</target>
