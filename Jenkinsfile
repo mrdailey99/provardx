@@ -21,21 +21,17 @@ pipeline {
                     testPlans.each { p ->
                         parallelStages[p] = {
                             node {
-                                dir(p) {
-                                    stage(p) {
-                                        echo p
-                                        echo planPath
-                                        dir ("${WORKSPACE}/ProvarProject/ANT") {
-                                            sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f jenkins_parallel.xml -v"
-                                        }
-                                    }
-                                    post {
-                                        always {
-                                            junit allowEmptyResults: true, testResults: "ANT/Results/${p}/*.xml"
-                                            cleanWs notFailBuild: true /* cleans up the workspace */
-                                        }
-                                    }                                
+                                stage(p) {
+                                    echo p
+                                    echo planPath
+                                    sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
                                 }
+                                post {
+                                    always {
+                                        junit allowEmptyResults: true, testResults: "ProvarProject/ANT/Results/${p}/*.xml"
+                                        cleanWs notFailBuild: true /* cleans up the workspace */
+                                    }
+                                }                                
                             }
                         } 
                     }
