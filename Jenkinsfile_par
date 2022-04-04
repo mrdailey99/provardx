@@ -1,13 +1,14 @@
 pipeline {
-    agent {
-        dockerfile true
-    }
+    agent any
     stages {
         stage('Run Provar Tests') {
             parallel {       
                 stage ('Session 1 Tests') {
+                    environment {
+                        TEST_PLAN = "Regression Plan/Regression/Account"
+                    }
                     steps {
-                        sh "xvfb-run ant -Dthread=1 -f ANT/jenkins_parallel.xml -v"
+                        sh "xvfb-run -a ant -Dtest_plan=${TEST_PLAN} -Dthread=1 -f ANT/jenkins_parallel.xml -v"
                     }
                     post {
                         always {
@@ -17,8 +18,11 @@ pipeline {
                     }
                 }
                 stage ('Session 2 Tests') {
+                    environment {
+                        TEST_PLAN = "Regression Plan/Regression/Opportunity"
+                    }
                     steps {
-                        sh "xvfb-run -a ant -Dthread=2 -f ANT/jenkins_parallel.xml -v"
+                        sh "xvfb-run -a ant -Dtest_plan=${TEST_PLAN} -Dthread=2 -f ANT/jenkins_parallel.xml -v"
                     }
                     post {
                         always {
