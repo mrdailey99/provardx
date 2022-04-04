@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     dir ("ProvarProject/plans/Regression Plan/Regression") {                
-                        def plans = findPlans()
+                        def plans = findFiles()
                         plans.each { p ->
                             if (p.directory) {
                                 testPlans.add(p.name)
