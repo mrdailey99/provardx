@@ -14,35 +14,11 @@ variables:
   
 jobs:
 - job: Windows
-  # strategy:
-  #   maxParallel: "2"
-  #   matrix:
-  #     Feature-1:
-  #       TEST_PLAN: Feature-1
-  #     Regression:
-  #       TEST_PLAN: Regression
   pool: 
     name: Local
-    # demands: 
-    # - InteractiveSession -equals True
-  #   vmImage: 'windows-latest'
+    demands: 
+    - InteractiveSession -equals True
   steps:
-  #   - script: 'pip3 install requests'
-  #     displayName: 'Install Python Requests Module'
-    
-  #   - task: PythonScript@0
-  #     displayName: 'Download latest Provar files'
-  #     inputs:
-  #       scriptSource: inline
-  #       script: ' import requests; url = ''https://download.provartesting.com/latest/Provar_ANT_latest.zip''; req = requests.get(url, allow_redirects=True); open(''Provar_ANT_latest.zip'', ''wb'').write(req.content);'
-
-    # - task: PowerShell@2
-    #   displayName: 'PowerShell Script - Run Provar Tests'
-    #   inputs:
-    #     targetType: filePath
-    #     filePath: './runProvarTests.ps1'
-    #     arguments: '-secretsPassword "$(secrets_password)"'
-    #   continueOnError: true
     - task: PowerShell@2
       displayName: 'PowerShell Script - Run Provar Tests'
       inputs:
