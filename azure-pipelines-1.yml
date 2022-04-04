@@ -1,0 +1,30 @@
+# Ant
+# Build your Java projects and run tests with Apache Ant.
+# Add steps that save build artifacts and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      echo "Download Provar Libraries"
+         wget -nv https://download.provartesting.com/latest/Provar_ANT_latest.zip
+         echo "Unzip Provar ANT Files"
+         unzip -q Provar_ANT_latest.zip -d $(Build.SourcesDirectory)/ProvarHome
+         ls -la
+steps:
+- task: Ant@1
+  inputs:
+    workingDirectory: ''
+    buildFile: 'build.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
