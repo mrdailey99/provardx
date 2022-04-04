@@ -24,7 +24,10 @@ pipeline {
                                 dir(p) {
                                     stage(p) {
                                         echo p
-                                        sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f ${WORKSPACE}/ProvarProject/ANT/jenkins_parallel.xml -v"
+                                        echo planPath
+                                        dir ("${WORKSPACE}/ProvarProject/ANT") {
+                                            sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f jenkins_parallel.xml -v"
+                                        }
                                     }
                                     post {
                                         always {
