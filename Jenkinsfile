@@ -24,6 +24,7 @@ pipeline {
                                 stage(p) {
                                     echo p
                                     echo planPath
+                                    echo `pwd`
                                     sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
                                 }
                                 post {
