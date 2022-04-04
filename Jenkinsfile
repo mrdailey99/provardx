@@ -25,6 +25,12 @@ pipeline {
                                         export TEST_PLAN="Regression Plan/Regression/${p}" 
                                         sh "xvfb-run ant -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
                                     }
+                                    post {
+                                        always {
+                                            junit allowEmptyResults: true, testResults: "ANT/Results/${p}/*.xml"
+                                            cleanWs notFailBuild: true /* cleans up the workspace */
+                                        }
+                                    }                                
                                 }
                             }
                         } 
