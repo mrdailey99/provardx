@@ -1,6 +1,7 @@
 def parallelStages = [:]
 def testPlans = []
 def chosenAgent = "master"
+def planPath = "ProvarProject/plans/Regression Plan/Regression"
 
 pipeline {
     agent any
@@ -8,7 +9,7 @@ pipeline {
         stage('Run Provar Tests') {
             steps {
                 script {
-                    dir ("ProvarProject/plans/Regression Plan/Regression") {                
+                    dir (planPath) {                
                         def plans = findFiles()
                         plans.each { p ->
                             if (p.directory) {
@@ -23,8 +24,7 @@ pipeline {
                                 dir(p) {
                                     stage(p) {
                                         echo p
-                                        export TEST_PLAN="Regression Plan/Regression/${p}" 
-                                        sh "xvfb-run ant -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
+                                        sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
                                     }
                                     post {
                                         always {

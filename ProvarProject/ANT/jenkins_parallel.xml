@@ -31,7 +31,7 @@
 				secretsPassword="${secrets.password}"
 				testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
 		>
-			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
+			<fileset id="testplan" dir="${testproject.home}/plans/${test_plan}"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
