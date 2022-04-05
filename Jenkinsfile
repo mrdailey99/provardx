@@ -10,7 +10,7 @@ pipeline {
         stage('Run Provar Tests') {
             steps {
                 script {
-                    dir (testPlansPath+planPath) {                
+                    dir (testPlansPath + "\\" + planPath) {                
                         def plans = findFiles()
                         plans.each { p ->
                             if (p.directory) {
