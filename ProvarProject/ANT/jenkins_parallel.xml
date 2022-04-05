@@ -9,6 +9,10 @@
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
 	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
 	
+	<echo message="--------------------------------------"/>
+	<echo message="Running Provar Test Plan: ${test_plan}"/>
+	<echo message="--------------------------------------"/>
+
 	<target name="runtests">
 	
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
