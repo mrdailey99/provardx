@@ -1,7 +1,7 @@
 def parallelStages = [:]
 def testPlans = []
 def chosenAgent = "master"
-def testPlans = "ProvarProject/plans"
+def testPlansPath = "ProvarProject/plans"
 def planPath = "Regression Plan/Regression"
 
 pipeline {
@@ -10,7 +10,7 @@ pipeline {
         stage('Run Provar Tests') {
             steps {
                 script {
-                    dir (testPlans+planPath) {                
+                    dir (testPlansPath+planPath) {                
                         def plans = findFiles()
                         plans.each { p ->
                             if (p.directory) {
