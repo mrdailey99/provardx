@@ -25,7 +25,7 @@ pipeline {
                                 stage(p) {
                                     echo p
                                     echo planPath
-                                    dir ("${WORKSPACE}") {
+                                    dir ("${JENKINS_HOME}/workspace/${JOB_NAME}") {
                                         sh "ant -Dtest_plan=${planPath}/${p} -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
                                     }                                
                                 }
