@@ -27,7 +27,7 @@ pipeline {
                                     echo planPath
                                     def testPlan = "${planPath}/${p}"
                                     dir ("${JENKINS_HOME}/workspace/${JOB_NAME}") {
-                                        sh "ant -Dtest_plan=${testPlan} -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
+                                        sh "ant \"-Dtest_plan=${testPlan}\" -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
                                     }                                
                                 }
                                 post {
