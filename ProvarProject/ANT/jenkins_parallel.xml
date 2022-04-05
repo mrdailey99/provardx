@@ -21,7 +21,7 @@
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}/${thread}" 
 				resultsPathDisposition="Increment" 
-				testEnvironment="${env.TEST_ENVIRONMENT}" 
+				testEnvironment="" 
 				webBrowser="Chrome_Headless" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
