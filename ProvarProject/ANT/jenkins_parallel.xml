@@ -1,7 +1,7 @@
 <project default="runtests">
 	<property environment="env"/>
 	<property name="provar.home" value="${env.PROVAR_HOME}"/>
-	<property name="testproject.home" value="${env.WORKSPACE}"/>
+	<property name="testproject.home" value="${env.JENKINS_HOME}/workspace/${env.JOB_NAME}"/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
 	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
 	<property name="testenvironment.secretspassword" value="${env.ProvarSecretsPassword_EnvName}"/>
