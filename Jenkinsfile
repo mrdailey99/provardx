@@ -41,7 +41,7 @@ pipeline {
     }
     post {
         always {
-            junit allowEmptyResults: true, testResults: "ProvarProject/ANT/Results/**/*.xml"
+            junit allowEmptyResults: true, testResults: "ProvarProject/ANT/Results/**/JUnit.xml"
         }
         success {
             echo "Success: All tests passed successfully!"
