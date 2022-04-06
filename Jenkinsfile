@@ -42,7 +42,6 @@ pipeline {
     post {
         always {
             junit allowEmptyResults: true, testResults: "ProvarProject/ANT/Results/**/*.xml"
-            cleanWs notFailBuild: true /* cleans up the workspace */
         }
         success {
             echo "Success: All tests passed successfully!"
