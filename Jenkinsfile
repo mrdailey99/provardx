@@ -28,15 +28,8 @@ pipeline {
                                     def testPlan = "${planPath}/${p}"
                                     dir ("${JENKINS_HOME}/workspace/${JOB_NAME}") {
                                         sh "ant \"-Dtest_plan=${testPlan}\" -Dthread=${p} -f ProvarProject/ANT/jenkins_parallel.xml -v"
-                                    }  
-                                    post {
-                                        always {
-                                            junit allowEmptyResults: true, testResults: "ProvarProject/ANT/Results/${p}/*.xml"
-                                            cleanWs notFailBuild: true /* cleans up the workspace */
-                                        }
-                                    }                                
+                                    }                               
                                 }
-                                            
                             }
                         } 
                     }
@@ -47,8 +40,13 @@ pipeline {
         }
     }
     post {
+        always {
+            junit allowEmptyResults: true, testResults: "ProvarProject/ANT/Results/**/*.xml"
+            cleanWs notFailBuild: true /* cleans up the workspace */
+        }
         success {
             echo "Success: All tests passed successfully!"
+            
         }       
         failure {            
             echo 'Failure: Something went wrong with the Provar ANT build. Printing environment for debugging'            
