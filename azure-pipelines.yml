@@ -63,7 +63,7 @@ steps:
   - bash: |
       sfdx force:project:create -n ProvarDX
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
-      cp package.xml ProvarDX/package.xml
+      ## cp package.xml ProvarDX/package.xml
       cp .forceignore ProvarDX/.forceignore
     displayName: "Creates SFDX Project with some sample configuration files"
 

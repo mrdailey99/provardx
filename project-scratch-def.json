@@ -38,7 +38,7 @@
                 "end": "98.193.215.44" 
               },
               {
-                "description": "Azure Agent",
+                "description": "Dynamic Agent IP",
                 "start": "IP_WHITELIST",
                 "end": "IP_WHITELIST" 
               }
