@@ -43,13 +43,12 @@ jobs:
           with:
             java-version: '8'
             distribution: 'temurin'
-        - uses: actions/setup-node@v3.1.1  
-        - uses: sfdx-actions/setup-sfdx@v1
-          with:
-            sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }}
-
+        - uses: actions/setup-node@v3
         - name: Setup NPM
           run: npm install
+        - uses: sfdx-actions/setup-sfdx@v1
+          with:
+            sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }
 
         - name: Install ProvarDX SFDX Plugin
           run: |
