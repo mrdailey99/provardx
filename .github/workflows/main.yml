@@ -50,7 +50,7 @@ jobs:
           run: npm install
         - uses: sfdx-actions/setup-sfdx@v1
           with:
-            sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }
+            sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }}
 
         - name: Install ProvarDX SFDX Plugin
           run: |
