@@ -80,6 +80,15 @@ jobs:
             echo $ip_addr
             ## split multiple addresses into array to grab 1st real IP
             read -a ip <<< "$ip_addr"
+            echo "Ubuntu IP: ${ip[0]}"
+            echo "ifconfig:"
+            ifconfig
+            echo "ip r"
+            ip r
+            echo "systemd-resolve"
+            systemd-resolve --status | grep Current
+            echo "ip a"
+            ip a
             sed -i "s|IP_WHITELIST|${ip[0]}|" project-scratch-def.json 
             cat project-scratch-def.json
               
@@ -93,10 +102,10 @@ jobs:
         - name: Insert Secrets Password
           run: sed -i "s|ProvarSecretsPassword|${{ secrets.SECRETS_PASSWORD }}|" $GITHUB_WORKSPACE/provardx-properties-github.json
 
-        - name: Create Scratch Org 
-          run: |
-            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
-            sfdx force:org:display -u ${{ env.scratch_org_alias }}
+        # - name: Create Scratch Org 
+        #   run: |
+        #     sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
+        #     sfdx force:org:display -u ${{ env.scratch_org_alias }}
 
         # - name: Update Scratch Org Admin Profile
         #   run: |
@@ -106,31 +115,31 @@ jobs:
         #     sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
         #     sfdx force:source:push -u ${{ env.scratch_org_alias }} -f
 
-        - name: Validate ProvarDX property file
-          run: sfdx provar:validate -p provardx-properties-github.json
+        # - name: Validate ProvarDX property file
+        #   run: sfdx provar:validate -p provardx-properties-github.json
 
-        - name: Compile Provar Project
-          run: sfdx provar:compile -p provardx-properties-github.json
+        # - name: Compile Provar Project
+        #   run: sfdx provar:compile -p provardx-properties-github.json
 
-        - name: Reload Metadata Cache
-          run: sfdx provar:metadatacache -m 'reload' -c '.provarCaches' -p provardx-properties-github.json
+        # - name: Reload Metadata Cache
+        #   run: sfdx provar:metadatacache -m 'reload' -c '.provarCaches' -p provardx-properties-github.json
 
-        - name: Run Provar Tests
-          run: echo y | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
+        # - name: Run Provar Tests
+        #   run: echo y | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
 
-        - name: Delete Scratch Org
-          run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
+        # - name: Delete Scratch Org
+        #   run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
        
-        - name: Upload Test Results Folder
-          uses: actions/upload-artifact@v2.2.1
-          with:
-            # Artifact name
-            name: TestResults # optional, default is artifact
-            # A file, directory or wildcard pattern that describes what to upload
-            path: '**/ANT/Results'
-            # The desired behavior if no files are found using the provided path.
-            if-no-files-found: error
-            retention-days: 14 # optional
+        # - name: Upload Test Results Folder
+        #   uses: actions/upload-artifact@v2.2.1
+        #   with:
+        #     # Artifact name
+        #     name: TestResults # optional, default is artifact
+        #     # A file, directory or wildcard pattern that describes what to upload
+        #     path: '**/ANT/Results'
+        #     # The desired behavior if no files are found using the provided path.
+        #     if-no-files-found: error
+        #     retention-days: 14 # optional
     test_results:
       name: "Publish Test Results"
       needs: linux_regression
