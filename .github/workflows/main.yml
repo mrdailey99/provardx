@@ -78,7 +78,9 @@ jobs:
           run: |
             ip_addr=`hostname -I`
             echo $ip_addr
-            sed -i "s|IP_WHITELIST|$ip_addr|" project-scratch-def.json 
+            ## split multiple addresses into array to grab 1st real IP
+            read -a ip <<< "$ip_addr"
+            sed -i "s|IP_WHITELIST|${ip[0]}|" project-scratch-def.json 
             cat project-scratch-def.json
               
         - name: Create SFDX Project with config
