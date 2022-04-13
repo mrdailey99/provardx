@@ -76,7 +76,7 @@ jobs:
 
         - name: Insert Whitelist IP in Property File
           run: |
-            ip_addr=`hostname`
+            ip_addr=`hostname -I`
             echo $ip_addr
             sed -i "s|IP_WHITELIST|$ip_addr|" project-scratch-def.json 
             cat project-scratch-def.json
