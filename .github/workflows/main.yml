@@ -20,11 +20,9 @@ on:
   pull_request_review:
     types:
       - submitted
-  check_suite:
-    branches: [ master ]
-    types:
-      - completed
-  status: {}
+  check_run:
+    types: [ rerequested, completed ]
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -49,8 +47,8 @@ jobs:
           with:
             sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }}
 
-        # - name: Setup NPM
-        #   run: npm install
+        - name: Setup NPM
+          run: npm install
 
         - name: Install ProvarDX SFDX Plugin
           run: |
