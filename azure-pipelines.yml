@@ -1,7 +1,7 @@
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  - dev
+  - master
 
 pool:
   vmImage: "ubuntu-latest"
