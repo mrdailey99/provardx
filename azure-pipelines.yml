@@ -6,6 +6,7 @@ trigger:
 pool:
   vmImage: "ubuntu-latest"
 variables:
+  scratch_org_alias: ProvarDX
   connection_name: Admin
   provar_major_version: latest
   provar_build_version: latest
