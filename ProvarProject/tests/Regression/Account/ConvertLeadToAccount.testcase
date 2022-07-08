@@ -2,22 +2,6 @@
 <testCase id="3" registryId="0526716c-2bea-4277-8e58-7385b0ee675d" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="customapis.ConvertCase" name="ConvertCase" testItemId="30" title="Convert Case: ⇒ ResultVal">
-      <arguments>
-        <argument id="InputText">
-          <value class="value" valueClass="string">asdf</value>
-        </argument>
-        <argument id="Upper">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="resultName">
-          <value class="value" valueClass="string">ResultVal</value>
-        </argument>
-        <argument id="resultScope">
-          <value class="value" valueClass="string">Test</value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <tags/>
       <arguments>
