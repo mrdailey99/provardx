@@ -7,6 +7,6 @@ steps:
     key: "tests"
     plugins:
     - test-collector#v1.0.0:
-        files: "ANT/Results/JUnit.xml"
+        files: "**/ANT/Results/JUnit.xml"
         format: "junit"
     artifact_paths: "**/JUnit.xml"
