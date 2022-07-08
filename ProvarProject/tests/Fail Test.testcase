@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="3" title="Fail Test: Test Failure!">
+      <arguments>
+        <argument id="message">
+          <value class="value" valueClass="string">Test Failure!</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="1" title="Finally: ">
+      <arguments>
+        <argument id="description"/>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="2">
+          <steps>
+            <caseCall testCaseId="0037ac45-94f6-4b97-83d1-938016849de7" testCasePath="tests/Callable/ReportToSlack.testcase" testItemId="4">
+              <arguments>
+                <argument id="Passed">
+                  <value class="funcCall" id="TestCaseSuccessful"/>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

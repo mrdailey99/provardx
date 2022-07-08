@@ -1,0 +1,38 @@
+{
+    "provarHome":"C:/Program Files/ProvarCLI",
+    "projectPath":"C:/buildkite-agent/builds/DESKTOP-16U122C-1/provar-4/run-provar-tests/ProvarProject",
+    "resultsPath":"C:/buildkite-agent/builds/DESKTOP-16U122C-1/provar-4/run-provar-tests/ProvarProject/ANT/Results",
+    "resultsPathDisposition":"Replace",
+    "smtpPath": "C:/buildkite-agent/builds/DESKTOP-16U122C-1/provar-4/run-provar-tests/ProvarProject/.smtp",
+    "testOutputLevel":"BASIC",
+    "pluginOutputlevel":"WARNING",
+    "excludeCallable":false,
+    "stopOnError":false,
+    "lightningMode":true,
+    "connectionRefreshType":"Reload",
+    "metadata":{
+       "metadataLevel":"Reload",
+       "cachePath":"C:/buildkite-agent/builds/DESKTOP-16U122C-1/provar-4/run-provar-tests/.provarCaches"
+    },
+    "testprojectSecrets": "ProvarSecretsPassword", 
+    "environment":{
+      "testEnvironment":"",
+      "webBrowser":"Chrome_Headless",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+    },
+    "testPlan":[
+       "Regression Plan"
+    ],
+    "testplanFeatures": [
+       {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
+       {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
+       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"}
+    ],
+    "email": {
+        "sendEmail": true,
+        "toRecipients": [ "michael.dailey@provartesting.com"],
+        "ccRecipients": [ "sedon98@gmail.com" ]
+    }
+ }

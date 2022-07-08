@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="9">
+<testCase failureBehaviour="Continue" id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -73,10 +73,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Dailey%'=&gt;LeadRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Smoke%'=&gt;LeadRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Lead where Name like 'Dailey%'</value>
+          <value class="value" valueClass="string">select Id from Lead where Name like 'Smoke%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -89,10 +89,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'IntegrationTest%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'Provar%'=&gt;AccountRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Account where Name like 'IntegrationTest%'</value>
+          <value class="value" valueClass="string">select Id from Account where Name like 'Provar%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>

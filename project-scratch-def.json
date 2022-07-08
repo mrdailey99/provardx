@@ -1,7 +1,7 @@
 {
   "orgName": "ProvarDX Company",
   "edition": "Developer",
-  "features": [],
+  "features": ["Walkthroughs", "EnableSetPasswordInApi"],
   "settings": {
       "mobileSettings": {
         "enableS1EncryptedStoragePref2": true

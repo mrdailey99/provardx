@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
+<testCase id="3" registryId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -132,6 +132,108 @@
           </steps>
         </clause>
       </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="17" title="On SF Account New screen">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=Account&amp;action=New&amp;noOverride=true"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Dont</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Account New screen</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetResultName">
+          <value class="value" valueClass="string">accountId</value>
+        </argument>
+        <argument id="sfUiTargetResultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="18">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" name="UiAssert" testItemId="19" title="UI Assert">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Values</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="save">
+                      <fieldLocator uri="ui:locator?name=save&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26action%3Dsave"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="visible" comparisonType="EqualTo">
+                          <value class="value" valueClass="boolean">true</value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry">
+                  <value class="uiWait" uri="ui:wait:autoRetry:enabled=false&amp;timeout=10"/>
+                </argument>
+              </arguments>
+              <expectedExceptions>
+                <expectedException comparisonType="Contains" title="Field not visible">
+                  <assertionValue class="value" valueClass="string">Failed to resolve control locator.</assertionValue>
+                </expectedException>
+              </expectedExceptions>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
+          <summary>The name under which the resulting Object Id will be stored.</summary>
+          <type>
+            <textType/>
+          </type>
+          <resultValueClasses>
+            <string>ApexObjectId</string>
+          </resultValueClasses>
+        </apiParam>
+        <apiParam group="result" name="sfUiTargetResultScope" title="Result Scope">
+          <summary>The life-span of the resulting identifiers.</summary>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+      </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="7" title="On SF Account New screen">
       <arguments>
@@ -268,6 +370,9 @@
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
+              <expectedExceptions>
+                <expectedException comparisonType="Contains"/>
+              </expectedExceptions>
               <generatedParameters>
                 <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="value" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
@@ -468,6 +573,29 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website"/>
       </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="14" title="Finally: Report to Slack">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Report to Slack</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="15">
+          <steps>
+            <caseCall testCaseId="0037ac45-94f6-4b97-83d1-938016849de7" testCasePath="tests/Callable/ReportToSlack.testcase" testItemId="16">
+              <arguments>
+                <argument id="Failed">
+                  <value class="funcCall" id="TestCaseSuccessful"/>
+                </argument>
+                <argument id="Passed">
+                  <value class="funcCall" id="TestCaseSuccessful"/>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
     </apiCall>
   </steps>
   <params>

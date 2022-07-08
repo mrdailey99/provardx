@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -1542,9 +1542,6 @@
                 <argument id="PropertyCreated">
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Admin</value>
-                </argument>
               </arguments>
             </caseCall>
           </steps>
@@ -1741,9 +1738,11 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="63" title="Finally: ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="63" title="Finally: Test Cleanup">
       <arguments>
-        <argument id="description"/>
+        <argument id="description">
+          <value class="value" valueClass="string">Test Cleanup</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="hidden" testItemId="64">

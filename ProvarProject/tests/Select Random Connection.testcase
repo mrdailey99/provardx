@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="2">
+  <summary/>
+  <steps>
+    <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="3" title="Random Integer: ⇒ index">
+      <arguments>
+        <argument id="NumberOfDigits">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="ExcludeZero">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">index</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="NumberOfNumbers">
+          <value class="value" valueClass="decimal">3</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: ConnectionsString">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">ConnectionsString</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Admin,Sales,CPQ</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="5" title="Split: {ConnectionsString}=&gt;,=&gt;Connections">
+      <arguments>
+        <argument id="input">
+          <value class="variable">
+            <path element="ConnectionsString"/>
+          </value>
+        </argument>
+        <argument id="separator">
+          <value class="value" valueClass="string">,</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Connections</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: ConnectionName">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">ConnectionName</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="Connections">
+                    <filter class="conditionFilter">
+                      <condition class="variable">
+                        <path element="index"/>
+                      </condition>
+                    </filter>
+                  </path>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: {ConnectionName} (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="variable">
+            <path element="ConnectionName"/>
+          </value>
+        </argument>
+        <argument id="resultName">
+          <value class="variable">
+            <path element="ConnectionName"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument argId="19c78fc8-e57a-4543-bf85-1f5483805a73" id="reuseConnectionName">
+          <value class="variable">
+            <path element="ConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:19c78fc8-e57a-4543-bf85-1f5483805a73" name="ConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="ConnectionName"/>
+  </args>
+</testCase>

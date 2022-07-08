@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="80" registryId="6b64f3d4-f1d1-4009-baf5-621faeadf381" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.DesignStep" name="DesignStep" testItemId="17" title="Persist the connection for the Test Manager db">
+      <arguments>
+        <argument id="name">
+          <value class="value" valueClass="string">Persist the connection for the Test Manager db</value>
+        </argument>
+        <argument id="description">
+          <value class="value" valueClass="string">Persist connection to test run scope</value>
+        </argument>
+        <argument id="expectedResult">
+          <value class="value" valueClass="string">Connection is retained for use by callable and teardown scripts</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="3">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="18" title="Salesforce Connect: TestManager (Global)">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">TestManager</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+                <argument id="uiApplicationName">
+                  <value class="value" valueClass="string">Test_Manager</value>
+                </argument>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value"/>
+                </argument>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Reuse</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="25" title="Retrieve Project Record">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Retrieve Project Record</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="26">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="24" title="SOQL Query: SELECT Id, Name FROM provar__Test_Project__c\nWHERE Name = '{tmProjectName}'\nLIMIT 1=&gt;projectRecord">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id, Name FROM provar__Test_Project__c\nWHERE Name = '</value>
+                      <variable>
+                        <path element="tmProjectName"/>
+                      </variable>
+                      <value valueClass="string">'\nLIMIT 1</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">TestManager</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">projectRecord</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="19" title="Retrieve Environment Record">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Retrieve Environment Record</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="20" title="SOQL Query: SELECT Id, Name FROM provar__Environment__c\nWHERE Name = '{tmEnvironmentName}'\nLIMIT 1=&gt;environmentRecord">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id, Name FROM provar__Environment__c\nWHERE Name = '</value>
+                      <variable>
+                        <path element="tmEnvironmentName"/>
+                      </variable>
+                      <value valueClass="string">'\nLIMIT 1</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">TestManager</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">environmentRecord</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="21" title="If Environment Exists">
+              <arguments>
+                <argument id="condition">
+                  <value class="gt">
+                    <lhs class="funcCall" id="Count">
+                      <argument id="value">
+                        <value class="variable">
+                          <path element="environmentRecord"/>
+                        </value>
+                      </argument>
+                    </lhs>
+                    <rhs class="value" valueClass="decimal">0</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="9"/>
+                <clause name="else" testItemId="10">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" isTitleUpdated="true" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="11" title="Create Environment Record">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provar__Environment__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="variable">
+                            <path element="environmentRecord"/>
+                            <path element="Id"/>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">TestManager</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Global</value>
+                        </argument>
+                        <argument id="provar__Status__c">
+                          <value class="value" valueClass="string">Available</value>
+                        </argument>
+                        <argument id="Name">
+                          <value class="variable">
+                            <path element="tmEnvironmentName"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provar__Environment__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Environment__c&amp;field=provar__Status__c" name="provar__Status__c" title="provar__Status__c">
+                          <summary>Use the status to manage environment availability</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Environment__c&amp;field=Name" name="Name" title="Name"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="27" title="Retrieve Test Plan">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Retrieve Test Plan</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="28">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="30" title="SOQL Query: SELECT Id, Name FROM provar__Test_Plan__c\nWHERE Name = '{tmTestPlanName}'\nLIMIT 1=&gt;testPlanRecord">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id, Name FROM provar__Test_Plan__c\nWHERE Name = '</value>
+                      <variable>
+                        <path element="tmTestPlanName"/>
+                      </variable>
+                      <value valueClass="string">'\nLIMIT 1</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">TestManager</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">testPlanRecord</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="33" title="If Test Plan Exists">
+              <arguments>
+                <argument id="condition">
+                  <value class="gt">
+                    <lhs class="funcCall" id="Count">
+                      <argument id="value">
+                        <value class="variable">
+                          <path element="testPlanRecord"/>
+                        </value>
+                      </argument>
+                    </lhs>
+                    <rhs class="value" valueClass="decimal">0</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="34"/>
+                <clause name="else" testItemId="35">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="37" title="Create Object: provar__Test_Plan__c=&gt;TestPlanId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provar__Test_Plan__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestPlanId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">TestManager</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="provar__Test_Project__c">
+                          <value class="variable">
+                            <path element="projectRecord"/>
+                            <path element="Id"/>
+                          </value>
+                        </argument>
+                        <argument id="Name">
+                          <value class="variable">
+                            <path element="tmTestPlanName"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">TestManagerDemo</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provar__Test_Plan__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Plan__c&amp;field=provar__Test_Project__c" name="provar__Test_Project__c" title="provar__Test_Project__c">
+                          <summary>Select the parent project for this test plan. This makes it easy to manage and share you test data with your colleagues.</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Plan__c&amp;field=Name" name="Name" title="Name"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="22" title="Create Test Cycle Record">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Create a new Test Cycle</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="16">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" isTitleUpdated="true" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="14" title="Create Test Cycle Record">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">provar__Test_Cycle__c</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">testCycleRecordId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">TestManager</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+                <argument id="provar__Web_Browser__c">
+                  <value class="variable">
+                    <path element="tmWebBrowser"/>
+                  </value>
+                </argument>
+                <argument id="provar__Test_Plan__c">
+                  <value class="variable">
+                    <path element="testPlanRecord"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+                <argument id="provar__Screen_Resolution__c">
+                  <value class="variable">
+                    <path element="tmScreenResolution"/>
+                  </value>
+                </argument>
+                <argument id="provar__Environment__c">
+                  <value class="variable">
+                    <path element="environmentRecord"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+                <argument id="provar__Environment_Text__c"/>
+                <argument id="provar__Comments__c">
+                  <value class="value" valueClass="string">Execution from Provar</value>
+                </argument>
+                <argument id="provar__Browser_Version__c">
+                  <value class="variable">
+                    <path element="tmWebBrowserVersion"/>
+                  </value>
+                </argument>
+                <argument id="provar__Device_Model__c">
+                  <value class="value" valueClass="string">MacBook Pro (13-inch, M1, 2020)</value>
+                </argument>
+                <argument id="provar__Operating_System_Version__c">
+                  <value class="value" valueClass="string">12.0.1</value>
+                </argument>
+                <argument id="provar__Operating_System__c">
+                  <value class="value" valueClass="string">macOS</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provar__Test_Cycle__c</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Web_Browser__c" name="provar__Web_Browser__c" title="provar__Web_Browser__c">
+                  <summary>Select the web browser used</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Test_Plan__c" name="provar__Test_Plan__c" title="provar__Test_Plan__c">
+                  <summary>The Test Plan used for defining the suite of tests to be executed and any environment o</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Screen_Resolution__c" name="provar__Screen_Resolution__c" title="provar__Screen_Resolution__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Environment__c" name="provar__Environment__c" title="provar__Environment__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Environment_Text__c" name="provar__Environment_Text__c" title="provar__Environment_Text__c">
+                  <summary>Manually enter the Environment being tested, for example SIT, Staging, UAT or Production</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Comments__c" name="provar__Comments__c" title="provar__Comments__c">
+                  <summary>Provide any comments about the test cycle results.</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Browser_Version__c" name="provar__Browser_Version__c" title="provar__Browser_Version__c">
+                  <summary>If known provide the version number of the browser used during test cycle execution</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Device_Model__c" name="provar__Device_Model__c" title="provar__Device_Model__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Operating_System_Version__c" name="provar__Operating_System_Version__c" title="provar__Operating_System_Version__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provar__Test_Cycle__c&amp;field=provar__Operating_System__c" name="provar__Operating_System__c" title="provar__Operating_System__c"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

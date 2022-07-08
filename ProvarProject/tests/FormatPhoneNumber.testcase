@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="5">
+  <summary/>
+  <steps>
+    <apiCall apiId="customapis.FormatPhoneNumber" name="FormatPhoneNumber" testItemId="1" title="Format Phone Number: ⇒ Number">
+      <arguments>
+        <argument id="phoneNumber">
+          <value class="value" valueClass="string">3126922129</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Number</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

@@ -31,6 +31,14 @@ public class RandomInteger {
             parameterGroup="inputs")
     public boolean ExcludeZero;
 
+    @TestApiParameter(seq=3, 
+            summary="The number of numbers to select from.",
+            remarks="1=1, 10=1,2,3,4,5,6,7,8,9,10",
+            mandatory=true,
+            parameterGroup="inputs",
+            defaultValue="-1")
+    public int NumberOfNumbers;
+    
     @TestApiParameter(seq=10, 
             summary="The name that the result will be stored under.",
             remarks="",
@@ -69,8 +77,15 @@ public class RandomInteger {
         }
         
         int range = max - min + 1; 
+
         // generate random numbers within range
-        int randomValue = (int)(Math.random() * range) + min; 
+        int randomValue = 0;
+        if (NumberOfNumbers > 0) {
+        	randomValue = (int)(Math.random() * NumberOfNumbers) + min;	
+        } else {
+        	randomValue = (int)(Math.random() * range) + min;	
+        }        
+         
 		testExecutionContext.setValue(resultName, randomValue, resultScope); 
     }
     
