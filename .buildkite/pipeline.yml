@@ -2,9 +2,13 @@ steps:
   - command: 
     - "echo \" pwd: \" pwd "
   - label: "Insert Secrets Password"
+    env:
+      WORKSPACE: "$$pwd"
     command:
-    - "insert_secrets_password.sh ProvarDevOps2021 $$pwd/provardx-properties-buildkite.json"
-    - "cat $$pwd/provardx-properties-buildkite.json"
+    - "echo $$WORKSPACE"
+    - "echo $$pwd"
+    - "insert_secrets_password.sh ProvarDevOps2021 $$WORKSPACE/provardx-properties-buildkite.json"
+    - "cat $$WORKSPACE/provardx-properties-buildkite.json"
   - label: "Run Regression Tests"    
     command:
     - "sfdx provar:runtests -p provardx-properties-buildkite.json"
