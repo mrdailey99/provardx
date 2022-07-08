@@ -1,15 +1,18 @@
 steps:
-  - command: 
-    - "echo \" pwd: \" pwd "
-  - label: "Insert Secrets Password"
-    command:
-    - "sh insert_secrets_password.sh ProvarDevOps2021 ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
-    - "cat ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
-  - label: "Run Regression Tests"    
-    command:
-    - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
-    plugins:
-      - test-collector#v1.0.0:
-          files: "ANT/Results/JUnit.xml"
-          format: "junit"
-    artifact_paths: "**/JUnit.xml"
+  - group: "Run Provar Tests"
+    steps:
+      - label: "Insert Secrets Password"
+        command:
+        - "sh insert_secrets_password.sh ProvarDevOps2021 ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
+        - "cat ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
+        key: "setup"
+      - label: "Run Regression Tests"    
+        command:
+        - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
+        key: "tests"
+        depends_on: "setup"
+        plugins:
+        - test-collector#v1.0.0:
+            files: "ANT/Results/JUnit.xml"
+            format: "junit"
+        artifact_paths: "**/JUnit.xml"
