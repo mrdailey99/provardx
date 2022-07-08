@@ -7,7 +7,7 @@ steps:
     - "cat ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
   - label: "Run Regression Tests"    
     command:
-    - "sfdx provar:runtests -p provardx-properties-buildkite.json"
+    - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
     plugins:
       - test-collector#v1.0.0:
           files: "ANT/Results/JUnit.xml"
