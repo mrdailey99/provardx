@@ -6,18 +6,22 @@ steps:
     - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
     key: "tests"
     artifact_paths: "**/JUnit.xml"
-  - label: "Post Test Analytics"
-    command:
-    - "curl -X POST \
-      -H \"Authorization: Token token=sJuDaMTWh7xBdd91sjj7SpNw\" \
-      -F \"format=junit\" \
-      -F \"data=@**/JUnit.xml\" \
-      -F \"run_env[CI]=buildkite\" \
-      -F \"run_env[key]=$BUILDKITE_BUILD_ID\" \
-      -F \"run_env[number]=$BUILDKITE_BUILD_NUMBER\" \
-      -F \"run_env[job_id]=$BUILDKITE_JOB_ID\" \
-      -F \"run_env[branch]=$BUILDKITE_BRANCH\" \
-      -F \"run_env[commit_sha]=$BUILDKITE_COMMIT\" \
-      -F \"run_env[message]=$BUILDKITE_MESSAGE\" \
-      -F \"run_env[url]=$BUILDKITE_BUILD_URL\" \
-      https://analytics-api.buildkite.com/v1/uploads"
+    plugins:
+      - test-collector#v1.0.0:
+          files: "**/ANT/Results/JUnit.xml"
+          format: "junit"
+  # - label: "Post Test Analytics"
+  #   command:
+  #   - "curl -X POST \
+  #     -H \"Authorization: Token token=sJuDaMTWh7xBdd91sjj7SpNw\" \
+  #     -F \"format=junit\" \
+  #     -F \"data=@**/JUnit.xml\" \
+  #     -F \"run_env[CI]=buildkite\" \
+  #     -F \"run_env[key]=$BUILDKITE_BUILD_ID\" \
+  #     -F \"run_env[number]=$BUILDKITE_BUILD_NUMBER\" \
+  #     -F \"run_env[job_id]=$BUILDKITE_JOB_ID\" \
+  #     -F \"run_env[branch]=$BUILDKITE_BRANCH\" \
+  #     -F \"run_env[commit_sha]=$BUILDKITE_COMMIT\" \
+  #     -F \"run_env[message]=$BUILDKITE_MESSAGE\" \
+  #     -F \"run_env[url]=$BUILDKITE_BUILD_URL\" \
+  #     https://analytics-api.buildkite.com/v1/uploads"
