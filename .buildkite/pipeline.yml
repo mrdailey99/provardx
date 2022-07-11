@@ -20,7 +20,7 @@ steps:
     key: "tests"
     plugins:
       - test-collector#v1.0.0:
-          files: "**/ANT/Results/JUnit.xml"
+          files: "${BUILDKITE_BUILD_CHECKOUT_PATH}/ProvarProject/ANT/Results/JUnit.xml"
           format: "junit"
           debug: true
     artifact_paths: "**/JUnit.xml"
