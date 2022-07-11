@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="1">
+<testCase failureBehaviour="Continue" id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -41,10 +41,10 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'Dailey%'=&gt;ContactRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'M%'=&gt;ContactRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Contact where Name like 'Dailey%'</value>
+          <value class="value" valueClass="string">select Id from Contact where Name like 'M%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -57,10 +57,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Smoke%'=&gt;OpportunityRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Test%'=&gt;OpportunityRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Opportunity where Name like 'Smoke%'</value>
+          <value class="value" valueClass="string">select Id from Opportunity where Name like 'Test%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -73,10 +73,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Smoke%'=&gt;LeadRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Mc%'=&gt;LeadRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Lead where Name like 'Smoke%'</value>
+          <value class="value" valueClass="string">select Id from Lead where Name like 'Mc%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -89,10 +89,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'Provar%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'De%'=&gt;AccountRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Account where Name like 'Provar%'</value>
+          <value class="value" valueClass="string">select Id from Account where Name like 'De%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -134,6 +134,76 @@
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="32" title="Set Values: TotalRecords">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">TotalRecords</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="add">
+                  <lhs class="add">
+                    <lhs class="add">
+                      <lhs class="add">
+                        <lhs class="add">
+                          <lhs class="funcCall" id="Count">
+                            <argument id="value">
+                              <value class="variable">
+                                <path element="CaseRows"/>
+                              </value>
+                            </argument>
+                          </lhs>
+                          <rhs class="funcCall" id="Count">
+                            <argument id="value">
+                              <value class="variable">
+                                <path element="ContactRows"/>
+                              </value>
+                            </argument>
+                          </rhs>
+                        </lhs>
+                        <rhs class="funcCall" id="Count">
+                          <argument id="value">
+                            <value class="variable">
+                              <path element="LeadRows"/>
+                            </value>
+                          </argument>
+                        </rhs>
+                      </lhs>
+                      <rhs class="funcCall" id="Count">
+                        <argument id="value">
+                          <value class="variable">
+                            <path element="OpportunityRows"/>
+                          </value>
+                        </argument>
+                      </rhs>
+                    </lhs>
+                    <rhs class="funcCall" id="Count">
+                      <argument id="value">
+                        <value class="variable">
+                          <path element="TaskRows"/>
+                        </value>
+                      </argument>
+                    </rhs>
+                  </lhs>
+                  <rhs class="funcCall" id="Count">
+                    <argument id="value">
+                      <value class="variable">
+                        <path element="AccountRows"/>
+                      </value>
+                    </argument>
+                  </rhs>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
         </argument>
       </arguments>
     </apiCall>
@@ -361,6 +431,23 @@
             </apiCall>
           </steps>
         </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="30" title="Finally: Records Deleted: {TotalRecords}">
+      <arguments>
+        <argument id="description">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Records Deleted: </value>
+              <variable>
+                <path element="TotalRecords"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="31"/>
       </clauses>
     </apiCall>
   </steps>
