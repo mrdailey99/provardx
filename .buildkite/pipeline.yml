@@ -3,7 +3,7 @@ steps:
     command:
     - "sh insert_secrets_password.sh ProvarDevOps2021 ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
     - "cat ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
-    - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
+    # - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
     - "curl -X POST \
       -H \"Authorization: Token token=\"$$BUILDKITE_ANALYTICS_TOKEN\"\" \
       -F \"format=junit\" \
