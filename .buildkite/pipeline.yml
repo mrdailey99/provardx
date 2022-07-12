@@ -4,23 +4,23 @@ steps:
     - "sh insert_secrets_password.sh ProvarDevOps2021 ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
     - "cat ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
     - "sfdx provar:runtests -p ${BUILDKITE_BUILD_CHECKOUT_PATH}/provardx-properties-buildkite.json"
-    # - "curl -X POST \
-    #   -H \"Authorization: Token token=\"$$BUILDKITE_ANALYTICS_TOKEN\"\" \
-    #   -F \"format=junit\" \
-    #   -F \"data=@**/JUnit.xml\" \
-    #   -F \"run_env[CI]=buildkite\" \
-    #   -F \"run_env[key]=$BUILDKITE_BUILD_ID\" \
-    #   -F \"run_env[number]=$BUILDKITE_BUILD_NUMBER\" \
-    #   -F \"run_env[job_id]=$BUILDKITE_JOB_ID\" \
-    #   -F \"run_env[branch]=$BUILDKITE_BRANCH\" \
-    #   -F \"run_env[commit_sha]=$BUILDKITE_COMMIT\" \
-    #   -F \"run_env[message]=$BUILDKITE_MESSAGE\" \
-    #   -F \"run_env[url]=$BUILDKITE_BUILD_URL\" \
-    #   https://analytics-api.buildkite.com/v1/uploads"
+    - "curl -X POST \
+      -H \"Authorization: Token token=\"$$BUILDKITE_ANALYTICS_TOKEN\"\" \
+      -F \"format=junit\" \
+      -F \"data=@ProvarProject/ANT/Results/JUnit.xml\" \
+      -F \"run_env[CI]=buildkite\" \
+      -F \"run_env[key]=$BUILDKITE_BUILD_ID\" \
+      -F \"run_env[number]=$BUILDKITE_BUILD_NUMBER\" \
+      -F \"run_env[job_id]=$BUILDKITE_JOB_ID\" \
+      -F \"run_env[branch]=$BUILDKITE_BRANCH\" \
+      -F \"run_env[commit_sha]=$BUILDKITE_COMMIT\" \
+      -F \"run_env[message]=$BUILDKITE_MESSAGE\" \
+      -F \"run_env[url]=$BUILDKITE_BUILD_URL\" \
+      https://analytics-api.buildkite.com/v1/uploads"
     key: "tests"
-    plugins:
-      - test-collector#v1.0.0:
-          files: "${BUILDKITE_BUILD_CHECKOUT_PATH}/ProvarProject/ANT/Results/JUnit.xml"
-          format: "junit"
-          debug: true
+    # plugins:
+    #   - test-collector#v1.0.0:
+    #       files: "${BUILDKITE_BUILD_CHECKOUT_PATH}/ProvarProject/ANT/Results/JUnit.xml"
+    #       format: "junit"
+    #       debug: true
     artifact_paths: "**/JUnit.xml"
