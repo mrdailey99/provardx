@@ -1,0 +1,76 @@
+<project default="runtests">
+    <property environment="env"/>
+    <property value="${env.PROVAR_HOME}" name="provar.home"/>
+    <property value="C:\Users\16156\git\provardx\ProvarProject" name="testproject.home"/>
+    <property value="C:\Users\16156\git\provardx\ProvarProject\ANT\Results" name="testproject.results"/>
+	<property value="${env.ProvarSecretsPassword}" name="secrets.password"/>
+	
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Test-Cycle-Report" classname="com.provar.testrunner.ant.TestCycleReportTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<parallel threadCount="2">
+            <sequential>
+
+                <Run-Test-Case provarHome="${provar.home}" 
+                        projectPath="${testproject.home}" 
+                        resultsPath="${testproject.results}/thread1" 
+                        resultsPathDisposition="Replace" 
+                        testEnvironment="DevHub" 
+                        webBrowser="" 
+                        webBrowserConfiguration="WIN10 chrome"
+                        webBrowserProviderName="SauceLabs"
+                        webBrowserDeviceName="WIN10 chrome" 
+                        excludeCallableTestCases="false" 
+                        salesforceMetadataCache="Reload" 
+                        projectCachePath="../thread1/.provarCaches"
+                        testOutputlevel="WARNING" 
+                        pluginOutputlevel="WARNING"
+                        stopTestRunOnError="false"
+                        secretsPassword="${secrets.password}"
+                        testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+                        invokeTestRunMonitor="true"
+                        >
+                
+                    <fileset dir="${testproject.home}/tests/Sandbox/Account">
+                        <include name="CreateNewAccount.testcase"/>
+                    </fileset>
+                    
+                    <emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+                    <attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="true" includeDebugMessages="true" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+                </Run-Test-Case>
+            </sequential>
+            <sequential>
+                <Run-Test-Case provarHome="${provar.home}" 
+                        projectPath="${testproject.home}" 
+                        resultsPath="${testproject.results}/thread2" 
+                        resultsPathDisposition="Replace" 
+                        testEnvironment="" 
+                        webBrowser="" 
+                        webBrowserConfiguration="WIN10 chrome"
+                        webBrowserProviderName="SauceLabs"
+                        webBrowserDeviceName="WIN10 chrome" 
+                        excludeCallableTestCases="false" 
+                        salesforceMetadataCache="Reload" 
+                        projectCachePath="../thread2/.provarCaches"
+                        testOutputlevel="WARNING" 
+                        pluginOutputlevel="WARNING"
+                        stopTestRunOnError="false"
+                        secretsPassword="${secrets.password}"
+                        testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+                        invokeTestRunMonitor="true"
+                        >
+                
+                    <fileset dir="${testproject.home}/tests/Sandbox/Account">
+                        <include name="ConvertLeadToAccount.testcase"/>
+                    </fileset>
+                    <emailProperties sendEmail="true" primaryRecipients="michael.dailey@provartesting.com" ccRecipients="" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+                    <attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="true" includeDebugMessages="true" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+                </Run-Test-Case>	
+            </sequential>
+		</parallel>
+	</target>
+</project>

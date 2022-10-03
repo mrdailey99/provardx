@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="6" title="Set Values: TestRunStart, MetadataLogId, TestPlan">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">TestRunStart</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="NOW"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Global</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">MetadataLogId</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="GetEnvironmentVariable">
+                  <argument id="variableName">
+                    <value class="value" valueClass="string">EXTERNAL_ID</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">TestPlan</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="funcCall" id="GetEnvironmentVariable">
+                  <argument id="variableName">
+                    <value class="value" valueClass="string">TEST_PLAN</value>
+                  </argument>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Global)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin_Sandbox</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Global</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="35" title="If: {TestPlan = null}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="variable">
+              <path element="TestPlan"/>
+            </lhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="36">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="37" title="Create Object: provarti__Test_Suite_Execution__c=&gt;TestSuiteExecutionId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">TestSuiteExecutionId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+                <argument id="provarti__Name__c">
+                  <value class="value" valueClass="string">Default Test Plan</value>
+                </argument>
+                <argument id="provarti__Environment__c">
+                  <value class="funcCall" id="GetSelectedEnvironment"/>
+                </argument>
+                <argument id="provarti__Browser__c">
+                  <value class="value" valueClass="string">Chrome</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c">
+                  <summary>Provide a name for this test suite, it doesn't need to be unique, so you can re-use names for reporting purposes.</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Environment__c" name="provarti__Environment__c" title="provarti__Environment__c">
+                  <summary>Provide the name of the Environment being tested, for example SIT, Staging, UAT or Production</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Browser__c" name="provarti__Browser__c" title="provarti__Browser__c"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="38">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="39" title="Create Object: provarti__Test_Suite_Execution__c=&gt;TestSuiteExecutionId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">TestSuiteExecutionId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin_Sandbox</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+                <argument id="provarti__Name__c">
+                  <value class="variable">
+                    <path element="TestPlan"/>
+                  </value>
+                </argument>
+                <argument id="provarti__Environment__c">
+                  <value class="funcCall" id="GetSelectedEnvironment"/>
+                </argument>
+                <argument id="provarti__Browser__c">
+                  <value class="value" valueClass="string">Chrome</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c">
+                  <summary>Provide a name for this test suite, it doesn't need to be unique, so you can re-use names for reporting purposes.</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Environment__c" name="provarti__Environment__c" title="provarti__Environment__c">
+                  <summary>Provide the name of the Environment being tested, for example SIT, Staging, UAT or Production</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Browser__c" name="provarti__Browser__c" title="provarti__Browser__c"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="14" title="If: {MetadataLogId != null}">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="condition">
+          <value class="ne">
+            <lhs class="variable">
+              <path element="MetadataLogId"/>
+            </lhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="15">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="8" title="If: {TestPlan = null}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="TestPlan"/>
+                    </lhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="31">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="32" title="Create Object: provarti__Test_Suite_Execution__c=&gt;TestSuiteExecutionId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestSuiteExecutionId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Global</value>
+                        </argument>
+                        <argument id="provarti__Name__c">
+                          <value class="value" valueClass="string">Default Test Plan</value>
+                        </argument>
+                        <argument id="provarti__Environment__c">
+                          <value class="funcCall" id="GetSelectedEnvironment"/>
+                        </argument>
+                        <argument id="provarti__Browser__c">
+                          <value class="value" valueClass="string">Chrome</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c">
+                          <summary>Provide a name for this test suite, it doesn't need to be unique, so you can re-use names for reporting purposes.</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Environment__c" name="provarti__Environment__c" title="provarti__Environment__c">
+                          <summary>Provide the name of the Environment being tested, for example SIT, Staging, UAT or Production</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Browser__c" name="provarti__Browser__c" title="provarti__Browser__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="33">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="34" title="Create Object: provarti__Test_Suite_Execution__c=&gt;TestSuiteExecutionId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestSuiteExecutionId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Global</value>
+                        </argument>
+                        <argument id="provarti__Name__c">
+                          <value class="variable">
+                            <path element="TestPlan"/>
+                          </value>
+                        </argument>
+                        <argument id="provarti__Environment__c">
+                          <value class="funcCall" id="GetSelectedEnvironment"/>
+                        </argument>
+                        <argument id="provarti__Browser__c">
+                          <value class="value" valueClass="string">Chrome</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c">
+                          <summary>Provide a name for this test suite, it doesn't need to be unique, so you can re-use names for reporting purposes.</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Environment__c" name="provarti__Environment__c" title="provarti__Environment__c">
+                          <summary>Provide the name of the Environment being tested, for example SIT, Staging, UAT or Production</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Browser__c" name="provarti__Browser__c" title="provarti__Browser__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="23">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="24" title="If: {TestPlan = null}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="TestPlan"/>
+                    </lhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="25">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="26" title="Create Object: provarti__Test_Suite_Execution__c=&gt;TestSuiteExecutionId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestSuiteExecutionId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Global</value>
+                        </argument>
+                        <argument id="provarti__Name__c">
+                          <value class="value" valueClass="string">Default Test Plan</value>
+                        </argument>
+                        <argument id="Deployment__c">
+                          <value class="value" valueClass="string">-1</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c">
+                          <summary>Provide a name for this test suite, it doesn't need to be unique, so you can re-use names for reporting purposes.</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=Deployment__c" name="Deployment__c" title="Deployment__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="27">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="28" title="Create Object: provarti__Test_Suite_Execution__c=&gt;TestSuiteExecutionId">
+                      <arguments>
+                        <argument id="objectType">
+                          <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
+                        </argument>
+                        <argument id="resultIdName">
+                          <value class="value" valueClass="string">TestSuiteExecutionId</value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">Admin_Sandbox</value>
+                        </argument>
+                        <argument id="assignmentRuleId"/>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Global</value>
+                        </argument>
+                        <argument id="provarti__Name__c">
+                          <value class="variable">
+                            <path element="TestPlan"/>
+                          </value>
+                        </argument>
+                        <argument id="Deployment__c">
+                          <value class="value" valueClass="string">-1</value>
+                        </argument>
+                      </arguments>
+                      <parameterGeneratorProperties>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin_Sandbox</propertyValue>
+                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Suite_Execution__c</propertyValue>
+                      </parameterGeneratorProperties>
+                      <generatedParameters>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c">
+                          <summary>Provide a name for this test suite, it doesn't need to be unique, so you can re-use names for reporting purposes.</summary>
+                        </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Suite_Execution__c&amp;field=Deployment__c" name="Deployment__c" title="Deployment__c"/>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <outputParams>
+    <param name="TestSuiteExecutionId" title="TestSuiteExecutionId">
+      <summary>The name under which the resulting Object Id will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="TestSuiteExecutionId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <outputArgs>
+    <outputArgument id="TestSuiteExecutionId">
+      <name class="value" valueClass="string">TestSuiteExecutionId</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

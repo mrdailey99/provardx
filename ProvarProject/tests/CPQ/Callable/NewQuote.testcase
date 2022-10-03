@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase registryId="89562af6-5a76-443b-a32d-00ee2f3f1794" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="365" title="Salesforce Connect: CPQ_New (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">CPQ</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">CPQ_New</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument argId="f8827ec0-a8a2-4f90-8b26-ce68a2fd2d93" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="359" title="Read data from excel">
+      <tags/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read data from excel</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>D:/WorkSpace/CPQ/CPQ_KT/templates/TestData.xls;1545954902354</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="S"/>
+            <apiParam name="PriceBookReference"/>
+            <apiParam name="Product1"/>
+            <apiParam name="Product2"/>
+            <apiParam name="Filter_ProductCodeValue"/>
+            <apiParam name="Filter_NameValue"/>
+            <apiParam name="Filter_FamilyValue"/>
+            <apiParam name="Quantity"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/TestDataCPQ.xls</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A1:M2</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="354"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="368" title="SOQL Query: select Id from Pricebook2 where Name = '{SourceData.PriceBookReference}'=&gt;Pricebook2Rows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Id from Pricebook2 where Name = '</value>
+              <variable>
+                <path element="SourceData"/>
+                <path element="PriceBookReference"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">CPQ_New</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">Pricebook2Rows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="369" title="Create Object: SBQQ__Quote__c=&gt;QuoteId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">SBQQ__Quote__c</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">QuoteId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">CPQ_New</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="SBQQ__PricebookId__c">
+          <value class="variable">
+            <path element="Pricebook2Rows"/>
+            <path element="Id"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">CPQ_New</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">SBQQ__Quote__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=SBQQ__Quote__c&amp;field=SBQQ__PricebookId__c" name="SBQQ__PricebookId__c" title="SBQQ__PricebookId__c">
+          <summary>ID of the Price Book used by this quote.</summary>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:f8827ec0-a8a2-4f90-8b26-ce68a2fd2d93" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+  </params>
+  <outputParams>
+    <param name="QuoteId" title="QuoteId">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="QuoteId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="reuseConnectionName"/>
+  </args>
+  <outputArgs>
+    <outputArgument id="QuoteId">
+      <name class="value" valueClass="string">QuoteId</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

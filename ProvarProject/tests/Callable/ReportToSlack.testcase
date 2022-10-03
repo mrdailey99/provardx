@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase registryId="0037ac45-94f6-4b97-83d1-938016849de7" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="5" title="If: {Passed = false}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="variable">
+              <path element="Passed"/>
+            </lhs>
+            <rhs class="value" valueClass="boolean">false</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="4">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="6" title="Web Connect: SlackConnection">
+              <arguments>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">SlackConnection</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">SlackConnection</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params>
+    <param name="Passed" title="Passed Status">
+      <summary/>
+      <type>
+        <booleanType/>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="Passed">
+      <value class="funcCall" id="TestCaseSuccessful"/>
+    </argument>
+  </args>
+</testCase>

@@ -1,0 +1,7 @@
+bin/
+ANT/Results*
+ANT/Results/*
+.metadata
+.metadata/*
+temp.log
+*.pdf

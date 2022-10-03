@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="10">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="37" title="Setup Test Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Setup Test Data</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="38">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: Contents">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Contents</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Support,\\nI am having trouble logging to the the community using the credentials you provided. Please let me know when you can assist me with this issue.</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="5" title="Set Values: Subject">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Subject</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Cannot Log in To Community</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="4" title="Set Values: To, From">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">To</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">provardocker@gmail.com</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">From</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">provardocker@gmail.com</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="6" title="Set Values: Signature">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">Signature</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">Thank you,\\nTester McTesterson</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">LightningSales</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="27" title="Send Email and Poll Inbox">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Send Email and Poll Inbox</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="28">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.Subscribe" name="Subscribe" testItemId="7" title="Subscribe: ProvarDocker">
+              <arguments>
+                <argument id="sourceConnectionName">
+                  <value class="value" valueClass="string">ProvarDocker</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">CaseSystem</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="folder">
+                  <value class="value" valueClass="string">INBOX</value>
+                </argument>
+                <argument id="from"/>
+                <argument id="subject"/>
+                <argument id="parseAttachment"/>
+              </arguments>
+              <generatedParameters>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="folder" title="Folder">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="from" title="From">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="subject" title="Subject">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="source" linkedToUrl="connectionParam:sourceConnectionName" name="parseAttachment" title="Read Email Attachments">
+                  <type>
+                    <booleanType/>
+                  </type>
+                </param>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" name="SendMessage" testItemId="2" title="Send Message: ProvarDocker">
+              <arguments>
+                <argument id="destinationConnectionName">
+                  <value class="value" valueClass="string">ProvarDocker</value>
+                </argument>
+                <argument id="body">
+                  <value class="variable">
+                    <path element="Contents"/>
+                  </value>
+                </argument>
+                <argument id="payloadFormat">
+                  <value class="value" valueClass="string">Auto</value>
+                </argument>
+                <argument id="attachments">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="to">
+                  <value class="variable">
+                    <path element="To"/>
+                  </value>
+                </argument>
+                <argument id="cc"/>
+                <argument id="bcc"/>
+                <argument id="subject">
+                  <value class="variable">
+                    <path element="Subject"/>
+                  </value>
+                </argument>
+                <argument id="signature">
+                  <value class="variable">
+                    <path element="Signature"/>
+                  </value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" mandatory="true" name="to" title="To">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="cc" title="CC">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="destination" linkedToUrl="connectionParam:destinationConnectionName" name="bcc" title="BCC">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="subject" title="Subject">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+                <param group="payload" linkedToUrl="connectionParam:destinationConnectionName" name="signature" title="Signature">
+                  <type>
+                    <textType/>
+                  </type>
+                </param>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="10" title="Wait For: {CaseSystem.messageCount &gt; 0}=&gt;{3}">
+              <arguments>
+                <argument id="condition">
+                  <value class="gt">
+                    <lhs class="variable">
+                      <path element="CaseSystem"/>
+                      <path element="messageCount"/>
+                    </lhs>
+                    <rhs class="value" valueClass="decimal">0</rhs>
+                  </value>
+                </argument>
+                <argument id="testAtStart"/>
+                <argument id="maxIterations">
+                  <value class="value" valueClass="decimal">5</value>
+                </argument>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">3</value>
+                </argument>
+                <argument id="continueOnFailure">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="11"/>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="39" title="Sleep for {10} seconds">
+              <arguments>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">10</value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="33" title="Read and Assert Case Details via API">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read and Assert Case Details via API</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="34">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="15" title="SOQL Query: select Id from Case where Origin = 'Email' and Subject = '{Subject}' ORDER BY CreatedDate DESC LIMIT 1=&gt;CaseRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id from Case where Origin = 'Email' and Subject = '</value>
+                      <variable>
+                        <path element="Subject"/>
+                      </variable>
+                      <value valueClass="string">' ORDER BY CreatedDate DESC LIMIT 1</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">CaseRows</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="26" title="Read Object: Case = {CaseRows.Id}">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">Case</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">CaseRead</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="CaseRows"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+              <resultAssertions>
+                <resultAssertion resultName="Subject" title="Check Subject">
+                  <expected class="variable">
+                    <path element="Subject"/>
+                  </expected>
+                </resultAssertion>
+                <resultAssertion comparisonType="Contains" resultName="Description" title="Check Description">
+                  <expected class="variable">
+                    <path element="Contents"/>
+                  </expected>
+                </resultAssertion>
+                <resultAssertion resultName="Origin" title="Check Origin">
+                  <expected class="value" valueClass="string">Email</expected>
+                </resultAssertion>
+                <resultAssertion resultName="SuppliedEmail" title="Check SuppliedEmail">
+                  <expected class="variable">
+                    <path element="From"/>
+                  </expected>
+                </resultAssertion>
+              </resultAssertions>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Case</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Subject" name="Subject" title="Subject"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Description" name="Description" title="Description"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=Origin" name="Origin" title="Case Origin"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Case&amp;field=SuppliedEmail" name="SuppliedEmail" title="Web Email"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="23" title="Finally: Cleanup Test Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Cleanup Test Data</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="24">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="25" title="Delete Object: {CaseRows.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="CaseRows"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

@@ -1,0 +1,32 @@
+{
+   "connectionOverride": 
+   [
+     {"connection": "Admin", "username": "ProvarDX"}
+   ],
+    "provarHome":"/srv/Provar/Provar_ANT_latest",
+    "projectPath": "/home/ProvarProject",
+    "resultsPath":"/home/ProvarProject/ANT/Results",
+    "resultsPathDisposition":"Replace", 
+    "testOutputLevel":"SEVERE",
+    "pluginOutputlevel":"SEVERE",
+    "excludeCallable":true,
+    "stopOnError":false,
+    "lightningMode":true,
+    "connectionRefreshType":"Reload",
+    "metadata":{
+       "metadataLevel":"Reload",
+       "cachePath":"/home/.provarCaches"
+    },
+    "testprojectSecrets":"ProvarSecretsPassword",
+    "environment":{
+      "testEnvironment":"ProvarDX",
+      "webBrowser":"Chrome_Headless",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+    },
+    "testCase": [
+       "NEWTESTS"
+    ]
+ }
+ 

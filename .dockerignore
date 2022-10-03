@@ -1,0 +1,12 @@
+.metadata
+.provarCaches
+.chromeProfiles
+.github
+.circleci
+.pytest*
+.testcycles
+ProvarDX
+ecars
+.git
+devopspreview
+**/*.pdf

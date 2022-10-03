@@ -1,0 +1,134 @@
+name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  - master
+
+pool:
+  vmImage: "ubuntu-latest"
+variables:
+  scratch_org_alias: ProvarDX
+  connection_name: Admin
+  provar_major_version: latest
+  provar_build_version: latest
+steps:
+  # Download secure file
+  # Download a secure file to the agent machine
+  - task: DownloadSecureFile@1
+    name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+    inputs:
+      secureFile: "server.key"
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "14.x"
+      checkLatest: true
+    displayName: "Install Node.js"
+
+  - script: |
+      npm install -g sfdx-cli
+    displayName: "Node Install: sfdx-cli"
+
+  - script: |
+      echo y | sfdx plugins:install @provartesting/provardx 
+      sfdx plugins:update
+    displayName: "Install ProvarDX Plugin via SFDX"
+
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '8'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+    displayName: "Configure JDK 8"
+    
+  - bash: |
+      echo "Set IP of Azure Agent to Variable"
+      echo "##vso[task.setvariable variable=AGENT_IP;]`curl ifconfig.me`"
+
+  - task: ShellScript@2
+    inputs:
+      scriptPath: replace_ip_in_scratch_org_def.sh
+      args: $(AGENT_IP) $(Build.SourcesDirectory)/project-scratch-def.json
+    displayName: "Insert Whitelist IP in Property File"
+
+  - bash: |
+      echo "Download Provar Libraries"
+      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      echo "Unzip Provar ANT Files"
+      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
+      ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
+      cd $PROVAR_HOME
+      ls -la
+    displayName: "Install & Configure Provar for running ProvarDX"
+
+  - bash: |
+      sfdx force:project:create -n ProvarDX
+      cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
+      ## cp package.xml ProvarDX/package.xml
+      cp .forceignore ProvarDX/.forceignore
+    displayName: "Creates SFDX Project with some sample configuration files"
+
+  - bash: |
+      sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+    displayName: "Authenticates to Dev Hub Org"
+
+  - bash: |
+      sfdx force:org:list --clean
+    displayName: "Cleans stale Org authentications"
+
+  - bash: |
+      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a $(scratch_org_alias)
+      sfdx force:org:display -u $(scratch_org_alias)
+    displayName: "Create Scratch Org and Org description"
+
+  - task: ShellScript@2
+    inputs:
+      scriptPath: insert_secrets_password.sh
+      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
+    displayName: "Insert Provar Secrets Password to Property File"
+
+  - task: ShellScript@2
+    inputs:
+      scriptPath: setup_dreamhouse.sh
+      args: $(scratch_org_alias)
+    displayName: "Deploy and Setup Dreamhouse App"
+
+  - bash: |
+      sfdx provar:validate
+    displayName: "Validate ProvarDX property file"
+
+  - bash: |
+      sfdx provar:compile -p provardx-properties.json
+    displayName: "Compile Provar Tests"
+
+  - bash: |
+      sfdx provar:metadatacache -m 'Reload' -c '/home/vsts/work/1/s/.provarCaches' -p provardx-properties.json
+    displayName: "Reload Metadata Cache"
+
+  - bash: |
+      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json -m 'Reuse' 
+    displayName: "Run Provar Tests"
+
+  - bash: |
+      sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+    displayName: "Delete Scratch Org"
+    
+  # Publish Test Results
+  - task: PublishTestResults@2
+    continueOnError: true
+    inputs:
+      testResultsFormat: "JUnit" # Options: JUnit, NUnit, VSTest, xUnit, cTest
+      testResultsFiles: "**/Results/*.xml"
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      failTaskOnFailedTests: true # Optional
+      testRunTitle: ProvarDX Test Suite # Optional
+    displayName: "Publish JUnit Test Results"
+
+  # Publish (upload) a file or directory as a named artifact for the current run
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: '$(System.DefaultWorkingDirectory)/ProvarProject/ANT/Results'
+      artifact: 'Test Results'
+      publishLocation: 'pipeline'
+    displayName: "Publish Test Results Zip"

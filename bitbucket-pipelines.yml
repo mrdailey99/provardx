@@ -1,0 +1,41 @@
+image: 'ubuntu:16.04'
+pipelines:
+  default:
+    - step:
+        services:
+          - docker
+        script:
+          - apt-get update && apt install wget unzip xvfb
+          - >-
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub |
+            apt-key add -
+          - >-
+            echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
+            main' | tee /etc/apt/sources.list.d/google-chrome.list
+          - apt-get update
+          - apt-get -y install ant
+          - apt-get install google-chrome-stable -y
+          - export PROVAR_HOME="$BITBUCKET_CLONE_DIR/ProvarHome"
+          - mkdir $BITBUCKET_CLONE_DIR/ProvarHome
+          - >-
+            curl -O
+            https://download.provartesting.com/latest/Provar_ANT_latest.zip
+          - unzip -o Provar_ANT_latest.zip -d ProvarHome
+          - rm Provar_ANT_latest.zip
+          - >-
+            if [ -d "$BITBUCKET_CLONE_DIR/ProvarHome" ]; then echo
+            "$BITBUCKET_CLONE_DIR/ProvarHome exists on your filesystem."; fi
+          - >-
+            if [ -d "$BITBUCKET_CLONE_DIR/ProvarHome/ant" ]; then echo
+            "$BITBUCKET_CLONE_DIR/ProvarHome/ant exists on your filesystem."; fi
+          - pwd
+          - ls
+          - 'cd ${BITBUCKET_CLONE_DIR}'
+          - pwd
+          - xvfb-run ant -f ANT/bitbucket_build.xml
+          - cp ANT/Results/JUnit.xml ./**/test-reports/**/.
+          # Copy result to folder Bitbucket reads
+          # - cp ANT/Results/JUnit.xml ./**/test-results/JUnit.xml
+        artifacts:  
+            - 'ANT/Results/JUnit.xml'  
+            - 'ANT/Results/**'

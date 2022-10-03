@@ -1,0 +1,40 @@
+<project default="runtests">
+	<property environment="env"/>
+	<property name="provar.home" value="${env.PROVAR_HOME}"/>
+	<property name="testproject.home" value="${env.BUILD_SOURCESDIRECTORY}/ProvarProject"/>
+	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
+	<property name="secrets.password" value="${provarSecretsPassword}"/>
+
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<Run-Test-Case provarHome="${provar.home}" 
+				projectPath="${testproject.home}" 
+				resultsPath="${testproject.results}" 
+				resultsPathDisposition="Replace" 
+				testEnvironment="${env.ENVIRONMENT}" 
+				webBrowser="${env.BROWSER}" 
+				webBrowserConfiguration="Full Screen"
+				webBrowserProviderName="Desktop"
+				webBrowserDeviceName="Full Screen" 
+				salesforceMetadataCache="Refresh" 
+				projectCachePath="${testproject.home}/../.provarCaches"
+				testOutputlevel="DIAGNOSTIC" 
+				pluginOutputlevel="WARNING"
+				stopTestRunOnError="false"
+				secretsPassword="${secrets.password}"
+		>
+			<fileset id="testplan" dir="${testproject.home}/plans/${env.TEST_PLAN}"></fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+
+		</Run-Test-Case>
+
+	</target>
+
+</project>

@@ -1,0 +1,42 @@
+image: "frekele/ant:1.10.3-jdk8"
+
+before_script:
+  - apt-get update && apt-get install -y xvfb wget -qq
+  - java -version
+  - ant -version
+  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+  - echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
+  - apt-get update -qq
+  - apt-get install -qq google-chrome-stable
+  - export DISPLAY=:99.0
+  - wget -O /etc/init.d/xvfb https://gist.githubusercontent.com/axilleas/3fc13e0c90ad9f58bee903a41e8a6d48/raw/169a60010635e05eaa902c5f3b4393321f2452f0/xvfb
+  - chmod 0755 /etc/init.d/xvfb
+  - sh -e /etc/init.d/xvfb start
+  - curl -O https://download.provartesting.com/latest/Provar_ANT_latest.zip
+  - unzip -o Provar_ANT_latest.zip -d Provar_Home
+  - rm Provar_ANT_latest.zip
+
+build:
+ variables:
+  # Set up environment variables here that don’t need to be secure
+  PROVAR_HOME: "$CI_PROJECT_DIR/Provar_Home"
+  LICENSE_PATH: "$CI_PROJECT_DIR/.licenses"
+  SMTP_PATH: "$CI_PROJECT_DIR/.smtp"
+  WORKSPACE: "$CI_PROJECT_DIR"
+  CACHE_PATH: "$CI_PROJECT_DIR/../.provarCaches"
+  TEST_PLAN: "Regression Plan"
+  BUILD_FILE: "smoke_build.xml"
+  ProvarSecretsPassword: "$ProvarSecretsPassword"
+
+ script:
+   - pwd
+   - xvfb-run ant -Dprovar.home=$PROVAR_HOME -Dlicense.path=$LICENSE_PATH -f ANT/$BUILD_FILE
+ 
+ artifacts:
+  untracked: false
+  expire_in: 30 days
+  paths:
+    - $CI_PROJECT_DIR/ANT/Results
+  reports:
+    junit: 
+      - $CI_PROJECT_DIR/ANT/Results/JUnit.xml

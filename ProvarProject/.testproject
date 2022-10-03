@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+  <title>/ProvarProject/.testproject</title>
+  <configPath>config</configPath>
+  <testsPath>tests</testsPath>
+  <templatesPath>templates</templatesPath>
+  <sourcePath>src</sourcePath>
+  <secureStoragePath>.secrets</secureStoragePath>
+  <browserDebugPort>0</browserDebugPort>
+  <environments>
+    <environment name="ProvarDX">
+      <summary>Running in scratch org using ProvarDX plugin.</summary>
+    </environment>
+    <environment name="CopadoHub">
+      <summary/>
+    </environment>
+    <environment name="DXDevHub">
+      <summary/>
+    </environment>
+    <environment name="SIT">
+      <summary/>
+    </environment>
+  </environments>
+  <variables>
+    <testVariable name="_defaultWaitTimeout">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+          <valueConstraint name="regex"/>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">400</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+    <testVariable name="_commandTimeout">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+          <valueConstraint name="regex"/>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">400</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+    <testVariable name="provar_autoretry_override">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">DISABLE_ALL</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+  </variables>
+  <connectionClasses>
+    <connectionClass name="webservice">
+      <connections>
+        <connection name="SF_Rest">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="2890677b-ffe6-474b-ac46-5931c8017311" url="restservice:url=https:;authenticationType=NO_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+              </customHeaders>
+            </connectionUrl>
+            <connectionUrl envName="Scratch" secureStorageNodeId="43a3c1a8-3dc9-4280-8e1d-b3a910abbf46" url="restservice:url=instanceUrl;user=username;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+                <customHeader key="Authorization" value="Bearer accessToken"/>
+              </customHeaders>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection id="bcd0eff2-0b13-4509-8858-17705ebd0479" name="JSON_Placeholder_API">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=http://jsonplaceholder.typicode.com;authenticationType=NO_AUTHENTICATION">
+              <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection id="51de676a-b770-4a84-930c-0761d21fba40" name="JenkinsTrigger">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="8b568664-b585-4d8e-bb78-a1321a1a5246" url="restservice:url=http://34.213.101.120/job/;user=admin;password={password};authenticationType=BASIC_AUTHENTICATION">
+              <customHeaders/>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+        <connection id="50e31601-bbc6-4a6b-a67e-1e1768f1bfb6" name="APITest">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="restservice:url=https://reqres.in;authenticationType=NO_AUTHENTICATION">
+              <customHeaders>
+                <customHeader key="Content-Type" value="application/json"/>
+              </customHeaders>
+            </connectionUrl>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="google">
+      <connections>
+        <connection name="ProvarDocker">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="47504a09-9aaf-4cc6-85bf-a194afd18eee" url="google:user=provardocker@gmail.com;accessToken={accessToken};refreshToken={refreshToken};expiry=1616594165000"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="sf">
+      <connections>
+        <connection name="Admin">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
+            <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="DXDevHub" secureStorageNodeId="23e6820e-02dc-481e-af06-a05097012fed" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="SIT" secureStorageNodeId="e8dee971-c161-4468-ae1c-5bfd61e8aa68" url="sf:user=admin_sit@test.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection id="03340e4c-cb4e-4ddf-9841-f602b73b3710" name="CPQ">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="6b8e6da1-1631-46bf-8dd2-fe3f573805f0" url="sf:user=cpq@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl envName="DXDevHub" secureStorageNodeId="a0ef5d5f-9bb7-4501-b101-77e7aa67e7dd" url="sf:user=testcpq@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection id="ce63d86b-3391-425f-9e14-636465881329" name="SalesUser">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl url="sf:user=tommy.dreamman@testing.com;environment=PROD_DEV;logonAsConnection=Admin;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+        <connection id="45e50bbd-2255-49f8-909f-74f67b575c97" name="Test">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="cba9ae0e-17bc-4d5d-9477-f5fa9056e557" url="sf:user=asdfasdf;password={password};environment=PROD_DEV;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+  </connectionClasses>
+  <tagTypes>
+    <tagType name="sla" tagClass="sla" title="SLA Requirement">
+      <summary>Service Level Agreement requirement</summary>
+      <tags>
+        <slaTag expectedDurationMs="92000" maximumDurationMs="120000" name="Search Properties Test Time">
+          <summary>The time it should take to complete the Search Properties test case.</summary>
+        </slaTag>
+      </tags>
+      <tagTypeTargets>
+        <tagTypeTarget targetName="com.provar.core.model.test.api.ITestItem"/>
+      </tagTypeTargets>
+    </tagType>
+  </tagTypes>
+  <browserConfigurations>
+    <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
+      <summary>Full screen with Test Builder adjustment</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1024" browserWidthType="Pixels" name="1024x768">
+      <summary>Fixed 1024x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="800" browserHeightType="Pixels" browserWidth="1280" browserWidthType="Pixels" name="1280x800">
+      <summary>Fixed 1280x800</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1366" browserWidthType="Pixels" name="1366x768">
+      <summary>Fixed 1366x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="1080" browserHeightType="Pixels" browserWidth="1920" browserWidthType="Pixels" name="1920x1080">
+      <summary>Fixed 1920x1080</summary>
+    </browserConfiguration>
+  </browserConfigurations>
+  <antPath>ANT</antPath>
+  <testCyclePath>TestCycle</testCyclePath>
+  <browserApplications>
+    <browserApplication connectionTypes="sf" name="Salesforce1">
+      <properties>
+        <browserPlatformProperty name="browserName" platform="IOS" type="DesiredCapability" value="Safari"/>
+        <browserPlatformProperty name="browserName" platform="ANDROID" type="DesiredCapability" value="Chrome"/>
+      </properties>
+    </browserApplication>
+    <browserApplication connectionTypes="sf" name="ServiceMax FSA">
+      <properties>
+        <browserPlatformProperty name="bundleId" platform="IOS" type="DesiredCapability" value="com.servicemaxinc.svmxfieldserviceapp"/>
+        <browserPlatformProperty name="app" platform="DESKTOP" type="DesiredCapability" value="C:\\Program Files\\ServiceMax\\ServiceMax Field Service\\Laptop Mobile.exe"/>
+      </properties>
+    </browserApplication>
+  </browserApplications>
+  <browserProviders>
+    <browserProvider name="Desktop" type="SeleniumLocal">
+      <devices>
+        <browserProviderDevice name="Full Screen">
+          <properties>
+            <browserPlatformProperty name="summary" value="Full screen with Test Builder adjustment"/>
+            <browserPlatformProperty name="browserHeightType" value="Full"/>
+            <browserPlatformProperty name="browserWidthType" value="Full"/>
+            <browserPlatformProperty name="adjustBrowserWidthForChromeIde" value="true"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1024x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1024x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1024"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1280x800">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1280x800"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="800"/>
+            <browserPlatformProperty name="browserWidth" value="1280"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1366x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1366x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1366"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1920x1080">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1920x1080"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="1080"/>
+            <browserPlatformProperty name="browserWidth" value="1920"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties/>
+    </browserProvider>
+    <browserProvider name="SeleniumGrid" type="SeleniumGrid">
+      <devices>
+        <browserProviderDevice name="WIN10 Chrome ANY" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Chrome"/>
+            <browserPlatformProperty name="version" type="DesiredCapability" value="ANY"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="WIN10 Edge ANY" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Edge"/>
+            <browserPlatformProperty name="version" type="DesiredCapability" value="ANY"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties>
+        <browserPlatformProperty name="gridUrl" value="http://localhost:4444/hub"/>
+      </properties>
+    </browserProvider>
+    <browserProvider name="SauceLabs" secureStorageNodeId="7683dcf5-d27c-4ee1-b040-3b54d1d93fbf" type="SauceLabsDesktop">
+      <devices>
+        <browserProviderDevice name="WIN10 chrome" platform="WIN10">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="LINUX chrome" platform="LINUX">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="chrome"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties>
+        <browserPlatformProperty name="userName" value="provar.integrations"/>
+        <browserPlatformProperty name="dataCenter" value="us-west-1"/>
+        <browserPlatformProperty name="commandTimeout" platform="WIN10" type="DesiredCapability" value="600"/>
+        <browserPlatformProperty name="idleTimeout" platform="WIN10" type="DesiredCapability" value="1000"/>
+        <browserPlatformProperty name="extendedDebugging" platform="WIN10" type="DesiredCapability" value="false"/>
+        <browserPlatformProperty name="capturePerformance" platform="WIN10" type="DesiredCapability" value="false"/>
+        <browserPlatformProperty name="maxDuration" platform="WIN10" type="DesiredCapability" value="3600"/>
+        <browserPlatformProperty name="factoryClass"/>
+      </properties>
+    </browserProvider>
+  </browserProviders>
+</testProject>
