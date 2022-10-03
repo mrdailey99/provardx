@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="5">
+<testCase failureBehaviour="Continue" id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -41,10 +41,10 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'Smoke%'=&gt;ContactRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'M%'=&gt;ContactRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Contact where Name like 'Smoke%'</value>
+          <value class="value" valueClass="string">select Id from Contact where Name like 'M%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -57,10 +57,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Provar%'=&gt;OpportunityRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Test%'=&gt;OpportunityRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Opportunity where Name like 'Provar%'</value>
+          <value class="value" valueClass="string">select Id from Opportunity where Name like 'Test%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -73,10 +73,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Test%'=&gt;LeadRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Mc%'=&gt;LeadRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Lead where Name like 'Test%'</value>
+          <value class="value" valueClass="string">select Id from Lead where Name like 'Mc%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -89,10 +89,10 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'Michael%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'De%'=&gt;AccountRows">
       <arguments>
         <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Id from Account where Name like 'Michael%'</value>
+          <value class="value" valueClass="string">select Id from Account where Name like 'De%'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>

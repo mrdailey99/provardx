@@ -27,7 +27,7 @@
       "webBrowserDeviceName":"Full Screen"
     },
     "testPlan":[
-       "Regression Plan/Regression/Account"
+       "Regression Plan"
     ],
     "testplanFeatures": [
        {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
@@ -36,6 +36,7 @@
     ],
     "email": {
         "sendEmail": true,
-        "toRecipients": [ "michael.dailey@provartesting.com"]
+        "toRecipients": [ "michael.dailey@provartesting.com"],
+        "ccRecipients": [ "sedon98@gmail.com" ]
     }
  }
