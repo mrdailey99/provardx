@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2" registryId="65cd0b46-8dd5-4444-a459-b29a03edfda3" visibility="Internal">
+<testCase id="2" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="12" title="Salesforce Connect: Admin_Sandbox (Test)">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkijAAD"/>
+      </associations>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -42,6 +45,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="13" title="If: {TestCaseSuccessful() = true}">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkikAAD"/>
+      </associations>
       <arguments>
         <argument id="condition">
           <value class="eq">
@@ -54,6 +60,9 @@
         <clause name="then" testItemId="3">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="15" title="Create Object: provarti__Test_Case_Execution__c=&gt;TestCaseExecutionId">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkinAAD"/>
+              </associations>
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">provarti__Test_Case_Execution__c</value>
@@ -105,10 +114,16 @@
               </generatedParameters>
             </apiCall>
           </steps>
+          <associations>
+            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkilAAD"/>
+          </associations>
         </clause>
         <clause name="else" testItemId="4">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="9" title="Create Object: provarti__Test_Case_Execution__c=&gt;TestCaseExecutionId">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkizAAD"/>
+              </associations>
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">provarti__Test_Case_Execution__c</value>
@@ -160,6 +175,9 @@
               </generatedParameters>
             </apiCall>
           </steps>
+          <associations>
+            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkimAAD"/>
+          </associations>
         </clause>
       </clauses>
     </apiCall>
@@ -218,4 +236,7 @@
       <name class="value" valueClass="string">TestCaseExecutionId</name>
     </outputArgument>
   </outputArgs>
+  <associations>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgLEAU"/>
+  </associations>
 </testCase>

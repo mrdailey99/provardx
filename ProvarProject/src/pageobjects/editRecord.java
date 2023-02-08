@@ -19,17 +19,17 @@ public class editRecord {
 	@VisualforceBy(componentXPath = "apex:inputField[@value = \"{!account.Name}\"]")
 	@SalesforceField(name = "Name", object = "Account")
 	public WebElement accountName;
-	@VisualforceBy(componentXPath = "apex:inputField[@value = \"{!account.Type}\"]")
-	@SalesforceField(name = "Type", object = "Account")
-	public WebElement type;
+	@VisualforceBy(componentXPath = "apex:inputField[@value = \"{!account.NumberOfEmployees}\"]")
+	@SalesforceField(name = "NumberOfEmployees", object = "Account")
+	public WebElement employees;
 	@ButtonType()
 	@VisualforceBy(componentXPath = "apex:commandButton[@action='{!quicksave}']")
 	public WebElement quickSave;
 	@ButtonType()
 	@VisualforceBy(componentXPath = "apex:commandButton[@action='{!save}']")
 	public WebElement save;
-	@VisualforceBy(componentXPath = "apex:inputField[@value = \"{!account.NumberOfEmployees}\"]")
-	@SalesforceField(name = "NumberOfEmployees", object = "Account")
-	public WebElement employees;
+	@VisualforceBy(componentXPath = "apex:inputField[@value = \"{!account.Type}\"]")
+	@SalesforceField(name = "Type", object = "Account")
+	public WebElement type;
 	
 }

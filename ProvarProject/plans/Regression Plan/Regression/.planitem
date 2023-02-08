@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testPlan>
   <planSettings/>
-  <planFeatures/>
+  <planFeatures>
+    <planFeature connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" enabled="true" name="TEST_MANAGER" type="REPORTING">
+      <settings mutable="Mutable"/>
+    </planFeature>
+  </planFeatures>
+  <associations>
+    <association assocationType="TM.TEST_SUITE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0e8d0000018bBBAAY"/>
+  </associations>
 </testPlan>

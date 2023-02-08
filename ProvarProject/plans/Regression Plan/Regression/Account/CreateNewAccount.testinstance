@@ -2,4 +2,7 @@
 <testPlanInstance testCasePath="tests/Regression/Account/CreateNewAccount.testcase">
   <planSettings/>
   <planFeatures/>
+  <associations>
+    <association assocationType="TM.TEST_SUITE_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0c8d000002lwZ6AAI"/>
+  </associations>
 </testPlanInstance>

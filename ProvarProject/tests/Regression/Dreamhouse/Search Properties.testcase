@@ -3,6 +3,9 @@
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmOAAT"/>
+      </associations>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -50,6 +53,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="92" title="Setup Test Data">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmPAAT"/>
+      </associations>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Setup Test Data</value>
@@ -59,6 +65,9 @@
         <clause name="hidden" testItemId="93">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="94" title="Set Values: PropertyData.City">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmeAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -80,6 +89,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="95" title="Set Values: PropertyData.State">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmfAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -101,6 +113,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="96" title="Set Values: PropertyData.AskingPrice">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmgAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -122,6 +137,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="97" title="Set Values: PropertyData.Beds">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmhAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -143,6 +161,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="98" title="Set Values: PropertyData.Baths">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmiAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -164,6 +185,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="99" title="Set Values: PropertyData.Broker">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmjAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -189,6 +213,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="100" title="If: {PropertyCreated = false}">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmQAAT"/>
+      </associations>
       <arguments>
         <argument id="condition">
           <value class="eq">
@@ -203,6 +230,9 @@
         <clause name="then" testItemId="101">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF propertyFilter component in Property Explorer">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknEAAT"/>
+              </associations>
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -235,6 +265,9 @@
                 <clause name="substeps" testItemId="3">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="4" title="Set the Search Key field to {PropertyData.City}">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknUAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="captureBefore">
                           <value class="value" valueClass="string">full</value>
@@ -297,6 +330,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="59" title="Set the Max Price field to {PropertyData.AskingPrice}">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknVAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=maxPrice"/>
@@ -351,6 +387,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="64" title="Set the Bedrooms field to {PropertyData.Beds}">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknWAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=bedrooms"/>
@@ -405,6 +444,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="65" title="Set the Bathrooms field to {PropertyData.Baths}">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknXAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=bathrooms"/>
@@ -471,10 +513,16 @@
               </generatedParameters>
             </apiCall>
           </steps>
+          <associations>
+            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmkAAD"/>
+          </associations>
         </clause>
         <clause name="else" testItemId="103">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="104" title="On SF propertyFilter component in Property Explorer">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknFAAT"/>
+              </associations>
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -507,6 +555,9 @@
                 <clause name="substeps" testItemId="105">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="106" title="Set the Search Key field to {PropertyData.City}">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknYAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="captureBefore">
                           <value class="value" valueClass="string">full</value>
@@ -581,10 +632,16 @@
               </generatedParameters>
             </apiCall>
           </steps>
+          <associations>
+            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmlAAD"/>
+          </associations>
         </clause>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="110" title="On propertyExplorer page">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmRAAT"/>
+      </associations>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -616,6 +673,9 @@
         <clause name="substeps" testItemId="111">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="112" title="Click the Tile One">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmmAAD"/>
+              </associations>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=tileOne&amp;pageId=pageobjects.propertyExplorer"/>
@@ -671,6 +731,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="11" title="On SF propertySummary component in Property Explorer">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmSAAT"/>
+      </associations>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -703,6 +766,9 @@
         <clause name="substeps" testItemId="12">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Click the Expand Property Details button">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmnAAD"/>
+              </associations>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=expandPropertyDetails"/>
@@ -766,6 +832,9 @@
       </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Verify Property Details">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmTAAT"/>
+      </associations>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Verify Property Details</value>
@@ -775,6 +844,9 @@
         <clause name="hidden" testItemId="31">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="14" title="On SF Record Detail component in Property view">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmoAAD"/>
+              </associations>
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -809,6 +881,9 @@
                 <clause name="substeps" testItemId="15">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="16" title="Read Asking Price">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknGAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">AskingPrice</value>
@@ -840,6 +915,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="29" title="Read Baths Count">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknHAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Baths</value>
@@ -876,6 +954,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="28" title="Read Beds Count">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknIAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Beds</value>
@@ -912,6 +993,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="47" title="Validate Asking Price">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknJAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -954,6 +1038,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="46" title="Validate Baths Count">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknKAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -994,6 +1081,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="17" title="Validate Beds Count">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknLAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -1034,6 +1124,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="26" title="Validate State of Property">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknMAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1070,6 +1163,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="25" title="Validate City of Property">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknNAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1118,6 +1214,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="72" title="On SF brokerCard component in Property view">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkmpAAD"/>
+              </associations>
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -1152,6 +1251,9 @@
                 <clause name="substeps" testItemId="73">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="74" title="Validate Broker Name">
+                      <associations>
+                        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknOAAT"/>
+                      </associations>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1325,4 +1427,7 @@
   <tagReferences>
     <tagRef tagName="Search Properties Test Time" tagTypeName="sla"/>
   </tagReferences>
+  <associations>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLduEAE"/>
+  </associations>
 </testCase>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="14" registryId="e13fa2ab-51c6-4e23-ada8-495ccc180a00" visibility="Internal">
+<testCase id="14" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="73" title="Salesforce Connect: Admin (Test)">
       <tags/>
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiVAAT"/>
+      </associations>
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -43,6 +46,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" isTitleUpdated="true" name="ApexExecute" testItemId="75" title="Apex Execute: Retrieve Session ID">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiWAAT"/>
+      </associations>
       <arguments>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -68,6 +74,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="76" title="Set Values: sessionID">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiXAAT"/>
+      </associations>
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -99,6 +108,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" isTitleUpdated="true" name="ApexExecute" testItemId="77" title="Apex Execute: Retrieve Base Url">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiYAAT"/>
+      </associations>
       <arguments>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -164,4 +176,7 @@
       <name class="value" valueClass="string">sandboxURL</name>
     </outputArgument>
   </outputArgs>
+  <associations>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgQEAU"/>
+  </associations>
 </testCase>

@@ -1,0 +1,38 @@
+<project default="runtests">
+	<property name="version" value="2.260.16.0"/>
+	<property environment="env"/>
+	<property name="provar.home" value="${env.PROVAR_HOME}"/>
+	<property name="testproject.home" value="${env.WORKSPACE}"/>
+	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
+	<property name="secrets.password" value="${ProvarSecretsPassword}"/>
+
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	
+	<target name="runtests">
+	
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+	
+		<Run-Test-Case provarHome="${provar.home}" 
+				projectPath="${testproject.home}" 
+				resultsPath="${testproject.results}" 
+				resultsPathDisposition="Increment" 
+				testEnvironment="" 
+				webBrowser="Chrome" 
+				webBrowserConfiguration="Full Screen"
+				webBrowserProviderName="Desktop"
+				webBrowserDeviceName="Full Screen" 
+				salesforceMetadataCache="Reuse" 
+				projectCachePath="../.provarCaches"
+				testOutputlevel="BASIC" 
+				pluginOutputlevel="WARNING"
+				stopTestRunOnError="false"
+				secretsPassword="${secrets.password}"
+		>
+			<fileset dir="${testproject.home}/tests/"></fileset>
+			<emailProperties sendEmail="true" primaryRecipients="${env.EMAIL_GROUP}" ccRecipients="${env.CC_LIST}" bccRecipients="" emailSubject="Provar test run report" attachExecutionReport="true" attachZip="true"/>
+			<attachmentProperties includeAllFailuresInSummary="true" includeOnlyFailures="false" includeOnlyBdd="false" includeSkipped="false" includeTestCaseDescription="true" includeScreenshots="true" includeWarningMessages="false" includeInfoMessages="true" includeDebugMessages="true" includeTestStepTime="true" includeTestStepPathHierarchy="true" includeFullScreenShot="false"/>
+		</Run-Test-Case>
+
+	</target>
+</project>

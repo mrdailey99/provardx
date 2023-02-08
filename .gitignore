@@ -17,3 +17,6 @@ CopadoHub
 provardx-local-properties.json
 **/*.zip
 ecars
+SalesforceDXCLI
+SalesforceDXMD
+TrialSbx

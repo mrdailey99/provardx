@@ -3,6 +3,9 @@
   <summary>&lt;font face="Lucida Grande"&gt;Update final duration of test run&lt;/font&gt;</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: TestRunDuration">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkOVAA1"/>
+      </associations>
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -35,6 +38,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="5" title="If: {TestSuiteExecutionId != null}">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkOWAA1"/>
+      </associations>
       <arguments>
         <argument id="condition">
           <value class="ne">
@@ -48,6 +54,9 @@
         <clause name="then" testItemId="6">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjmAAD"/>
+              </associations>
               <arguments>
                 <argument id="connectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -89,6 +98,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: TestRunDuration">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjnAAD"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -134,6 +146,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" testItemId="4" title="Update Object: provarti__Test_Suite_Execution__c = {TestSuiteExecutionId}">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjoAAD"/>
+              </associations>
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">provarti__Test_Suite_Execution__c</value>
@@ -168,8 +183,14 @@
               </generatedParameters>
             </apiCall>
           </steps>
+          <associations>
+            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkOXAA1"/>
+          </associations>
         </clause>
       </clauses>
     </apiCall>
   </steps>
+  <associations>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgVEAU"/>
+  </associations>
 </testCase>
