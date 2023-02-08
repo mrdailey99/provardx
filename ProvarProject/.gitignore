@@ -5,3 +5,4 @@ ANT/Results/*
 .metadata/*
 temp.log
 *.pdf
+**/com/**
