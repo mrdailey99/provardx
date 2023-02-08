@@ -14,7 +14,7 @@ ebikes-lwc
 **/.licenses
 dreamhouse-lwc/
 CopadoHub
-provardx-local-properties.json
+provardx-properties-local.json
 **/*.zip
 ecars
 SalesforceDXCLI

@@ -72,6 +72,9 @@
         <namedValue name="includeTestCaseWarningMessages">
           <value class="value" valueClass="boolean">false</value>
         </namedValue>
+        <namedValue name="includeNoLogs">
+          <value class="value" valueClass="boolean">true</value>
+        </namedValue>
       </settings>
     </planFeature>
     <planFeature enabled="true" name="EMAIL" type="NOTIFICATION">

@@ -1,0 +1,293 @@
+{
+    "componentId": "b7a0146e-f4bf-4972-8986-401e6a94c264",
+    "tagName": "lightning-input",
+    "qualifier": ".[@type='email']",
+    "label": "Lightning Email Input",
+    "name": "json::/com/provar/salesforce/components/lightning/LightningEmailInput",
+    "type": "container",
+    "instanceLabelExpressions": ["{label}"],
+    "pageStructureElement": false,
+    "fieldDetailsElement": true,
+    "attributes": [
+      {
+        "name": "name",
+        "attributeName": "name",
+        "title": "Name",
+        "summary": "The field's name.",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.name;"
+          }
+        ],
+        "locatable": true,
+        "locatorPriority": 2,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "label",
+        "attributeName": "label",
+        "title": "Label",
+        "summary": "The text that displays as the title of the section.",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.label;"
+          }
+        ],
+        "locatable": true,
+        "locatorPriority": 3,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "disabled",
+        "attributeName": "disabled",
+        "title": "Disabled",
+        "summary": "Whether the field is visible, but disabled",
+        "valueType": {
+          "id": "boolean"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.disabled;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "readOnly",
+        "attributeName": "readOnly",
+        "title": "Read Only",
+        "summary": "Whether the field is non-editable",
+        "valueType": {
+          "id": "boolean"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.readOnly;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "class",
+        "attributeName": "class",
+        "title": "Class",
+        "summary": "The class attribute specifies one or more classnames for an element.",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.className;"
+          }
+        ],
+        "locatable": true,
+        "locatorPriority": 4,
+        "readAssertable": false,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "required",
+        "attributeName": "required",
+        "title": "Required",
+        "summary": "The field's required",
+        "valueType": {
+          "id": "boolean"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.required;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "multiple",
+        "attributeName": "multiple",
+        "title": "Multiple",
+        "summary": "Specifies that a user can enter more than one value. Use this attribute with file and email input types only.",
+        "valueType": {
+          "id": "boolean"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.multiple;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "value",
+        "attributeName": "value",
+        "title": "Value",
+        "summary": "The field's inputMode",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.value;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": true,
+        "valueAttribute": true,
+        "messageAttribute": false
+      },
+      {
+        "name": "placeholder",
+        "attributeName": "placeholder",
+        "title": "Placeholder",
+        "summary": "Text that is displayed when the field is empty, to prompt the user for a valid entry. Use this attribute with date, email, number, password, search, tel, text, time, and url input types only.",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.placeholder;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": true,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "type",
+        "attributeName": "type",
+        "title": "Type",
+        "summary": "The type of the input. Valid values are checkbox, checkbox-button, color, date, datetime, time, email, file, password, range, search, tel, url, number, and toggle. This value defaults to text.",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "return element.type;"
+          }
+        ],
+        "locatable": true,
+        "locatorPriority": 1,
+        "readAssertable": false,
+        "valueAttribute": false,
+        "messageAttribute": false
+      },
+      {
+        "name": "message",
+        "attributeName": null,
+        "title": "Message",
+        "summary": "The message displayed if an error occurs.",
+        "valueType": {
+          "id": "text"
+        },
+        "implementations": [
+          {
+            "javaScriptSnippet": "let helpElem = element.shadowRoot.querySelector('div.slds-form-element__help'); if(helpElem) return helpElem.textContent;"
+          }
+        ],
+        "locatable": false,
+        "locatorPriority": null,
+        "readAssertable": false,
+        "valueAttribute": false,
+        "messageAttribute": true
+      }
+    ],
+    "slots": [],
+    "interactions": [
+      {
+        "name": "clear",
+        "title": "Clear",
+        "interactionType": "clear",
+        "summary": "Clear the field",
+        "remarks": null,
+        "defaultIf": null,
+        "hiddenIf": "return element.disabled || element.readOnly",
+        "defaultInteraction": false,
+        "testStepTitlePattern": "{label} field",
+        "parameters": null,
+        "returnType": null,
+        "implementations": [
+          {
+            "javaScriptSnippet": "js::const input = element.shadowRoot.querySelector('input'); yield interactions.set(input, ''); input.dispatchEvent(new Event('change')); input.dispatchEvent(new Event('blur'));"
+          }
+        ]
+      },
+      {
+        "name": "set",
+        "title": "Set",
+        "interactionType": "set",
+        "summary": "Set the value with String value with Provar Expressions.",
+        "remarks": null,
+        "defaultIf": null,
+        "hiddenIf": "return element.disabled || element.readOnly",
+        "defaultInteraction": true,
+        "testStepTitlePattern": "{label} field",
+        "parameters": [
+          {
+            "id": "value",
+            "title": "Value",
+            "type": "text"
+          }
+        ],
+        "returnType": null,
+        "implementations": [
+          {
+            "javaScriptSnippet": "js::const input = element.shadowRoot.querySelector('input'); yield interactions.set(input, arguments[1]); input.dispatchEvent(new Event('change')); input.dispatchEvent(new Event('blur'));"
+          }
+        ]
+      }
+    ],
+    "elements": [
+      {
+        "componentId": "0d6228c2-a284-4133-968a-be0755aa7207",
+        "type": "component::4a933947-ae5b-4e08-a40c-afe6aa1ae02e",
+        "label": "Label",
+        "selectors": [
+          {
+            "xpath": ".//label",
+            "priority": 0
+          }
+        ]
+      },
+      {
+        "componentId": "333d6133-8433-4e38-a89c-d417793a72b6",
+        "type": "component::6b762b6b-1c07-4539-89a6-f77fecfaf162",
+        "label": "Error Message",
+        "fieldDetailsElement": true,
+        "selectors": [
+          {
+            "xpath": ".//div[@class='slds-form-element__help']",
+            "priority": 0
+          }
+        ]
+      }
+    ]
+  }
+  

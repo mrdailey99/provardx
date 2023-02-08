@@ -1,0 +1,99 @@
+{
+  "componentId": "440bd13c-3995-4e29-a017-22b98fad4274",
+  "tagName": "lightning-output-field",
+  "qualifier": null,
+  "label": "Lightning Output Field",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningOutputField",
+  "type": "container",
+  "instanceLabelExpressions": ["{field-name}"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": false,
+  "attributes": [
+    {
+      "name": "field-class",
+      "attributeName": "fieldClass",
+      "title": "Field class",
+      "summary": "A CSS class for the outer element, in addition to the component's base classes.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.fieldClass;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "field-name",
+      "attributeName": "fieldName",
+      "title": "Field name",
+      "summary": "The API name of the field to be displayed.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.fieldName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [],
+  "elements": [
+    {
+      "componentId": "877743c2-8e79-4f7b-a238-53a83ee988ec",
+      "type": "component::80326de9-dea7-41ac-a7a7-198422bdfd0f",
+      "label": "Formatted Value: Text",
+      "selectors": [
+        {
+          "xpath": ".//lightning-formatted-text",
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "componentId": "0e3bb3af-962b-4afc-a099-bae7a3d11577",
+      "type": "component::a58446d6-b8f6-4391-9f0a-ec8639ab3813",
+      "label": "Formatted Value: Number",
+      "selectors": [
+        {
+          "xpath": ".//lightning-formatted-number",
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "componentId": "85f8b305-7187-4de1-bd6f-3ef48c8def5a",
+      "type": "component::da9a92ce-4ea5-4749-bfc4-6f30031fe3ce",
+      "label": "Formatted Value: Lookup",
+      "selectors": [
+        {
+          "xpath": ".//lightning-formatted-lookup",
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "componentId": "5b82d947-99f2-4284-886d-86215624ea67",
+      "type": "component::0850edcc-d754-4e45-9be8-465f1a57389c",
+      "label": "Inline Edit button",
+      "selectors": [
+        {
+          "xpath": ".//slot//lightning-button-icon",
+          "priority": 0
+        }
+      ]
+    }
+  ]
+}

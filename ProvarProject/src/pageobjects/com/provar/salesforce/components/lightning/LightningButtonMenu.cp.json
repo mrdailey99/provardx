@@ -1,0 +1,148 @@
+{
+  "componentId": "5891247e-857a-4b9e-9126-c60e0c4d523c",
+  "tagName": "lightning-button-menu",
+  "qualifier": null,
+  "label": "Lightning Button Menu",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningButtonMenu",
+  "type": "container",
+  "instanceLabelExpressions": ["{title} Menu button"],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "icon-name",
+      "attributeName": "iconName",
+      "title": "Icon name",
+      "summary": "The Lightning Design System name of the icon. Names are written in the format 'utility:down' where 'utility' is the category, and 'down' is the specific icon to be displayed.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.iconName;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "The text to be displayed inside the button.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "title",
+      "attributeName": "title",
+      "title": "Title",
+      "summary": "Button tooltip text",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.title;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "tooltip",
+      "attributeName": "tooltip",
+      "title": "tooltip",
+      "summary": "Button tooltip text",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.tooltip;"
+        }
+      ],
+      "locatable": true,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click the button",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    },
+    {
+      "name": "activate",
+      "title": "Activate",
+      "interactionType": "activate",
+      "summary": "Auto activate the button menu, Not visible to a user",
+      "remarks": null,
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "hiddenIf": null,
+      "visibility": "private",
+      "testStepTitlePattern": "Activate {label} button menu",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::actionability.waitFor(['attached', 'visible'], element); element.click();"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    ]
+}

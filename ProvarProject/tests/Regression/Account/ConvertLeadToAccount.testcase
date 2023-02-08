@@ -182,39 +182,6 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="3b131cbc-43bd-4fa2-90a1-d120123fc715" testCasePath="tests/Regression/Lead/CreateNewLead.testcase" testItemId="29">
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkndAAD"/>
-      </associations>
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">Admin</value>
-        </argument>
-      </arguments>
-      <outputArguments>
-        <outputArgument id="leadId">
-          <name class="value" valueClass="string">leadId</name>
-        </outputArgument>
-        <outputArgument id="LeadStatus">
-          <name class="value" valueClass="string">LeadStatus</name>
-        </outputArgument>
-        <outputArgument id="LeadCompany">
-          <name class="value" valueClass="string">LeadCompany</name>
-        </outputArgument>
-        <outputArgument id="LeadPhone">
-          <name class="value" valueClass="string">LeadPhone</name>
-        </outputArgument>
-        <outputArgument id="LeadName">
-          <name class="value" valueClass="string">LeadName</name>
-        </outputArgument>
-        <outputArgument id="Email">
-          <name class="value" valueClass="string">Email</name>
-        </outputArgument>
-        <outputArgument id="Title">
-          <name class="value" valueClass="string">Title</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConvertLead" name="ApexConvertLead" testItemId="3" title="Convert Lead:  =&gt; //">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkneAAD"/>
@@ -459,7 +426,7 @@
     </apiCall>
   </steps>
   <params>
-    <param name="LeadId" title="LeadId">
+    <param name="LeadId" passwordVariableAllowed="true" title="LeadId">
       <summary/>
       <type>
         <textType>
@@ -473,7 +440,7 @@
     </param>
   </params>
   <outputParams>
-    <param name="convertedContactId" title="convertedContactId">
+    <param name="convertedContactId" passwordVariableAllowed="true" title="convertedContactId">
       <summary>ID of the new Contact (if a new contact was specified) or the ID of the contact specified when convertLead() was invoked.</summary>
       <type>
         <textType>
@@ -488,7 +455,7 @@
         <path element="convertedContactId"/>
       </sourceValue>
     </param>
-    <param name="convertedAccountId" title="convertedAccountId">
+    <param name="convertedAccountId" passwordVariableAllowed="true" title="convertedAccountId">
       <summary>ID of the new Account (if a new account was specified) or the ID of the account specified when convertLead() was invoked.</summary>
       <type>
         <textType>

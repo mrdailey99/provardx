@@ -1,0 +1,60 @@
+{
+  "componentId" : "18811711-7461-41cc-953b-03ed3fd27d35",
+  "name" : "/com/force/brokerCard",
+  "type" : "Page",
+  "pageStructureElement" : false,
+  "fieldDetailsElement" : false,
+  "elements" : [ {
+    "componentId" : "b9419873-8e77-4f1e-a952-dc737e9f4b74",
+    "type" : "component::23229240-c74c-407d-97be-9bddb587e0cc",
+    "label" : "Broker",
+    "selectors" : [ {
+      "xpath" : ".//lightning-card[@title='Broker']"
+    } ],
+    "elements" : [ {
+      "type" : "content",
+      "elements" : [ {
+        "componentId" : "70d01202-3aa5-40fb-9c86-ebe9d409cce1",
+        "type" : "component::ccc101c7-48a2-4573-b66c-3dc99ca59dd5",
+        "label" : "LightningRecordForm",
+        "selectors" : [ {
+          "xpath" : ".//lightning-record-form"
+        } ],
+        "elements" : [ {
+          "type" : "content",
+          "elements" : [ {
+            "componentId" : "b947309b-3432-42e1-a343-de26b34172d3",
+            "type" : "component::2e0414b9-dc7a-4678-ac44-ffa2072e63f2",
+            "label" : "LightningRecordEditForm",
+            "selectors" : [ {
+              "xpath" : ".//lightning-record-edit-form[@objectApiName='Broker__c']"
+            } ],
+            "elements" : [ {
+              "type" : "content",
+              "elements" : [ {
+                "componentId" : "13b52e1a-0a11-419f-8e4b-2be9a3f262eb",
+                "type" : "component::440bd13c-3995-4e29-a017-22b98fad4274",
+                "label" : "Name",
+                "selectors" : [ {
+                  "xpath" : ".//lightning-output-field[@fieldName='Name']"
+                } ],
+                "elements" : [ {
+                  "type" : "content",
+                  "elements" : [ {
+                    "componentId" : "d8365c8f-7ceb-40b0-b735-c1ecf8330f2d",
+                    "type" : "component::80326de9-dea7-41ac-a7a7-198422bdfd0f",
+                    "label" : "Broker Name",
+                    "selectors" : [ {
+                      "xpath" : ".//lightning-formatted-text[@value='Devy McDevin']"
+                    } ],
+                    "elements" : [ ]
+                  } ]
+                } ]
+              } ]
+            } ]
+          } ]
+        } ]
+      } ]
+    } ]
+  } ]
+}

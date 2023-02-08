@@ -3,17 +3,15 @@ package pageobjects.CPQ;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.*;
-import com.provar.core.testapi.annotations.SteelBrickBy.Facet;
 
 @SalesforcePage( title="Sbqq__ Alertand Validation Error__ CPQ Product"                                
                , summary=""
                , page="sb"
                , namespacePrefix="SBQQ"
                , object=""
-               , connection="CPQ_New"
+               , connection="CPQ"
      )             
 public class sbqq__AlertandValidationError__CPQProduct {
 

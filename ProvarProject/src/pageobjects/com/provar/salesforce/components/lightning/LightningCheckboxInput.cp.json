@@ -1,0 +1,253 @@
+{
+  "componentId": "38f5a65b-0065-4df9-8e6c-8dd9a0f8111d",
+  "tagName": "lightning-input",
+  "qualifier": ".[@type='checkbox']",
+  "label": "Lightning Checkbox Input",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningCheckboxInput",
+  "type": "container",
+  "instanceLabelExpressions": ["{label}"],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "The field's name",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 3,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "The text that displays as the title of the section.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 4,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "disabled",
+      "attributeName": "disabled",
+      "title": "Disabled",
+      "summary": "Whether the field is visible, but disabled",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.disabled;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 2,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "required",
+      "attributeName": "required",
+      "title": "Required",
+      "summary": "The field's required",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.required;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "checked",
+      "attributeName": "checked",
+      "title": "Checked",
+      "summary": "The field's checked.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.checked;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": true,
+      "messageAttribute": false
+    },
+
+    {
+      "name": "type",
+      "attributeName": "type",
+      "title": "Type",
+      "summary": "The type of the input. Valid values are checkbox, checkbox-button, color, date, datetime, time, email, file, password, range, search, tel, url, number, and toggle. This value defaults to text.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.type;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "check",
+      "title": "Check",
+      "interactionType": "check",
+      "summary": "Check the checkbox.",
+      "remarks": null,
+      "defaultIf": "return !element.checked;",
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "{label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.check(element);"
+        }
+      ]
+    },
+    {
+      "name": "uncheck",
+      "title": "Uncheck",
+      "interactionType": "uncheck",
+      "summary": "Uncheck the checkbox.",
+      "remarks": null,
+      "defaultIf": "return element.checked;",
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "{label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.unCheck(element);"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "title": "Toggle",
+      "interactionType": "toggle",
+      "summary": "Toggle the checkbox to be checked or unchecked in its current state.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.toggle(element);"
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "title": "Set",
+      "interactionType": "set",
+      "summary": "Set the value with String value with Provar Expressions.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [
+        {
+          "id": "value",
+          "title": "Value",
+          "type": "text"
+        }
+      ],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::let value = arguments[1].toLowerCase(); if (value === 'true' || value === 'false') { value = value === 'true'; yield interactions.setChecked(element, value); } else { throw new error; }"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "componentId": "1c2cadf1-1ae5-4ba8-918b-8e6fcbc7351c",
+      "type": "component::ac80f372-9d93-465e-ba20-267adb52ae54",
+      "label": "Label",
+      "selectors": [
+        {
+          "xpath": ".//label/span[@class='slds-form-element__label']",
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "componentId": "7f4cfec8-6687-4743-8bda-0506655921c6",
+      "type": "component::6b762b6b-1c07-4539-89a6-f77fecfaf162",
+      "label": "Error Message",
+      "fieldDetailsElement": true,
+      "selectors": [
+        {
+          "xpath": ".//div[@class='slds-form-element__help']",
+          "priority": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "componentId": "23229240-c74c-407d-97be-9bddb587e0cc",
+  "tagName": "lightning-card",
+  "qualifier": null,
+  "label": "Lightning Card",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningCard",
+  "type": "container",
+  "instanceLabelExpressions": ["{label}", "{title}"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "title",
+      "attributeName": "title",
+      "title": "Title",
+      "summary": "The title can include text, and is displayed in the header. To include additional markup or another component, use the title slot.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.title;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "icon-name",
+      "attributeName": "iconName",
+      "title": "Icon name",
+      "summary": "The Lightning Design System name of the icon. Specify the name in the format 'utility:down' where 'utility' is the category, and 'down' is the specific icon to be displayed. The icon is displayed in the header before the title.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.iconName;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [
+    {
+      "unnamed": true,
+      "name": null,
+      "elements": []
+    },
+    {
+      "unnamed": false,
+      "name": "title",
+      "elements": []
+    },
+    {
+      "unnamed": false,
+      "name": "actions",
+      "elements": []
+    },
+    {
+      "unnamed": false,
+      "name": "footer",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "componentId": "81cc2ae9-aae2-4fa4-9c47-1e25108bfb20",
+      "type": "component::ac80f372-9d93-465e-ba20-267adb52ae54",
+      "label": "Span",
+      "fieldDetailsElement": true,
+      "selectors": [
+        {
+          "xpath": "./article/div/header//h2[@class='slds-card__header-title']//span",
+          "priority": 0
+        }
+      ]
+    }
+  ]
+}

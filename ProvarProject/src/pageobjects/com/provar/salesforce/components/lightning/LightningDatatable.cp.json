@@ -1,0 +1,13 @@
+{
+  "componentId": "832e103a-46cc-41e8-b77c-4f5a8590fe3c",
+  "tagName": "lightning-datatable",
+  "qualifier": null,
+  "label": "Lightning Datatable",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningDatatable",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": false,
+  "attributes": [],
+  "slots": []
+}

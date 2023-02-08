@@ -1,0 +1,321 @@
+{
+  "componentId": "ccc101c7-48a2-4573-b66c-3dc99ca59dd5",
+  "tagName": "*",
+  "qualifier": null,
+  "label": "Generic Component",
+  "name": "json::/com/provar/salesforce/components/GenericComponent",
+  "type": "container/genericComponent",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": false,
+  "attributes": [
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "disabled",
+      "attributeName": "disabled",
+      "title": "Disabled",
+      "summary": "Specifies that an <input> element should be disabled.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.disabled;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "Specifies the name of an <input> element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "type",
+      "attributeName": "type",
+      "title": "Type",
+      "summary": "Specifies the type <input> element to display.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.type;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "checked",
+      "attributeName": "checked",
+      "title": "Checked",
+      "summary": "Specifies that an <input> element should be pre-selected when the page loads (for type='checkbox' or type='radio').",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.checked;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "required",
+      "attributeName": "required",
+      "title": "Required",
+      "summary": "Specifies that an input field must be filled out before submitting the form.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.required;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "readOnly",
+      "attributeName": "readOnly",
+      "title": "Read only",
+      "summary": "Specifies that an input field is read-only.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.readOnly;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "maxlength",
+      "attributeName": "maxLength",
+      "title": "Max length",
+      "summary": "Specifies the maximum number of characters allowed in an <input> element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.maxLength;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "minlength",
+      "attributeName": "minLength",
+      "title": "Min length",
+      "summary": "Specifies the minimum number of characters required in an <input> element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.minLength;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "href",
+      "attributeName": "href",
+      "title": "Href",
+      "summary": "Sets or returns the value of the href attribute of a link.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.href;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "Specifies the value of an <input> element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.value;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "clear",
+      "title": "Clear",
+      "interactionType": "clear",
+      "summary": "Clear a element.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled || element.readOnly;",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.set(element, '');"
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "title": "Set",
+      "interactionType": "set",
+      "summary": "Set an element value with String value.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled || element.readOnly;",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [
+        {
+          "id": "value",
+          "title": "Value",
+          "type": "TEXT"
+        }
+      ],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.set(element, arguments[1]);"
+        }
+      ]
+    },
+    {
+      "name": "check",
+      "title": "Check",
+      "interactionType": "action",
+      "summary": "Check a checkbox.",
+      "remarks": null,
+      "defaultIf": "return !element.checked;",
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.check(element);"
+        }
+      ]
+    },
+    {
+      "name": "uncheck",
+      "title": "Uncheck",
+      "interactionType": "action",
+      "summary": "Uncheck a checkbox.",
+      "remarks": null,
+      "defaultIf": "return element.checked;",
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.unCheck(element);"
+        }
+      ]
+    },
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click a button.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled;",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

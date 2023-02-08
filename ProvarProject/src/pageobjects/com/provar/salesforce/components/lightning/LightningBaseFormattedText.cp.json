@@ -1,0 +1,35 @@
+{
+  "componentId": "8082727d-f332-43f8-a520-487d95cbe10c",
+  "tagName": "lightning-base-formatted-text",
+  "qualifier": null,
+  "label": "Lightning Base Formatted Text",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningBaseFormattedText",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "The value to be formatted.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.value;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "locatorParameter": true,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

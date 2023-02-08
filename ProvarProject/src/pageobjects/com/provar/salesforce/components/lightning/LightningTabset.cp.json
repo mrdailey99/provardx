@@ -1,0 +1,86 @@
+{
+  "componentId": "8fbc77c0-d864-48ca-91f4-be3d693a1024",
+  "tagName": "lightning-tabset",
+  "qualifier": null,
+  "label": "Lightning Tabset",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningTabset",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "active-tab-value",
+      "attributeName": "activeTabValue",
+      "title": "Active tab value",
+      "summary": "Sets a specific tab to open by default using a string that matches a tab's value string. If not used, the first tab opens by default.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.activeTabValue;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "title",
+      "attributeName": "title",
+      "title": "Title",
+      "summary": "Specifies text that displays in a tooltip over the tab content.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.title;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    }
+  ],
+  "interactions": [
+    {
+      "name": "set",
+      "title": "Set",
+      "interactionType": "set",
+      "summary": "Active a tab with text value.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": null,
+      "defaultInteraction": true,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [
+        {
+          "id": "value",
+          "title": "Value",
+          "type": "TEXT"
+        }
+      ],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::const tabBar = element.shadowRoot.querySelector('lightning-tab-bar'); scrollIntoViewCenter(tabBar); const tabs = element.querySelectorAll('lightning-tab'); let id = null; for(let i=0;i < tabs.length;i++){if(tabs[i].label === arguments[1] || tabs[i].value === arguments[1]){ id = tabs[i].value;break;}} if(id){return new Promise((resolve, reject) => {actionability.waitFor(['attached', 'visible', 'receives events'], element).then(() => {element.activeTabValue = id; resolve();}).catch(e => reject(e)); });} else {throw new error;}"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "unnamed": true,
+      "name": null,
+      "elements": []
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "componentId": "80326de9-dea7-41ac-a7a7-198422bdfd0f",
+  "tagName": "lightning-formatted-text",
+  "qualifier": null,
+  "label": "Lightning Formatted Text",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningFormattedText",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "The value to be formatted.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.value;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    },
+    {
+      "name": "linkify",
+      "attributeName": "linkify",
+      "title": "Linkify",
+      "summary": "If present, URLs and email addresses are displayed in anchor tags. They are displayed in plain text by default.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.linkify;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click the anchor tag for the linked text.",
+      "remarks": null,
+      "defaultIf": "return element.linkify",
+      "hiddenIf": "return !element.linkify",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

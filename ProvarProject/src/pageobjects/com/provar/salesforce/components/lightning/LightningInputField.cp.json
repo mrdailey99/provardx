@@ -1,0 +1,34 @@
+{
+  "componentId": "d6de29a3-ed06-4738-b95b-5a1cabd29b6c",
+  "tagName": "lightning-input-field",
+  "qualifier": null,
+  "label": "Lightning Input Field",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningInputField",
+  "type": "container",
+  "instanceLabelExpressions": ["{label} field"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": false,
+  "attributes": [
+    {
+      "name": "fieldName",
+      "attributeName": "fieldName",
+      "title": "Field name",
+      "summary": "The field's fieldName",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.fieldName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

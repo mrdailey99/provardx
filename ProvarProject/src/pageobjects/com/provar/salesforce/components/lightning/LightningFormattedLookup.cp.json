@@ -1,0 +1,52 @@
+{
+  "componentId": "da9a92ce-4ea5-4749-bfc4-6f30031fe3ce",
+  "tagName": "lightning-formatted-lookup",
+  "qualifier": null,
+  "label": "Lightning Formatted Lookup",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningFormattedLookup",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "displayValue",
+      "attributeName": "displayValue",
+      "title": "Display value",
+      "summary": "The value to be formatted.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.displayValue;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "click",
+      "summary": "Click the link provided for the lookup value",
+      "remarks": null,
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

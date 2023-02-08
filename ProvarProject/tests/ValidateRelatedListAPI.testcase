@@ -41,19 +41,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="0526716c-2bea-4277-8e58-7385b0ee675d" testCasePath="tests/Regression/Account/ConvertLeadToAccount.testcase" testItemId="3">
-      <arguments>
-        <argument id="LeadId"/>
-      </arguments>
-      <outputArguments>
-        <outputArgument id="convertedContactId">
-          <name class="value" valueClass="string">convertedContactId</name>
-        </outputArgument>
-        <outputArgument id="convertedAccountId">
-          <name class="value" valueClass="string">convertedAccountId</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: SELECT Id,Email,Name,Phone,Title FROM Contact WHERE AccountId = '{convertedAccountId}' ORDER BY Name ASC LIMIT 20=&gt;RelatedContacts">
       <arguments>
         <argument id="soqlQuery">
@@ -78,16 +65,6 @@
         </argument>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="e13fa2ab-51c6-4e23-ada8-495ccc180a00" testCasePath="tests/GetSessionID.testcase" testItemId="44">
-      <outputArguments>
-        <outputArgument id="sessionID" scope="GroupStep">
-          <name class="value" valueClass="string">sessionID</name>
-        </outputArgument>
-        <outputArgument id="sandboxURL">
-          <name class="value" valueClass="string">sandboxURL</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="43" title="Web Connect: SF_Rest">
       <arguments>
         <argument id="connectionName">
@@ -149,7 +126,7 @@
             <textType/>
           </type>
         </apiParam>
-        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+        <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
           <type>
             <textType/>
           </type>

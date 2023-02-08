@@ -1,0 +1,208 @@
+{
+  "componentId": "a58446d6-b8f6-4391-9f0a-ec8639ab3813",
+  "tagName": "lightning-formatted-number",
+  "qualifier": null,
+  "label": "Lightning Formatted Number",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningFormattedNumber",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "The value to be formatted.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.value;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "locatorParameter": false,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    },
+    {
+      "name": "innerText",
+      "attributeName": "innerText",
+      "title": "Inner text",
+      "summary": "The innerText property sets or returns the text content of the specified node, and all its descendants.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.innerText;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "format-style",
+      "attributeName": "formatStyle",
+      "title": "Format style",
+      "summary": "The number formatting style to use. Possible values are decimal, currency, percent, and percent-fixed. This value defaults to decimal.",
+      "valueType": {
+        "id": "choicelist",
+        "constraints": ["currency", "decimal", "percent", "percent-fixed"]
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.formatStyle;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "currency-code",
+      "attributeName": "currencyCode",
+      "title": "Currency code",
+      "summary": "Only used if format-style='currency', this attribute determines which currency is displayed. Possible values are the ISO 4217 currency codes, such as 'USD' for the US dollar.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.currencyCode;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "currency-display-as",
+      "attributeName": "currencyDisplayAs",
+      "title": "Currency display as",
+      "summary": "Determines how currency is displayed. Possible values are symbol, code, and name. This value defaults to symbol.",
+      "valueType": {
+        "id": "choicelist",
+        "constraints": ["code", "name", "symbol"]
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.currencyDisplayAs;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "maximum-fraction-digits",
+      "attributeName": "maximumFractionDigits",
+      "title": "Maximum fraction digits",
+      "summary": "The maximum number of fraction digits that are allowed.",
+      "valueType": {
+        "id": "numeric"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.maximumFractionDigits;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "maximum-significant-digits",
+      "attributeName": "maximumSignificantDigits",
+      "title": "Maximum significant digits",
+      "summary": "The maximum number of significant digits that are allowed. Possible values are from 1 to 21.",
+      "valueType": {
+        "id": "numeric"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.maximumSignificantDigits;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "minimum-fraction-digits",
+      "attributeName": "minimumFractionDigits",
+      "title": "Minimum fraction digits",
+      "summary": "The minimum number of fraction digits that are required.",
+      "valueType": {
+        "id": "numeric"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.minimumFractionDigits;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "minimum-integer-digits",
+      "attributeName": "minimumIntegerDigits",
+      "title": "Minimum integer digits",
+      "summary": "The minimum number of integer digits that are required. Possible values are from 1 to 21.",
+      "valueType": {
+        "id": "numeric"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.minimumIntegerDigits;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "minimum-significant-digits",
+      "attributeName": "minimumSignificantDigits",
+      "title": "Minimum significant digits",
+      "summary": "The minimum number of significant digits that are required. Possible values are from 1 to 21.",
+      "valueType": {
+        "id": "numeric"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.minimumSignificantDigits;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

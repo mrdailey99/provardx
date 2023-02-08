@@ -1,0 +1,13 @@
+{
+  "componentId": "acda518c-cb47-43f0-8fdf-d8137f749b7f",
+  "tagName": "lightning-button-group",
+  "qualifier": null,
+  "label": "Lightning Button Group",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningButtonGroup",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": false,
+  "attributes": [],
+  "slots": []
+}

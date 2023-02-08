@@ -1,0 +1,78 @@
+{
+  "componentId": "2e0414b9-dc7a-4678-ac44-ffa2072e63f2",
+  "tagName": "lightning-record-edit-form",
+  "qualifier": null,
+  "label": "Lightning Record Edit Form",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningRecordEditForm",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": false,
+  "attributes": [
+    {
+      "name": "object-api-name",
+      "attributeName": "objectApiName",
+      "title": "Object API name",
+      "summary": "",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.objectApiName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "record-id",
+      "attributeName": "recordId",
+      "title": "Record id",
+      "summary": "",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.recordId;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "record-type-id",
+      "attributeName": "recordTypeId",
+      "title": "Record type id",
+      "summary": "",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.recordTypeId;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [
+    {
+      "unnamed": true,
+      "name": null,
+      "elements": []
+    }
+  ],
+  "interactions": []
+}

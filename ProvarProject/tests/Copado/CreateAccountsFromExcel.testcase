@@ -160,42 +160,6 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="9" title="Finally: Update Test Case Execution in Package">
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjgAAD"/>
-      </associations>
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Update Test Case Execution in Package</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="68">
-          <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Copado/Callable/Create Test Case.testcase" testItemId="10">
-              <associations>
-                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjyAAD"/>
-              </associations>
-              <arguments>
-                <argument id="TestCaseName">
-                  <value class="funcCall" id="TestCaseName"/>
-                </argument>
-                <argument id="TestCaseStart">
-                  <value class="variable">
-                    <path element="TestCaseStart"/>
-                  </value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="TestCaseExecutionId">
-                  <name class="value" valueClass="string">TestCaseExecutionId</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
   </steps>
   <associations>
     <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLguEAE"/>

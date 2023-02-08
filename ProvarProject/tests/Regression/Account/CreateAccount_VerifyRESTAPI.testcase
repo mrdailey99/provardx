@@ -90,50 +90,6 @@
         </argument>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" testCasePath="tests/Regression/Account/CreateNewAccount.testcase" testItemId="6">
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkVrAAL"/>
-      </associations>
-      <arguments>
-        <argument id="AccountName">
-          <value class="variable">
-            <path element="AccountName"/>
-          </value>
-        </argument>
-        <argument id="AccountPhone">
-          <value class="variable">
-            <path element="AccountPhone"/>
-          </value>
-        </argument>
-        <argument id="Website">
-          <value class="variable">
-            <path element="Website"/>
-          </value>
-        </argument>
-        <argument id="reuseConnectionName"/>
-        <argument id="Lightning">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-      </arguments>
-      <outputArguments>
-        <outputArgument id="accountId">
-          <name class="value" valueClass="string">accountId</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
-    <caseCall testCaseId="e13fa2ab-51c6-4e23-ada8-495ccc180a00" testCasePath="tests/GetSessionID.testcase" testItemId="13">
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkVsAAL"/>
-      </associations>
-      <outputArguments>
-        <outputArgument id="sessionID" scope="GroupStep">
-          <name class="value" valueClass="string">sessionID</name>
-        </outputArgument>
-        <outputArgument id="sandboxURL">
-          <name class="value" valueClass="string">sandboxURL</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="12" title="Web Connect: SF_Rest">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjBAAT"/>
@@ -208,7 +164,7 @@
             <textType/>
           </type>
         </apiParam>
-        <apiParam group="header" internal="true" name="restRequestHeader" title="Request Header">
+        <apiParam group="header" internal="true" name="restRequestHeader" passwordVariableAllowed="true" title="Request Header">
           <type>
             <textType/>
           </type>

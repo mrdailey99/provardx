@@ -1,0 +1,53 @@
+{
+  "componentId": "4a933947-ae5b-4e08-a40c-afe6aa1ae02e",
+  "tagName": "label",
+  "qualifier": null,
+  "label": "HTML5 Label",
+  "name": "json::/com/provar/html/components/html5/Label",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "innerText",
+      "attributeName": "innerText",
+      "title": "Value",
+      "summary": "The innerText property sets or returns the text content of the specified node, and all its descendants.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.innerText;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

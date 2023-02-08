@@ -1,0 +1,53 @@
+{
+  "componentId": "52f25bea-25dd-4a27-990a-7171727d6531",
+  "tagName": "input",
+  "qualifier": ".[@type='radio']",
+  "label": "HTML5 Radio Input",
+  "name": "json::/com/provar/html/components/html5/RadioInput",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": true,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+  	{
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click the button",
+      "remarks": null,
+      "hiddenIf": null,
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {text} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

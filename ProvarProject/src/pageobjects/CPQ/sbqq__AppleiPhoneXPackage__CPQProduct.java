@@ -3,10 +3,8 @@ package pageobjects.CPQ;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.*;
-import com.provar.core.testapi.annotations.SteelBrickBy.Facet;
 
 @SalesforcePage( title="Sbqq__ Applei Phone X Package__ CPQ Product"                                
                , summary=""

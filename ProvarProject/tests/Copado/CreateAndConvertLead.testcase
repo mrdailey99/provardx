@@ -376,7 +376,7 @@
                 </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LastName" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LastName" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -441,7 +441,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Company" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Company" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -506,7 +506,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Phone" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Phone" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType/>
@@ -566,7 +566,7 @@
                 </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LeadSource" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Lead&amp;field=LeadSource" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <choiceType>
@@ -986,13 +986,13 @@
               </associations>
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=convertButton"/>
+                  <value class="uiLocator" uri="ui:locator?name=submitConvert&amp;binding=sf%3Aui%3Abinding%3Aobject%3Faction%3DsubmitConvert"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Convert Button button</value>
+                  <value class="value" valueClass="string">Click the Convert button</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
@@ -1440,42 +1440,6 @@
           </type>
         </apiParam>
       </generatedParameters>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="67" title="Finally: Update Test Case Execution in Package">
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkdAAD"/>
-      </associations>
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Update Test Case Execution in Package</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="68">
-          <steps>
-            <caseCall testCaseId="65cd0b46-8dd5-4444-a459-b29a03edfda3" testCasePath="tests/Copado/Callable/Create Test Case.testcase" testItemId="70">
-              <associations>
-                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkyAAD"/>
-              </associations>
-              <arguments>
-                <argument id="TestCaseName">
-                  <value class="funcCall" id="TestCaseName"/>
-                </argument>
-                <argument id="TestCaseStart">
-                  <value class="variable">
-                    <path element="TestCaseStart"/>
-                  </value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="TestCaseExecutionId">
-                  <name class="value" valueClass="string">TestCaseExecutionId</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
     </apiCall>
   </steps>
   <associations>

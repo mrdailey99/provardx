@@ -330,7 +330,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Name" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -398,7 +398,7 @@
                 <expectedException comparisonType="Contains"/>
               </expectedExceptions>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType/>
@@ -458,7 +458,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="value" seq="10000" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType/>
@@ -607,50 +607,21 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="14" title="Finally: Report to Slack">
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkitAAD"/>
-      </associations>
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Report to Slack</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="15">
-          <steps>
-            <caseCall testCaseId="0037ac45-94f6-4b97-83d1-938016849de7" testCasePath="tests/Callable/ReportToSlack.testcase" testItemId="16">
-              <associations>
-                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjAAAT"/>
-              </associations>
-              <arguments>
-                <argument id="Failed">
-                  <value class="funcCall" id="TestCaseSuccessful"/>
-                </argument>
-                <argument id="Passed">
-                  <value class="funcCall" id="TestCaseSuccessful"/>
-                </argument>
-              </arguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
   </steps>
   <params>
-    <param name="AccountName" title="Account Name">
+    <param name="AccountName" passwordVariableAllowed="true" title="Account Name">
       <summary>The value to be set.</summary>
       <type>
         <textType/>
       </type>
     </param>
-    <param name="AccountPhone" title="Account Phone">
+    <param name="AccountPhone" passwordVariableAllowed="true" title="Account Phone">
       <summary>The value to be set.</summary>
       <type>
         <textType/>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:14cad462-2fe0-4ea4-8795-688a3967f2cc" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" title="Website">
+    <param linkedToUrl="provar:hasvalue:14cad462-2fe0-4ea4-8795-688a3967f2cc" modelBinding="sf:ui:binding:object?object=Account&amp;field=Website" name="Website" passwordVariableAllowed="true" title="Website">
       <summary>The value to be populated.</summary>
       <type>
         <textType>
@@ -662,7 +633,7 @@
         </textType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:0d25a8a7-65ee-46f9-99f9-9bbcf087c728" name="reuseConnectionName" title="Override Connection">
+    <param linkedToUrl="provar:hasvalue:0d25a8a7-65ee-46f9-99f9-9bbcf087c728" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
       <summary>The name of an already opened connect to re-use.</summary>
       <type>
         <connectionType>
@@ -673,7 +644,7 @@
         </connectionType>
       </type>
     </param>
-    <param name="Lightning" title="Lightning">
+    <param name="Lightning" passwordVariableAllowed="true" title="Lightning">
       <summary/>
       <type>
         <textType>
@@ -686,7 +657,7 @@
     </param>
   </params>
   <outputParams>
-    <param name="accountId" title="accountId">
+    <param name="accountId" passwordVariableAllowed="true" title="accountId">
       <summary>The name under which the resulting Object Id will be stored.</summary>
       <type>
         <textType>

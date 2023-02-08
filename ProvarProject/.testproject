@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject secretsEncryption="JASYPT" selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedWebBrowserType="Chrome_Headless">
   <title>/ProvarProject/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -173,13 +173,13 @@
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
             <connectionUrl envName="CopadoHub" secureStorageNodeId="6b440bf4-ba67-488e-b1d1-cf87f9a9dc85" url="sf:user=provartrial57@gmail.com;password={password};environment=PROD_DEV;lightningMode=true"/>
             <connectionUrl envName="DXDevHub" secureStorageNodeId="23e6820e-02dc-481e-af06-a05097012fed" url="sf:user=michael.dailey@provardx.com;password={password};environment=PROD_DEV;lightningMode=true"/>
-            <connectionUrl envName="SIT" secureStorageNodeId="e8dee971-c161-4468-ae1c-5bfd61e8aa68" url="sf:user=admin_sit@test.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
+            <connectionUrl envName="SIT" secureStorageNodeId="b3625b7c-f3c9-41d2-ba54-d02d7d5ea825" url="sf:user=michael.dailey@brave-otter-7uycux.com.sit;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret}"/>
           </connectionUrls>
         </connection>
         <connection id="03340e4c-cb4e-4ddf-9841-f602b73b3710" name="CPQ">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="6b8e6da1-1631-46bf-8dd2-fe3f573805f0" url="sf:user=cpq@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
+            <connectionUrl secureStorageNodeId="6b8e6da1-1631-46bf-8dd2-fe3f573805f0" url="sf:user=cpq@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true;nsPrefixOverride=SBQQ"/>
             <connectionUrl envName="DXDevHub" secureStorageNodeId="a0ef5d5f-9bb7-4501-b101-77e7aa67e7dd" url="sf:user=testcpq@provartesting.com;password={password};environment=PROD_DEV;lightningMode=true"/>
           </connectionUrls>
         </connection>
@@ -187,6 +187,7 @@
           <summary/>
           <connectionUrls>
             <connectionUrl url="sf:user=tommy.dreamman@testing.com;environment=PROD_DEV;logonAsConnection=Admin;lightningMode=true"/>
+            <connectionUrl envName="SIT" url="sf:user=tommy.dreamman@testing.com.sit;environment=PROD_DEV;logonAsConnection=Admin;lightningMode=true"/>
           </connectionUrls>
         </connection>
         <connection id="45e50bbd-2255-49f8-909f-74f67b575c97" name="Test">
@@ -212,7 +213,7 @@
     <tagType name="sla" tagClass="sla" title="SLA Requirement">
       <summary>Service Level Agreement requirement</summary>
       <tags>
-        <slaTag expectedDurationMs="92000" maximumDurationMs="120000" name="Search Properties Test Time">
+        <slaTag expectedDurationMs="70000" maximumDurationMs="120000" name="Search Properties Test Time">
           <summary>The time it should take to complete the Search Properties test case.</summary>
         </slaTag>
       </tags>

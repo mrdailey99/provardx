@@ -1,0 +1,72 @@
+{
+  "componentId": "5f7e4824-c81c-4974-8cc0-bd795aba540c",
+  "tagName": "p",
+  "qualifier": null,
+  "label": "HTML5 P",
+  "name": "json::/com/provar/html/components/html5/Paragraph",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "textContent",
+      "attributeName": "textContent",
+      "title": "Text content",
+      "summary": "The textContent property sets or returns the text content of the specified node, and all its descendants.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.textContent;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "innerText",
+      "attributeName": "innerText",
+      "title": "Value",
+      "summary": "The innerText property sets or returns the text content of the specified node, and all its descendants.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.innerText;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

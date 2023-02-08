@@ -1,0 +1,94 @@
+{
+  "componentId": "858f4405-8404-411c-a6e8-b0a94e395a12",
+  "tagName": "lightning-formatted-url",
+  "qualifier": null,
+  "label": "Lightning Formatted Url",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningFormattedUrl",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "The URL to format.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.value;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "The text to display in the link.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "tooltip",
+      "attributeName": "tooltip",
+      "title": "Tooltip",
+      "summary": "The text to display when the mouse hovers over the link. A link doesn't display a tooltip unless a text value is provided.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.shadowRoot.querySelector('a')?.title;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Simulates a mouse click on the url and navigates to it using the specified target.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": null,
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

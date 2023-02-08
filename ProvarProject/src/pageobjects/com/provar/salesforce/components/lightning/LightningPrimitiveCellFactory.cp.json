@@ -1,0 +1,37 @@
+{
+  "componentId": "411ac4b0-8b1f-4b09-b7de-fa5fb35726b8",
+  "tagName": "lightning-primitive-cell-factory",
+  "qualifier": null,
+  "label": "Lightning Primitive Cell Factory",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningPrimitiveCellFactory",
+  "type": "container",
+  "instanceLabelExpressions": ["{label} field"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": false,
+  "attributes": [
+    {
+      "name": "colKeyValue",
+      "attributeName": "colKeyValue",
+      "title": "ColKeyValue",
+      "summary": "The Column Key Value",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.colKeyValue;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+  ],
+  "elements": [
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "componentId": "cac4647e-0e16-4843-bd6a-3b5f94478a39",
+  "tagName": "label",
+  "qualifier": ".[@class='slds-radio__label']",
+  "label": "Lightning Radio Group Option",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningRadioGroup Option",
+  "type": "container",
+  "instanceLabelExpressions": ["{label} Radio Group Option"],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "Text label for the Radio Option",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.innerText"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "Specifies the value of an Radio Option",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.previousSibling.value;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click the button",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "componentId": "d4d7fec4-8442-4ff3-9b2a-dcb56523f557",
+      "type": "component::ac80f372-9d93-465e-ba20-267adb52ae54",
+      "label": "Label",
+      "fieldDetailsElement": false,
+      "selectors": [
+        {
+          "xpath": ".//span[@class='slds-form-element__label']",
+          "priority": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "componentId": "c3c92385-e8d7-4126-8d63-8b967b44ae4d",
+  "tagName": "lightning-accordion-section",
+  "qualifier": null,
+  "label": "Lightning Accordion Section",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningAccordionSection",
+  "type": "container",
+  "instanceLabelExpressions": ["{label} accordion section"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "The text that displays as the title of the section.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "The unique section name to use with the active-section-name attribute in the accordion component.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "interactions": [
+    {
+      "name": "activate",
+      "title": "Activate",
+      "interactionType": "activate",
+      "summary": "Auto activate the accordion section, Not visible to a user",
+      "remarks": null,
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "hiddenIf": null,
+      "visibility": "private",
+      "testStepTitlePattern": "Activate {label} Accordion Section",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "yield interactions.expand(element);"
+        }
+      ]
+    },
+    {
+      "name": "expandSection",
+      "title": "Expand Section",
+      "interactionType": "expandSection",
+      "summary": "Expand selected section",
+      "remarks": null,
+      "defaultIf": "return element.shadowRoot.querySelector('button').getAttribute('aria-expanded') === 'false'",
+      "defaultInteraction": true,
+      "visibility": "public",
+      "testStepTitlePattern": "Expand {label} Accordion Section",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.expand(element);"
+        }
+      ]
+    },
+    {
+      "name": "collapseSection",
+      "title": "Collapse Section",
+      "interactionType": "collapseSection",
+      "summary": "Collapse selected section",
+      "remarks": null,
+      "defaultIf": "return element.shadowRoot.querySelector('button').getAttribute('aria-expanded') === 'true'",
+      "defaultInteraction": true,
+      "visibility": "public",
+      "testStepTitlePattern": "Collapse {label} Accordion Section",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.collapse(element);"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "unnamed": true,
+      "name": null,
+      "elements": []
+    },
+    {
+      "unnamed": false,
+      "name": "actions",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "componentId": "2f7f8c00-9eeb-4949-b101-b99d56afaf25",
+      "type": "component::ac80f372-9d93-465e-ba20-267adb52ae54",
+      "label": "Span",
+      "fieldDetailsElement": true,
+      "selectors": [
+        {
+          "xpath": ".//section//div[@class='slds-accordion__summary']//span",
+          "priority": 0
+        }
+      ]
+    }
+  ]
+}

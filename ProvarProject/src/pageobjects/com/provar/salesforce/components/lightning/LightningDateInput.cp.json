@@ -1,0 +1,352 @@
+{
+  "componentId": "4071451a-bead-4fdb-84bd-30359e065f25",
+  "tagName": "lightning-input",
+  "qualifier": ".[@type='date']",
+  "label": "Lightning Date Input",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningDateInput",
+  "type": "container",
+  "instanceLabelExpressions": ["{label}"],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "The field's name",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 3,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "The text that displays as the title of the section",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 4,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "disabled",
+      "attributeName": "disabled",
+      "title": "Disabled",
+      "summary": "Whether the field is visible, but disabled",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.disabled;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "readOnly",
+      "attributeName": "readOnly",
+      "title": "Read only",
+      "summary": "Whether the field is non-editable",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.readOnly;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 2,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "required",
+      "attributeName": "required",
+      "title": "Required",
+      "summary": "The field's required",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.required;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "min",
+      "attributeName": "min",
+      "title": "Min",
+      "summary": "The minimum acceptable value for the input. Use this attribute with number, range, date, time, and datetime input types only. For number and range types, the min value is a decimal number. For the date, time, and datetime types, the min value must use a valid string for the type.",
+      "valueType": {
+        "id": "date"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.min;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "max",
+      "attributeName": "max",
+      "title": "Max",
+      "summary": "The maximum acceptable value for the input. Use this attribute with number, range, date, time, and datetime input types only. For number and range type, the max value is a decimal number. For the date, time, and datetime types, the max value must use a valid string for the type.",
+      "valueType": {
+        "id": "date"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.max;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "Specifies the value of an <input> element.",
+      "valueType": {
+        "id": "date"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.shadowRoot.querySelector('lightning-datepicker').shadowRoot.querySelector('input').value;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "placeholder",
+      "attributeName": "placeholder",
+      "title": "Placeholder",
+      "summary": "Text that is displayed when the field is empty, to prompt the user for a valid entry. Use this attribute with date, email, number, password, search, tel, text, time, and url input types only.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.placeholder;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "type",
+      "attributeName": "type",
+      "title": "Type",
+      "summary": "The type of the input. Valid values are checkbox, checkbox-button, color, date, datetime, time, email, file, password, range, search, tel, url, number, and toggle. This value defaults to text.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.type;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "message",
+      "attributeName": null,
+      "title": "Message",
+      "summary": "The message displayed if an error occurs.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "let helpElem = element.shadowRoot.querySelector('lightning-datepicker').shadowRoot.querySelector('div.slds-form-element__help'); if(helpElem) return helpElem.textContent;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": true
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "clear",
+      "title": "Clear",
+      "interactionType": "clear",
+      "summary": "Clear the field",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled || element.readOnly",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::const datePicker = element.shadowRoot.querySelector('lightning-datepicker'); yield interactions.set(datePicker, ''); datePicker.dispatchEvent(new Event('change')); const inputElem = datePicker.shadowRoot.querySelector('input'); inputElem.dispatchEvent(new Event('focusout'));"
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "title": "Set",
+      "interactionType": "set",
+      "summary": "Set the value with String value with Provar Expressions.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "return element.disabled || element.readOnly",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [
+        {
+          "id": "value",
+          "title": "Value",
+          "type": "text"
+        }
+      ],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.setForDate(element, arguments[1]);"
+        }
+      ]
+    },
+    {
+      "name": "setDate",
+      "title": "Set Date",
+      "interactionType": "setDate",
+      "summary": "Set the formatted date value.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "let inputElem = element.shadowRoot.querySelector('lightning-datepicker').shadowRoot.querySelector('input'); return inputElem.hasAttribute('disabled') || inputElem.readOnly",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [
+        {
+          "id": "value",
+          "title": "Date",
+          "type": "date"
+        }
+      ],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::const datePicker = element.shadowRoot.querySelector('lightning-datepicker'); yield interactions.set(datePicker, arguments[1]); datePicker.dispatchEvent(new Event('change')); const inputElem = datePicker.shadowRoot.querySelector('input'); inputElem.dispatchEvent(new Event('focusout'));"
+        }
+      ]
+    },
+    {
+      "name": "setToday",
+      "title": "Set Today",
+      "interactionType": "setToday",
+      "summary": "Set the date to today's date.",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": "let inputElem = element.shadowRoot.querySelector('lightning-datepicker').shadowRoot.querySelector('input'); return (inputElem.hasAttribute('disabled') || inputElem.readOnly)",
+      "defaultInteraction": false,
+      "testStepTitlePattern": "{label} field",
+      "parameters": [],
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::const datePicker = element.shadowRoot.querySelector('lightning-datepicker'); yield interactions.set(datePicker, new Date().toISOString()); datePicker.dispatchEvent(new Event('change')); const inputElem = datePicker.shadowRoot.querySelector('input'); inputElem.dispatchEvent(new Event('focusout'));"
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "componentId": "f146fae1-c678-4022-8f4f-5232142ac1e4",
+      "type": "component::4a933947-ae5b-4e08-a40c-afe6aa1ae02e",
+      "label": "Label",
+      "selectors": [
+        {
+          "xpath": ".//lightning-datepicker//label",
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "componentId": "a76b6187-42f8-4caa-8fd3-e92aecc0616c",
+      "type": "component::6b762b6b-1c07-4539-89a6-f77fecfaf162",
+      "label": "Error Message",
+      "selectors": [
+        {
+          "xpath": ".//lightning-datepicker//div[@class='slds-form-element__help']",
+          "priority": 0
+        }
+      ]
+    }
+  ]
+}

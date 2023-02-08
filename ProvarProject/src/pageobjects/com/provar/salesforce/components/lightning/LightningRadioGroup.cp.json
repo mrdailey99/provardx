@@ -1,0 +1,173 @@
+{
+  "componentId": "b092f22c-ccdf-44f1-ba1a-950c5b63ea2f",
+  "tagName": "lightning-radio-group",
+  "qualifier": null,
+  "label": "Lightning Radio Group",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningRadioGroup",
+  "type": "container",
+  "instanceLabelExpressions": ["{label} Radio Group"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": false,
+  "attributes": [
+  	{
+      "name": "disabled",
+      "attributeName": "disabled",
+      "title": "Disabled",
+      "summary": "If present, the combobox is disabled and users cannot interact with it.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.disabled;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "Text label for the combobox.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "message",
+      "attributeName": null,
+      "title": "Message",
+      "summary": "The message displayed if an error occurs.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "let helpElem = element.shadowRoot.querySelector('div.slds-form-element__help'); if(helpElem) return helpElem.textContent;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": true
+    },
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "Specifies the name of the combobox.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "read-only",
+      "attributeName": "readOnly",
+      "title": "Read only",
+      "summary": "If present the combobox is read-only. A read-only combobox is also disabled.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.readOnly;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "required",
+      "attributeName": "required",
+      "title": "Required",
+      "summary": "If present, a value must be selected before the form can be submitted.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.required;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "Specifies the value of an input element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.shadowRoot.querySelector('lightning-base-combobox').shadowRoot.querySelector('button').getAttribute('data-value');"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    },
+    {
+      "name": "title",
+      "attributeName": "title",
+      "title": "Title",
+      "summary": "Specifies text that displays in a tooltip over the tab content.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.title;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    }
+  ],
+  "slots": [
+    {
+      "unnamed": true,
+      "name": null,
+      "elements": []
+    }
+  ]
+}

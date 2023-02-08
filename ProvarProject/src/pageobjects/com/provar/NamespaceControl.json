@@ -1,0 +1,19 @@
+{
+  "allowedNamespace": [
+    {
+      "prefix": "c-*"
+    },
+    {
+      "prefix": "vlocity_cmt-*"
+    },
+    {
+      "prefix": "vlocity_ins-*"
+    },
+    {
+      "prefix": "plmauto-*"
+    },
+    {
+      "prefix": "recipe-*"
+    }
+  ]
+}

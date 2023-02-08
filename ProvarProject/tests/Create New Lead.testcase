@@ -43,69 +43,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="e2aa304d-689c-4d3b-accc-fdfcd4b2418b" testCasePath="tests/Regression/Account/CreateNewAccount.testcase" testItemId="8">
-      <arguments>
-        <argument id="AccountName">
-          <value class="compound">
-            <parts>
-              <value valueClass="string">Smoke </value>
-              <funcCall id="UniqueId">
-                <argument id="length">
-                  <value class="value" valueClass="decimal">6</value>
-                </argument>
-              </funcCall>
-            </parts>
-          </value>
-        </argument>
-        <argument id="AccountPhone">
-          <value class="compound">
-            <parts>
-              <funcCall id="UniqueId">
-                <argument id="length">
-                  <value class="value" valueClass="decimal">3</value>
-                </argument>
-                <argument id="format">
-                  <value class="variable">
-                    <path element="NUMERIC"/>
-                  </value>
-                </argument>
-              </funcCall>
-              <value valueClass="string">-</value>
-              <funcCall id="UniqueId">
-                <argument id="length">
-                  <value class="value" valueClass="decimal">3</value>
-                </argument>
-                <argument id="format">
-                  <value class="variable">
-                    <path element="NUMERIC"/>
-                  </value>
-                </argument>
-              </funcCall>
-              <value valueClass="string">-</value>
-              <funcCall id="UniqueId">
-                <argument id="length">
-                  <value class="value" valueClass="decimal">4</value>
-                </argument>
-                <argument id="format">
-                  <value class="variable">
-                    <path element="NUMERIC"/>
-                  </value>
-                </argument>
-              </funcCall>
-            </parts>
-          </value>
-        </argument>
-        <argument id="Website">
-          <value class="value" valueClass="string">testing.com</value>
-        </argument>
-        <argument id="reuseConnectionName"/>
-      </arguments>
-      <outputArguments>
-        <outputArgument id="accountId">
-          <name class="value" valueClass="string">accountId</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: LastName">
       <arguments>
         <argument id="values">

@@ -1,0 +1,24 @@
+{
+  "componentId" : "fad2eaa6-88fd-4b1b-bf76-02767f700fec",
+  "name" : "/com/force/propertyTileList",
+  "type" : "Page",
+  "pageStructureElement" : false,
+  "fieldDetailsElement" : false,
+  "elements" : [ {
+    "componentId" : "018ea8ea-8961-407a-b87a-7dc244cf5ebb",
+    "type" : "component::e5e9ffdd-6d08-42a8-808b-d625fe494aee",
+    "label" : "CPropertyTile",
+    "selectors" : [ {
+      "xpath" : ".//c-property-tile[@class='slds-col slds-var-m-around_xx-small'][1]"
+    } ],
+    "elements" : [ ]
+  }, {
+    "componentId" : "d171553d-2c79-4447-b522-f913062cb7c5",
+    "type" : "component::e5e9ffdd-6d08-42a8-808b-d625fe494aee",
+    "label" : "CPropertyTile",
+    "selectors" : [ {
+      "xpath" : ".//c-property-tile[1]"
+    } ],
+    "elements" : [ ]
+  } ]
+}

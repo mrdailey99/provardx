@@ -1,0 +1,177 @@
+{
+  "componentId": "5674045b-95dd-46c9-be75-72c7321b627d",
+  "tagName": "lightning-tab",
+  "qualifier": null,
+  "label": "Lightning Tab",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningTab",
+  "type": "container",
+  "instanceLabelExpressions": ["{value} Tab","{label} Tab"],
+  "pageStructureElement": true,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "end-icon-name",
+      "attributeName": "endIconName",
+      "title": "End icon name",
+      "summary": "The Lightning Design System name of an icon to display at the end of the tab label. Specify the name in the format 'utility:check' where 'utility' is the category, and 'check' is the icon to be displayed.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.endIconName;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "icon-name",
+      "attributeName": "iconName",
+      "title": "Icon name",
+      "summary": "The Lightning Design System name of an icon to display at the beginning of the tab label. Specify the name in the format 'utility:down' where 'utility' is the category, and 'down' is the icon to be displayed. Only utility icons can be used.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.iconName;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "title",
+      "attributeName": "title",
+      "title": "Title",
+      "summary": "Specifies text that displays in a tooltip over the tab content.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.title;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "label",
+      "attributeName": "label",
+      "title": "Label",
+      "summary": "The text displayed in the tab header.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.label;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    },
+    {
+      "name": "value",
+      "attributeName": "value",
+      "title": "Value",
+      "summary": "The Tab's' value",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.value;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": true,
+      "messageAttribute": false
+    },
+    {
+      "name": "show-error-indicator",
+      "attributeName": "showErrorIndicator",
+      "title": "Show error indicator",
+      "summary": "Specifies whether there's an error in the tab content. An error icon is displayed to the right of the tab label.",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.showErrorIndicator;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false,
+      "property": false
+    }
+  ],
+  "slots": [
+    {
+      "unnamed": true,
+      "name": null,
+      "elements": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "activate",
+      "title": "Activate",
+      "interactionType": "activate",
+      "summary": "Auto activate the section. This interaction is hidden.",
+      "remarks": null,
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "visibility": "private",
+      "testStepTitlePattern": "Activate the {label} tab",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "yield interactions.selectTab(element);"
+        }
+      ]
+    },
+    {
+      "name": "selectTab",
+      "title": "Select Tab",
+      "interactionType": "selectTab",
+      "summary": "Select a tab",
+      "remarks": null,
+      "defaultIf": null,
+      "hiddenIf": null,
+      "visibility": "public",
+      "defaultInteraction": true,
+      "testStepTitlePattern": "{label} field",
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "yield interactions.selectTab(element);"
+        }
+      ]
+    }
+  ]
+}

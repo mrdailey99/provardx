@@ -1,0 +1,172 @@
+{
+  "componentId": "5fe10437-8d63-4272-b64d-05080ef0a5c4",
+  "tagName": "lightning-formatted-name",
+  "qualifier": null,
+  "label": "Lightning Formatted Name",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningFormattedName",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "salutation",
+      "attributeName": "salutation",
+      "title": "Salutation",
+      "summary": "The value for the salutation, such as Dr. or Mrs.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.salutation;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "firstName",
+      "attributeName": "firstName",
+      "title": "First Name",
+      "summary": "The value for the first name.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.firstName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "middleName",
+      "attributeName": "middleName",
+      "title": "Middle Name",
+      "summary": "The value for the middle name.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.middleName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "lastName",
+      "attributeName": "lastName",
+      "title": "Last Name",
+      "summary": "The value for the last name.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.lastName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "suffix",
+      "attributeName": "suffix",
+      "title": "Suffix",
+      "summary": "The value for the suffix, such as Jr. or Esq.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.suffix;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "informalName",
+      "attributeName": "informalName",
+      "title": "Informal Name",
+      "summary": "The value for the informal name.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.informalName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "format",
+      "attributeName": "format",
+      "title": "Format",
+      "summary": "The format to use to display the name. Valid values include short, medium, and long. This value defaults to long.",
+      "valueType": {
+        "id": "choicelist",
+        "constraints": [
+          "short",
+          "medium",
+          "long"
+        ]
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.format;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "innerText",
+      "attributeName": "innerText",
+      "title": "Inner Text",
+      "summary": "The formatted value that appears to a user.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.innerText;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

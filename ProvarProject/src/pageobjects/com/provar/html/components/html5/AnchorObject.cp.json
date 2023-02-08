@@ -1,0 +1,110 @@
+{
+  "componentId": "a4b4a253-2c0c-4ca8-be55-204f1f9f2d53",
+  "tagName": "a",
+  "qualifier": null,
+  "label": "HTML5 Anchor Object",
+  "name": "json::/com/provar/html/components/html5/AnchorObject",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "Specifies the name of an <input> element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "type",
+      "attributeName": "type",
+      "title": "Type",
+      "summary": "Specifies the type <input> element to display.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.type;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "text",
+      "attributeName": "text",
+      "title": "Text",
+      "summary": "Sets or returns the text content of a link.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.text;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "href",
+      "attributeName": "href",
+      "title": "Href",
+      "summary": "Sets or returns the value of the href attribute of a link.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.href;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click the button",
+      "remarks": null,
+      "hiddenIf": "return element.disabled",
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {text} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

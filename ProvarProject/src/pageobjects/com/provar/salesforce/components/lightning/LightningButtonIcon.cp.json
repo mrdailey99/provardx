@@ -1,0 +1,176 @@
+{
+  "componentId": "0850edcc-d754-4e45-9be8-465f1a57389c",
+  "tagName": "lightning-button-icon",
+  "qualifier": null,
+  "label": "Lightning Button Icon",
+  "name": "json::/com/provar/salesforce/components/lightning/LightningButtonIcon",
+  "type": "container",
+  "instanceLabelExpressions": ["{icon-name} button"],
+  "pageStructureElement": false,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "icon-name",
+      "attributeName": "iconName",
+      "title": "Icon name",
+      "summary": "The Lightning Design System name of the icon. Names are written in the format 'utility:down' where 'utility' is the category, and 'down' is the specific icon to be displayed.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.iconName;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": 1,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "name",
+      "attributeName": "name",
+      "title": "Name",
+      "summary": "The name for the button element. This value is optional and can be used to identify the button in a callback.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.name;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "title",
+      "attributeName": "title",
+      "title": "Title",
+      "summary": "Button tooltip text",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.title;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "disabled",
+      "attributeName": "disabled",
+      "title": "Disabled",
+      "summary": "",
+      "valueType": {
+        "id": "boolean"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.disabled;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "variant",
+      "attributeName": "variant",
+      "title": "Variant",
+      "summary": "The variant changes the appearance of button-icon. This value defaults to border.",
+      "valueType": {
+        "id": "choicelist",
+        "constraints": [
+          "bare",
+          "container",
+          "brand",
+          "border",
+          "border-filled",
+          "bare-inverse",
+          "border-inverse"
+        ]
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.variant;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "size",
+      "attributeName": "size",
+      "title": "Size",
+      "summary": "Defines the size of the icon.",
+      "valueType": {
+        "id": "choicelist",
+        "constraints": ["xx-small", "x-small", "small", "medium"]
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.size;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": [
+    {
+      "name": "click",
+      "title": "Click",
+      "interactionType": "action",
+      "summary": "Click the button",
+      "remarks": null,
+      "defaultIf": null,
+      "defaultInteraction": true,
+      "testStepTitlePattern": "Click {label} field",
+      "parameters": null,
+      "returnType": null,
+      "implementations": [
+        {
+          "javaScriptSnippet": "js::yield interactions.click(element);"
+        }
+      ]
+    }
+  ]
+}

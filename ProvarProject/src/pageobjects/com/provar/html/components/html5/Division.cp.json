@@ -1,0 +1,53 @@
+{
+  "componentId": "6b762b6b-1c07-4539-89a6-f77fecfaf162",
+  "tagName": "div",
+  "qualifier": null,
+  "label": "HTML5 Div",
+  "name": "json::/com/provar/html/components/html5/Division",
+  "type": "container",
+  "instanceLabelExpressions": [],
+  "pageStructureElement": true,
+  "fieldDetailsElement": true,
+  "attributes": [
+    {
+      "name": "Class",
+      "attributeName": "class",
+      "title": "Class",
+      "summary": "The class attribute specifies one or more classnames for an element.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.className;"
+        }
+      ],
+      "locatable": true,
+      "locatorPriority": null,
+      "readAssertable": true,
+      "valueAttribute": false,
+      "messageAttribute": false
+    },
+    {
+      "name": "innerText",
+      "attributeName": "innerText",
+      "title": "Value",
+      "summary": "The innerText property sets or returns the text content of the specified node, and all its descendants.",
+      "valueType": {
+        "id": "text"
+      },
+      "implementations": [
+        {
+          "javaScriptSnippet": "return element.innerText;"
+        }
+      ],
+      "locatable": false,
+      "locatorPriority": null,
+      "readAssertable": false,
+      "valueAttribute": true,
+      "messageAttribute": false
+    }
+  ],
+  "slots": [],
+  "interactions": []
+}

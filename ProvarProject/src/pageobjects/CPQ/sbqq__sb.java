@@ -5,12 +5,11 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 
 import com.provar.core.testapi.annotations.*;
-import com.provar.core.testapi.annotations.SteelBrickBy.Facet;
 
 @SalesforcePage( title="Sbqq__sb"                                
                , page="sb"
                , namespacePrefix="SBQQ"
-               , connection="CPQ_New"
+               , connection="CPQ"
      )             
 public class sbqq__sb {
 
