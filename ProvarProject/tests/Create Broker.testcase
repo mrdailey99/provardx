@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase registryId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Dreamhouse</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Broker__c=&gt;BrokerId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Broker__c</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">BrokerId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument argId="cde9cfc5-ec02-4958-a098-1c4bcaf4dee9" id="Email__c">
+          <value class="variable">
+            <path element="Email__c"/>
+          </value>
+        </argument>
+        <argument argId="d31d6212-fc32-478f-9aa2-f72f5b87f03a" id="Phone__c">
+          <value class="variable">
+            <path element="Phone__c"/>
+          </value>
+        </argument>
+        <argument argId="60098b12-4b48-44ad-bde3-c3885e44d120" id="Title__c">
+          <value class="variable">
+            <path element="Title__c"/>
+          </value>
+        </argument>
+        <argument argId="f0b97ee3-0a3f-4289-b496-22a018b48c4b" id="Status__c">
+          <value class="variable">
+            <path element="Status__c"/>
+          </value>
+        </argument>
+        <argument argId="ae016b28-3f64-48be-9528-83343e993d13" id="Name">
+          <value class="variable">
+            <path element="Name"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Broker__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Email__c" name="Email__c" title="Email__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Phone__c" name="Phone__c" title="Phone__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Title__c" name="Title__c" title="Title__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Status__c" name="Status__c" title="Status__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Name" name="Name" title="Name"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:cde9cfc5-ec02-4958-a098-1c4bcaf4dee9" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Email__c" name="Email__c" passwordVariableAllowed="true" title="Email__c">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:d31d6212-fc32-478f-9aa2-f72f5b87f03a" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Phone__c" name="Phone__c" passwordVariableAllowed="true" title="Phone__c">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:60098b12-4b48-44ad-bde3-c3885e44d120" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Title__c" name="Title__c" passwordVariableAllowed="true" title="Title__c">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:ae016b28-3f64-48be-9528-83343e993d13" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Name" name="Name" passwordVariableAllowed="true" title="Name">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:f0b97ee3-0a3f-4289-b496-22a018b48c4b" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Status__c" name="Status__c" passwordVariableAllowed="true" title="Status__c">
+      <summary/>
+    </param>
+  </params>
+  <outputParams>
+    <param name="BrokerId" passwordVariableAllowed="true" title="BrokerId">
+      <summary>The name under which the resulting Object Id will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="BrokerId"/>
+      </sourceValue>
+    </param>
+  </outputParams>
+  <args>
+    <argument id="Email__c"/>
+    <argument id="Phone__c"/>
+    <argument id="Title__c"/>
+    <argument id="Name"/>
+    <argument id="Status__c">
+      <value class="value" valueClass="string">Available</value>
+    </argument>
+  </args>
+  <outputArgs>
+    <outputArgument id="BrokerId">
+      <name class="value" valueClass="string">BrokerId</name>
+    </outputArgument>
+  </outputArgs>
+</testCase>

@@ -13,10 +13,10 @@ ProvarProject/ANT/build_local.xml
 ebikes-lwc
 **/.licenses
 dreamhouse-lwc/
-CopadoHub
-provardx-properties-local.json
+provardx-local-properties.json
 **/*.zip
 ecars
 SalesforceDXCLI
 SalesforceDXMD
 TrialSbx
+Trailblazer

@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <testPlan>
-  <planSettings>
-    <planSetting name="browserProvider">
-      <value valueClass="string">Desktop:Full Screen</value>
-    </planSetting>
-    <planSetting name="webBrowser">
-      <value valueClass="string">Chrome_Headless</value>
-    </planSetting>
-  </planSettings>
+  <planSettings/>
   <planFeatures>
     <planFeature enabled="true" name="PIECHART" type="OUTPUT">
       <settings mutable="Mutable">
@@ -35,9 +28,6 @@
         </namedValue>
         <namedValue name="includeTestCaseDetails">
           <value class="value" valueClass="boolean">true</value>
-        </namedValue>
-        <namedValue name="includeOnlyFailures">
-          <value class="value" valueClass="boolean">false</value>
         </namedValue>
         <namedValue name="includeOnlyBdd">
           <value class="value" valueClass="boolean">false</value>
@@ -67,9 +57,6 @@
           <value class="value" valueClass="boolean">true</value>
         </namedValue>
         <namedValue name="includeTestCaseScreenshots">
-          <value class="value" valueClass="boolean">false</value>
-        </namedValue>
-        <namedValue name="includeTestCaseWarningMessages">
           <value class="value" valueClass="boolean">false</value>
         </namedValue>
         <namedValue name="includeNoLogs">

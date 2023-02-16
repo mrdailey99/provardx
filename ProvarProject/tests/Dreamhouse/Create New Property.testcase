@@ -121,7 +121,7 @@
       <clauses>
         <clause name="hidden" testItemId="70">
           <steps>
-            <caseCall testCaseId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" testCasePath="tests/Dreamhouse/Create Broker.testcase" testItemId="71">
+            <caseCall testCaseId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" testCasePath="tests/Create Broker.testcase" testItemId="71">
               <arguments>
                 <argument id="Email__c">
                   <value class="variable">

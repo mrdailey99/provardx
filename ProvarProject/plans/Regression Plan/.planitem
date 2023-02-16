@@ -29,9 +29,6 @@
         <namedValue name="includeTestCaseDetails">
           <value class="value" valueClass="boolean">true</value>
         </namedValue>
-        <namedValue name="includeOnlyFailures">
-          <value class="value" valueClass="boolean">false</value>
-        </namedValue>
         <namedValue name="includeOnlyBdd">
           <value class="value" valueClass="boolean">false</value>
         </namedValue>
@@ -55,9 +52,6 @@
         </namedValue>
         <namedValue name="includeTestCaseScreenshots">
           <value class="value" valueClass="boolean">false</value>
-        </namedValue>
-        <namedValue name="includeTestCaseWarningMessages">
-          <value class="value" valueClass="boolean">true</value>
         </namedValue>
         <namedValue name="includeTestCaseInfoMessages">
           <value class="value" valueClass="boolean">true</value>

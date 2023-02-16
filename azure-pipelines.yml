@@ -62,23 +62,23 @@ steps:
     displayName: "Install & Configure Provar for running ProvarDX"
 
   - bash: |
-      sfdx force:project:create -n ProvarDX
+      sfdx project create -n ProvarDX
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
       ## cp package.xml ProvarDX/package.xml
       cp .forceignore ProvarDX/.forceignore
     displayName: "Creates SFDX Project with some sample configuration files"
 
   - bash: |
-      sfdx force:auth:jwt:grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+      sfdx auth jwt grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
     displayName: "Authenticates to Dev Hub Org"
 
   - bash: |
-      sfdx force:org:list --clean
+      sfdx org list --clean
     displayName: "Cleans stale Org authentications"
 
   - bash: |
-      sfdx force:org:create -f ProvarDX/config/project-scratch-def.json -a $(scratch_org_alias)
-      sfdx force:org:display -u $(scratch_org_alias)
+      sfdx org create scratch -f ProvarDX/config/project-scratch-def.json --setalias $(scratch_org_alias)
+      sfdx org display --target-org $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
   - task: ShellScript@2
@@ -110,7 +110,7 @@ steps:
     displayName: "Run Provar Tests"
 
   - bash: |
-      sfdx force:org:delete -u $(scratch_org_alias) --noprompt
+      sfdx org delete scratch --target-org $(scratch_org_alias) --noprompt
     displayName: "Delete Scratch Org"
     
   # Publish Test Results
