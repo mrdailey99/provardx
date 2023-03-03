@@ -77,7 +77,7 @@ steps:
     displayName: "Cleans stale Org authentications"
 
   - bash: |
-      sfdx org create scratch -f ProvarDX/config/project-scratch-def.json --setalias $(scratch_org_alias)
+      sfdx org create scratch -f ProvarDX/config/project-scratch-def.json --alias $(scratch_org_alias)
       sfdx org display --target-org $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 

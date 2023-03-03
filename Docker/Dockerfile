@@ -29,7 +29,7 @@ ARG ENV
 ## ANT Target to run in build file
 ARG ANT_TARGET=runtests
 ## Build file to run tests
-ARG BUILD_FILE=DockerBS_build.xml
+ARG BUILD_FILE=smoke_build.xml
 ## Test Plan to target in build file
 ARG TEST_PLAN
 ## Provar secrets password (input either here or as "--build-arg PROVAR_SECRETS_PASSWORD=YOURSECRETSPASSWORD" in build command)
