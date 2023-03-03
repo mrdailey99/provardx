@@ -110,7 +110,7 @@ steps:
     displayName: "Run Provar Tests"
 
   - bash: |
-      sfdx org delete scratch --target-org $(scratch_org_alias) --noprompt
+      sfdx org delete scratch --target-org $(scratch_org_alias) --no-prompt
     displayName: "Delete Scratch Org"
     
   # Publish Test Results
