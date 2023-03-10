@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlanInstance testCasePath="tests/Regression/Account/CreateAccount_VerifyRESTAPI.testcase">
-  <planSettings/>
-  <planFeatures/>
-  <associations>
-    <association assocationType="TM.TEST_SUITE_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0c8d000002lwZ4AAI"/>
-  </associations>
-</testPlanInstance>

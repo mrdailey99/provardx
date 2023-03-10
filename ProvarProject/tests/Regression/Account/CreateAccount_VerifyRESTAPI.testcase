@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase id="4">
   <summary/>
   <steps>
+    <caseCall testCaseId="b43b24f5-1936-4d84-ac49-ae9b0aebbe61" testCasePath="tests/Regression/Account/CreateNewAccount.testcase" testItemId="13">
+      <arguments>
+        <argument id="AccountName">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Smoke </value>
+              <funcCall id="UniqueId">
+                <argument id="length">
+                  <value class="value" valueClass="decimal">6</value>
+                </argument>
+              </funcCall>
+            </parts>
+          </value>
+        </argument>
+        <argument id="AccountPhone">
+          <value class="compound">
+            <parts>
+              <funcCall id="UniqueId">
+                <argument id="length">
+                  <value class="value" valueClass="decimal">3</value>
+                </argument>
+                <argument id="format">
+                  <value class="variable">
+                    <path element="NUMERIC"/>
+                  </value>
+                </argument>
+              </funcCall>
+              <value valueClass="string">-</value>
+              <funcCall id="UniqueId">
+                <argument id="length">
+                  <value class="value" valueClass="decimal">3</value>
+                </argument>
+                <argument id="format">
+                  <value class="variable">
+                    <path element="NUMERIC"/>
+                  </value>
+                </argument>
+              </funcCall>
+              <value valueClass="string">-</value>
+              <funcCall id="UniqueId">
+                <argument id="length">
+                  <value class="value" valueClass="decimal">4</value>
+                </argument>
+                <argument id="format">
+                  <value class="variable">
+                    <path element="NUMERIC"/>
+                  </value>
+                </argument>
+              </funcCall>
+            </parts>
+          </value>
+        </argument>
+        <argument id="Website">
+          <value class="value" valueClass="string">testing.com</value>
+        </argument>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="Lightning">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="accountId">
+          <name class="value" valueClass="string">accountId</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: Website">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkVqAAL"/>
@@ -382,6 +450,6 @@
     </apiCall>
   </steps>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgaEAE"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgaEAE" lastModifiedDateTime="2023-03-10T16:01:17Z"/>
   </associations>
 </testCase>

@@ -32,12 +32,7 @@
     "testplanFeatures": [
        {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
        {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
-       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"},
+       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"},
        {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}
-    ],
-    "email": {
-        "sendEmail": true,
-        "toRecipients": [ "michael.dailey@provartesting.com"],
-        "ccRecipients": [ "sedon98@gmail.com" ]
-    }
+    ]
  }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="20" visibility="Internal">
+<testCase id="20" registryId="14c5e2df-ba8a-45e0-b507-af9f057348de" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -863,7 +863,7 @@
     </apiCall>
   </steps>
   <params>
-    <param linkedToUrl="provar:hasvalue:399d86d5-e665-4a63-935a-f280f6ae7fd6" name="reuseConnectionName" title="Override Connection">
+    <param linkedToUrl="provar:hasvalue:399d86d5-e665-4a63-935a-f280f6ae7fd6" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
       <summary>The name of an already opened connect to re-use.</summary>
       <type>
         <connectionType>
@@ -876,7 +876,7 @@
     </param>
   </params>
   <outputParams>
-    <param name="leadId" title="leadId">
+    <param name="leadId" passwordVariableAllowed="true" title="leadId">
       <summary>The name under which the resulting Object Id will be stored.</summary>
       <type>
         <textType>
@@ -891,7 +891,7 @@
         <path element="leadId"/>
       </sourceValue>
     </param>
-    <param name="LeadCompany" title="LeadCompany">
+    <param name="LeadCompany" passwordVariableAllowed="true" title="LeadCompany">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -906,7 +906,7 @@
         <path element="LeadCompany"/>
       </sourceValue>
     </param>
-    <param name="LeadPhone" title="LeadPhone">
+    <param name="LeadPhone" passwordVariableAllowed="true" title="LeadPhone">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -921,7 +921,7 @@
         <path element="LeadPhone"/>
       </sourceValue>
     </param>
-    <param name="LeadName" title="LeadName">
+    <param name="LeadName" passwordVariableAllowed="true" title="LeadName">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -936,7 +936,7 @@
         <path element="LeadName"/>
       </sourceValue>
     </param>
-    <param name="Email" title="Email">
+    <param name="Email" passwordVariableAllowed="true" title="Email">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -951,7 +951,7 @@
         <path element="Email"/>
       </sourceValue>
     </param>
-    <param name="Title" title="Title">
+    <param name="Title" passwordVariableAllowed="true" title="Title">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -996,6 +996,6 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLg6EAE"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLg6EAE" lastModifiedDateTime="2023-03-10T15:50:35Z"/>
   </associations>
 </testCase>
