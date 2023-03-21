@@ -1,11 +1,11 @@
 version: 2.1
 orbs:
-    provar: provartesting/provar@2.9.1
+    provar: provartesting/provar@2.9.2
 jobs:
     build:
         executor:
             name: provar/default
-            tag: 8-jdk-stretch-node-browsers
+            tag: 11-jdk-stretch-node-browsers
         parameters:
             # Name of the build file to execute
             build_file:

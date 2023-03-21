@@ -35,10 +35,10 @@ steps:
 
   - task: JavaToolInstaller@0
     inputs:
-      versionSpec: '8'
+      versionSpec: '11'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
-    displayName: "Configure JDK 8"
+    displayName: "Configure JDK 11"
     
   - bash: |
       echo "Set IP of Azure Agent to Variable"
