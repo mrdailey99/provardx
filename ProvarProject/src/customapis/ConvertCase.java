@@ -62,10 +62,14 @@ public class ConvertCase {
     
     @TestApiExecutor
     public void execute() {
+    	testLogger.info("Starting " + this.getClass().getName());
+
     	InputText = InputText.toString();
         if (Upper) {
-        	testExecutionContext.setValue(resultName, InputText.toUpperCase(), resultScope);
+        	testLogger.info("Converting " + InputText  + " to upper case.");
+        	testExecutionContext.setValue(resultName, InputText.toUpperCase(), resultScope);        	
         } else {
+        	testLogger.info("Converting " + InputText  + " to lower case.");
         	testExecutionContext.setValue(resultName, InputText.toLowerCase(), resultScope);
         }                               
     }

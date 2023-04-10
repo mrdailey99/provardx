@@ -62,12 +62,16 @@ public class SubString {
     
     @TestApiExecutor
     public void execute() {
+    	testLogger.info("Starting " + this.getClass().getName());
+    	testLogger.info("Getting a substring of " + InputText + " by trimming " + Digits + " digits.");
+
     	InputText = InputText.toString();
     	String result = null;
     	if ((InputText != null) && (InputText.length() > 0)) {
       		result = InputText.substring(0, InputText.length() - Digits);
    		}
     	testExecutionContext.setValue(resultName, result, resultScope);       
+    	testLogger.info("Input: " + InputText + "   Output: " + result + ".");
     }
     
 }

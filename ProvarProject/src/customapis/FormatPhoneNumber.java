@@ -57,8 +57,8 @@ public class FormatPhoneNumber {
     public void execute() {
 
     	// Put our implementation logic here.
-    	testLogger.info("Hello from " + this.getClass().getName());
-
+    	testLogger.info("Starting " + this.getClass().getName());
+    	testLogger.info("Unformatted Phone Number: " + phoneNumber);
     	String customNumber = phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
     	testLogger.info("Formatted Phone Number: " + customNumber);
     	

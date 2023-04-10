@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="0">
   <summary/>
   <steps>
+    <apiCall apiId="customapis.MyTestApi" name="MyTestApi" testItemId="12" title="My Test Api: ⇒ ">
+      <arguments>
+        <argument id="input1">
+          <value class="value" valueClass="string">test</value>
+        </argument>
+        <argument id="param2">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="output">
+          <value class="value" valueClass="string">test</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="customapis.SubString" name="SubString" testItemId="1" title="Substring: ⇒ Substring">
       <arguments>
         <argument id="InputText">
@@ -75,6 +91,9 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
+        <argument id="NumberOfNumbers">
+          <value class="value" valueClass="decimal">-1</value>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="customapis.MathPower" name="MathPower" testItemId="6" title="Math Power: ⇒ Exponential">
@@ -87,6 +106,32 @@
         </argument>
         <argument id="resultName">
           <value class="value" valueClass="string">Exponential</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.RunCommandLine" name="RunCommandLine" testItemId="9" title="Run Command Line: ⇒ ">
+      <arguments>
+        <argument id="command">
+          <value class="value" valueClass="string">C:\\buildkite-agent\\buildkite-agent.exe start</value>
+        </argument>
+        <argument id="status">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="statusScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="customapis.RunBatchFile" name="RunBatchFile" testItemId="10" title="Run Batch File: ⇒ Result">
+      <arguments>
+        <argument id="BatchFilePath">
+          <value class="value" valueClass="string">windowsdetails.bat</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Result</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>

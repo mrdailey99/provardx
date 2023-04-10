@@ -68,7 +68,10 @@ public class RandomInteger {
     
     @TestApiExecutor
     public void execute() {        
-    	
+    	testLogger.info("Starting " + this.getClass().getName());
+
+    	testLogger.info("Generating a random number of " + NumberOfDigits + " digits up to the number " + NumberOfNumbers + ".");
+
         // define the range 
         int max = (int)Math.pow(10, NumberOfDigits)-1;
         int min = 1;
@@ -86,6 +89,8 @@ public class RandomInteger {
         	randomValue = (int)(Math.random() * range) + min;	
         }        
          
+    	testLogger.info("Random Number Generated: " + randomValue + ".");
+
 		testExecutionContext.setValue(resultName, randomValue, resultScope); 
     }
     

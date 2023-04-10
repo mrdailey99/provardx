@@ -64,10 +64,11 @@ public class MathPower {
     public void execute() {
 
     	// Put our implementation logic here.
-    	testLogger.info("Hello from " + this.getClass().getName());
+    	testLogger.info("Starting " + this.getClass().getName());
 
     	int exponential = (int)(Math.pow(base, exponent)); 
         testExecutionContext.setValue(resultName, exponential, resultScope);
+        testLogger.info("Performing operation: " + base + "^" + exponent + "=" + exponential);
     }
     
 }

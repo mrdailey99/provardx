@@ -62,10 +62,10 @@ ARG ProvarSecretsPassword
 ARG PROVAR_sf_Admin
 ARG PROVAR_sf_Admin_password
 # The location to save the Provar binaries to (from downloads page)
-ENV REPO_HOME=/srv/Provar \
+ENV REPO_HOME=/opt/Provar \
     PROVAR_VERSION=${PROVAR_DEFAULT_VERSION} \
     ## Set the WORKSPACE for execution
-    WORKSPACE=/home/${PROJECT_NAME} \
+    WORKSPACE=/home/${PROJECT_NAME} \    
     DISPLAY=:99.0 \
     JAVA_ARGS=-verbose:class \
     ENVIRONMENT=${ENV} \
@@ -77,27 +77,32 @@ ENV REPO_HOME=/srv/Provar \
     PROVAR_sf_Admin=${PROVAR_sf_Admin} \
     PROVAR_sf_Admin_password=${PROVAR_sf_Admin_password}
 
+# Install ANT, XVFB, Provar Automation, and Chrome
 RUN set -ex \
     && apt -y update -qq && apt install -y \
     xvfb \ 
     wget \
-    gnupg \
     unzip \
-    && apt-get install -y openjdk-8-jdk \
+    gnupg2 \
+    && apt-get install -y openjdk-11-jdk \
     && apt-get install -y ant \
-    && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/chrome.list \
-    && apt update -qq \
-    && apt-cache search chrome \
-    && apt-get install google-chrome-stable -y \
-    && wget -O /etc/init.d/xvfb https://gist.githubusercontent.com/axilleas/3fc13e0c90ad9f58bee903a41e8a6d48/raw/169a60010635e05eaa902c5f3b4393321f2452f0/xvfb \
-    && chmod 0755 /etc/init.d/xvfb \
-    && sh -e /etc/init.d/xvfb start \
+    && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb --no-check-certificate \
+    && apt install ./google-chrome-stable_current_amd64.deb -y \
+    # && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    # && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/chrome.list \
+    # && apt update -qq \
+    # && apt-cache search chrome \
+    # && apt-get install google-chrome-stable -y \
+    # && wget -O /etc/init.d/xvfb https://gist.githubusercontent.com/axilleas/3fc13e0c90ad9f58bee903a41e8a6d48/raw/169a60010635e05eaa902c5f3b4393321f2452f0/xvfb \
+    # && chmod 0755 /etc/init.d/xvfb \
+    # && sh -e /etc/init.d/xvfb start \
+    && xvfb-run start \
     && mkdir -p ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && wget -qP ${REPO_HOME} https://download.provartesting.com/${PROVAR_MAJOR_VERSION}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     && unzip ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip -d ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION} \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_DEFAULT_VERSION}.zip \
     && ant -version \
+    && xvfb-run  --help \
     && javac -version \
     ## Set up project payload && Copy script to PATH
     && mkdir -p ${WORKSPACE}/ANT/Results \
@@ -107,8 +112,6 @@ RUN set -ex \
 
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
-## (Optional: Only use for local runs or environments not using a Version Control System) Copy local project files to docker image
-## Otherwise files will be pulled from Git/etc. (in that case comment this line) and placed into ${WORKSPACE} where ${WORKSPACE} contains the .testproject file/etc.
 
 ### Proxy Env Variables
 #ENV com_provar_proxy_port=3128 \
@@ -125,9 +128,6 @@ ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
 #### ANT opts for getting the proxy logs if set in PRovar
 #ENV ANT_OPTS="-Dcom.provar.proxy.debug.trace=true"
 
-COPY . ${WORKSPACE}/
-# COPY ./runSeleniumGridHub.sh ./nodeConfig.json /usr/bin/
-# RUN chmod +x ${WORKSPACE}/runSeleniumGridHub.sh
 ## (Optional: Only use for local runs or environments not using a Version Control System) Copy local project files to docker image
 ## Otherwise files will be pulled from Git/etc. (in that case comment this line) and placed into ${WORKSPACE} where ${WORKSPACE} contains the .testproject file/etc.
 # COPY . ${WORKSPACE}/

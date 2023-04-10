@@ -83,7 +83,7 @@ RUN set -ex \
     wget \
     gnupg \
     unzip \
-    && apt-get install -y openjdk-8-jdk \
+    && apt-get install -y openjdk-11-jdk \
     && apt-get install -y ant
 RUN wget -q -O - https://urldefense.proofpoint.com/v2/url?u=https-3A__dl.google.com_linux_linux-5Fsigning-5Fkey.pub&d=DwIGaQ&c=08AGY6txKsvMOP6lYkHQpPMRA1U6kqhAwGa8-0QCg3M&r=Q9GUOfR_3_1JNxdPSL3yYw_CsHsqMZOB42nLIZUx9tc&m=2xb4-WVJ_0QHR5RYqNvziBVYBklSZThR2uxjfZVW4pyHoxMfVed781zFlxbzsFGk&s=elwCqV-gAHFWu6H8tglN02muWIDFH10D99blhQglVto&e=  | apt-key add - \
     && echo "deb [arch=amd64] https://urldefense.proofpoint.com/v2/url?u=http-3A__dl.google.com_linux_chrome_deb_&d=DwIGaQ&c=08AGY6txKsvMOP6lYkHQpPMRA1U6kqhAwGa8-0QCg3M&r=Q9GUOfR_3_1JNxdPSL3yYw_CsHsqMZOB42nLIZUx9tc&m=2xb4-WVJ_0QHR5RYqNvziBVYBklSZThR2uxjfZVW4pyHoxMfVed781zFlxbzsFGk&s=tZRhFxMpUWW4B-NLXJ2FQLfkXW9ldE8kAVBQo6XEdOo&e=  stable main" | tee /etc/apt/sources.list.d/chrome.list \
