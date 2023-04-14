@@ -190,12 +190,6 @@
             <connectionUrl envName="SIT" url="sf:user=tommy.dreamman@testing.com.sit;environment=PROD_DEV;logonAsConnection=Admin;lightningMode=true"/>
           </connectionUrls>
         </connection>
-        <connection id="45e50bbd-2255-49f8-909f-74f67b575c97" name="Test">
-          <summary/>
-          <connectionUrls>
-            <connectionUrl secureStorageNodeId="cba9ae0e-17bc-4d5d-9477-f5fa9056e557" url="sf:user=asdfasdf;password={password};environment=PROD_DEV;lightningMode=true"/>
-          </connectionUrls>
-        </connection>
       </connections>
     </connectionClass>
     <connectionClass name="testmanager">
