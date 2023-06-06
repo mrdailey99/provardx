@@ -62,6 +62,8 @@ steps:
     displayName: "Install & Configure Provar for running ProvarDX"
 
   - bash: |
+      cat project-scratch-def.json
+      echo $AGENT_IP
       sfdx project create -n ProvarDX
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
       ## cp package.xml ProvarDX/package.xml
