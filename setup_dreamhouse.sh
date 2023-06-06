@@ -6,7 +6,7 @@ git clone https://github.com/dreamhouseapp/dreamhouse-lwc
 cd dreamhouse-lwc
 ## Deploy Dreamhouse to Scratch Org
 echo "--- Deploy Dreamhouse to Scratch Org ---"
-sfdx force source push --targetusername $1
+sfdx project deploy start --target-org $1
 ## Assign dreamhouse permission set to the default user
 echo "--- Assign dreamhouse permission set to the default user ---"
 sfdx org assign permset -n dreamhouse --target-org $1
