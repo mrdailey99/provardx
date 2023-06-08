@@ -34,6 +34,8 @@ jobs:
         steps:
         - checkout
         - provar/setup_provar
+        - run:
+            command: sudo apt-get install libnss3
         - run: 
             command: ant -Dprovar.home="/home/circleci/project/Provar_Home" -Dproject.home="/home/circleci/project/<< parameters.project_name >>" 
                 -Dtest.plan="<< parameters.test_plan >>" -Denvironment="<< parameters.environment >>" 
