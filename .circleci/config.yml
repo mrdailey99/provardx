@@ -34,8 +34,8 @@ jobs:
         steps:
         - checkout
         - provar/setup_provar
-        - run:
-            command: sudo apt-get update -y
+        # - run:
+        #     command: sudo apt-get update -y
         - run:
             command: sudo apt-get install libnss3
         - run:
