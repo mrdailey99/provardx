@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
-    provar: provartesting/provar@2.10.1
+    # 2.10.1 is actually 2.10.2 since we needed a patch here
+    provar: provartesting/provar@2.10.2
 jobs:
     build:
         executor:
