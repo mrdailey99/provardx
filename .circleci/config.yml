@@ -33,10 +33,6 @@ jobs:
                 type: string
         steps:
         - checkout
-        - browser-tools/install-chrome
-        - browser-tools/install-chromedriver
-        - run:
-            command: sudo apt-get update -y && sudo apt-get install -y ant
         - provar/setup_provar
         - run:
             command: ant -Dprovar.home="/home/circleci/project/Provar_Home" -Dproject.home="/home/circleci/project/<< parameters.project_name >>" 
