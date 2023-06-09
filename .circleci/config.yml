@@ -12,7 +12,7 @@ workflows:
                 url: download.provartesting.com
                 project_name: ProvarProject
                 build_file: build_circleci.xml
-                test_plan: Regression
+                test_plan:  "Regression Plan"
                 environment: ""
                 email_target: michael.dailey@provartesting.com
-                name: "Run Provar Job that executes tests"
+                name: "Execute Provar Tests"
