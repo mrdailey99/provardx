@@ -1,12 +1,12 @@
 version: 2.1
 orbs:
     # 2.10.1 is actually 2.10.2 since we needed a patch here
-    provar: provartesting/provar@2.10.2
+    provar: provartesting/provar@2.10.3
 jobs:
     build:
         executor:
             name: provar/default
-            tag: 11-jdk-stretch-node-browsers
+            tag: current-browsers
         parameters:
             # Name of the build file to execute
             build_file:
@@ -33,14 +33,12 @@ jobs:
                 type: string
         steps:
         - checkout
+        - browser-tools/install-chrome
+        - browser-tools/install-chromedriver
+        - run:
+            command: sudo apt-get update -y && sudo apt-get install -y ant
         - provar/setup_provar
-        # - run:
-        #     command: sudo apt-get update -y
         - run:
-            command: sudo apt-get install libnss3
-        - run:
-            command: sudo apt-get install -y chromium-browser
-        - run: 
             command: ant -Dprovar.home="/home/circleci/project/Provar_Home" -Dproject.home="/home/circleci/project/<< parameters.project_name >>" 
                 -Dtest.plan="<< parameters.test_plan >>" -Denvironment="<< parameters.environment >>" 
                 -Demail.target=<< parameters.email_target >> -Dtest.folder="<< parameters.test_folder >>" -f << parameters.project_name >>/ANT/<< parameters.build_file >>
