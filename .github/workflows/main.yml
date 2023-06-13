@@ -39,14 +39,14 @@ jobs:
       # Steps represent a sequence of tasks that will be executed as part of the job
       steps:
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v3.0.0
-        - uses: actions/setup-java@v3.1.1
+        - uses: actions/checkout@v3
+        - uses: actions/setup-java@v3
           with:
             java-version: '11'
             distribution: 'temurin'
         - uses: actions/setup-node@v3
           with: 
-            node-version: '14'
+            node-version: '16'
         - name: Setup NPM
           run: npm install
         - uses: sfdx-actions/setup-sfdx@v1
@@ -74,25 +74,7 @@ jobs:
           run: |
             sfdx force:org:list --clean
             sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
-
-        # - name: Insert Whitelist IP in Property File
-        #   run: |
-        #     ip_addr=`hostname -I`
-        #     echo $ip_addr
-        #     ## split multiple addresses into array to grab 1st real IP
-        #     read -a ip <<< "$ip_addr"
-        #     echo "Ubuntu IP: ${ip[0]}"
-        #     echo "ifconfig:"
-        #     ifconfig
-        #     echo "ip r"
-        #     ip r
-        #     echo "systemd-resolve"
-        #     systemd-resolve --status | grep Current
-        #     echo "ip a"
-        #     ip a
-        #     sed -i "s|IP_WHITELIST|${ip[0]}|" project-scratch-def.json 
-        #     cat project-scratch-def.json
-              
+            
         - name: Create SFDX Project with config
           run: |
             sfdx force:project:create -n ProvarDX
