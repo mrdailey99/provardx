@@ -63,6 +63,7 @@ steps:
 
   - bash: |
       sfdx project generate -n ProvarDX
+      ls -la ProvarDX
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
       cp .forceignore ProvarDX/.forceignore
     displayName: "Creates SFDX Project with some sample configuration files"
