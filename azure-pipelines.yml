@@ -62,6 +62,7 @@ steps:
     displayName: "Install & Configure Provar for running ProvarDX"
 
   - bash: |
+      echo "Creating SFDX Project"
       sfdx project generate -n ProvarDX --json
       ls -la ProvarDX
       cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
