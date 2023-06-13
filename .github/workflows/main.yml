@@ -46,7 +46,7 @@ jobs:
             distribution: 'temurin'
         - uses: actions/setup-node@v3
           with: 
-            node-version: '16'
+            node-version: '14'
         - name: Setup NPM
           run: npm install
         - uses: sfdx-actions/setup-sfdx@v1
@@ -59,9 +59,8 @@ jobs:
             sfdx plugins:update
 
         - name: Download Provar CLI
-          uses: wei/wget@v1.1.1
-          with:
-            args: -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
+          run: |
+            wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
 
         - name: Setup Provar CLI
           run: |
@@ -114,7 +113,7 @@ jobs:
         #   run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
        
         - name: Upload Test Results Folder
-          uses: actions/upload-artifact@v2.2.1
+          uses: actions/upload-artifact@v3
           with:
             # Artifact name
             name: TestResults # optional, default is artifact
@@ -131,12 +130,12 @@ jobs:
       if: success() || failure()
       steps:
         - name: Download Artifacts
-          uses: actions/download-artifact@v3.0.0
+          uses: actions/download-artifact@v3
           with:
             path: artifacts
 
         - name: Publish JUnit Test Results
-          uses: EnricoMi/publish-unit-test-result-action@v1.32
+          uses: EnricoMi/publish-unit-test-result-action@v2
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             check_name: "Provar Regression Test Report"
