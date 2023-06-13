@@ -114,7 +114,7 @@ jobs:
         #   run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
        
         - name: Upload Test Results Folder
-          uses: actions/upload-artifact@v3.1.2
+          uses: actions/upload-artifact@v3
           with:
             # Artifact name
             name: TestResults # optional, default is artifact
