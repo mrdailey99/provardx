@@ -46,7 +46,7 @@ jobs:
             distribution: 'temurin'
         - uses: actions/setup-node@v3
           with: 
-            node-version: '16'
+            node-version: '14'
         - name: Setup NPM
           run: npm install
         - uses: sfdx-actions/setup-sfdx@v1
@@ -130,7 +130,7 @@ jobs:
       if: success() || failure()
       steps:
         - name: Download Artifacts
-          uses: actions/download-artifact@v2
+          uses: actions/download-artifact@v3
           with:
             path: artifacts
 
