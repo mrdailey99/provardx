@@ -63,7 +63,7 @@ steps:
 
   - bash: |
       echo "Creating SFDX Project"
-      sfdx project generate -n SFDXProject
+      sfdx force:project:create -n SFDXProject
       ls -la SFDXProject
       cp project-scratch-def.json SFDXProject/config/project-scratch-def.json
       cp .forceignore SFDXProject/.forceignore
