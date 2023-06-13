@@ -131,12 +131,12 @@ jobs:
       if: success() || failure()
       steps:
         - name: Download Artifacts
-          uses: actions/download-artifact@v3.0.2
+          uses: actions/download-artifact@v2.1.1
           with:
             path: artifacts
 
         - name: Publish JUnit Test Results
-          uses: EnricoMi/publish-unit-test-result-action@v2
+          uses: EnricoMi/publish-unit-test-result-action@v2.7.0
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             check_name: "Provar Regression Test Report"
