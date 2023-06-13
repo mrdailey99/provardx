@@ -113,16 +113,16 @@ jobs:
         # - name: Delete Scratch Org
         #   run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
        
-        - name: Upload Test Results Folder
-          uses: actions/upload-artifact@v3
-          with:
+      #  - name: Upload Test Results Folder
+       #   uses: actions/upload-artifact@v3
+        #  with:
             # Artifact name
-            name: TestResults # optional, default is artifact
+          #  name: TestResults # optional, default is artifact
             # A file, directory or wildcard pattern that describes what to upload
-            path: '**/ANT/Results'
+         #   path: '**/ANT/Results'
             # The desired behavior if no files are found using the provided path.
-            if-no-files-found: error
-            retention-days: 14 # optional
+          #  if-no-files-found: error
+           # retention-days: 14 # optional
     test_results:
       name: "Publish Test Results"
       needs: linux_regression
