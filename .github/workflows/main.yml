@@ -123,12 +123,12 @@ jobs:
             # The desired behavior if no files are found using the provided path.
           #  if-no-files-found: error
            # retention-days: 14 # optional
-    test_results:
-      name: "Publish Test Results"
-      needs: linux_regression
-      runs-on: ubuntu-latest
+ #   test_results:
+  #    name: "Publish Test Results"
+   #   needs: linux_regression
+    #  runs-on: ubuntu-latest
       # the linux_regression job might be skipped, we don't need to run this job then
-      if: success() || failure()
+     # if: success() || failure()
     #  steps:
         #- name: Download Artifacts
         #  uses: actions/download-artifact@v2
