@@ -63,13 +63,13 @@ steps:
 
   - bash: |
       echo "Creating SFDX Project"
-      sfdx project generate -n ProvarDX --json
-      ls -la ProvarDX
-      cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
-      cp .forceignore ProvarDX/.forceignore
+      sfdx project generate -n SFDXProject
+      ls -la SFDXProject
+      cp project-scratch-def.json SFDXProject/config/project-scratch-def.json
+      cp .forceignore SFDXProject/.forceignore
     displayName: "Creates SFDX Project with some sample configuration files"
 
-  - bash: |
+  - bash: | 
       sfdx auth jwt grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
     displayName: "Authenticates to Dev Hub Org"
 
@@ -78,7 +78,7 @@ steps:
     displayName: "Cleans stale Org authentications"
 
   - bash: |
-      sfdx org create scratch -f ProvarDX/config/project-scratch-def.json --alias $(scratch_org_alias)
+      sfdx org create scratch -f SFDXProject/config/project-scratch-def.json --alias $(scratch_org_alias)
       sfdx org display --target-org $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
