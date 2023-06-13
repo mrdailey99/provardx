@@ -130,22 +130,22 @@ jobs:
       # the linux_regression job might be skipped, we don't need to run this job then
       if: success() || failure()
       steps:
-        - name: Download Artifacts
-          uses: actions/download-artifact@v2
-          with:
-            path: artifacts
+        #- name: Download Artifacts
+        #  uses: actions/download-artifact@v2
+         # with:
+          #  path: artifacts
 
-        - name: Publish JUnit Test Results
-          uses: EnricoMi/publish-unit-test-result-action@v2
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            check_name: "Provar Regression Test Report"
+       # - name: Publish JUnit Test Results
+         # uses: EnricoMi/publish-unit-test-result-action@v2
+          #with:
+         #   github_token: ${{ secrets.GITHUB_TOKEN }}
+            #check_name: "Provar Regression Test Report"
             # File pattern of test result files
-            files: '**/Results/*.xml'
+          #  files: '**/Results/*.xml'
             # Individual runs of the same test may see different failures. Reports all individual failures when set "true" or the first only otherwise
-            report_individual_runs: true
+           # report_individual_runs: true
             # De-duplicates classes with same name by their file name when set "true", combines test results for those classes otherwise
-            deduplicate_classes_by_file_name: false
+            #deduplicate_classes_by_file_name: false
     # post_results_copado:
     #   name: "Resume Copado Deployment"
     #   needs: test_results
