@@ -46,7 +46,7 @@ jobs:
             distribution: 'temurin'
         - uses: actions/setup-node@v3
           with: 
-            node-version: '14'
+            node-version: '16'
         - name: Setup NPM
           run: npm install
         - uses: sfdx-actions/setup-sfdx@v1
@@ -76,7 +76,7 @@ jobs:
             
         - name: Create SFDX Project with config
           run: |
-            sfdx force:project:create -n ProvarDX
+            sfdx project generate -n ProvarDX
             cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
             ## cp package.xml ProvarDX/package.xml
             cp .forceignore ProvarDX/.forceignore
