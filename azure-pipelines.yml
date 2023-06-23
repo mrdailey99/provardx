@@ -56,6 +56,9 @@ steps:
       echo "Unzip Provar ANT Files"
       unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
+      # PRO-27523 (Removing additional JARs)
+      rm $(PROVAR_HOME)/com.sun.jna.platform_5.8.0.jar
+      rm $(PROVAR_HOME)/com.sun.jna_5.8.0.jar
       ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
       cd $PROVAR_HOME
       ls -la
