@@ -47,8 +47,6 @@ jobs:
         - uses: actions/setup-node@v3
           with: 
             node-version: '16'
-        - name: Setup NPM
-          run: npm install
         - uses: sfdx-actions/setup-sfdx@v1
           with:
             sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }}
