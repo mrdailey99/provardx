@@ -27,6 +27,7 @@
     "testplanFeatures": [
        {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
        {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
-       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"}
+       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "true"},
+       {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}
     ]
  }
