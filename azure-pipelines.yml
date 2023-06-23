@@ -63,10 +63,7 @@ steps:
 
   - bash: |
       echo "Creating SFDX Project"
-      sfdx force:project:create -n SFDXProject
-      echo "sleeping..."
-      sleep 30
-      echo "awake!"
+      sfdx project generate -n SFDXProject
       ls -la SFDXProject
       cp project-scratch-def.json SFDXProject/config/.
       cp .forceignore SFDXProject/.
