@@ -32,8 +32,8 @@ jobs:
       runs-on: ubuntu-latest
       env:
         scratch_org_alias: ProvarDX
-        provar_major_version: latest
-        provar_build_version: latest
+        provar_major_version: 2.10.1
+        provar_build_version: 2.10.1.05
         dev_hub_alias: SFDX-ENV
         provar_home: ${{ github.workspace }}/ProvarHome
       # Steps represent a sequence of tasks that will be executed as part of the job
@@ -67,8 +67,8 @@ jobs:
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
             # ERROR IN 2.10.1.05: https://provartesting.atlassian.net/browse/PRO-27523
-            rm ${{ env.provar_home }}/lib/com.sun.jna.platform_5.8.0.jar
-            rm ${{ env.provar_home }}/lib/com.sun.jna_5.8.0.jar
+            #rm ${{ env.provar_home }}/lib/com.sun.jna.platform_5.8.0.jar
+            #rm ${{ env.provar_home }}/lib/com.sun.jna_5.8.0.jar
                       
         - name: List Authenticated Orgs and Set Default Username
           run: |
