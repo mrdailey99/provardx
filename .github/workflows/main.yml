@@ -66,6 +66,9 @@ jobs:
             unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
+            # PRO-27523 (Removing additional JARs)
+            rm ${{ env.provar_home }}/lib/com.sun.jna.platform_5.8.0.jar
+            rm ${{ env.provar_home }}/lib/com.sun.jna_5.8.0.jar
             
         - name: List Authenticated Orgs and Set Default Username
           run: |
