@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="8">
+<testCase id="17">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -121,7 +121,7 @@
       <clauses>
         <clause name="hidden" testItemId="70">
           <steps>
-            <caseCall testCaseId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" testCasePath="tests/Create Broker.testcase" testItemId="71">
+            <caseCall testCaseId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" testCasePath="tests/Dreamhouse/Create Broker via API.testcase" testItemId="71">
               <arguments>
                 <argument id="Email__c">
                   <value class="variable">
@@ -149,6 +149,9 @@
                 </argument>
                 <argument id="Status__c">
                   <value class="value" valueClass="string">Available</value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -846,25 +849,13 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="68" title="Set the Broker reference to {BrokerData.Name}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="75" title="Set the Broker reference to {BrokerData.Name}">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=RecordBroker__cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBroker__c"/>
+                  <value class="uiLocator" uri="ui:locator?name=RecordBroker_cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBroker__c"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Broker reference to {BrokerData.Name}</value>
-                </argument>
-                <argument id="beforeWait"/>
-                <argument id="afterWait"/>
-                <argument id="autoRetry"/>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="value">
                   <value class="variable">
@@ -872,8 +863,28 @@
                     <path element="Name"/>
                   </value>
                 </argument>
-                <argument id="blur"/>
-                <argument id="pressEnter"/>
+                <argument id="blur">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="pressEnter">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Set the Broker reference to {BrokerData.Name}</value>
+                </argument>
+                <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Broker__c" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -901,7 +912,7 @@
       </clauses>
       <generatedParameters>
         <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
-          <summary>The name under which the resulting Property Id will be stored.</summary>
+          <summary>The name under which the resulting Object Id will be stored.</summary>
           <type>
             <textType/>
           </type>
@@ -1200,6 +1211,9 @@
                 <argument id="PropertyCreated">
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
               </arguments>
             </caseCall>
           </steps>
@@ -1290,12 +1304,6 @@
                     <path element="Status"/>
                   </expected>
                 </resultAssertion>
-                <resultAssertion resultName="Title__c" title="Check Title__c">
-                  <expected class="variable">
-                    <path element="PropertyData"/>
-                    <path element="Title"/>
-                  </expected>
-                </resultAssertion>
                 <resultAssertion resultName="Zip__c" title="Check Zip__c">
                   <expected class="variable">
                     <path element="PropertyData"/>
@@ -1319,7 +1327,6 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Description__c" name="Description__c" title="Description"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Price__c" name="Price__c" title="Asking Price"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Status__c" name="Status__c" title="Status"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Title__c" name="Title__c" title="Title"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Zip__c" name="Zip__c" title="Zip"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Days_On_Market__c" name="Days_On_Market__c" title="Days On Market"/>
               </generatedParameters>
@@ -1445,85 +1452,6 @@
           </steps>
         </clause>
       </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="72" title="On SF brokerCard component in Residence view">
-      <arguments>
-        <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Admin</value>
-        </argument>
-        <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?guid=18811711-7461-41cc-953b-03ed3fd27d35&amp;lightningComponent=brokerCard&amp;flexiPage=Property_Record_Page&amp;flexiPath=brokerCard"/>
-        </argument>
-        <argument id="navigate">
-          <value class="value" valueClass="string">Always</value>
-        </argument>
-        <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF brokerCard component in Residence view</value>
-        </argument>
-        <argument id="windowSelection">
-          <value class="value" valueClass="string">Default</value>
-        </argument>
-        <argument id="windowSize">
-          <value class="value" valueClass="string">Default</value>
-        </argument>
-        <argument id="closeWindow"/>
-        <argument id="captureBefore">
-          <value class="value" valueClass="string">false</value>
-        </argument>
-        <argument id="captureAfter">
-          <value class="value" valueClass="string">false</value>
-        </argument>
-        <argument id="sfUiTargetObjectId">
-          <value class="value" valueClass="string">a013k00000hkXBoAAM</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="substeps" testItemId="73">
-          <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" name="UiAssert" testItemId="74" title="UI Assert">
-              <arguments>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">Values</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-                <argument id="fieldAssertions">
-                  <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="json::guid::d8365c8f-7ceb-40b0-b735-c1ecf8330f2d">
-                      <fieldLocator uri="ui:locator?name=json%3A%3Aguid%3A%3Ad8365c8f-7ceb-40b0-b735-c1ecf8330f2d&amp;path=json%3A%3Aguid%3A%3Ab9419873-8e77-4f1e-a952-dc737e9f4b74%2Fjson%3A%3Aguid%3A%3A70d01202-3aa5-40fb-9c86-ebe9d409cce1%2Fjson%3A%3Aguid%3A%3Ab947309b-3432-42e1-a343-de26b34172d3%2Fjson%3A%3Aguid%3A%3A13b52e1a-0a11-419f-8e4b-2be9a3f262eb"/>
-                      <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                          <value class="value" valueClass="string">Devy McDevin</value>
-                        </uiAttributeAssertion>
-                      </attributeAssertions>
-                    </uiFieldAssertion>
-                  </value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="columnAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="pageAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="beforeWait"/>
-                <argument id="autoRetry"/>
-              </arguments>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-      <generatedParameters>
-        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
-          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
-          <type>
-            <textType/>
-          </type>
-        </apiParam>
-      </generatedParameters>
     </apiCall>
   </steps>
 </testCase>

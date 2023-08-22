@@ -197,7 +197,7 @@
         <connection id="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" name="PM">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="d721eb50-4b3d-4082-b026-8e16c0a26df6" url="tm:projectName=ProvarProject;projectKey=ProDX;clientId={clientId};clientSecret={clientSecret};callbackUrl={callbackUrl};environment=PROD_DEV;accessToken={accessToken};refreshToken={refreshToken};apiLoginUrl=https://provar-devops-center-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D8d000002d0gkEAA/0058d000002FxSbAAK;sendScreenshots=true"/>
+            <connectionUrl secureStorageNodeId="d721eb50-4b3d-4082-b026-8e16c0a26df6" url="tm:projectName=ProvarProject;projectKey=ProDX;clientId={clientId};clientSecret={clientSecret};callbackUrl={callbackUrl};environment=PROD_DEV;accessToken={accessToken};refreshToken={refreshToken};apiLoginUrl=https://provar-devops-center-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D8d000002d0gkEAA/0058d000002FxSbAAK;sendScreenshots=true;reportMetadataCoverage=true"/>
           </connectionUrls>
         </connection>
       </connections>

@@ -22,9 +22,9 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument argId="60e21c25-4d1f-4d36-ab67-3441e6f002c2" id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -42,6 +42,9 @@
         </argument>
         <argument id="webBrowser"/>
       </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test"/>
+      </parameterValueSources>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Broker__c=&gt;BrokerId">
       <arguments>
@@ -113,6 +116,17 @@
     <param linkedToUrl="provar:hasvalue:f0b97ee3-0a3f-4289-b496-22a018b48c4b" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Status__c" name="Status__c" passwordVariableAllowed="true" title="Status__c">
       <summary/>
     </param>
+    <param linkedToUrl="provar:hasvalue:60e21c25-4d1f-4d36-ab67-3441e6f002c2" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="BrokerId" passwordVariableAllowed="true" title="BrokerId">
@@ -138,6 +152,7 @@
     <argument id="Status__c">
       <value class="value" valueClass="string">Available</value>
     </argument>
+    <argument id="reuseConnectionName"/>
   </args>
   <outputArgs>
     <outputArgument id="BrokerId">

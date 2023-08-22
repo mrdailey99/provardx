@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2" registryId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" visibility="Internal">
+<testCase id="14" registryId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -20,9 +20,9 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="closeAllPrimaryTabs">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument argId="7c949982-4f9b-4ac2-9e51-1bee25640f6e" id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reopen</value>
         </argument>
@@ -184,13 +184,13 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="110" title="On SF propertyFilter component in Property Explorer">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="160" title="On SF propertyFilter component in Property Explorer">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?guid=d8a5a8fb-1308-47f6-8edd-1bb150c43fdf&amp;lightningComponent=propertyFilter&amp;flexiPage=Property_Explorer&amp;flexiPath=propertyFilter"/>
+          <value class="uiTarget" uri="sf:ui:target?lightningComponent=propertyFilter&amp;fcPkg=salesforce-lwc&amp;guid=d8a5a8fb-1308-47f6-8edd-1bb150c43fdf&amp;flexiPath=propertyFilter&amp;flexiPage=Property_Explorer"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
@@ -213,9 +213,9 @@
         </argument>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="111">
+        <clause name="substeps" testItemId="161">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="112" title="Set the Search Key field to {PropertyData.City}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="162" title="Set the Search Key field to {PropertyData.City}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A7ae4e82f-5c9a-4f86-8784-aabe04784be6&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -247,17 +247,26 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" passwordVariableAllowed="true" title="Value">
+                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <type>
                     <textType/>
                   </type>
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="113" title="Set Slider Value the Max Price slider field to {PropertyData.AskingPrice}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="165" title="Set Slider Value the Max Price slider field to {PropertyData.AskingPrice}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3Ab4974b8e-88e9-4b94-ab51-65c7485d222c&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=setslidervalue"/>
+                </argument>
+                <argument id="value">
+                  <value class="variable">
+                    <path element="PropertyData"/>
+                    <path element="AskingPrice"/>
+                  </value>
                 </argument>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
@@ -275,15 +284,6 @@
                   <value class="value" valueClass="string">Set Slider Value the Max Price slider field to {PropertyData.AskingPrice}</value>
                 </argument>
                 <argument id="autoRetry"/>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=setslidervalue"/>
-                </argument>
-                <argument id="value">
-                  <value class="variable">
-                    <path element="PropertyData"/>
-                    <path element="AskingPrice"/>
-                  </value>
-                </argument>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -293,7 +293,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="114" title="Set Slider Value the Bedrooms slider field to {PropertyData.Beds}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="167" title="Set Slider Value the Bedrooms slider field to {PropertyData.Beds}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A5deb45fa-0290-49d0-b76e-a9d89c8d5b33&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -332,10 +332,19 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="115" title="Set Slider Value the Bathrooms slider field to {PropertyData.Baths}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="168" title="Set Slider Value the Bathrooms slider field to {PropertyData.Baths}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A25da42fb-7612-4beb-9534-94494d333158&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=setslidervalue"/>
+                </argument>
+                <argument id="value">
+                  <value class="variable">
+                    <path element="PropertyData"/>
+                    <path element="Baths"/>
+                  </value>
                 </argument>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
@@ -353,15 +362,6 @@
                   <value class="value" valueClass="string">Set Slider Value the Bathrooms slider field to {PropertyData.Baths}</value>
                 </argument>
                 <argument id="autoRetry"/>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=setslidervalue"/>
-                </argument>
-                <argument id="value">
-                  <value class="variable">
-                    <path element="PropertyData"/>
-                    <path element="Baths"/>
-                  </value>
-                </argument>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -398,7 +398,7 @@
                   <value class="value" valueClass="string">Admin</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?guid=d8a5a8fb-1308-47f6-8edd-1bb150c43fdf&amp;lightningComponent=propertyFilter&amp;flexiPage=Property_Explorer&amp;flexiPath=propertyFilter"/>
+                  <value class="uiTarget" uri="sf:ui:target?lightningComponent=propertyFilter&amp;fcPkg=salesforce-lwc&amp;guid=d8a5a8fb-1308-47f6-8edd-1bb150c43fdf&amp;flexiPath=propertyFilter&amp;flexiPage=Property_Explorer"/>
                 </argument>
                 <argument id="navigate">
                   <value class="value" valueClass="string">Always</value>
@@ -537,7 +537,7 @@
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?guid=3cc2125f-0931-42c5-a8fc-951b47b53ea4&amp;lightningComponent=propertySummary&amp;flexiPage=Property_Explorer&amp;flexiPath=propertySummary"/>
+          <value class="uiTarget" uri="sf:ui:target?lightningComponent=propertySummary&amp;fcPkg=salesforce-lwc&amp;guid=3cc2125f-0931-42c5-a8fc-951b47b53ea4&amp;flexiPath=propertySummary&amp;flexiPage=Property_Explorer"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -592,19 +592,19 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="123" title="On SF Information component in Residence view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="172" title="On SF Property View screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?lightningComponent=flexipage%3AfieldSection&amp;flexiPage=Property_Record_Page&amp;flexiPath=flexipage_fieldSection"/>
+          <value class="uiTarget" uri="sf:ui:target?object=Property__c&amp;action=View&amp;noOverride=true"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF Information component in Residence view</value>
+          <value class="value" valueClass="string">On SF Property View screen</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -624,9 +624,9 @@
         </argument>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="124">
+        <clause name="substeps" testItemId="173">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="125" title="Read Asking Price">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="174" title="Read Asking Price">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">AskingPrice</value>
@@ -636,8 +636,8 @@
                 </argument>
                 <argument id="fieldAssertions">
                   <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="RecordPrice__cField">
-                      <fieldLocator uri="ui:locator?name=RecordPrice__cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DPrice__c"/>
+                    <uiFieldAssertion resultName="Price__c">
+                      <fieldLocator uri="ui:locator?name=Price__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DPrice__c"/>
                       <attributeAssertions>
                         <uiAttributeAssertion attributeName="value" comparisonType="None"/>
                       </attributeAssertions>
@@ -657,7 +657,53 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="126" title="Read Beds">
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="178" title="On SF Information component in Property view">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?lightningComponent=flexipage%3AfieldSection&amp;flexiPath=flexipage_fieldSection&amp;flexiPage=Property_Record_Page"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Dont</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Information component in Property view</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetObjectId">
+          <value class="value" valueClass="string">a013k00000ctHYWAA2</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="179">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="180" title="Read Beds">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Beds</value>
@@ -667,8 +713,8 @@
                 </argument>
                 <argument id="fieldAssertions">
                   <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="RecordBeds__cField">
-                      <fieldLocator uri="ui:locator?name=RecordBeds__cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBeds__c"/>
+                    <uiFieldAssertion resultName="RecordBeds_cField">
+                      <fieldLocator uri="ui:locator?name=RecordBeds_cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBeds__c"/>
                       <attributeAssertions>
                         <uiAttributeAssertion attributeName="value" comparisonType="None"/>
                       </attributeAssertions>
@@ -686,12 +732,9 @@
                 </argument>
                 <argument id="beforeWait"/>
                 <argument id="autoRetry"/>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="127" title="Read Baths">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="181" title="Read Baths">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Baths</value>
@@ -701,8 +744,8 @@
                 </argument>
                 <argument id="fieldAssertions">
                   <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="RecordBaths__cField">
-                      <fieldLocator uri="ui:locator?name=RecordBaths__cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBaths__c"/>
+                    <uiFieldAssertion resultName="RecordBaths_cField">
+                      <fieldLocator uri="ui:locator?name=RecordBaths_cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBaths__c"/>
                       <attributeAssertions>
                         <uiAttributeAssertion attributeName="value" comparisonType="None"/>
                       </attributeAssertions>
@@ -722,7 +765,7 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="131" title="Assert: {AskingPrice.fields.RecordPrice__cField.value} LessThanOrEqualTo {PropertyData.AskingPrice}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="190" title="Assert: {AskingPrice.fields.RecordPrice__cField.value} LessThanOrEqualTo {PropertyData.AskingPrice}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -762,13 +805,13 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="132" title="Assert: {Beds.fields.RecordBeds__cField.value} GreaterThanOrEqualTo {PropertyData.Beds}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="191" title="Assert: {Beds.fields.RecordBeds_cField.value} GreaterThanOrEqualTo {PropertyData.Beds}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
                     <path element="Beds"/>
                     <path element="fields"/>
-                    <path element="RecordBeds__cField"/>
+                    <path element="RecordBeds_cField"/>
                     <path element="value"/>
                   </value>
                 </argument>
@@ -802,13 +845,13 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="133" title="Assert: {Baths.fields.RecordBaths__cField.value} GreaterThanOrEqualTo {PropertyData.Baths}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="192" title="Assert: {Baths.fields.RecordBaths_cField.value} GreaterThanOrEqualTo {PropertyData.Baths}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
                     <path element="Baths"/>
                     <path element="fields"/>
-                    <path element="RecordBaths__cField"/>
+                    <path element="RecordBaths_cField"/>
                     <path element="value"/>
                   </value>
                 </argument>
@@ -842,62 +885,16 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-      <generatedParameters>
-        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
-          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
-          <type>
-            <textType/>
-          </type>
-        </apiParam>
-      </generatedParameters>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Verify Property Details">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Verify Property Details</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="31">
-          <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="128" title="On SF Information component in Residence view">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Verify Property Details">
               <arguments>
-                <argument id="uiConnectionName">
-                  <value class="value" valueClass="string">Admin</value>
-                </argument>
-                <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?lightningComponent=flexipage%3AfieldSection&amp;flexiPage=Property_Record_Page&amp;flexiPath=flexipage_fieldSection"/>
-                </argument>
-                <argument id="navigate">
-                  <value class="value" valueClass="string">Dont</value>
-                </argument>
-                <argument id="targetDescription">
-                  <value class="value" valueClass="string">On SF Information component in Residence view</value>
-                </argument>
-                <argument id="windowSelection">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-                <argument id="windowSize">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-                <argument id="closeWindow"/>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="sfUiTargetObjectId">
-                  <value class="value" valueClass="string">a013k00000ctHYWAA2</value>
+                <argument id="description">
+                  <value class="value" valueClass="string">Verify Property Details</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="substeps" testItemId="129">
+                <clause name="hidden" testItemId="31">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="134" title="UI Assert: State">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="182" title="UI Assert: State">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -910,7 +907,7 @@
                             <uiFieldAssertion resultName="RecordState__cField">
                               <fieldLocator uri="ui:locator?name=RecordState__cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DState__c"/>
                               <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
                                   <value class="variable">
                                     <path element="PropertyData"/>
                                     <path element="State"/>
@@ -933,7 +930,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="135" title="UI Assert: City">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="183" title="UI Assert: City">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -943,13 +940,113 @@
                         </argument>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="RecordCity__cField">
-                              <fieldLocator uri="ui:locator?name=RecordCity__cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DCity__c"/>
+                            <uiFieldAssertion resultName="RecordCity_cField">
+                              <fieldLocator uri="ui:locator?name=RecordCity_cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DCity__c"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
+                                  <value class="variable">
+                                    <path element="PropertyData"/>
+                                    <path element="City"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="147" title="If: {PropertyCreated = true}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="variable">
+              <path element="PropertyCreated"/>
+            </lhs>
+            <rhs class="value" valueClass="boolean">true</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="148">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="216" title="On SF Information component in Property view">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?lightningComponent=flexipage%3AfieldSection&amp;flexiPath=flexipage_fieldSection&amp;flexiPage=Property_Record_Page"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Dont</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Information component in Property view</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="sfUiTargetObjectId">
+                  <value class="value" valueClass="string">a013k00000ctHYWAA2</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="217">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="218" title="UI Assert: Broker Name">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="RecordBroker_cField">
+                              <fieldLocator uri="ui:locator?name=RecordBroker_cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBroker__c"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
                                   <value class="variable">
                                     <path element="PropertyData"/>
-                                    <path element="City"/>
+                                    <path element="Broker"/>
                                   </value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
@@ -980,106 +1077,6 @@
                   </type>
                 </apiParam>
               </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="147" title="If: {PropertyCreated = true}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="variable">
-                      <path element="PropertyCreated"/>
-                    </lhs>
-                    <rhs class="value" valueClass="boolean">true</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="148">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="159" title="On SF brokerCard component in Residence view">
-                      <arguments>
-                        <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">Admin</value>
-                        </argument>
-                        <argument id="target">
-                          <value class="uiTarget" uri="sf:ui:target?guid=18811711-7461-41cc-953b-03ed3fd27d35&amp;lightningComponent=brokerCard&amp;flexiPage=Property_Record_Page&amp;flexiPath=brokerCard"/>
-                        </argument>
-                        <argument id="navigate">
-                          <value class="value" valueClass="string">Always</value>
-                        </argument>
-                        <argument id="targetDescription">
-                          <value class="value" valueClass="string">On SF brokerCard component in Residence view</value>
-                        </argument>
-                        <argument id="windowSelection">
-                          <value class="value" valueClass="string">Default</value>
-                        </argument>
-                        <argument id="windowSize">
-                          <value class="value" valueClass="string">Default</value>
-                        </argument>
-                        <argument id="closeWindow"/>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="sfUiTargetObjectId">
-                          <value class="value" valueClass="string">a013k00000hkXBoAAM</value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="substeps" testItemId="73">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" name="UiAssert" testItemId="74" title="UI Assert">
-                              <arguments>
-                                <argument id="resultName">
-                                  <value class="value" valueClass="string">Values</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Test</value>
-                                </argument>
-                                <argument id="fieldAssertions">
-                                  <value class="valueList" mutable="Mutable">
-                                    <uiFieldAssertion resultName="json::guid::d8365c8f-7ceb-40b0-b735-c1ecf8330f2d">
-                                      <fieldLocator uri="ui:locator?name=json%3A%3Aguid%3A%3Ad8365c8f-7ceb-40b0-b735-c1ecf8330f2d&amp;path=json%3A%3Aguid%3A%3Ab9419873-8e77-4f1e-a952-dc737e9f4b74%2Fjson%3A%3Aguid%3A%3A70d01202-3aa5-40fb-9c86-ebe9d409cce1%2Fjson%3A%3Aguid%3A%3Ab947309b-3432-42e1-a343-de26b34172d3%2Fjson%3A%3Aguid%3A%3A13b52e1a-0a11-419f-8e4b-2be9a3f262eb"/>
-                                      <attributeAssertions>
-                                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                          <value class="variable">
-                                            <path element="PropertyData"/>
-                                            <path element="Broker"/>
-                                          </value>
-                                        </uiAttributeAssertion>
-                                      </attributeAssertions>
-                                    </uiFieldAssertion>
-                                  </value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="columnAssertions">
-                                  <value class="valueList" mutable="Mutable"/>
-                                </argument>
-                                <argument id="pageAssertions">
-                                  <value class="valueList" mutable="Mutable"/>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="autoRetry"/>
-                              </arguments>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                      <generatedParameters>
-                        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
-                          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
-                          <type>
-                            <textType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
             </apiCall>
           </steps>
         </clause>
@@ -1165,6 +1162,17 @@
         <booleanType/>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:7c949982-4f9b-4ac2-9e51-1bee25640f6e" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="PropertyCity">
@@ -1188,6 +1196,7 @@
     <argument id="PropertyCreated">
       <value class="value" valueClass="boolean">false</value>
     </argument>
+    <argument id="reuseConnectionName"/>
   </args>
   <tagReferences>
     <tagRef tagName="Search Properties Test Time" tagTypeName="sla"/>
