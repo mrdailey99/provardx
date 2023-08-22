@@ -56,10 +56,6 @@ steps:
       echo "Unzip Provar ANT Files"
       unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
-      # ERROR IN 2.10.1.05: https://provartesting.atlassian.net/browse/PRO-27523
-      rm $(PROVAR_HOME)/lib/com.sun.jna.platform_5.8.0.jar
-      rm $(PROVAR_HOME)/lib/com.sun.jna_5.8.0.jar
-      ## cp -r $BUILD_SOURCESDIRECTORY/ProvarProject/.licenses $PROVAR_HOME/.licenses
       cd $PROVAR_HOME
       ls -la
     displayName: "Install & Configure Provar for running ProvarDX"
@@ -85,11 +81,11 @@ steps:
       sfdx org display --target-org $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
-  - task: ShellScript@2
-    inputs:
-      scriptPath: insert_secrets_password.sh
-      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
-    displayName: "Insert Provar Secrets Password to Property File"
+  # - task: ShellScript@2
+  #   inputs:
+  #     scriptPath: insert_secrets_password.sh
+  #     args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
+  #   displayName: "Insert Provar Secrets Password to Property File"
 
   - task: ShellScript@2
     inputs:
@@ -110,7 +106,7 @@ steps:
     displayName: "Reload Metadata Cache"
 
   - bash: |
-      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json -m 'Reuse' 
+      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json -m 'Reuse' -c '/home/vsts/work/1/s/.provarCaches' -s $(secrets_password)
     displayName: "Run Provar Tests"
 
   - bash: |
