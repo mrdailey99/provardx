@@ -20,7 +20,7 @@
     "testprojectSecrets":"ProvarSecretsPassword",
     "environment":{
       "testEnvironment":"",
-      "webBrowser":"Chrome",
+      "webBrowser":"Chrome_Headless",
       "webBrowserConfig":"Full Screen",
       "webBrowserProviderName":"Desktop",
       "webBrowserDeviceName":"Full Screen"
