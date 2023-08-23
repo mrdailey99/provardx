@@ -25,12 +25,12 @@ steps:
     displayName: "Install Node.js"
     
   - script: |
-      npm install -g sfdx-cli
-    displayName: "Node Install: sfdx-cli"
+      npm install -g @salesforce/cli
+    displayName: "Node Install: sf cli"
 
   - script: |
-      echo y | sfdx plugins:install @provartesting/provardx 
-      sfdx plugins:update
+      echo y | sf plugins:install @provartesting/provardx 
+      sf plugins:update
     displayName: "Install ProvarDX Plugin via SFDX"
 
   - task: JavaToolInstaller@0
@@ -62,7 +62,7 @@ steps:
 
   - bash: |
       echo "Creating SFDX Project"
-      sfdx project generate -n SFDXProject
+      sf project generate -n SFDXProject
       ls -la SFDXProject
       cp project-scratch-def.json SFDXProject/config/.
       cp .forceignore SFDXProject/.
@@ -73,7 +73,7 @@ steps:
     displayName: "Authenticates to Dev Hub Org"
 
   - bash: |
-      sfdx org list --clean
+      sf org list --clean
     displayName: "Cleans stale Org authentications"
 
   - bash: |
