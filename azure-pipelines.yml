@@ -69,7 +69,7 @@ steps:
     displayName: "Creates SFDX Project with some sample configuration files"
 
   - bash: | 
-      sfdx auth jwt grant --clientid $(consumer_key) --jwtkeyfile "$(serverKey.secureFilePath)" --username $(dev_hub_username) --setdefaultdevhubusername --setalias $(dev_hub_alias)
+      sf auth jwt grant --client-id $(consumer_key) --jwt-key-file "$(serverKey.secureFilePath)" --username $(dev_hub_username) --set-default-dev-hub --alias $(dev_hub_alias)
     displayName: "Authenticates to Dev Hub Org"
 
   - bash: |
@@ -77,15 +77,15 @@ steps:
     displayName: "Cleans stale Org authentications"
 
   - bash: |
-      sfdx org create scratch -f SFDXProject/config/project-scratch-def.json --alias $(scratch_org_alias)
-      sfdx org display --target-org $(scratch_org_alias)
+      sf org create scratch -f SFDXProject/config/project-scratch-def.json --alias $(scratch_org_alias)
+      sf org display --target-org $(scratch_org_alias)
     displayName: "Create Scratch Org and Org description"
 
-  # - task: ShellScript@2
-  #   inputs:
-  #     scriptPath: insert_secrets_password.sh
-  #     args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
-  #   displayName: "Insert Provar Secrets Password to Property File"
+  - task: ShellScript@2
+    inputs:
+      scriptPath: insert_secrets_password.sh
+      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
+    displayName: "Insert Provar Secrets Password to Property File"
 
   - task: ShellScript@2
     inputs:
@@ -106,11 +106,11 @@ steps:
     displayName: "Reload Metadata Cache"
 
   - bash: |
-      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json -m 'Reuse' -c '/home/vsts/work/1/s/.provarCaches' -s $(secrets_password)
+      echo y | xvfb-run sfdx provar:runtests -p provardx-properties.json -m 'Reuse' -c '/home/vsts/work/1/s/.provarCaches'
     displayName: "Run Provar Tests"
 
   - bash: |
-      sfdx org delete scratch --target-org $(scratch_org_alias) --no-prompt
+      sf org delete scratch --target-org $(scratch_org_alias) --no-prompt
     displayName: "Delete Scratch Org"
     
   # Publish Test Results

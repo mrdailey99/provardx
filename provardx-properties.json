@@ -16,7 +16,8 @@
     "metadata":{
        "metadataLevel":"Reuse",
        "cachePath":"/home/vsts/work/1/s/.provarCaches"
-    },
+    },   
+    "testprojectSecrets":"ProvarSecretsPassword",
     "environment":{
       "testEnvironment":"",
       "webBrowser":"Chrome",
