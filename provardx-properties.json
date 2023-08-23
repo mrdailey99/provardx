@@ -7,18 +7,16 @@
     "projectPath":"/home/vsts/work/1/s/ProvarProject",
     "resultsPath":"/home/vsts/work/1/s/ProvarProject/ANT/Results",
     "resultsPathDisposition":"Replace",
-    "smtpPath": "/home/vsts/work/1/s/ProvarProject/.smtp",
+    "smtpPath": "",
     "testOutputLevel":"BASIC",
     "pluginOutputlevel":"WARNING",
-    "excludeCallable":false,
     "stopOnError":false,
     "lightningMode":true,
     "connectionRefreshType":"Reload",
     "metadata":{
-       "metadataLevel":"Reload",
+       "metadataLevel":"Reuse",
        "cachePath":"/home/vsts/work/1/s/.provarCaches"
     },
-    "testprojectSecrets": "ProvarSecretsPassword", 
     "environment":{
       "testEnvironment":"",
       "webBrowser":"Chrome",
@@ -26,13 +24,13 @@
       "webBrowserProviderName":"Desktop",
       "webBrowserDeviceName":"Full Screen"
     },
-    "testPlan":[
-       "Regression Plan"
-    ],
     "testplanFeatures": [
        {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
        {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
        {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"},
        {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}
-    ]
+    ],    
+    "testPlan":[
+      "/Regression Plan"
+   ]
  }
