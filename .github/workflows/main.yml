@@ -96,7 +96,6 @@ jobs:
             sfdx force:org:display -u ${{ env.scratch_org_alias }}
 
         - name: Setup Dreamhouse App in Scratch Org
-          task: ShellScript@2
           run:  bash ${GITHUB_WORKSPACE}/setup_dreamhouse.sh ${{ env.scratch_org_alias }}
     
         - name: Validate ProvarDX property file
