@@ -78,7 +78,6 @@ jobs:
             echo "This GitHub Workflow agent public IP is: $IP"
         
         - name: Insert Whitelist IP in Property File
-          task: ShellScript@2
           run:  bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh $IP 
 
         - name: Create SFDX Project with config
