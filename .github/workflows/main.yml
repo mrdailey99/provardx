@@ -72,13 +72,11 @@ jobs:
             sfdx force:org:list --clean
             sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
         
-        - name: Azure Public IP
+        - name: Retrieve Azure Public IP and Set in Scratch Def
           run: |
             IP=($(curl -s http://ipinfo.io/json | jq '.ip' | sed -e 's/^"//' -e 's/"$//'))
             echo "This GitHub Workflow agent public IP is: $IP"
-        
-        - name: Insert Whitelist IP in Property File
-          run:  bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh $IP $GITHUB_WORKSPACE/provardx-properties-github.json
+            bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh ${IP} ProvarDX/config/project-scratch-def.json
 
         - name: Create SFDX Project with config
           run: |
