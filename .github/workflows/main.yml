@@ -78,7 +78,7 @@ jobs:
             echo "This GitHub Workflow agent public IP is: $IP"
         
         - name: Insert Whitelist IP in Property File
-          run:  bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh $IP 
+          run:  bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh $IP $GITHUB_WORKSPACE/provardx-properties-github.json
 
         - name: Create SFDX Project with config
           run: |
