@@ -89,7 +89,7 @@ jobs:
 
         - name: Create Scratch Org 
           run: |
-            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/p}}roject-scratch-def.json -a ${{ env.scratch_org_alias }}
+            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
             sfdx force:org:display -u ${{ env.scratch_org_alias }}
 
         - name: Setup Dreamhouse App in Scratch Org
