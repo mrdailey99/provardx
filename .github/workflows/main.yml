@@ -71,30 +71,34 @@ jobs:
           run: |
             sfdx force:org:list --clean
             sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
-            
+        
+        - name: Azure Public IP
+          run: |
+            IP=($(curl -s http://ipinfo.io/json | jq '.ip' | sed -e 's/^"//' -e 's/"$//'))
+            echo "This GitHub Workflow agent public IP is: $IP"
+        
+        - name: Insert Whitelist IP in Property File
+          task: ShellScript@2
+          run:  bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh $IP 
+
         - name: Create SFDX Project with config
           run: |
             sfdx project generate -n ProvarDX
             cp project-scratch-def.json ProvarDX/config/project-scratch-def.json
-            ## cp package.xml ProvarDX/package.xml
             cp .forceignore ProvarDX/.forceignore
               
         - name: Insert Secrets Password
           run: sed -i "s|ProvarSecretsPassword|${{ secrets.SECRETS_PASSWORD }}|" $GITHUB_WORKSPACE/provardx-properties-github.json
 
-        # - name: Create Scratch Org 
-        #   run: |
-        #     sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
-        #     sfdx force:org:display -u ${{ env.scratch_org_alias }}
+        - name: Create Scratch Org 
+          run: |
+            sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/p}}roject-scratch-def.json -a ${{ env.scratch_org_alias }}
+            sfdx force:org:display -u ${{ env.scratch_org_alias }}
 
-        # - name: Update Scratch Org Admin Profile
-        #   run: |
-        #     cd ProvarDX
-        #     sfdx force:mdapi:retrieve -r package -u ${{ env.dev_hub_alias }} -k package.xml
-        #     unzip ./package/unpackaged.zip
-        #     sfdx force:mdapi:convert --rootdir unpackaged --outputdir force-app
-        #     sfdx force:source:push -u ${{ env.scratch_org_alias }} -f
-
+        - name: Setup Dreamhouse App in Scratch Org
+          task: ShellScript@2
+          run:  bash ${GITHUB_WORKSPACE}/setup_dreamhouse.sh ${{ env.scratch_org_alias }}
+    
         - name: Validate ProvarDX property file
           run: sfdx provar:validate -p provardx-properties-github.json
 
@@ -107,8 +111,8 @@ jobs:
         - name: Run Provar Tests
           run: echo y | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
 
-        # - name: Delete Scratch Org
-        #   run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
+        - name: Delete Scratch Org
+          run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
        
         - name: Upload Test Results Folder
           uses: actions/upload-artifact@v3
