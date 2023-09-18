@@ -118,7 +118,7 @@ jobs:
           if: success()
           uses: fjogeleit/http-request-action@v1
           with:
-            url: '${{ github.event.client_payload.resume_url }}'
+            url: 'https://api.backend.copado.com/json/v1/webhook/resumeDeployment/a3P8d000000ZLzgEAG?api_key=22bb1a83a9d4931ad2d27fb5368e6868&deploymentId=a3R8d0000005RKOEA2&success=TRUE'
             method: 'POST'
         - name: Resume Copado Deployment - FAILURE
           if: failure()
