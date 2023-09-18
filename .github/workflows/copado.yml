@@ -49,18 +49,7 @@ jobs:
             unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
-                      
-        - name: List Authenticated Orgs and Set Default Username
-          run: |
-            sfdx force:org:list --clean
-            sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
         
-        - name: Retrieve Azure Public IP and Set in Scratch Def
-          run: |
-            IP=($(curl -s http://ipinfo.io/json | jq '.ip' | sed -e 's/^"//' -e 's/"$//'))
-            echo "This GitHub Workflow agent public IP is: $IP"
-            bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh ${IP} project-scratch-def.json
-
         - name: Create SFDX Project with config
           run: |
             sfdx project generate -n ProvarDX
