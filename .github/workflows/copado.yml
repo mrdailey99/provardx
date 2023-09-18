@@ -110,8 +110,9 @@ jobs:
             deduplicate_classes_by_file_name: false
     post_results_copado:
       name: "Resume Copado Deployment"
-      needs: linux_regression
+      needs: [linux_regression, test_results]
       runs-on: ubuntu-latest
+      if: '!cancelled()'
       steps:
         - name: Resume Copado Deployment - PASS
           if: success()
