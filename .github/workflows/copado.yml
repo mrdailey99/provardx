@@ -18,7 +18,7 @@ jobs:
         provar_major_version: latest
         provar_build_version: latest
         provar_home: ${{ github.workspace }}/ProvarHome
-        test_environment: ${{ github.event.client_payload.orgname }}
+        test_environment: ${{ github.event.client_payload.environment }}
       # Steps represent a sequence of tasks that will be executed as part of the job
       steps:
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -50,17 +50,6 @@ jobs:
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
                       
-        - name: List Authenticated Orgs and Set Default Username
-          run: |
-            sfdx force:org:list --clean
-            sfdx force:config:set defaultdevhubusername=${{ env.dev_hub_alias }} defaultusername=${{ env.dev_hub_alias }} --global
-        
-        - name: Retrieve Azure Public IP and Set in Scratch Def
-          run: |
-            IP=($(curl -s http://ipinfo.io/json | jq '.ip' | sed -e 's/^"//' -e 's/"$//'))
-            echo "This GitHub Workflow agent public IP is: $IP"
-            bash ${GITHUB_WORKSPACE}/replace_ip_in_scratch_org_def.sh ${IP} project-scratch-def.json
-
         - name: Create SFDX Project with config
           run: |
             sfdx project generate -n ProvarDX
@@ -68,31 +57,23 @@ jobs:
             cp .forceignore ProvarDX/.forceignore
               
         - name: Insert Secrets Password
-          run: sed -i "s|ProvarSecretsPassword|${{ secrets.SECRETS_PASSWORD }}|" $GITHUB_WORKSPACE/provardx-properties-github.json
-
-#        - name: Create Scratch Org 
-  #        run: |
-    #        sfdx force:org:create -f $GITHUB_WORKSPACE/ProvarDX/config/project-scratch-def.json -a ${{ env.scratch_org_alias }}
-      #      sfdx force:org:display -u ${{ env.scratch_org_alias }}
-
-       # - name: Setup Dreamhouse App in Scratch Org
-        #  run:  bash ${GITHUB_WORKSPACE}/setup_dreamhouse.sh ${{ env.scratch_org_alias }}
+          run: sed -i "s|ProvarSecretsPassword|${{ secrets.SECRETS_PASSWORD }}|" $GITHUB_WORKSPACE/provardx-properties-github-copado.json
     
+        - name: Insert Test Environment
+          run: sed -i "s|ENVIRONMENT|${{ github.event.client_payload.environment }}|" $GITHUB_WORKSPACE/provardx-properties-github-copado.json
+
         - name: Validate ProvarDX property file
-          run: sfdx provar:validate -p provardx-properties-github.json
+          run: sfdx provar:validate -p provardx-properties-github-copado.json
 
         - name: Compile Provar Project
-          run: sfdx provar:compile -p provardx-properties-github.json
+          run: sfdx provar:compile -p provardx-properties-github-copado.json
 
         - name: Reload Metadata Cache
-          run: sfdx provar:metadatacache -m 'Reload' -c '.provarCaches' -p provardx-properties-github.json
+          run: sfdx provar:metadatacache -m 'Reload' -c '.provarCaches' -p provardx-properties-github-copado.json
 
         - name: Run Provar Tests
-          run: yes | xvfb-run sfdx provar:runtests -p provardx-properties-github.json
+          run: yes | xvfb-run sfdx provar:runtests -p provardx-properties-github-copado.json
 
-       # - name: Delete Scratch Org
-       #   run: sfdx force:org:delete -u ${{ env.scratch_org_alias }} --noprompt
-       
         - name: Upload Test Results Folder
           uses: actions/upload-artifact@v3
           with:

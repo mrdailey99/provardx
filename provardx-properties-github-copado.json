@@ -1,0 +1,33 @@
+{
+    "provarHome":"/home/runner/work/provardx/provardx/ProvarHome",
+    "projectPath":"/home/runner/work/provardx/provardx/ProvarProject",
+    "resultsPath":"/home/runner/work/provardx/provardx/ProvarProject/ANT/Results",
+    "resultsPathDisposition":"Replace", 
+    "testOutputLevel":"WARNING",
+    "pluginOutputlevel":"WARNING",
+    "excludeCallable":false,
+    "stopOnError":false,
+    "lightningMode":true,
+    "connectionRefreshType":"Reuse",
+    "metadata":{
+       "metadataLevel":"Reuse",
+       "cachePath":"/home/runner/work/provardx/provardx/.provarCaches"
+    },
+    "testprojectSecrets": "ProvarSecretsPassword", 
+    "environment":{
+      "testEnvironment":"ENVIRONMENT",
+      "webBrowser":"Chrome",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+    },
+    "testPlan":[
+       "Regression Plan"
+    ],
+    "testplanFeatures": [
+       {"name": "PDF", "type": "OUTPUT", "enabled": "true"},
+       {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"},
+       {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"},
+       {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}
+    ]
+ }
