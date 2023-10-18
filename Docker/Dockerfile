@@ -40,7 +40,7 @@ ARG PROVAR_sf_Admin
 ARG PROVAR_sf_Admin_password
 ## This docker build assumes you run as root (-u root)
 ## Initial stage to use base image with ANT and Oracle JDK 8
-FROM ubuntu:22.04
+FROM ubuntu:latest
 LABEL maintainer="Provar Testing <support@provartesting.com>"
 LABEL version="1.0"
 ARG PROVAR_FULL_VERSION
@@ -76,37 +76,44 @@ RUN set -ex \
     xvfb \ 
     wget \
     unzip \
+    gnupg \
     ant \
-    && apt-get install -y openjdk-11-jdk \
+    openjdk-11-jdk 
+RUN set -ex \
     && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb --no-check-certificate \
     && apt install ./google-chrome-stable_current_amd64.deb -y \
     && wget -O /etc/init.d/xvfb https://gist.githubusercontent.com/axilleas/3fc13e0c90ad9f58bee903a41e8a6d48/raw/169a60010635e05eaa902c5f3b4393321f2452f0/xvfb \
     && chmod 0755 /etc/init.d/xvfb \
     && sh -e /etc/init.d/xvfb start \
     && mkdir -p ${REPO_HOME}/Provar_ANT_${PROVAR_FULL_VERSION} \
-    && wget -qP ${REPO_HOME} https://download.provartesting.com/${PROVAR_MAJOR_VERSION}/Provar_ANT_${PROVAR_FULL_VERSION}.zip \
+    && wget -qP ${REPO_HOME} https://provar-installers.s3-us-west-2.amazonaws.com/${PROVAR_MAJOR_VERSION}/Provar_ANT_${PROVAR_FULL_VERSION}.zip \
     && unzip ${REPO_HOME}/Provar_ANT_${PROVAR_FULL_VERSION}.zip -d ${REPO_HOME}/Provar_ANT_${PROVAR_FULL_VERSION} \
     && rm -rf ${REPO_HOME}/Provar_ANT_${PROVAR_FULL_VERSION}.zip \
     && ant -version \
     && xvfb-run  --help \
     && javac -version \
-    # && rm /google-chrome-stable_current_amd64.deb \
-    && apt-get purge --auto-remove -y curl gnupg wget unzip \
+    && google-chrome --version \
+    && apt-get purge --auto-remove -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     ## Set up project payload && Copy script to PATH
     && mkdir -p ${WORKSPACE}/ANT/Results \
     && mkdir -p ${WORKSPACE}/src \
     && mkdir -p ${WORKSPACE}/lib \
-    && mkdir -p ${WORKSPACE}/bin 
+    && mkdir -p ${WORKSPACE}/bin \
+    ## Disable Setuid/setgid binaries
+    && find / -xdev -perm /6000 -type f -exec chmod a-s {} \; || true
 
 ENV PROVAR_HOME=${REPO_HOME}/Provar_ANT_${PROVAR_VERSION} \
     CACHEPATH=${WORKSPACE}/../.provarCaches 
 
 ## (Optional: Only use for local runs or environments not using a Version Control System) Copy local project files to docker image
 ## Otherwise files will be pulled from Git/etc. (in that case comment this line) and placed into ${WORKSPACE} where ${WORKSPACE} contains the .testproject file/etc.
-# COPY . ${WORKSPACE}/
+COPY . ${WORKSPACE}/
 ## (Optional: Licenses folder must be in same directory as Dockerfile first)
+RUN set -ex \
+    && mkdir -p ${HOME}/Provar/.properties \
+    && echo "com.provar.licensecheck.cli=false" >> ${HOME}/Provar/.properties/provar.properties
 # Copy Licenses folder to container for execution tracking
 # Copy SMTP folder for Email reporting in Docker image (must have SMTP set up in image)
 # COPY .licenses/ ${PROVAR_HOME}/.licenses 

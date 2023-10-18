@@ -2,9 +2,9 @@
 	<property name="version" value="2.260.16.0"/>
 	<property environment="env"/>
 	<property name="provar.home" value="${env.PROVAR_HOME}"/>
-	<property name="testproject.home" value="${env.WORKSPACE}"/>
+	<property name="testproject.home" value="${env.WORKSPACE}/ProvarProject"/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
-	<property name="secrets.password" value="${ProvarSecretsPassword}"/>
+	<property name="secrets.password" value="${env.ProvarSecretsPassword}"/>
 
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
 	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
@@ -18,21 +18,22 @@
 				resultsPath="${testproject.results}" 
 				resultsPathDisposition="Increment" 
 				testEnvironment="" 
-				webBrowser="Chrome" 
+				webBrowser="Chrome_Headless" 
 				webBrowserConfiguration="Full Screen"
 				webBrowserProviderName="Desktop"
 				webBrowserDeviceName="Full Screen" 
 				salesforceMetadataCache="Reuse" 
-				projectCachePath="../.provarCaches"
+				projectCachePath="$[testproject.home}/../.provarCaches"
 				testOutputlevel="BASIC" 
 				pluginOutputlevel="WARNING"
 				stopTestRunOnError="false"
 				secretsPassword="${secrets.password}"
 		>
-			<fileset id="testplan" dir="../plans/Copado Regression"></fileset>
+			<fileset id="testplan" dir="${testproject.home}/plans/Smoke Test"></fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="false"/>
+			<planFeature name="TEST_MANAGER" type="REPORTING" enabled="true"/>
 
 		</Run-Test-Case>
 
