@@ -71,12 +71,10 @@ jobs:
         ## License check is optional in 2.11.2, will be mandatory in 2.11.3+
         - name: Set License check to false for CLI 
           run: |
-            printenv
-            echo $HOME
-            echo $USER_HOME
-            find . -type d -name "Provar"
-            mkdir -p ${{ env.USER_HOME }}/Provar/.properties
-            echo "com.provar.licensecheck.cli=false" >> ${{ env.USER_HOME }}/Provar/.properties/provar.properties  
+            #printenv
+            #find . -type d -name "Provar"
+            mkdir -p $HOME/Provar/.properties
+            echo "com.provar.licensecheck.cli=false" >> $HOME/Provar/.properties/provar.properties  
                       
         - name: List Authenticated Orgs and Set Default Username
           run: |
