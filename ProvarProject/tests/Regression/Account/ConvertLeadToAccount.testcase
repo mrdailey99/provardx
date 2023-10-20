@@ -110,100 +110,6 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot; OR GetSelectedEnvironment() = null}">
-      <tags>
-        <string>disabled</string>
-      </tags>
-      <associations>
-        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkncAAD"/>
-      </associations>
-      <arguments>
-        <argument id="condition">
-          <value class="or">
-            <lhs class="or">
-              <lhs class="or">
-                <lhs class="eq">
-                  <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                  <rhs class="value" valueClass="string">ProvarDX</rhs>
-                </lhs>
-                <rhs class="eq">
-                  <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                  <rhs class="value" valueClass="string">Scratch</rhs>
-                </rhs>
-              </lhs>
-              <rhs class="eq">
-                <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                <rhs class="value" valueClass="string">&lt;default&gt;</rhs>
-              </rhs>
-            </lhs>
-            <rhs class="eq">
-              <lhs class="funcCall" id="GetSelectedEnvironment"/>
-              <rhs class="value"/>
-            </rhs>
-          </value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="then" testItemId="23">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="26" title="Set Values: ConvertedLeadStatus">
-              <associations>
-                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknrAAD"/>
-              </associations>
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">ConvertedLeadStatus</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="value" valueClass="string">Closed - Converted</value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
-          </steps>
-          <associations>
-            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknlAAD"/>
-          </associations>
-        </clause>
-        <clause name="else" testItemId="24">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: ConvertedLeadStatus">
-              <associations>
-                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknsAAD"/>
-              </associations>
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">ConvertedLeadStatus</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="value" valueClass="string">Qualified</value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
-          </steps>
-          <associations>
-            <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknmAAD"/>
-          </associations>
-        </clause>
-      </clauses>
-    </apiCall>
     <caseCall testCaseId="14c5e2df-ba8a-45e0-b507-af9f057348de" testCasePath="tests/Regression/Lead/CreateNewLead.testcase" testItemId="27">
       <arguments>
         <argument id="reuseConnectionName">
@@ -317,8 +223,13 @@
               </arguments>
               <resultAssertions>
                 <resultAssertion resultName="Name" title="Check Name">
-                  <expected class="variable">
-                    <path element="LeadCompany"/>
+                  <expected class="compound">
+                    <parts>
+                      <variable>
+                        <path element="LeadCompany"/>
+                      </variable>
+                      <value valueClass="string">123</value>
+                    </parts>
                   </expected>
                 </resultAssertion>
                 <resultAssertion resultName="Phone" title="Check Phone">
@@ -532,6 +443,6 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-06-15T12:12:47Z"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-10-20T19:33:01Z"/>
   </associations>
 </testCase>

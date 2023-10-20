@@ -342,6 +342,18 @@
         <browserPlatformProperty name="factoryClass"/>
       </properties>
     </browserProvider>
+    <browserProvider name="Appium" type="Appium">
+      <devices>
+        <browserProviderDevice name="Android" platform="ANDROID">
+          <properties/>
+        </browserProviderDevice>
+      </devices>
+      <properties>
+        <browserPlatformProperty name="gridUrl" value="http://localhost:4723/wd/hub"/>
+        <browserPlatformProperty name="newCommandTimeout" type="DesiredCapability" value="60"/>
+        <browserPlatformProperty name="startIWDP" platform="IOS" type="DesiredCapability" value="true"/>
+      </properties>
+    </browserProvider>
   </browserProviders>
   <associations>
     <association assocationType="TM.TEST_PROJECT" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0Y8d000000aOT2EAM"/>
