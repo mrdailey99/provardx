@@ -60,6 +60,12 @@ steps:
       ls -la
     displayName: "Install & Configure Provar for running ProvarDX"
 
+    ## License check is optional in 2.11.2, will be mandatory in 2.11.3+
+  - bash: |
+      mkdir -p $HOME/Provar/.properties
+      echo "com.provar.licensecheck.cli=false" >> $HOME/Provar/.properties/provar.properties
+    displayName: "Set License check to false for CLI"
+      
   - bash: |
       echo "Creating SFDX Project"
       sf project generate -n SFDXProject

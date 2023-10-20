@@ -67,6 +67,14 @@ jobs:
             unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
+            
+        ## License check is optional in 2.11.2, will be mandatory in 2.11.3+
+        - name: Set License check to false for CLI 
+          run: |
+            #printenv
+            #find . -type d -name "Provar"
+            mkdir -p $HOME/Provar/.properties
+            echo "com.provar.licensecheck.cli=false" >> $HOME/Provar/.properties/provar.properties  
                       
         - name: List Authenticated Orgs and Set Default Username
           run: |
