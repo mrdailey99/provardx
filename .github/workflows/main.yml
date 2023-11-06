@@ -146,6 +146,10 @@ jobs:
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             check_name: "Provar Regression Test Report"
+            # The created test result check run has failure state if any test fails or test errors occur. Never fails when set to "nothing", fails only on errors when set to "errors". Default is "test failures".
+            # fail_on: errors # optional, default is test failures
+            # When set "true", the action itself fails when tests have failed (see option fail_on).
+            action_fail: true # optional, default is false
             # File pattern of test result files
             files: '**/Results/*.xml'
             # Individual runs of the same test may see different failures. Reports all individual failures when set "true" or the first only otherwise
