@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" visibility="Internal">
+<testCase guid="2ad8c009-ad35-4519-a823-991e742a2e91" registryId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="fbeffade-c787-4996-ae80-76ed4065d6ad" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -46,7 +46,7 @@
         <parameterValueSource variableName="SourceData" variableScope="Test"/>
       </parameterValueSources>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Broker__c=&gt;BrokerId">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="bfd07d1b-00cb-416a-a521-d72d99f358a5" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Broker__c=&gt;BrokerId">
       <arguments>
         <argument id="objectType">
           <value class="value" valueClass="string">Broker__c</value>

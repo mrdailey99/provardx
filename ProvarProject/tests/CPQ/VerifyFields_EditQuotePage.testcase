@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="11">
+<testCase failureBehaviour="Continue" guid="deacb421-7efa-4006-8911-e783b5d25b8c" id="11">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="462" title="Salesforce Connect: CPQ (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="6381c033-d14d-4986-9ab1-b9b179650353" name="ApexConnect" testItemId="462" title="Salesforce Connect: CPQ (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">CPQ</value>
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="439" title="Read data from excel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="a363b263-1758-40c3-bdf0-08382be58eb5" name="StepGroup" testItemId="439" title="Read data from excel">
       <tags/>
       <arguments>
         <argument id="description">
@@ -81,7 +81,7 @@
         <clause name="hidden" testItemId="354"/>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="89562af6-5a76-443b-a32d-00ee2f3f1794" testCasePath="tests/CPQ/Callable/NewQuote.testcase" testItemId="437">
+    <caseCall guid="9d15ed26-5048-443f-962e-badf2a5eb894" testCaseId="89562af6-5a76-443b-a32d-00ee2f3f1794" testCasePath="tests/CPQ/Callable/NewQuote.testcase" testItemId="437">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">CPQ</value>
@@ -93,7 +93,7 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="33" title="On SF Quote View screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="974d66e7-9946-4551-9e5b-56d8f5122d93" name="UiWithScreen" testItemId="33" title="On SF Quote View screen">
       <tags/>
       <arguments>
         <argument id="uiConnectionName">
@@ -130,7 +130,7 @@
       <clauses>
         <clause name="substeps" testItemId="34">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="35" title="Click the Edit Lines button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="05dde2ed-f626-4f0c-9b35-41e9ce597135" name="UiDoAction" testItemId="35" title="Click the Edit Lines button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=SBQQ__EditLines&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DSBQQ__Quote__c%26action%3DSBQQ__EditLines"/>
@@ -193,7 +193,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" isTitleUpdated="true" name="UiWithScreen" testItemId="120" title="On Edit Quote Screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="2f53a790-1d0b-4153-b3fe-991096c1fd2a" isTitleUpdated="true" name="UiWithScreen" testItemId="120" title="On Edit Quote Screen">
       <tags/>
       <arguments>
         <argument id="uiConnectionName">
@@ -228,7 +228,7 @@
       <clauses>
         <clause name="substeps" testItemId="121">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="122" title="Click the Add Products button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="a24c36dc-c910-4676-ba1a-3a6e6c3f89ff" name="UiDoAction" testItemId="122" title="Click the Add Products button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=addProducts"/>
@@ -291,7 +291,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" isTitleUpdated="true" name="UiWithScreen" testItemId="448" title="On Product Selection Screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="74ba7c32-ec99-49aa-b443-21b3ce28ec1d" isTitleUpdated="true" name="UiWithScreen" testItemId="448" title="On Product Selection Screen">
       <tags/>
       <arguments>
         <argument id="uiConnectionName">
@@ -323,7 +323,7 @@
       <clauses>
         <clause name="substeps" testItemId="449">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="111" title="With Product Selection Lines rows {1}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="756a7f08-aded-4e60-810a-1ff610697737" name="UiWithRow" testItemId="111" title="With Product Selection Lines rows {1}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -352,7 +352,7 @@
               <clauses>
                 <clause name="substeps" testItemId="112">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="113" title="Check the Checkbox field">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="b3338723-5bd1-467d-87ea-5ca26b6ee0c5" name="UiDoAction" testItemId="113" title="Check the Checkbox field">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=checkbox"/>
@@ -412,7 +412,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="114" title="Click the Select And Add More button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="47baaf52-53e9-4a06-af76-b81840387451" name="UiDoAction" testItemId="114" title="Click the Select And Add More button">
               <tags/>
               <arguments>
                 <argument id="locator">
@@ -464,7 +464,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="463" title="On SF SBQQ__sb page with pageobject Sbqq__ Alertand Validation Error__ CPQ Product">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="060183da-520d-4c95-9412-f0d31fb0679b" name="UiWithScreen" testItemId="463" title="On SF SBQQ__sb page with pageobject Sbqq__ Alertand Validation Error__ CPQ Product">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -495,7 +495,7 @@
               <clauses>
                 <clause name="substeps" testItemId="464">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="465" title="With Memory Cards Lines rows {1}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="d9341ed3-a504-45d3-beec-cb5f25a69bbe" name="UiWithRow" testItemId="465" title="With Memory Cards Lines rows {1}">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">CPQ</value>
@@ -524,7 +524,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="466">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="467" title="Check the Checkbox field">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ff7c2f01-b877-451c-92e7-6022c6d17b16" name="UiDoAction" testItemId="467" title="Check the Checkbox field">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=checkbox"/>
@@ -570,7 +570,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="468" title="Set the Quantity field to 2">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="7da39cd9-9d2d-4dfc-ac6b-4230b8061504" name="UiDoAction" testItemId="468" title="Set the Quantity field to 2">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=quantity"/>
@@ -641,7 +641,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="469" title="Click the Save button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c2c97463-affc-4786-86dc-f029a1fde22b" name="UiDoAction" testItemId="469" title="Click the Save button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=save"/>
@@ -696,7 +696,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="115" title="Set the Search Products field to {SourceData.Filter_ProductCodeValue}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3a3d0d4e-3b1a-439f-ab4a-9524d98e6712" name="UiDoAction" testItemId="115" title="Set the Search Products field to {SourceData.Filter_ProductCodeValue}">
               <tags/>
               <arguments>
                 <argument id="locator">
@@ -759,7 +759,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="116" title="With Product Selection Lines rows {1}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="a0e96f0b-4d3c-4203-a182-33c86fc41429" name="UiWithRow" testItemId="116" title="With Product Selection Lines rows {1}">
               <tags/>
               <arguments>
                 <argument id="uiConnectionName">
@@ -789,7 +789,7 @@
               <clauses>
                 <clause name="substeps" testItemId="117">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="118" title="Check the Checkbox field">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="cc98dad5-ff6b-4176-800e-54039c4292b1" name="UiDoAction" testItemId="118" title="Check the Checkbox field">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=checkbox"/>
@@ -849,7 +849,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="450" title="Click the Select button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ea7c6093-0842-4a80-889b-02ab76e1d1ab" name="UiDoAction" testItemId="450" title="Click the Select button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=select"/>
@@ -904,7 +904,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="490" title="On SF SBQQ__sb page with pageobject Sbqq__ Applei Phone X Package__ CPQ Product 1">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="881ccf7c-8770-4f20-bff1-fafcbd4b13da" name="UiWithScreen" testItemId="490" title="On SF SBQQ__sb page with pageobject Sbqq__ Applei Phone X Package__ CPQ Product 1">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">CPQ</value>
@@ -935,7 +935,7 @@
       <clauses>
         <clause name="substeps" testItemId="491">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="492" title="With Memory Cards Lines rows {1}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="b0364bda-1d33-42dd-b168-95c91e25a2e7" name="UiWithRow" testItemId="492" title="With Memory Cards Lines rows {1}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -964,7 +964,7 @@
               <clauses>
                 <clause name="substeps" testItemId="493">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="494" title="Check the Checkbox field">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="36e0a6c8-68c6-4a99-97a1-7de7fcf3f24d" name="UiDoAction" testItemId="494" title="Check the Checkbox field">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=checkbox"/>
@@ -1012,7 +1012,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="499" title="Set the Quantity field to 2">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="59089d8f-6955-4efd-9e9f-cb68169ae12d" name="UiDoAction" testItemId="499" title="Set the Quantity field to 2">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=quantity"/>
@@ -1083,7 +1083,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="501" title="With Head Phones Lines rows {1}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="1afebb7d-a6ff-4d65-a168-4927f2321bfe" name="UiWithRow" testItemId="501" title="With Head Phones Lines rows {1}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -1112,7 +1112,7 @@
               <clauses>
                 <clause name="substeps" testItemId="502">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="503" title="Check the Checkbox field">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="e3060b23-5a99-4020-a8c2-7908a66a4391" name="UiDoAction" testItemId="503" title="Check the Checkbox field">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=checkbox"/>
@@ -1160,7 +1160,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="504" title="Set the Quantity field to 2">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="f431f9ef-caea-4167-8d44-585309aa10e5" name="UiDoAction" testItemId="504" title="Set the Quantity field to 2">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=quantity"/>
@@ -1235,7 +1235,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" isTitleUpdated="true" name="UiWithScreen" testItemId="451" title="Configuration Product Screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="116ca39d-44e1-4b2e-90d0-0bd557bae1cf" isTitleUpdated="true" name="UiWithScreen" testItemId="451" title="Configuration Product Screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">CPQ</value>
@@ -1266,7 +1266,7 @@
       <clauses>
         <clause name="substeps" testItemId="452">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="454" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="9a92e64f-c437-4d42-beb0-192282152f92" name="UiDoAction" testItemId="454" title="Click the Save button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save"/>
@@ -1321,7 +1321,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" isTitleUpdated="true" name="UiWithScreen" testItemId="250" title="On Edit Quote Screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="8a568455-7518-47d6-beb5-c8db35b15f36" isTitleUpdated="true" name="UiWithScreen" testItemId="250" title="On Edit Quote Screen">
       <tags/>
       <arguments>
         <argument id="uiConnectionName">
@@ -1356,7 +1356,7 @@
       <clauses>
         <clause name="substeps" testItemId="251">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="410" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="12f04db7-53f7-496c-8f0e-4dfc92d2c3d2" name="UiWithRow" testItemId="410" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -1395,7 +1395,7 @@
               <clauses>
                 <clause name="substeps" testItemId="411">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="413" title="Assert Product Name">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="e5ea8cf5-2657-49c2-99d1-0b4f1832f0e1" isTitleUpdated="true" name="UiAssert" testItemId="413" title="Assert Product Name">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1431,7 +1431,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="415" title="Assert List Unit Price">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="49695dba-0ba1-4430-b370-d4a18a9dda09" isTitleUpdated="true" name="UiAssert" testItemId="415" title="Assert List Unit Price">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1479,7 +1479,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="417" title="Assert Net Unit Price">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="e6bfe221-2d55-41d7-b2ad-00a36c35a271" isTitleUpdated="true" name="UiAssert" testItemId="417" title="Assert Net Unit Price">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1527,7 +1527,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="418" title="Assert Net Total">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="9b21df46-fee8-4189-bba7-99459f85bf98" isTitleUpdated="true" name="UiAssert" testItemId="418" title="Assert Net Total">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1575,7 +1575,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="419" title="Click the Add To Favorites button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="20997e9e-7ed8-40c8-beb6-5b4f410a95bf" name="UiDoAction" testItemId="419" title="Click the Add To Favorites button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=addToFavorites"/>
@@ -1638,7 +1638,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="520" title="Click the Cancel button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="1f63164d-fa0d-4d82-8126-3c1ed6fbe1ed" name="UiDoAction" testItemId="520" title="Click the Cancel button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=cancel"/>
@@ -1689,7 +1689,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="421" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="2f00b8c6-f571-4ff2-874b-abce494092cb" name="UiWithRow" testItemId="421" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -1728,7 +1728,7 @@
               <clauses>
                 <clause name="substeps" testItemId="422">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="423" title="Click the Clone Line button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="22352152-eddf-42ed-b8b4-74a91e9ed8d3" name="UiDoAction" testItemId="423" title="Click the Clone Line button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=cloneLine"/>
@@ -1791,7 +1791,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="425" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="77c6cc7c-13a2-42a1-b375-0af29b65cbfa" name="UiWithRow" testItemId="425" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -1830,7 +1830,7 @@
               <clauses>
                 <clause name="substeps" testItemId="426">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="427" title="Click the Delete Line button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c1d4198e-bee7-489a-a86b-2ab53cffbf61" name="UiDoAction" testItemId="427" title="Click the Delete Line button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=deleteLine"/>
@@ -1893,7 +1893,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="429" title="Set the Start Date field to {DateFormat(DateAdd(TODAY), &quot;dd/MM/YYYY&quot;)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="18675715-831c-4ed1-9732-b46f91da2dad" name="UiDoAction" testItemId="429" title="Set the Start Date field to {DateFormat(DateAdd(TODAY), &quot;dd/MM/YYYY&quot;)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=startDate"/>
@@ -1965,7 +1965,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="430" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="38515b47-caf0-45d2-98b5-3a16fefe38f0" name="UiWithRow" testItemId="430" title="With Group 1 Lines rows {sBQQProductCodeC = $SourceData.Filter_ProductCodeValue}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">CPQ</value>
@@ -2004,7 +2004,7 @@
               <clauses>
                 <clause name="substeps" testItemId="431">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="432" title="Click the Reconfigure Line button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="dbe52b50-2421-40bc-8520-f8d9b90d8b6b" name="UiDoAction" testItemId="432" title="Click the Reconfigure Line button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=reconfigureLine"/>
@@ -2079,7 +2079,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" isTitleUpdated="true" name="UiWithScreen" testItemId="458" title="Configuration Product Screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="231e7fe7-dc5f-43e3-92c6-4cdd67817ea5" isTitleUpdated="true" name="UiWithScreen" testItemId="458" title="Configuration Product Screen">
       <tags/>
       <arguments>
         <argument id="uiConnectionName">
@@ -2111,7 +2111,7 @@
       <clauses>
         <clause name="substeps" testItemId="459">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="460" title="Click the Cancel button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="4dd440a4-b4ed-4178-beee-f342332a5748" name="UiDoAction" testItemId="460" title="Click the Cancel button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=cancel"/>
@@ -2166,7 +2166,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="521" title="On SF SBQQ__sb page with pageobject Sbqq__sb">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="f56bda28-a018-4961-ba7e-d062c829084d" name="UiWithScreen" testItemId="521" title="On SF SBQQ__sb page with pageobject Sbqq__sb">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">CPQ</value>
@@ -2197,7 +2197,7 @@
       <clauses>
         <clause name="substeps" testItemId="522">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="523" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="e5c501d2-e972-43d4-a22a-b3c87e0d5b16" name="UiDoAction" testItemId="523" title="Click the Save button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save"/>

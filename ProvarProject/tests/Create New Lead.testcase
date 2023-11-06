@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase guid="8153d5ac-b642-41e6-bc17-f4a5517ecf16" id="1">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="445e1f9b-796c-4421-90b3-2fba51cb11d2" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: LastName">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="320825fd-c00a-4240-85f9-53071d97e80a" name="SetValues" testItemId="7" title="Set Values: LastName">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -62,7 +62,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select LastName,Id from Lead where LastName = '{LastName}'=&gt;LeadRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="41f987ba-bb24-4bbd-8327-65dafd70de74" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select LastName,Id from Lead where LastName = '{LastName}'=&gt;LeadRows">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -86,7 +86,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="3" title="If: {Count(LeadRows) = 0}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="1298781a-ad7c-44bb-b772-43c0d3a2a672" name="If" testItemId="3" title="If: {Count(LeadRows) = 0}">
       <arguments>
         <argument id="condition">
           <value class="eq">
@@ -104,7 +104,7 @@
       <clauses>
         <clause name="then" testItemId="4">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="5" title="Create Object: Lead=&gt;LeadId">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="5a2f3f92-b35a-4f46-8af2-ec89e576faa6" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="5" title="Create Object: Lead=&gt;LeadId">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">Lead</value>

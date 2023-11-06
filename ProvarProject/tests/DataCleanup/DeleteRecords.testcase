@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="3">
+<testCase failureBehaviour="Continue" guid="b27472ac-2dfa-4662-bb18-14db33d64c04" id="3">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="23830d51-341d-4ef9-9536-9142f4056757" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -41,7 +41,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="35" title="SOQL Query: select Id from Contact where Name like 'D%'=&gt;ContactRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="bbd367aa-300c-4489-90b0-62f486c53cd6" name="ApexSoqlQuery" testItemId="35" title="SOQL Query: select Id from Contact where Name like 'D%'=&gt;ContactRows">
       <tags/>
       <arguments>
         <argument id="soqlQuery">
@@ -58,7 +58,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'Sm%'=&gt;ContactRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="2940d3e0-f30a-4f08-abba-e16e17f0e98e" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'Sm%'=&gt;ContactRows">
       <tags>
         <string>disabled</string>
       </tags>
@@ -77,7 +77,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Sm%'=&gt;OpportunityRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="8086e084-f01f-450f-95b6-8529ffa16d1f" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id from Opportunity where Name like 'Sm%'=&gt;OpportunityRows">
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Opportunity where Name like 'Sm%'</value>
@@ -93,7 +93,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Sm%'=&gt;LeadRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="5f48ef8b-decd-425f-afe2-a6cdec8f6822" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Sm%'=&gt;LeadRows">
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Lead where Name like 'Sm%'</value>
@@ -109,7 +109,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="33" title="SOQL Query: select Id from Account where Name like 'Provar%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="29b8fed1-f9b7-45cc-b484-d3e95d5deb41" name="ApexSoqlQuery" testItemId="33" title="SOQL Query: select Id from Account where Name like 'Provar%'=&gt;AccountRows">
       <tags>
         <string>disabled</string>
       </tags>
@@ -128,7 +128,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="36" title="SOQL Query: select Id from Account where Name like 'Sm%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="bbc58d59-84b9-44ab-b854-98703477e018" name="ApexSoqlQuery" testItemId="36" title="SOQL Query: select Id from Account where Name like 'Sm%'=&gt;AccountRows">
       <tags/>
       <arguments>
         <argument id="soqlQuery">
@@ -148,7 +148,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="34" title="SOQL Query: select Id from Account where Name like 'Dail%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="60384d0e-a5e9-45ce-9c67-5c76472683a5" name="ApexSoqlQuery" testItemId="34" title="SOQL Query: select Id from Account where Name like 'Dail%'=&gt;AccountRows">
       <tags>
         <string>disabled</string>
       </tags>
@@ -167,7 +167,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'Test%'=&gt;AccountRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="fbbe6d3d-eafd-42d5-9065-9752b0fad2e8" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'Test%'=&gt;AccountRows">
       <tags>
         <string>disabled</string>
       </tags>
@@ -186,7 +186,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="22" title="SOQL Query: select Id from Task=&gt;TaskRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="e3cdfdc0-122d-4db3-9a06-cb62f561182c" name="ApexSoqlQuery" testItemId="22" title="SOQL Query: select Id from Task=&gt;TaskRows">
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Task</value>
@@ -202,7 +202,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="23" title="SOQL Query: select Id from Case =&gt;CaseRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="1ad8a862-f031-4f9c-ab55-f6cc877049f8" name="ApexSoqlQuery" testItemId="23" title="SOQL Query: select Id from Case =&gt;CaseRows">
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Case </value>
@@ -218,7 +218,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="32" title="Set Values: TotalRecords">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="1f55829d-8459-4ee0-8054-509cdb8cedb4" name="SetValues" testItemId="32" title="Set Values: TotalRecords">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -288,7 +288,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="7" title="For Each: {AccountRows}=&gt;Account">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="5de8f54a-516d-4a5e-8334-59a9af3610b0" name="ForEach" testItemId="7" title="For Each: {AccountRows}=&gt;Account">
       <tags/>
       <arguments>
         <argument id="list">
@@ -309,7 +309,7 @@
       <clauses>
         <clause name="substeps" testItemId="8">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="9" title="Delete Object: {Account.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="5ef9f67f-a79a-4985-a982-747e0c91526a" name="ApexDeleteObject" testItemId="9" title="Delete Object: {Account.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -326,7 +326,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="13" title="For Each: {ContactRows}=&gt;Contact">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="411df1ea-64e6-4f3f-8fca-789404add085" name="ForEach" testItemId="13" title="For Each: {ContactRows}=&gt;Contact">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -346,7 +346,7 @@
       <clauses>
         <clause name="substeps" testItemId="14">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="15" title="Delete Object: {Contact.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="d2de5bdd-7f78-4c94-8a02-3c82a4758abb" name="ApexDeleteObject" testItemId="15" title="Delete Object: {Contact.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -363,7 +363,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="16" title="For Each: {LeadRows}=&gt;Lead">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="06691707-735b-4167-a593-2b3a2573f0e3" name="ForEach" testItemId="16" title="For Each: {LeadRows}=&gt;Lead">
       <tags/>
       <arguments>
         <argument id="list">
@@ -384,7 +384,7 @@
       <clauses>
         <clause name="substeps" testItemId="17">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="18" title="Delete Object: {Lead.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="8e8e6a0e-36e3-4c03-82c9-a33f460a1ed9" name="ApexDeleteObject" testItemId="18" title="Delete Object: {Lead.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -401,7 +401,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="19" title="For Each: {OpportunityRows}=&gt;Opp">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="47c9be2f-cf8a-4660-b33e-409f2768489f" name="ForEach" testItemId="19" title="For Each: {OpportunityRows}=&gt;Opp">
       <tags/>
       <arguments>
         <argument id="list">
@@ -422,7 +422,7 @@
       <clauses>
         <clause name="substeps" testItemId="20">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="21" title="Delete Object: {Opp.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="204e0eda-f53b-4b52-bdcf-f19c43a09533" name="ApexDeleteObject" testItemId="21" title="Delete Object: {Opp.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -439,7 +439,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="24" title="For Each: {TaskRowd}=&gt;Task">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="2e700c11-1eda-4d34-afa2-c3941b48ed42" name="ForEach" testItemId="24" title="For Each: {TaskRowd}=&gt;Task">
       <tags/>
       <arguments>
         <argument id="list">
@@ -460,7 +460,7 @@
       <clauses>
         <clause name="substeps" testItemId="25">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="26" title="Delete Object: {Task.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="cc1ede45-d454-4b76-886a-51725ef3fb53" name="ApexDeleteObject" testItemId="26" title="Delete Object: {Task.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -477,7 +477,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="27" title="For Each: {CaseRows}=&gt;Case">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="cddb3c86-aafb-4a08-841f-98335f64a450" name="ForEach" testItemId="27" title="For Each: {CaseRows}=&gt;Case">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -497,7 +497,7 @@
       <clauses>
         <clause name="substeps" testItemId="28">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="29" title="Delete Object: {Case.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="1186ae91-77aa-4486-9347-f842cfc500b4" name="ApexDeleteObject" testItemId="29" title="Delete Object: {Case.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -514,7 +514,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="30" title="Finally: Records Deleted: {TotalRecords}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" guid="6a854008-96a8-4600-9994-ccb4ac109919" name="Finally" testItemId="30" title="Finally: Records Deleted: {TotalRecords}">
       <arguments>
         <argument id="description">
           <value class="compound">

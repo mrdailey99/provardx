@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="17">
+<testCase guid="e064aa3a-b2e8-4b82-918d-5bbc0461f11a" id="17">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="6cba6461-ce76-4e97-87f0-08ad6dd1d739" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="2" title="Read Property Data from Excel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="35ee235d-8cd0-40cf-a240-bfe49023e538" isTitleUpdated="true" name="StepGroup" testItemId="2" title="Read Property Data from Excel">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Test Data from Excel</value>
@@ -85,7 +85,7 @@
         <clause name="hidden" testItemId="3"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="4" title="Read Broker Data from Excel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="35f15d90-0ce6-4387-98d8-e98ee2d2a779" name="StepGroup" testItemId="4" title="Read Broker Data from Excel">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Broker Data from Excel</value>
@@ -112,7 +112,7 @@
         <clause name="hidden" testItemId="5"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="69" title="Create Broker">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="cf664c7b-9f02-451e-92ee-87b572e4eaca" name="StepGroup" testItemId="69" title="Create Broker">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Create Broker</value>
@@ -121,7 +121,7 @@
       <clauses>
         <clause name="hidden" testItemId="70">
           <steps>
-            <caseCall testCaseId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" testCasePath="tests/Dreamhouse/Create Broker via API.testcase" testItemId="71">
+            <caseCall guid="09019efb-c3b1-4366-8917-3dffb1dfbcaa" testCaseId="16f2c0c0-7e0f-440c-adc4-35008386b9b2" testCasePath="tests/Dreamhouse/Create Broker via API.testcase" testItemId="71">
               <arguments>
                 <argument id="Email__c">
                   <value class="variable">
@@ -164,7 +164,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="7" title="On SF Property Home screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="3b7e0503-d75b-41a6-9777-0406b352a0e0" name="UiWithScreen" testItemId="7" title="On SF Property Home screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -195,7 +195,7 @@
       <clauses>
         <clause name="substeps" testItemId="8">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Click the New button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c3c80c05-ccb8-4b65-a72d-5a3cdd154ba8" name="UiDoAction" testItemId="9" title="Click the New button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26action%3DNew"/>
@@ -250,7 +250,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="10" title="On SF Property New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="6632bfbc-e763-4d51-83ee-002a68751f6f" name="UiWithScreen" testItemId="10" title="On SF Property New screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -287,7 +287,7 @@
       <clauses>
         <clause name="substeps" testItemId="11">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Set the Status picklist to {PropertyData.Status}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="0e628c82-42ca-49aa-a56b-d973a8efc02a" name="UiDoAction" testItemId="13" title="Set the Status picklist to {PropertyData.Status}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Status__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DStatus__c"/>
@@ -350,7 +350,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Property Name field to {PropertyData.Name}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="87f391ce-aed3-412d-b71e-9bd731ea91f8" name="UiDoAction" testItemId="12" title="Set the Property Name field to {PropertyData.Name}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Name&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DName"/>
@@ -408,7 +408,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Address field to {PropertyData.Address}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="18033990-4235-4d29-a5d3-cd152c48afca" name="UiDoAction" testItemId="14" title="Set the Address field to {PropertyData.Address}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Address__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DAddress__c"/>
@@ -471,7 +471,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="15" title="Set the Beds field to {PropertyData.Beds}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="167dc7ed-20ac-4fe8-b98f-1715150ef82a" name="UiDoAction" testItemId="15" title="Set the Beds field to {PropertyData.Beds}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Beds__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBeds__c"/>
@@ -534,7 +534,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Set the Baths field to {PropertyData.Baths}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c9521e48-6406-4837-bcc0-a08d6b9eaef6" name="UiDoAction" testItemId="16" title="Set the Baths field to {PropertyData.Baths}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Baths__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBaths__c"/>
@@ -597,7 +597,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="17" title="Set the City field to {PropertyData.City}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="b4dd82cf-eacd-47f1-b31c-9d8ac3d2a1dc" name="UiDoAction" testItemId="17" title="Set the City field to {PropertyData.City}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=City__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DCity__c"/>
@@ -660,7 +660,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Set the Asking Price field to {PropertyData.AskingPrice}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="eae6877d-6f5c-4f11-ba82-fea1922e1488" name="UiDoAction" testItemId="18" title="Set the Asking Price field to {PropertyData.AskingPrice}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Price__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DPrice__c"/>
@@ -723,7 +723,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="19" title="Set the State field to {PropertyData.State}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3f5f4b24-c908-4b48-b2d3-96bd054e2fb6" name="UiDoAction" testItemId="19" title="Set the State field to {PropertyData.State}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=State__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DState__c"/>
@@ -786,7 +786,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="20" title="Set the Zip field to {PropertyData.Zip}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="277396ab-aaac-40cf-a73d-1356a65a76c1" name="UiDoAction" testItemId="20" title="Set the Zip field to {PropertyData.Zip}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Zip__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DZip__c"/>
@@ -849,7 +849,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="75" title="Set the Broker reference to {BrokerData.Name}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="98f2825f-a2da-4b0f-99ff-18e1659e02f2" name="UiDoAction" testItemId="75" title="Set the Broker reference to {BrokerData.Name}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=RecordBroker_cField&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DBroker__c"/>
@@ -932,7 +932,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="29" title="On SF Property New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="a777ed24-bcef-4424-a9a3-60247d2ff4e6" name="UiWithScreen" testItemId="29" title="On SF Property New screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -969,7 +969,7 @@
       <clauses>
         <clause name="substeps" testItemId="30">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="32" title="Set the Description field to {PropertyData.Description}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="8df85e4f-7adc-4899-9075-19b747e38a9e" name="UiDoAction" testItemId="32" title="Set the Description field to {PropertyData.Description}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Description__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DDescription__c"/>
@@ -1027,7 +1027,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="33" title="Set the Date Listed field to {PropertyData.DateListed}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ea3164b5-6643-426b-b108-fda2ec76d376" name="UiDoAction" testItemId="33" title="Set the Date Listed field to {PropertyData.DateListed}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Date_Listed__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26field%3DDate_Listed__c"/>
@@ -1085,7 +1085,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="34" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="a9af8f90-4196-4fb9-8f7b-104100164ee3" name="UiDoAction" testItemId="34" title="Click the Save button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DProperty__c%26action%3Dsave"/>
@@ -1161,7 +1161,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="40" title="Search Property to Validate">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="fbd09f19-3325-4de9-abba-bf14e6208612" name="StepGroup" testItemId="40" title="Search Property to Validate">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Search Property to Validate</value>
@@ -1170,7 +1170,7 @@
       <clauses>
         <clause name="hidden" testItemId="41">
           <steps>
-            <caseCall testCaseId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" testCasePath="tests/Dreamhouse/Search Properties.testcase" testItemId="65">
+            <caseCall guid="e43731a8-0763-4df5-a32a-d18ca69fae17" testCaseId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" testCasePath="tests/Dreamhouse/Search Properties.testcase" testItemId="65">
               <arguments>
                 <argument id="PropertyCity">
                   <value class="variable">
@@ -1220,7 +1220,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="43" title="Validate Fields via API">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="e7cc068e-0da3-4ca8-bb59-94bf5fae5f22" name="StepGroup" testItemId="43" title="Validate Fields via API">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Validate Fields via API</value>
@@ -1229,7 +1229,7 @@
       <clauses>
         <clause name="hidden" testItemId="44">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="38" title="Read Object: Property__c = {property__cId}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="9be097c5-fa4c-431a-a11f-c6ae43723161" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="38" title="Read Object: Property__c = {property__cId}">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">Property__c</value>
@@ -1331,7 +1331,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Property__c&amp;field=Days_On_Market__c" name="Days_On_Market__c" title="Days On Market"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="52" title="Assert: Validate Days on Market for Property">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="5441a332-ce81-4e02-b40c-caecf6eac011" isTitleUpdated="true" name="AssertValues" testItemId="52" title="Assert: Validate Days on Market for Property">
               <arguments>
                 <argument id="expectedValue">
                   <value class="funcCall" id="DateFormat">
@@ -1403,7 +1403,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="63" title="Finally: Test Cleanup">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" guid="db5df5f5-896b-49d5-9371-d79405a3ec75" name="Finally" testItemId="63" title="Finally: Test Cleanup">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Test Cleanup</value>
@@ -1412,7 +1412,7 @@
       <clauses>
         <clause name="hidden" testItemId="64">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="46" title="Delete Property &amp; Broker">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="d92a9906-2cd5-4cf4-a9ee-cdf28a8f137e" name="StepGroup" testItemId="46" title="Delete Property &amp; Broker">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Delete Property &amp; Broker</value>
@@ -1421,7 +1421,7 @@
               <clauses>
                 <clause name="hidden" testItemId="47">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="58" title="Delete Object: {property__cId}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="e94d5105-9173-4eb9-b3b9-13f67070ee04" name="ApexDeleteObject" testItemId="58" title="Delete Object: {property__cId}">
                       <arguments>
                         <argument id="apexConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -1433,7 +1433,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="51" title="Delete Object: {BrokerId}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="663b9b70-c08e-48a3-be24-bd7695fdc88d" name="ApexDeleteObject" testItemId="51" title="Delete Object: {BrokerId}">
                       <arguments>
                         <argument id="apexConnectionName">
                           <value class="value" valueClass="string">Admin</value>

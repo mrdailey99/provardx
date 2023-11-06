@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="26a61228-7fad-4271-be57-9143a9aac700" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="3c96c5d0-96a0-4128-8cf3-46a9aea9397f" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -41,7 +41,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="7" title="On GoogleHome page">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="d1a8983e-6d55-4f62-b5ee-5698e448539d" name="UiWithScreen" testItemId="7" title="On GoogleHome page">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -73,7 +73,7 @@
       <clauses>
         <clause name="substeps" testItemId="8">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Call the GetURL method">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ccef67a0-b470-4b52-a2a8-903a7892855d" name="UiDoAction" testItemId="10" title="Call the GetURL method">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:method?operation=GetURL&amp;pageId=pageobjects.GoogleHome"/>

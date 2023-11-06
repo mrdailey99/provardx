@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0" visibility="Internal">
+<testCase guid="59f837aa-f97e-4388-9214-f419422b1c67" id="0" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="43e01868-b8b4-46db-85bb-ee561d1cd72d" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknZAAT"/>
@@ -47,7 +47,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="20" title="Set Values: InitialOppStage">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="ad965ddb-7f7d-4e4b-9cbe-8ce0941f2647" name="SetValues" testItemId="20" title="Set Values: InitialOppStage">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknaAAD"/>
       </associations>
@@ -69,7 +69,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="21" title="Set Values: OppProbability">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="d5bce7bf-f222-4b1d-a01a-950721d73322" name="SetValues" testItemId="21" title="Set Values: OppProbability">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknbAAD"/>
       </associations>
@@ -91,7 +91,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="29" title="Set Values: ConvertedLeadStatus">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="21e343bd-4db9-4cdb-b84c-38d412ab9207" name="SetValues" testItemId="29" title="Set Values: ConvertedLeadStatus">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -110,7 +110,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <caseCall testCaseId="14c5e2df-ba8a-45e0-b507-af9f057348de" testCasePath="tests/Regression/Lead/CreateNewLead.testcase" testItemId="27">
+    <caseCall guid="7f251646-41ca-4a18-b223-76184bcce86e" testCaseId="14c5e2df-ba8a-45e0-b507-af9f057348de" testCasePath="tests/Regression/Lead/CreateNewLead.testcase" testItemId="27">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -137,7 +137,7 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConvertLead" name="ApexConvertLead" testItemId="3" title="Convert Lead:  =&gt; //">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConvertLead" guid="3633958e-c5d5-4eab-9589-54430311b92a" name="ApexConvertLead" testItemId="3" title="Convert Lead:  =&gt; //">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkneAAD"/>
       </associations>
@@ -186,7 +186,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="9" title="Assert Account and Converted Objects">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="8ac3fd62-6656-4463-af4d-d373f870a93a" name="StepGroup" testItemId="9" title="Assert Account and Converted Objects">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknfAAD"/>
       </associations>
@@ -198,7 +198,7 @@
       <clauses>
         <clause name="hidden" testItemId="10">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="5" title="Read Object: Account = {convertedAccountId}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="e83ef9e5-33a2-40ac-916c-7daf1e2850ee" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="5" title="Read Object: Account = {convertedAccountId}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknnAAD"/>
               </associations>
@@ -223,8 +223,13 @@
               </arguments>
               <resultAssertions>
                 <resultAssertion resultName="Name" title="Check Name">
-                  <expected class="variable">
-                    <path element="LeadCompany"/>
+                  <expected class="compound">
+                    <parts>
+                      <variable>
+                        <path element="LeadCompany"/>
+                      </variable>
+                      <value valueClass="string">1</value>
+                    </parts>
                   </expected>
                 </resultAssertion>
                 <resultAssertion resultName="Phone" title="Check Phone">
@@ -242,7 +247,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="6" title="Read Object: Opportunity = {convertedOpportunityId}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="652aae30-8422-4645-89ea-f0bdbe1e57f1" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="6" title="Read Object: Opportunity = {convertedOpportunityId}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknoAAD"/>
               </associations>
@@ -293,7 +298,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Opportunity&amp;field=Probability" name="Probability" title="Probability (%)"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="7" title="Read Object: Lead = {leadId}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="3659c3dd-bdd9-414f-9f3e-cac322550762" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="7" title="Read Object: Lead = {leadId}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknpAAD"/>
               </associations>
@@ -337,7 +342,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Lead&amp;field=Status" name="Status" title="Lead Status"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="8" title="Read Object: Contact = {convertedContactId}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="50280fd5-088f-48ac-9da3-9c7ca5897106" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="8" title="Read Object: Contact = {convertedContactId}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAknqAAD"/>
               </associations>
@@ -438,6 +443,14 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-10-20T19:48:01Z"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-11-06T19:50:32Z">
+      <metadataCoverage>
+        <stepMetadataCoverage linkedId="3" value="object=Lead"/>
+        <stepMetadataCoverage linkedId="5" value="object=Account&amp;fields=Name,Phone"/>
+        <stepMetadataCoverage linkedId="6" value="object=Opportunity&amp;fields=Name,StageName,CloseDate,Probability"/>
+        <stepMetadataCoverage linkedId="7" value="object=Lead&amp;fields=Name,Status"/>
+        <stepMetadataCoverage linkedId="8" value="object=Contact&amp;fields=LastName"/>
+      </metadataCoverage>
+    </association>
   </associations>
 </testCase>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase>
+<testCase guid="1114cf97-7e66-4997-bb7e-2750b50d9fc9">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="3" title="Fail Test: Test Failure!">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" guid="04926b40-e204-45b8-aed1-18d6181ea4b8" name="Fail" testItemId="3" title="Fail Test: Test Failure!">
       <arguments>
         <argument id="message">
           <value class="value" valueClass="string">Test Failure!</value>

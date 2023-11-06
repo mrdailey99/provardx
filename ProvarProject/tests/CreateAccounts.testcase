@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="2412acdf-df79-45a8-9bb5-a2dcf5ab984d" visibility="Internal">
+<testCase guid="a6b89e61-7bc4-410a-94fc-f1e12b9ed377" registryId="2412acdf-df79-45a8-9bb5-a2dcf5ab984d" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="d8d8d6b3-61cf-4ee7-a624-fd374c682136" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -41,7 +41,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="17" title="Read Excel Sheet">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="2089f631-ee11-4093-9422-1d5685055cad" name="StepGroup" testItemId="17" title="Read Excel Sheet">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Excel Sheet</value>
@@ -70,7 +70,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="18" title="For Each: {AccountData}=&gt;Account">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="3a058c5b-adfb-4a6a-9309-c1b9bb0a94e3" name="ForEach" testItemId="18" title="For Each: {AccountData}=&gt;Account">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -88,7 +88,7 @@
       <clauses>
         <clause name="substeps" testItemId="19">
           <steps>
-            <caseCall testCaseId="5bff702f-fb59-4784-b30e-5c668164b9e8" testCasePath="tests/CreateAccount.testcase" testItemId="20">
+            <caseCall guid="09b9ebd4-2a61-4c99-80cd-bd0e8ce20fae" testCaseId="5bff702f-fb59-4784-b30e-5c668164b9e8" testCasePath="tests/CreateAccount.testcase" testItemId="20">
               <arguments>
                 <argument id="AccountName">
                   <value class="compound">

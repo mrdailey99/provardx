@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase guid="ae3f10b7-14bc-4df3-9e42-13b9046ef3bf" id="7">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="11" title="Set Values: TestCaseStart">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="b96b69f9-0c68-4cf7-995c-cb6eeaaf992e" name="SetValues" testItemId="11" title="Set Values: TestCaseStart">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjcAAD"/>
       </associations>
@@ -26,7 +26,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="23f5da73-07c1-4946-8f39-c0979f2b2047" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjdAAD"/>
       </associations>
@@ -70,7 +70,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="8" title="Set Values: Excel Read in Accounts">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="16f21d90-b9d2-43a2-a173-63bdb4c687ca" isTitleUpdated="true" name="SetValues" testItemId="8" title="Set Values: Excel Read in Accounts">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjeAAD"/>
       </associations>
@@ -95,7 +95,7 @@
         </parameterValueSource>
       </parameterValueSources>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {AccountData}=&gt;Account">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="d252ae50-5ce8-4a0f-825c-4969b4042764" name="ForEach" testItemId="4" title="For Each: {AccountData}=&gt;Account">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjfAAD"/>
       </associations>
@@ -116,7 +116,7 @@
       <clauses>
         <clause name="substeps" testItemId="5">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="6" title="Create Object: Account=&gt;AccountId">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="2ff85ce9-2007-436a-9542-fa4fe59fcbed" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="6" title="Create Object: Account=&gt;AccountId">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjxAAD"/>
               </associations>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="20" registryId="14c5e2df-ba8a-45e0-b507-af9f057348de" visibility="Internal">
+<testCase guid="39e05018-c4b0-40be-be30-a8981752df89" id="20" registryId="14c5e2df-ba8a-45e0-b507-af9f057348de" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="1ad0f3a0-a196-4ebf-8b68-af8e2bd77e6c" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiLAAT"/>
@@ -49,7 +49,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: LeadName">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="e8534144-27fd-4c45-816b-4c8a824cf54f" name="SetValues" testItemId="2" title="Set Values: LeadName">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiMAAT"/>
       </associations>
@@ -80,7 +80,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: LeadCompany">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="17effa65-db85-42d7-957f-e835b7748f6b" name="SetValues" testItemId="3" title="Set Values: LeadCompany">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiNAAT"/>
       </associations>
@@ -102,7 +102,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: Email">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="c78ce758-f16f-46e9-b863-5bbf7370e768" name="SetValues" testItemId="19" title="Set Values: Email">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiOAAT"/>
       </associations>
@@ -134,7 +134,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="20" title="Set Values: Title">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="de619f1e-5aeb-4c11-995c-3dda6660d5b9" name="SetValues" testItemId="20" title="Set Values: Title">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiPAAT"/>
       </associations>
@@ -156,7 +156,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: LeadPhone">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="9a8f3e3a-2bf5-4b02-9b36-e19e044698ad" name="SetValues" testItemId="4" title="Set Values: LeadPhone">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiQAAT"/>
       </associations>
@@ -213,7 +213,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="28" title="Set Values: LeadStatus">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="77d3d2a5-488d-428e-ab1e-107ef2aeaeb1" name="SetValues" testItemId="28" title="Set Values: LeadStatus">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiuAAD"/>
       </associations>
@@ -235,7 +235,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="24" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot; OR GetSelectedEnvironment() = null}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="789575cf-0d01-41b3-aedf-b3f428df3b9b" name="If" testItemId="24" title="If: {GetSelectedEnvironment() = &quot;ProvarDX&quot; OR GetSelectedEnvironment() = &quot;Scratch&quot; OR GetSelectedEnvironment() = &quot;&lt;default&gt;&quot; OR GetSelectedEnvironment() = null}">
       <tags>
         <string>disabled</string>
       </tags>
@@ -270,8 +270,7 @@
       <clauses>
         <clause name="then" testItemId="25">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="30" title="Set Values: LeadStatus">
-              <associations/>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="f967516c-667f-47a4-bf23-c468a3c8592a" name="SetValues" testItemId="30" title="Set Values: LeadStatus">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -297,7 +296,7 @@
         </clause>
         <clause name="else" testItemId="26">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="18" title="Set Values: LeadStatus">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="e5261d57-b29b-4251-ac62-4f42895990e9" name="SetValues" testItemId="18" title="Set Values: LeadStatus">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkivAAD"/>
               </associations>
@@ -326,7 +325,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Lead Home screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="211d321d-4916-460e-9d06-d8552aab93ce" name="UiWithScreen" testItemId="5" title="On SF Lead Home screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiSAAT"/>
       </associations>
@@ -360,7 +359,7 @@
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Click the New button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="e838aefa-b155-41ab-a961-b130d076b3b3" name="UiDoAction" testItemId="7" title="Click the New button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkicAAD"/>
               </associations>
@@ -418,7 +417,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="8" title="On SF Lead New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="57f463bf-0475-4735-85dc-b9b8e88ad24f" name="UiWithScreen" testItemId="8" title="On SF Lead New screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiTAAT"/>
       </associations>
@@ -458,7 +457,7 @@
       <clauses>
         <clause name="substeps" testItemId="9">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Set the Phone field to {LeadPhone}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="02d4441b-6915-4a9f-8166-aed74ba49a11" name="UiDoAction" testItemId="10" title="Set the Phone field to {LeadPhone}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkidAAD"/>
               </associations>
@@ -518,7 +517,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Set the Last Name field to {LeadName}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="1cf2792d-1f55-4f9e-a197-4a35a70e267d" name="UiDoAction" testItemId="11" title="Set the Last Name field to {LeadName}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkieAAD"/>
               </associations>
@@ -575,7 +574,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Set the Company field to {LeadCompany}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="871bde05-4cbc-463f-906e-73409aa176de" name="UiDoAction" testItemId="13" title="Set the Company field to {LeadCompany}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkifAAD"/>
               </associations>
@@ -632,7 +631,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Title field to {Title}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ef43f0f6-2471-4971-9839-2a7071311830" name="UiDoAction" testItemId="21" title="Set the Title field to {Title}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkigAAD"/>
               </associations>
@@ -689,7 +688,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="23" title="Set the Email field to {Email}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c46fdd12-1df6-4e1a-9985-f52d904dcfa6" name="UiDoAction" testItemId="23" title="Set the Email field to {Email}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkihAAD"/>
               </associations>
@@ -741,7 +740,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="15" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c69ccdff-87bf-46f0-a77f-cbe057cf45fe" name="UiDoAction" testItemId="15" title="Click the Save button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiiAAD"/>
               </associations>
@@ -814,7 +813,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="17" title="Read Object: Lead = {leadId}">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="c7b6e426-1423-4e25-9141-ca8f8dc74dac" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="17" title="Read Object: Lead = {leadId}">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiUAAT"/>
       </associations>

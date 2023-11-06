@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="21dd146c-7f4e-4baa-8035-dbe2352b7690" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="5" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="1813d602-8275-4fdb-a351-6cc9d429e7b4" name="ApexConnect" testItemId="5" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="165" title="Set Values: Account.Name">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="1d7649f0-9d1a-40bb-b66d-3d53f38e4feb" name="SetValues" testItemId="165" title="Set Values: Account.Name">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -62,7 +62,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="91" title="Retrieve Created Accounts via Salesforce API">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="ebb4508f-00f4-4f3c-9885-822c58565065" name="StepGroup" testItemId="91" title="Retrieve Created Accounts via Salesforce API">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Retrieve Created Accounts via Salesforce API</value>
@@ -71,7 +71,7 @@
       <clauses>
         <clause name="hidden" testItemId="92">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="76" title="SOQL Query: select * from Account where Name like '{AccountData[1].AccountName}'=&gt;AccountRows">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="b2f16f08-e7c6-4bf4-83f3-025a16d14685" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="76" title="SOQL Query: select * from Account where Name like '{AccountData[1].AccountName}'=&gt;AccountRows">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -104,7 +104,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="96" title="Select Account from List">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="c557225f-3a96-4964-aec9-82f3a3250967" name="StepGroup" testItemId="96" title="Select Account from List">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Select Account from List</value>
@@ -113,7 +113,7 @@
       <clauses>
         <clause name="hidden" testItemId="97">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="84" title="On SF Account All Accounts list view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="167576ab-d912-4d2e-9b8e-7e55380121cd" name="UiWithScreen" testItemId="84" title="On SF Account All Accounts list view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -144,7 +144,7 @@
               <clauses>
                 <clause name="substeps" testItemId="85">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="86" title="Set the List Search select to {AccountData[1].AccountName}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="964bfc07-2342-41e4-8142-fa9a28ad0278" name="UiDoAction" testItemId="86" title="Set the List Search select to {AccountData[1].AccountName}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=listSearch&amp;path=List%2FListSearch"/>
@@ -206,7 +206,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="87" title="Random Integer: ⇒ AccountRow">
+                    <apiCall apiId="customapis.RandomInteger" guid="758bc5d5-7e95-497e-a535-f4389f06d840" name="RandomInteger" testItemId="87" title="Random Integer: ⇒ AccountRow">
                       <arguments>
                         <argument id="NumberOfDigits">
                           <value class="value" valueClass="decimal">1</value>
@@ -222,7 +222,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="88" title="With Account rows {$AccountRow}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="a022d563-11bf-41a2-adf7-7efbb57ebc7d" name="UiWithRow" testItemId="88" title="With Account rows {$AccountRow}">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -255,7 +255,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="89">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="90" title="Click the Account Name field">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ff7a4603-00fc-408f-b46d-35d071e20665" name="UiDoAction" testItemId="90" title="Click the Account Name field">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=Name&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DName"/>
@@ -313,7 +313,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="105" title="Edit Record Wrapper (Edit Type and Employees)">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="bb0cd972-1546-4dbf-b0f5-beab9c517854" name="StepGroup" testItemId="105" title="Edit Record Wrapper (Edit Type and Employees)">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Edit Record Wrapper (Edit Type and Employees)</value>
@@ -322,7 +322,7 @@
       <clauses>
         <clause name="hidden" testItemId="106">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="11" title="On SF editRecordWrapper component in Account view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="8a62c272-b974-45c7-bde7-8ead64578de0" name="UiWithScreen" testItemId="11" title="On SF editRecordWrapper component in Account view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -356,7 +356,7 @@
               <clauses>
                 <clause name="substeps" testItemId="12">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="13" title="On SF editRecord page with pageobject Edit Record">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="548797b4-50bd-4090-b87a-7734ba1fbe5f" name="UiWithScreen" testItemId="13" title="On SF editRecord page with pageobject Edit Record">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -393,7 +393,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="14">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="15" title="UI Assert: Account Name (Visualforce)">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="2701cec3-9ef3-4f9c-a73e-91dd324e436d" isTitleUpdated="true" name="UiAssert" testItemId="15" title="UI Assert: Account Name (Visualforce)">
                               <arguments>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">Values</value>
@@ -447,7 +447,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="16" title="UI Assert: Account Name (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="8baf894d-5fb2-4164-bfd9-e5bc7cebd8a8" isTitleUpdated="true" name="UiAssert" testItemId="16" title="UI Assert: Account Name (LWC)">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -489,7 +489,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="17" title="On SF editRecord page with pageobject Edit Record">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="09e70c9e-e56f-469f-a58d-b220b380bef0" name="UiWithScreen" testItemId="17" title="On SF editRecord page with pageobject Edit Record">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -526,7 +526,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="18">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="19" title="Set the Type picklist (Visualforce)">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="a67f22d5-0c09-44e7-92c0-1e244bf9a0fe" isTitleUpdated="true" name="UiDoAction" testItemId="19" title="Set the Type picklist (Visualforce)">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=type&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DType"/>
@@ -593,7 +593,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="20" title="Click the Quick Save button (Visualforce)">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="91a2472d-b057-451f-ac28-e9657890a285" isTitleUpdated="true" name="UiDoAction" testItemId="20" title="Click the Quick Save button (Visualforce)">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=quickSave"/>
@@ -644,7 +644,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" name="UiNavigate" testItemId="22" title="Navigate: Refresh">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" guid="88da9d82-68dd-46b4-b6a8-2805efd8908b" name="UiNavigate" testItemId="22" title="Navigate: Refresh">
                               <arguments>
                                 <argument id="navigate">
                                   <value class="value" valueClass="string">Refresh</value>
@@ -669,7 +669,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="25" title="UI Assert: Type (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="19fcb9d5-1997-477f-85ed-e33a73ec576d" isTitleUpdated="true" name="UiAssert" testItemId="25" title="UI Assert: Type (LWC)">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -709,7 +709,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="26" title="Set the Employees field (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="90d7eee8-2486-4e45-bd7d-62d04bd29a5f" isTitleUpdated="true" name="UiDoAction" testItemId="26" title="Set the Employees field (LWC)">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=employees"/>
@@ -775,7 +775,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="27" title="Click the Save button (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="d6f9b166-4cf9-45fd-893e-ab2d70fd01cd" isTitleUpdated="true" name="UiDoAction" testItemId="27" title="Click the Save button (LWC)">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=save"/>
@@ -826,7 +826,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" name="UiNavigate" testItemId="31" title="Navigate: Refresh">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" guid="23925197-71f8-4916-88f9-a7743a320e0a" name="UiNavigate" testItemId="31" title="Navigate: Refresh">
                       <arguments>
                         <argument id="navigate">
                           <value class="value" valueClass="string">Refresh</value>
@@ -839,7 +839,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="28" title="On SF editRecord page with pageobject Edit Record">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="2db3a458-7cc0-43f2-b3f1-426cdb88a67b" name="UiWithScreen" testItemId="28" title="On SF editRecord page with pageobject Edit Record">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -876,7 +876,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="29">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="30" title="UI Assert: Employees (Visualforce)">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="cfbb0795-781b-48f7-9dbd-98839fd9db7a" isTitleUpdated="true" name="UiAssert" testItemId="30" title="UI Assert: Employees (Visualforce)">
                               <arguments>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">Values</value>
@@ -944,7 +944,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="125" title="View Record Wrapper (Assert Employees)">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="89fe7647-938d-4317-bc31-1253a966d5b0" name="StepGroup" testItemId="125" title="View Record Wrapper (Assert Employees)">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">View Record Wrapper (Assert Employees)</value>
@@ -953,7 +953,7 @@
       <clauses>
         <clause name="hidden" testItemId="126">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="33" title="On SF viewRecordWrapper component in Account view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="507a1654-dfe2-4224-a820-5cb3c4267996" name="UiWithScreen" testItemId="33" title="On SF viewRecordWrapper component in Account view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -987,7 +987,7 @@
               <clauses>
                 <clause name="substeps" testItemId="34">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="35" title="UI Assert: Employees (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="851e070c-6e76-4b2e-bfd7-af6d73b19ab8" isTitleUpdated="true" name="UiAssert" testItemId="35" title="UI Assert: Employees (LWC)">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1043,7 +1043,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="132" title="Edit Record Wrapper (Set Account Phone)">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="b684fa59-b2f7-415b-adc2-f6e6f4502971" name="StepGroup" testItemId="132" title="Edit Record Wrapper (Set Account Phone)">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Edit Record Wrapper (Set Account Phone)</value>
@@ -1052,7 +1052,7 @@
       <clauses>
         <clause name="hidden" testItemId="133">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="36" title="On SF editRecordWrapper component in Account view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="cf55cacc-8402-4082-846a-b5b7471422d0" name="UiWithScreen" testItemId="36" title="On SF editRecordWrapper component in Account view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -1086,7 +1086,7 @@
               <clauses>
                 <clause name="substeps" testItemId="37">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="38" title="Set the Account Phone field (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="53dc4800-da4c-4d89-9763-d99f0838f22c" isTitleUpdated="true" name="UiDoAction" testItemId="38" title="Set the Account Phone field (LWC)">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=accountPhone"/>
@@ -1152,7 +1152,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="39" title="Click the Save button (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="d214a516-d033-4a3c-afc4-a120acb0a8d7" isTitleUpdated="true" name="UiDoAction" testItemId="39" title="Click the Save button (LWC)">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=save"/>
@@ -1219,7 +1219,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="138" title="View Record Wrapper (Assert Phone)">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="fe583aa2-fac1-40f5-8322-506058e2b324" name="StepGroup" testItemId="138" title="View Record Wrapper (Assert Phone)">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">View Record Wrapper (Assert Phone)</value>
@@ -1228,7 +1228,7 @@
       <clauses>
         <clause name="hidden" testItemId="139">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="40" title="On SF viewRecordWrapper component in Account view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="f3f846aa-dab6-4e5e-9928-fc9896fff8cb" name="UiWithScreen" testItemId="40" title="On SF viewRecordWrapper component in Account view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -1262,7 +1262,7 @@
               <clauses>
                 <clause name="substeps" testItemId="41">
                   <steps>
-                    <apiCall apiId="customapis.FormatPhoneNumber" name="FormatPhoneNumber" testItemId="59" title="Format Phone Number: ⇒ AccountPhone">
+                    <apiCall apiId="customapis.FormatPhoneNumber" guid="a8327e86-b1bc-4fa3-b1af-4f8496a71c23" name="FormatPhoneNumber" testItemId="59" title="Format Phone Number: ⇒ AccountPhone">
                       <arguments>
                         <argument id="phoneNumber">
                           <value class="variable">
@@ -1282,7 +1282,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="42" title="UI Assert: Phone (LWC)">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="af871474-9da4-4285-9aec-fac33de241de" isTitleUpdated="true" name="UiAssert" testItemId="42" title="UI Assert: Phone (LWC)">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -1317,7 +1317,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" name="UiNavigate" testItemId="43" title="Navigate: Refresh">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" guid="ea6f386c-ebac-41d5-9d6d-d46a1d188f95" name="UiNavigate" testItemId="43" title="Navigate: Refresh">
                       <arguments>
                         <argument id="navigate">
                           <value class="value" valueClass="string">Refresh</value>
@@ -1330,7 +1330,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="44" title="On SF viewRecord page with pageobject View Record">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="e95c05c6-5dff-4efd-bc53-61c452748128" name="UiWithScreen" testItemId="44" title="On SF viewRecord page with pageobject View Record">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -1367,7 +1367,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="45">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="46" title="UI Assert: Phone (Visualforce)">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="d7faaee9-c26f-4169-86c8-47b716d16adc" isTitleUpdated="true" name="UiAssert" testItemId="46" title="UI Assert: Phone (Visualforce)">
                               <arguments>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">Values</value>
@@ -1435,7 +1435,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="127" title="Create Record Wrapper">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="cdfe65cb-328a-4864-abb4-5e015c859c8c" name="StepGroup" testItemId="127" title="Create Record Wrapper">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Create Record Wrapper</value>
@@ -1447,7 +1447,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="166" title="On SF createRecordWithPrepopulatedValuesWrapper 1 component in Account view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="dd45aafc-ef3e-40c9-8000-5dc8528200cf" name="UiWithScreen" testItemId="166" title="On SF createRecordWithPrepopulatedValuesWrapper 1 component in Account view">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -1481,7 +1481,7 @@
       <clauses>
         <clause name="substeps" testItemId="167">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="168" title="Set the Account Name field to IntegrationTest 123">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="0010f021-7d4c-45bc-bba2-eefeb05bacbe" name="UiDoAction" testItemId="168" title="Set the Account Name field to IntegrationTest 123">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=accountName"/>
@@ -1540,7 +1540,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="169" title="Set the Employees field to 150">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="592bba82-645d-4e1f-9b9c-19b3c6d1b363" name="UiDoAction" testItemId="169" title="Set the Employees field to 150">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=employees"/>
@@ -1599,7 +1599,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="170" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3ebf9719-b435-464b-a671-91e9ce076aa6" name="UiDoAction" testItemId="170" title="Click the Save button">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save"/>

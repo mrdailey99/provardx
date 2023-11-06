@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="f0f59755-1346-4208-b4d8-48c1a90cb20e" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="customapis.MyTestApi" name="MyTestApi" testItemId="12" title="My Test Api: ⇒ ">
+    <apiCall apiId="customapis.MyTestApi" guid="f9816155-d563-44fb-b71e-984ae5d63f85" name="MyTestApi" testItemId="12" title="My Test Api: ⇒ ">
       <arguments>
         <argument id="input1">
           <value class="value" valueClass="string">test</value>
@@ -18,7 +18,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.SubString" name="SubString" testItemId="1" title="Substring: ⇒ Substring">
+    <apiCall apiId="customapis.SubString" guid="68cb11e1-c360-497b-8dcb-8a66a27b18ac" name="SubString" testItemId="1" title="Substring: ⇒ Substring">
       <arguments>
         <argument id="InputText">
           <value class="value" valueClass="string">StringToTrim</value>
@@ -34,7 +34,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.ConvertCase" name="ConvertCase" testItemId="2" title="Convert Case: ⇒ LowerCase">
+    <apiCall apiId="customapis.ConvertCase" guid="5ec9ebb8-02d5-426d-a8e9-f16ec955104b" name="ConvertCase" testItemId="2" title="Convert Case: ⇒ LowerCase">
       <arguments>
         <argument id="InputText">
           <value class="value" valueClass="string">LOWERCASE</value>
@@ -48,7 +48,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.ConvertCase" name="ConvertCase" testItemId="4" title="Convert Case: ⇒ UpperCase">
+    <apiCall apiId="customapis.ConvertCase" guid="af085460-a4b7-4af9-a5b7-41fed39555bd" name="ConvertCase" testItemId="4" title="Convert Case: ⇒ UpperCase">
       <arguments>
         <argument id="InputText">
           <value class="value" valueClass="string">uppercase</value>
@@ -64,7 +64,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.FormatPhoneNumber" name="FormatPhoneNumber" testItemId="3" title="Format Phone Number: ⇒ PhoneNumber">
+    <apiCall apiId="customapis.FormatPhoneNumber" guid="8d4a4db2-1ef9-4782-af45-5820e3532d9b" name="FormatPhoneNumber" testItemId="3" title="Format Phone Number: ⇒ PhoneNumber">
       <arguments>
         <argument id="phoneNumber">
           <value class="value" valueClass="string">1234567890</value>
@@ -77,7 +77,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="5" title="Random Integer: ⇒ RandomNum">
+    <apiCall apiId="customapis.RandomInteger" guid="96019966-575d-447f-80f2-916223f54b57" name="RandomInteger" testItemId="5" title="Random Integer: ⇒ RandomNum">
       <arguments>
         <argument id="NumberOfDigits">
           <value class="value" valueClass="decimal">3</value>
@@ -96,7 +96,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.MathPower" name="MathPower" testItemId="6" title="Math Power: ⇒ Exponential">
+    <apiCall apiId="customapis.MathPower" guid="380aa96b-d955-4cbf-abeb-4c9d49caf2dd" name="MathPower" testItemId="6" title="Math Power: ⇒ Exponential">
       <arguments>
         <argument id="base">
           <value class="value" valueClass="decimal">2</value>
@@ -112,7 +112,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.RunCommandLine" name="RunCommandLine" testItemId="9" title="Run Command Line: ⇒ ">
+    <apiCall apiId="customapis.RunCommandLine" guid="b980cabf-233e-42bc-8fd5-37205ffaf2f4" name="RunCommandLine" testItemId="9" title="Run Command Line: ⇒ ">
       <arguments>
         <argument id="command">
           <value class="value" valueClass="string">C:\\buildkite-agent\\buildkite-agent.exe start</value>
@@ -125,7 +125,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.RunBatchFile" name="RunBatchFile" testItemId="10" title="Run Batch File: ⇒ Result">
+    <apiCall apiId="customapis.RunBatchFile" guid="031bba98-eba8-46e3-bae9-57642c37adb5" name="RunBatchFile" testItemId="10" title="Run Batch File: ⇒ Result">
       <arguments>
         <argument id="BatchFilePath">
           <value class="value" valueClass="string">windowsdetails.bat</value>

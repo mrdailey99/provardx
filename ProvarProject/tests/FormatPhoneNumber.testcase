@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5">
+<testCase guid="504f7b8f-abb8-46b3-925a-cf5063f6b299" id="5">
   <summary/>
   <steps>
-    <apiCall apiId="customapis.FormatPhoneNumber" name="FormatPhoneNumber" testItemId="1" title="Format Phone Number: ⇒ Number">
+    <apiCall apiId="customapis.FormatPhoneNumber" guid="d4a1628f-537d-4684-aa5d-0576491f0861" name="FormatPhoneNumber" testItemId="1" title="Format Phone Number: ⇒ Number">
       <arguments>
         <argument id="phoneNumber">
           <value class="value" valueClass="string">3126922129</value>

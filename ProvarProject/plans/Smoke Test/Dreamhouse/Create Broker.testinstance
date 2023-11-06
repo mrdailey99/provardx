@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlanInstance testCasePath="tests/Dreamhouse/Create Broker.testcase">
+<testPlanInstance guid="22a595cf-8744-46a9-9807-11e8cd6f0596" testCasePath="tests/Dreamhouse/Create Broker.testcase">
   <planSettings/>
   <planFeatures/>
   <associations>

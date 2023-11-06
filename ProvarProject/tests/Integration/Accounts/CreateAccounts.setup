@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase>
+<testCase guid="264ebaf4-36e7-4d9e-9ef0-14a49fcb26ad">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="7" title="Salesforce Connect: Admin (Global)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="5cce63de-ede7-4e0b-a33b-9a4b54cc85b4" name="ApexConnect" testItemId="7" title="Salesforce Connect: Admin (Global)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="6" title="Read Account Data from Excel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="53441451-37a0-4b8d-8db3-0b0f7701f796" isTitleUpdated="true" name="SetValues" testItemId="6" title="Read Account Data from Excel">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable"/>
@@ -67,7 +67,7 @@
         </parameterValueSource>
       </parameterValueSources>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="3" title="For Each: {AccountData}=&gt;Account">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="393cfe1c-9d6d-454b-8da9-60bfd813c5dc" name="ForEach" testItemId="3" title="For Each: {AccountData}=&gt;Account">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -87,7 +87,7 @@
       <clauses>
         <clause name="substeps" testItemId="4">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Account=&gt;AccountId">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="4b38a503-42c1-4f8a-b3c1-6d55226b05f2" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: Account=&gt;AccountId">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">Account</value>

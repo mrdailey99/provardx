@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="f6b9b4d8-3260-4c81-9f5a-ed88fa476c66" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="1" title="Web Connect: JenkinsTrigger">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="f5780cee-b240-4f25-bb76-1cb9e1bf7b0c" name="WebConnect" testItemId="1" title="Web Connect: JenkinsTrigger">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">JenkinsTrigger</value>
@@ -15,7 +15,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="2" title="Web Request (REST): ⇒RestResponse">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="a41a8a8e-dcbf-4439-82c4-fa5f5117b455" name="RestRequest" testItemId="2" title="Web Request (REST): ⇒RestResponse">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">JenkinsTrigger</value>

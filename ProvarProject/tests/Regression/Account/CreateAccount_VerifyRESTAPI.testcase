@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase guid="061ad674-81db-4c61-9d12-2dfb01dec5ec" id="4">
   <summary/>
   <steps>
-    <caseCall testCaseId="b43b24f5-1936-4d84-ac49-ae9b0aebbe61" testCasePath="tests/Regression/Account/CreateNewAccount.testcase" testItemId="13">
+    <caseCall guid="5154e0b4-ecbb-4642-8c3d-c5ae4f70feba" testCaseId="b43b24f5-1936-4d84-ac49-ae9b0aebbe61" testCasePath="tests/Regression/Account/CreateNewAccount.testcase" testItemId="13">
       <arguments>
         <argument id="AccountName">
           <value class="compound">
@@ -70,7 +70,7 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: Website">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="9afede02-d7e7-4b09-a546-a3965530798e" name="SetValues" testItemId="7" title="Set Values: Website">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkVqAAL"/>
       </associations>
@@ -158,7 +158,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="12" title="Web Connect: SF_Rest">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="f79639a7-10b0-47da-ac06-eb111af09d90" name="WebConnect" testItemId="12" title="Web Connect: SF_Rest">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjBAAT"/>
       </associations>
@@ -174,7 +174,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="2" title="Web Request (REST): ⇒AccountResponse">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="19c8bdc5-222f-480c-98fd-4f1e7dc18f2c" name="RestRequest" testItemId="2" title="Web Request (REST): ⇒AccountResponse">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjCAAT"/>
@@ -239,7 +239,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="3" title="Assert: 200 EqualTo {RestResponseStatus.StatusCode}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="6b34fa19-9c78-47ae-8c1a-5089be9b7b9a" name="AssertValues" testItemId="3" title="Assert: 200 EqualTo {RestResponseStatus.StatusCode}">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjDAAT"/>
@@ -278,7 +278,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="11" title="Assert: {true} EqualTo {AccountResponse.done}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="d3e59080-85b8-42d2-bfb5-a1ae35123474" name="AssertValues" testItemId="11" title="Assert: {true} EqualTo {AccountResponse.done}">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjEAAT"/>
@@ -317,7 +317,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="8" title="Assert: 1 EqualTo {AccountResponse.totalSize}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="349c0a59-321a-4b2a-b1e0-6ec3e2417379" name="AssertValues" testItemId="8" title="Assert: 1 EqualTo {AccountResponse.totalSize}">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjFAAT"/>
@@ -356,7 +356,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="9" title="Assert: {AccountName} EqualTo {AccountResponse.records[1].Name}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="ec780919-b311-4059-96b1-554901bc7d25" name="AssertValues" testItemId="9" title="Assert: {AccountName} EqualTo {AccountResponse.records[1].Name}">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjGAAT"/>
@@ -402,7 +402,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="4" title="Assert: {AccountPhone} EqualTo {AccountResponse.records[1].Phone}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="7a21753f-8d2e-4191-b35e-dd11934b3074" name="AssertValues" testItemId="4" title="Assert: {AccountPhone} EqualTo {AccountResponse.records[1].Phone}">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkjHAAT"/>

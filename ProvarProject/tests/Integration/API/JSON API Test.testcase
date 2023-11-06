@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4" registryId="84b26b36-d3a5-40a6-bcf2-d7db8090317d" visibility="Internal">
+<testCase guid="170534ff-6654-408f-a6b6-0f6ef73a0685" id="4" registryId="84b26b36-d3a5-40a6-bcf2-d7db8090317d" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="1" title="Web Connect: JSON_Placeholder_API">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="c20f21dc-3c6d-4ae8-9fac-0c8a6ffe4220" name="WebConnect" testItemId="1" title="Web Connect: JSON_Placeholder_API">
       <arguments>
         <argument argId="d76d5c5c-d1cc-4551-b7de-644eee7cdef9" id="connectionName">
           <value class="value" valueClass="string">JSON_Placeholder_API</value>
@@ -15,7 +15,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="7" title="Web Request (HTTP/REST): ⇒JSON">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="cc1ab2ca-6216-4ec8-bbd2-4a762fe4f8bf" name="RestRequest" testItemId="7" title="Web Request (HTTP/REST): ⇒JSON">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">JSON_Placeholder_API</value>
@@ -50,7 +50,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="6" title="Set Values: JSON userId, title, and body">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="312ad24d-1539-46c1-b329-b0307b88c6ae" isTitleUpdated="true" name="SetValues" testItemId="6" title="Set Values: JSON userId, title, and body">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -97,7 +97,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="2" title="Web Request (REST): ⇒RestResponse">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="4ef2bd54-5ace-40e3-a335-d7fc992af73a" name="RestRequest" testItemId="2" title="Web Request (REST): ⇒RestResponse">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">JSON_Placeholder_API</value>
@@ -194,7 +194,7 @@
         </compoundApiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="10" title="Assert: 201 EqualTo {RestResponseStatus.StatusCode}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="e6657c16-60bd-42a4-9f44-561bcefe5af9" name="AssertValues" testItemId="10" title="Assert: 201 EqualTo {RestResponseStatus.StatusCode}">
       <arguments>
         <argument id="expectedValue">
           <value class="value" valueClass="string">201</value>
@@ -229,7 +229,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="11" title="Assert: Created EqualTo {RestResponseStatus.ResponseMessage}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="71b6caa2-468b-4420-9dcd-5d2b51057010" name="AssertValues" testItemId="11" title="Assert: Created EqualTo {RestResponseStatus.ResponseMessage}">
       <arguments>
         <argument id="expectedValue">
           <value class="value" valueClass="string">Created</value>
@@ -264,7 +264,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="12" title="Assert: {JSON.userId} EqualTo {RestResponse.userId}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="0f9d41f2-64c1-4970-9f6f-70ed22cd5217" name="AssertValues" testItemId="12" title="Assert: {JSON.userId} EqualTo {RestResponse.userId}">
       <arguments>
         <argument id="expectedValue">
           <value class="variable">
@@ -302,7 +302,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="13" title="Assert: {JSON.title} EqualTo {RestResponse.title}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="6c41f6e1-4827-4011-80c0-2f1bbe11d090" name="AssertValues" testItemId="13" title="Assert: {JSON.title} EqualTo {RestResponse.title}">
       <arguments>
         <argument id="expectedValue">
           <value class="variable">
@@ -340,7 +340,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="14" title="Assert: {JSON.body} EqualTo {RestResponse.body}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="d85b2e4f-87cc-4068-88b4-3449f8f21d7b" name="AssertValues" testItemId="14" title="Assert: {JSON.body} EqualTo {RestResponse.body}">
       <arguments>
         <argument id="expectedValue">
           <value class="variable">
@@ -378,7 +378,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="17" title="Write: {RestResponse}=&gt;templates/RestResponse.xlsx">
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" guid="9c5f3c05-48e7-4201-9a39-c06ab2c92506" name="Write" testItemId="17" title="Write: {RestResponse}=&gt;templates/RestResponse.xlsx">
       <arguments>
         <argument id="data">
           <value class="variable">

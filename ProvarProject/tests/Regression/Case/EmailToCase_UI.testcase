@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="0fffbf1c-ced1-4124-a08a-074f1d3e1e9d" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="44" title="Setup Test Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="a9555df1-ac26-4c55-a0a5-6a3244677e80" name="StepGroup" testItemId="44" title="Setup Test Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Setup Test Data</value>
@@ -11,7 +11,7 @@
       <clauses>
         <clause name="hidden" testItemId="45">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: Contents">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="84d853ed-8339-4022-add1-78c6d4d731a0" name="SetValues" testItemId="3" title="Set Values: Contents">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -30,7 +30,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="5" title="Set Values: Subject">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="e3e0e1b7-9fa5-4d97-8571-839bb2a1e97e" name="SetValues" testItemId="5" title="Set Values: Subject">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -49,7 +49,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="4" title="Set Values: To, From">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="0d2dacfb-8189-43a6-800d-760e1474049e" isTitleUpdated="true" name="SetValues" testItemId="4" title="Set Values: To, From">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -79,7 +79,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="6" title="Set Values: Signature">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="4ccd4d97-78f2-4182-bf21-4a6664af0af8" name="SetValues" testItemId="6" title="Set Values: Signature">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -98,7 +98,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="76" title="Set Values: SupportResponse">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="4827455f-c079-4a29-be4e-95645b6ea3d3" name="SetValues" testItemId="76" title="Set Values: SupportResponse">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -129,7 +129,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="9d9bba51-121c-4ca1-8102-768b51e04d1b" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -170,7 +170,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="56" title="Send Email and Poll Inbox">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="0a43b2b4-3556-4e9d-9a35-b66ef6746947" name="StepGroup" testItemId="56" title="Send Email and Poll Inbox">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Send Email and Poll Inbox</value>
@@ -179,7 +179,7 @@
       <clauses>
         <clause name="hidden" testItemId="57">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.Subscribe" isTitleUpdated="true" name="Subscribe" testItemId="58" title="Subscribe: ProvarEmail">
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.Subscribe" guid="af3f01bf-4dec-4dfb-8836-80b3eaead433" isTitleUpdated="true" name="Subscribe" testItemId="58" title="Subscribe: ProvarEmail">
               <arguments>
                 <argument id="sourceConnectionName">
                   <value class="value" valueClass="string">ProvarDocker</value>
@@ -220,7 +220,7 @@
                 </param>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" isTitleUpdated="true" name="SendMessage" testItemId="59" title="Send Message: ProvarSupport">
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" guid="3afcb7b1-5917-483e-950b-2c4ea6d4556b" isTitleUpdated="true" name="SendMessage" testItemId="59" title="Send Message: ProvarSupport">
               <arguments>
                 <argument id="destinationConnectionName">
                   <value class="value" valueClass="string">ProvarDocker</value>
@@ -282,7 +282,7 @@
                 </param>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="104" title="Wait For: {CaseSystem.messageCount &gt; 0}=&gt;{3}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" guid="2cb1cc90-f2cb-4360-b733-8a67283ee78b" name="WaitFor" testItemId="104" title="Wait For: {CaseSystem.messageCount &gt; 0}=&gt;{3}">
               <arguments>
                 <argument id="condition">
                   <value class="gt">
@@ -312,7 +312,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="62" title="Search for Case">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="9bbcb131-2d24-4e5a-9e13-cdd819ea16ab" name="StepGroup" testItemId="62" title="Search for Case">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Search for Case</value>
@@ -321,7 +321,7 @@
       <clauses>
         <clause name="hidden" testItemId="63">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="26" title="On SF Case All Open Cases list view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="442279cf-f3a9-4315-bb30-682a6d1439e5" name="UiWithScreen" testItemId="26" title="On SF Case All Open Cases list view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -352,7 +352,7 @@
               <clauses>
                 <clause name="substeps" testItemId="27">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="55" title="Set the List Search select to {Subject}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="2e5e3e72-ded7-4b5f-85fe-503e9461dbe3" name="UiDoAction" testItemId="55" title="Set the List Search select to {Subject}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=listSearch&amp;path=List%2FListSearch"/>
@@ -409,7 +409,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="32" title="With Case rows {1}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="14509998-f715-4457-86a9-27c927737974" name="UiWithRow" testItemId="32" title="With Case rows {1}">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -440,7 +440,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="33">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="34" title="Click the Subject field">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="b739f274-0894-492d-ab29-494af5d323a2" name="UiDoAction" testItemId="34" title="Click the Subject field">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=Subject&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DSubject"/>
@@ -512,7 +512,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="70" title="Validate Case Details in UI">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="66fac42c-f681-4b85-a8c4-c5a7ccce0ae8" name="StepGroup" testItemId="70" title="Validate Case Details in UI">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Validate Case Details in UI</value>
@@ -521,7 +521,7 @@
       <clauses>
         <clause name="hidden" testItemId="71">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="12" title="On SF Case View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="1eb802ed-94d3-48e2-831c-1342fe207f4c" name="UiWithScreen" testItemId="12" title="On SF Case View screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -553,7 +553,7 @@
               <clauses>
                 <clause name="substeps" testItemId="13">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="141" title="Retrieve Case Number">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="0546108b-dca0-4eba-8ceb-c7f2a34db08a" isTitleUpdated="true" name="UiAssert" testItemId="141" title="Retrieve Case Number">
                       <tags/>
                       <arguments>
                         <argument id="resultName">
@@ -585,7 +585,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="17" title="Validate Case Subject">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="ca16f8ed-f54e-4571-bad7-deeee92df745" isTitleUpdated="true" name="UiAssert" testItemId="17" title="Validate Case Subject">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -620,7 +620,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="21" title="Validate Case Description from Email Signature">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="72d438b7-83d7-49bf-8832-0b9ec118f94e" isTitleUpdated="true" name="UiAssert" testItemId="21" title="Validate Case Description from Email Signature">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -655,7 +655,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="18" title="Validate Case Description from Email Contents">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="45fb5248-2588-42ec-b2c0-a06a35abb68c" isTitleUpdated="true" name="UiAssert" testItemId="18" title="Validate Case Description from Email Contents">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -690,7 +690,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="19" title="Validate Case Origin">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="f1b3f1ee-fca0-431d-bd75-651f6daa731f" isTitleUpdated="true" name="UiAssert" testItemId="19" title="Validate Case Origin">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -723,7 +723,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="14" title="Validate Case Email">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="cda1f004-4230-4ddb-ad1c-be0e5b216fd7" isTitleUpdated="true" name="UiAssert" testItemId="14" title="Validate Case Email">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -774,7 +774,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="91" title="Send Email Response &amp; Update Case Details">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="344e81db-d1d8-40eb-879c-20cc59875f1b" isTitleUpdated="true" name="StepGroup" testItemId="91" title="Send Email Response &amp; Update Case Details">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Send Email Response</value>
@@ -783,7 +783,7 @@
       <clauses>
         <clause name="hidden" testItemId="92">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" isTitleUpdated="true" name="UiWithScreen" testItemId="126" title="On SF Case View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="1d8032c4-db69-48d0-91dd-a5dfe53a48e4" isTitleUpdated="true" name="UiWithScreen" testItemId="126" title="On SF Case View screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -815,7 +815,7 @@
               <clauses>
                 <clause name="substeps" testItemId="127">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="153" title="Expand the Second Update">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="e0e2a8d6-f5fd-4490-840a-ab6626f77bcf" isTitleUpdated="true" name="UiDoAction" testItemId="153" title="Expand the Second Update">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:pageobject:field?field=updateTwo&amp;pageId=pageobjects.CaseDetails"/>
@@ -866,7 +866,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="128" title="Click the Reply">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="ea336d24-d75b-44d6-9056-1060d5306121" name="UiDoAction" testItemId="128" title="Click the Reply">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:pageobject:field?field=reply&amp;pageId=pageobjects.CaseDetails"/>
@@ -928,7 +928,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="93" title="On SF Case Publisher Action Email screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="b77168e8-c5af-43db-9326-2cfd36326e8a" name="UiWithScreen" testItemId="93" title="On SF Case Publisher Action Email screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -968,7 +968,7 @@
               <clauses>
                 <clause name="substeps" testItemId="94">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="134" title="Set the From picklist to Michael Dailey &lt;michael.dailey@provartesting.com&gt;">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="8e435a47-b828-4d8f-89a9-8ff30bdbb28c" name="UiDoAction" testItemId="134" title="Set the From picklist to Michael Dailey &lt;michael.dailey@provartesting.com&gt;">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=ValidatedFromAddress&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DEmailMessage%26field%3DValidatedFromAddress"/>
@@ -1027,7 +1027,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="145" title="Set the Subject field to RE: {Subject} {CaseNumber.fields.CaseNumber.value}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="11e1450b-284d-411a-83fc-434b6ba58e71" name="UiDoAction" testItemId="145" title="Set the Subject field to RE: {Subject} {CaseNumber.fields.CaseNumber.value}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=Subject&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DEmailMessage%26field%3DSubject"/>
@@ -1101,7 +1101,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="95" title="Set the HTML Body field to {SupportResponse}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="1b2b6022-7aff-40af-b953-51425eafb246" name="UiDoAction" testItemId="95" title="Set the HTML Body field to {SupportResponse}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=HtmlBody&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DEmailMessage%26field%3DHtmlBody"/>
@@ -1158,7 +1158,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="98" title="Click the Create button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="d050bca8-f2bb-414b-b1f8-2ff8ed030eec" name="UiDoAction" testItemId="98" title="Click the Create button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=publishersharebutton&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DEmailMessage%26action%3Dpublishersharebutton"/>
@@ -1240,7 +1240,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="110" title="On SF Case View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="14a15d1f-a3f0-4a82-9448-c4c6ea95e599" name="UiWithScreen" testItemId="110" title="On SF Case View screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -1274,7 +1274,7 @@
               <clauses>
                 <clause name="substeps" testItemId="111">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="113" title="Activate inline edit the Case Reason picklist">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="2b83d7d7-4004-4ba1-a30f-1fe365c68ca1" name="UiDoAction" testItemId="113" title="Activate inline edit the Case Reason picklist">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=Reason&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DReason"/>
@@ -1300,7 +1300,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="114" title="Set the Case Reason picklist to Equipment Complexity">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c047a9cf-00c3-49e8-904d-4a947e9e2abf" name="UiDoAction" testItemId="114" title="Set the Case Reason picklist to Equipment Complexity">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=Reason&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DReason"/>
@@ -1360,7 +1360,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="115" title="Set the Status picklist to Working">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="441b2752-3ceb-4e40-a25f-a26e384b29d6" name="UiDoAction" testItemId="115" title="Set the Status picklist to Working">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=Status&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26field%3DStatus"/>
@@ -1420,7 +1420,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="116" title="Click the Save button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="a15481be-a840-46db-bc71-cffe499ee8f5" name="UiDoAction" testItemId="116" title="Click the Save button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=SaveEdit&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26action%3DSaveEdit"/>
@@ -1487,7 +1487,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="100" title="Verify Email Response on Client Side">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="5e6308df-890e-48ae-91ea-3f55703260c7" name="StepGroup" testItemId="100" title="Verify Email Response on Client Side">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Verify Email Response on Client Side</value>
@@ -1496,7 +1496,7 @@
       <clauses>
         <clause name="hidden" testItemId="101">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="102" title="Wait For: {CaseSystem.messageCount &gt; 1}=&gt;{3}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" guid="8f6e9ef0-6f5e-491d-a73e-e62e12f788b3" name="WaitFor" testItemId="102" title="Wait For: {CaseSystem.messageCount &gt; 1}=&gt;{3}">
               <arguments>
                 <argument id="condition">
                   <value class="gt">
@@ -1522,7 +1522,7 @@
                 <clause name="substeps" testItemId="105"/>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="138" title="Assert: {CaseSystem.messages[2].bodyText} Contains {SupportResponse}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="8982d8b3-fa41-4780-b459-38abf54fb623" name="AssertValues" testItemId="138" title="Assert: {CaseSystem.messages[2].bodyText} Contains {SupportResponse}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -1564,7 +1564,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="107" title="Assert: {CaseSystem.messages[2].bodyText} Contains {Contents}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="3e5af300-8d98-44e3-8773-a7cdfc3431aa" name="AssertValues" testItemId="107" title="Assert: {CaseSystem.messages[2].bodyText} Contains {Contents}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -1606,7 +1606,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="108" title="Assert: RE: {Subject} EqualTo {CaseSystem.messages[2].subject}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="63c63c14-b0f0-4267-96ef-0597fb6b657d" isTitleUpdated="true" name="AssertValues" testItemId="108" title="Assert: RE: {Subject} EqualTo {CaseSystem.messages[2].subject}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="compound">
@@ -1660,7 +1660,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="109" title="Assert: {CaseSystem.messages[2].to} Contains {To}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="587b3450-ba2a-4cd7-81ac-b55ff55e3f5c" name="AssertValues" testItemId="109" title="Assert: {CaseSystem.messages[2].to} Contains {To}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -1706,7 +1706,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="23" title="Finally: Cleanup Test Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" guid="5efc7924-1ee4-47c7-9826-3f22ccb0824e" name="Finally" testItemId="23" title="Finally: Cleanup Test Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Cleanup Test Data</value>
@@ -1715,7 +1715,7 @@
       <clauses>
         <clause name="hidden" testItemId="24">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="154" title="SOQL Query: select Id from Case where Origin = 'Email' and Subject = '{Subject}' ORDER BY CreatedDate DESC LIMIT 1=&gt;CaseRows">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="cce76f66-c887-4818-9578-ee9c70ceb534" name="ApexSoqlQuery" testItemId="154" title="SOQL Query: select Id from Case where Origin = 'Email' and Subject = '{Subject}' ORDER BY CreatedDate DESC LIMIT 1=&gt;CaseRows">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -1739,7 +1739,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="155" title="If: {Count(CaseRows) &gt; 0}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="6990b30d-531b-40c9-86f4-4ede72fc18fd" name="If" testItemId="155" title="If: {Count(CaseRows) &gt; 0}">
               <arguments>
                 <argument id="condition">
                   <value class="gt">
@@ -1757,7 +1757,7 @@
               <clauses>
                 <clause name="then" testItemId="156">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="40" title="On SF Case View screen">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="ac1d78d0-a44c-4cc7-bbbc-32db829639cb" name="UiWithScreen" testItemId="40" title="On SF Case View screen">
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">Admin</value>
@@ -1791,7 +1791,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="41">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="42" title="Click the Delete button">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="d41aaeee-1f1d-40f0-b852-4b6a609429e0" name="UiDoAction" testItemId="42" title="Click the Delete button">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=Delete&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DCase%26action%3DDelete"/>
@@ -1842,7 +1842,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" isTitleUpdated="true" name="UiHandleAlert" testItemId="43" title="Confirm Delete">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" guid="ede35a87-99f8-4024-a81c-1567368bbd92" isTitleUpdated="true" name="UiHandleAlert" testItemId="43" title="Confirm Delete">
                               <arguments>
                                 <argument id="alerts">
                                   <value class="valueList" mutable="Mutable">

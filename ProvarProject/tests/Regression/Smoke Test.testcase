@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="445d41c5-ba92-4b0d-a4fb-d6e8ec1a1cc9" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="391b316d-1c70-425b-bce2-e79d42bed029" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAklfAAD"/>
       </associations>
@@ -46,7 +46,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Global Search">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="c195d345-3255-4141-87e6-ad25313a7ee2" name="UiWithScreen" testItemId="2" title="On SF Global Search">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAklgAAD"/>
       </associations>
@@ -80,7 +80,7 @@
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="4" title="Set the Search Box field to {GetSelectedEnvironment()}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="0ae52680-54d5-4cf0-8cf5-b7da67017da8" name="UiDoAction" testItemId="4" title="Set the Search Box field to {GetSelectedEnvironment()}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAklhAAD"/>
               </associations>

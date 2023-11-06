@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlan>
+<testPlan guid="08b5362c-b75d-4174-b820-460404549323">
   <planSettings/>
   <planFeatures>
     <planFeature connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" enabled="true" name="TEST_MANAGER" type="REPORTING">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="10">
+<testCase guid="898bb118-5e67-49ad-ba13-08dd685bf510" id="10">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="37" title="Setup Test Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="5426871c-bd5f-4d97-8d72-8fff31e2fbf7" name="StepGroup" testItemId="37" title="Setup Test Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Setup Test Data</value>
@@ -11,7 +11,7 @@
       <clauses>
         <clause name="hidden" testItemId="38">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="3" title="Set Values: Contents">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="975c0182-ebb9-40c3-ba7b-73618eb63413" name="SetValues" testItemId="3" title="Set Values: Contents">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -30,7 +30,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="5" title="Set Values: Subject">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="c2651ac4-b9c3-4e1d-8e15-bafe171753dc" name="SetValues" testItemId="5" title="Set Values: Subject">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -49,7 +49,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="4" title="Set Values: To, From">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="a7e105d3-e9d7-4f04-b56a-8f6178f1eefd" isTitleUpdated="true" name="SetValues" testItemId="4" title="Set Values: To, From">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -79,7 +79,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="6" title="Set Values: Signature">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="410e3593-15e2-46d6-8d3e-7aa4c84cd186" name="SetValues" testItemId="6" title="Set Values: Signature">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -102,7 +102,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="07975da6-ac1c-40c2-8a6e-8d236683c316" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -143,7 +143,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="27" title="Send Email and Poll Inbox">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="2de92094-972a-463b-b4d5-88fb56f7bff6" name="StepGroup" testItemId="27" title="Send Email and Poll Inbox">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Send Email and Poll Inbox</value>
@@ -152,7 +152,7 @@
       <clauses>
         <clause name="hidden" testItemId="28">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.Subscribe" name="Subscribe" testItemId="7" title="Subscribe: ProvarDocker">
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.Subscribe" guid="90392ca9-ca91-4c20-b991-8ab2e01edd7b" name="Subscribe" testItemId="7" title="Subscribe: ProvarDocker">
               <arguments>
                 <argument id="sourceConnectionName">
                   <value class="value" valueClass="string">ProvarDocker</value>
@@ -193,7 +193,7 @@
                 </param>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" name="SendMessage" testItemId="2" title="Send Message: ProvarDocker">
+            <apiCall apiId="com.provar.plugins.bundled.apis.messaging.SendMessage" guid="249d3bfd-5d28-4959-9752-743ef8e646e3" name="SendMessage" testItemId="2" title="Send Message: ProvarDocker">
               <arguments>
                 <argument id="destinationConnectionName">
                   <value class="value" valueClass="string">ProvarDocker</value>
@@ -255,7 +255,7 @@
                 </param>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="10" title="Wait For: {CaseSystem.messageCount &gt; 0}=&gt;{3}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" guid="a0ce5533-a044-434b-86fd-e27e42c3fd77" name="WaitFor" testItemId="10" title="Wait For: {CaseSystem.messageCount &gt; 0}=&gt;{3}">
               <arguments>
                 <argument id="condition">
                   <value class="gt">
@@ -281,7 +281,7 @@
                 <clause name="substeps" testItemId="11"/>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="39" title="Sleep for {10} seconds">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" guid="f2680d4d-ba34-4f53-9503-f76b81957915" name="Sleep" testItemId="39" title="Sleep for {10} seconds">
               <arguments>
                 <argument id="sleepSecs">
                   <value class="value" valueClass="decimal">10</value>
@@ -292,7 +292,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="33" title="Read and Assert Case Details via API">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="6ca57ae1-ef8d-4446-9cc5-d53f2b5e3868" name="StepGroup" testItemId="33" title="Read and Assert Case Details via API">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read and Assert Case Details via API</value>
@@ -301,7 +301,7 @@
       <clauses>
         <clause name="hidden" testItemId="34">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="15" title="SOQL Query: select Id from Case where Origin = 'Email' and Subject = '{Subject}' ORDER BY CreatedDate DESC LIMIT 1=&gt;CaseRows">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="f726d9a7-6491-4c24-bb28-76dc581521b5" name="ApexSoqlQuery" testItemId="15" title="SOQL Query: select Id from Case where Origin = 'Email' and Subject = '{Subject}' ORDER BY CreatedDate DESC LIMIT 1=&gt;CaseRows">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -325,7 +325,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="26" title="Read Object: Case = {CaseRows.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" guid="2db17ff8-0e25-4322-bfc3-ae6beeca9ed4" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="26" title="Read Object: Case = {CaseRows.Id}">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">Case</value>
@@ -381,7 +381,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="23" title="Finally: Cleanup Test Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" guid="57e029d5-5cc0-4e56-b347-cd54384de692" name="Finally" testItemId="23" title="Finally: Cleanup Test Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Cleanup Test Data</value>
@@ -390,7 +390,7 @@
       <clauses>
         <clause name="hidden" testItemId="24">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="25" title="Delete Object: {CaseRows.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="7b7a48d8-841b-4e48-b4e2-e76d2d008d0c" name="ApexDeleteObject" testItemId="25" title="Delete Object: {CaseRows.Id}">
               <arguments>
                 <argument id="apexConnectionName">
                   <value class="value" valueClass="string">Admin</value>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="89562af6-5a76-443b-a32d-00ee2f3f1794" visibility="Internal">
+<testCase guid="09bbae93-ebcc-4294-8c55-2874c2b6b935" registryId="89562af6-5a76-443b-a32d-00ee2f3f1794" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="365" title="Salesforce Connect: CPQ_New (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="4d4ca964-df51-45b9-934e-f2b11cc9b42c" name="ApexConnect" testItemId="365" title="Salesforce Connect: CPQ_New (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">CPQ</value>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="359" title="Read data from excel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="f37bb19f-bcdc-453a-b471-05ee7be1486e" name="StepGroup" testItemId="359" title="Read data from excel">
       <tags/>
       <arguments>
         <argument id="description">
@@ -77,7 +77,7 @@
         <clause name="hidden" testItemId="354"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="368" title="SOQL Query: select Id from Pricebook2 where Name = '{SourceData.PriceBookReference}'=&gt;Pricebook2Rows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="9dd8b030-4002-4e77-b190-5a826ecff101" name="ApexSoqlQuery" testItemId="368" title="SOQL Query: select Id from Pricebook2 where Name = '{SourceData.PriceBookReference}'=&gt;Pricebook2Rows">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -102,7 +102,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="369" title="Create Object: SBQQ__Quote__c=&gt;QuoteId">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="9192445e-691c-483d-8572-edad8a975244" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="369" title="Create Object: SBQQ__Quote__c=&gt;QuoteId">
       <arguments>
         <argument id="objectType">
           <value class="value" valueClass="string">SBQQ__Quote__c</value>
@@ -136,7 +136,7 @@
     </apiCall>
   </steps>
   <params>
-    <param linkedToUrl="provar:hasvalue:f8827ec0-a8a2-4f90-8b26-ce68a2fd2d93" name="reuseConnectionName" title="Override Connection">
+    <param linkedToUrl="provar:hasvalue:f8827ec0-a8a2-4f90-8b26-ce68a2fd2d93" name="reuseConnectionName" passwordVariableAllowed="true" title="Override Connection">
       <summary>The name of an already opened connect to re-use.</summary>
       <type>
         <connectionType>
@@ -149,7 +149,7 @@
     </param>
   </params>
   <outputParams>
-    <param name="QuoteId" title="QuoteId">
+    <param name="QuoteId" passwordVariableAllowed="true" title="QuoteId">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>

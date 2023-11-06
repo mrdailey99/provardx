@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase guid="a00c3f73-1dc3-498d-b366-d3194cf90ef2" id="1">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="fcb567ba-772f-44c8-bff2-60aa677450a7" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -41,7 +41,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: SELECT Id,Email,Name,Phone,Title FROM Contact WHERE AccountId = '{convertedAccountId}' ORDER BY Name ASC LIMIT 20=&gt;RelatedContacts">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="5b1bb87c-67c2-46c7-a0be-ce36296ca95c" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: SELECT Id,Email,Name,Phone,Title FROM Contact WHERE AccountId = '{convertedAccountId}' ORDER BY Name ASC LIMIT 20=&gt;RelatedContacts">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -65,7 +65,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" name="WebConnect" testItemId="43" title="Web Connect: SF_Rest">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.WebConnect" guid="e93fd2a3-7f95-4005-966d-d167c10b4d56" name="WebConnect" testItemId="43" title="Web Connect: SF_Rest">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">SF_Rest</value>
@@ -78,7 +78,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" name="RestRequest" testItemId="6" title="Web Request (REST): ⇒RestResponse">
+    <apiCall apiId="com.provar.plugins.bundled.apis.restservice.RestRequest" guid="357ee082-af50-4ca5-b418-3a75ab79854f" name="RestRequest" testItemId="6" title="Web Request (REST): ⇒RestResponse">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">SF_Rest</value>
@@ -133,7 +133,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="7" title="Assert: 200 EqualTo {RestResponseStatus.StatusCode}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="e2e0e6e1-74c9-4c17-80af-6eac67afd5c2" name="AssertValues" testItemId="7" title="Assert: 200 EqualTo {RestResponseStatus.StatusCode}">
       <arguments>
         <argument id="expectedValue">
           <value class="value" valueClass="string">200</value>
@@ -168,7 +168,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="8" title="Assert: {true} EqualTo {RestResponse.done}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="bd14f0db-8f2f-47cd-a650-7b133f2e3981" name="AssertValues" testItemId="8" title="Assert: {true} EqualTo {RestResponse.done}">
       <arguments>
         <argument id="expectedValue">
           <value class="value" valueClass="boolean">true</value>
@@ -203,7 +203,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="9" title="Assert: {Count(RelatedContacts)} EqualTo {RestResponse.totalSize}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="ecc01fad-8042-427a-92b4-26696cadeefb" name="AssertValues" testItemId="9" title="Assert: {Count(RelatedContacts)} EqualTo {RestResponse.totalSize}">
       <arguments>
         <argument id="expectedValue">
           <value class="funcCall" id="Count">
@@ -244,7 +244,7 @@
         <argument id="failureMessage"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="15" title="Set Values: TotalRecords">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="8c86b578-1c8f-43a4-8473-9c882cc3ac8c" name="SetValues" testItemId="15" title="Set Values: TotalRecords">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -269,7 +269,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="16" title="Compare first and last value in list">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="690c3eb0-10ff-4f98-b271-ecb39d484399" name="StepGroup" testItemId="16" title="Compare first and last value in list">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Compare first and last value in list</value>
@@ -278,7 +278,7 @@
       <clauses>
         <clause name="hidden" testItemId="17">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="30" title="While: {Index &lt; TotalRecords}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" guid="520320f1-bce8-45e4-ae05-6cb22b8c51ef" name="DoWhile" testItemId="30" title="While: {Index &lt; TotalRecords}">
               <arguments>
                 <argument id="condition">
                   <value class="lt">
@@ -306,7 +306,7 @@
               <clauses>
                 <clause name="substeps" testItemId="31">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="28" title="Assert: {RestResponse.records[Index].attributes.url} Contains {RelatedContacts[Index].Id}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="6e64d702-9f75-48e1-8d44-275421110a48" name="AssertValues" testItemId="28" title="Assert: {RestResponse.records[Index].attributes.url} Contains {RelatedContacts[Index].Id}">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -358,7 +358,7 @@
                         <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="42" title="Assert: {RelatedContacts[Index].Email} EqualTo {RestResponse.records[Index].Email}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="b863932a-215a-4706-9335-c2ccb38028f5" name="AssertValues" testItemId="42" title="Assert: {RelatedContacts[Index].Email} EqualTo {RestResponse.records[Index].Email}">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -409,7 +409,7 @@
                         <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="41" title="Assert: {RelatedContacts[Index].Name} EqualTo {RestResponse.records[Index].Name}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="498c5862-4b35-4fd5-bf3d-0b948a65bfdb" name="AssertValues" testItemId="41" title="Assert: {RelatedContacts[Index].Name} EqualTo {RestResponse.records[Index].Name}">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -460,7 +460,7 @@
                         <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="40" title="Assert: {RelatedContacts[Index].Phone} EqualTo {RestResponse.records[Index].Phone}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="36a87476-6159-4575-bc89-31b877164e9b" name="AssertValues" testItemId="40" title="Assert: {RelatedContacts[Index].Phone} EqualTo {RestResponse.records[Index].Phone}">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -511,7 +511,7 @@
                         <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="29" title="Assert: {RelatedContacts[Index].Title} EqualTo {RestResponse.records[Index].Title}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="6d15b2ea-8a02-490d-9627-fc99364b9ed8" name="AssertValues" testItemId="29" title="Assert: {RelatedContacts[Index].Title} EqualTo {RestResponse.records[Index].Title}">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">

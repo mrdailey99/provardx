@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2" registryId="5bff702f-fb59-4784-b30e-5c668164b9e8" visibility="Internal">
+<testCase guid="25093021-881f-4f18-9fcb-49a72bd084eb" id="2" registryId="5bff702f-fb59-4784-b30e-5c668164b9e8" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="0a4f5202-d978-419e-91f3-74f0fdd869e6" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="17" title="Create Object: Account=&gt;AccountId">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" guid="e39c15c8-3437-4c1a-9a00-cb054cf3f77b" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="17" title="Create Object: Account=&gt;AccountId">
       <arguments>
         <argument id="objectType">
           <value class="value" valueClass="string">Account</value>
@@ -80,7 +80,7 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Account&amp;field=Phone" name="Phone" title="Phone"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="18" title="Validating Account Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="c2dfac9c-722f-4471-a235-36916ac39aa5" name="StepGroup" testItemId="18" title="Validating Account Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Validating Account Data</value>
@@ -89,7 +89,7 @@
       <clauses>
         <clause name="hidden" testItemId="19">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="10" title="On SF Account View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="1afdfed0-06ee-41ec-bc05-27784add6b54" name="UiWithScreen" testItemId="10" title="On SF Account View screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -125,7 +125,7 @@
               <clauses>
                 <clause name="substeps" testItemId="11">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="12" title="UI Assert: Phone">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="505ab5c4-e08b-417a-86ea-be1d051d812b" isTitleUpdated="true" name="UiAssert" testItemId="12" title="UI Assert: Phone">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -162,7 +162,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="13" title="UI Assert: Account Name">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="7faeb1a2-4e44-4359-a7a6-fd78e91aeede" isTitleUpdated="true" name="UiAssert" testItemId="13" title="UI Assert: Account Name">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>

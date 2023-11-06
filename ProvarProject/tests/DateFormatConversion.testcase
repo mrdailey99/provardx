@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase>
+<testCase guid="a27369d6-ea2c-4da5-8ed4-28ec4fa13b82">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: MyDate">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="a2f24bc5-ea5c-47b6-9873-7bc3c2536f0b" name="SetValues" testItemId="2" title="Set Values: MyDate">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -30,7 +30,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="customapis.ConvertCase" name="ConvertCase" testItemId="1" title="Convert Case: ⇒ MyDateUpper">
+    <apiCall apiId="customapis.ConvertCase" guid="6136075c-ae85-4d2a-a390-6b713f7c25de" name="ConvertCase" testItemId="1" title="Convert Case: ⇒ MyDateUpper">
       <arguments>
         <argument id="InputText">
           <value class="variable">

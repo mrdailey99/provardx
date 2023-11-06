@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="14" visibility="Internal">
+<testCase guid="73ae237f-034b-473e-bef1-dad4e5f96b34" id="14" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="73" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="68ff436a-7844-409d-b44a-9ab8de7b73ca" name="ApexConnect" testItemId="73" title="Salesforce Connect: Admin (Test)">
       <tags/>
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiVAAT"/>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" isTitleUpdated="true" name="ApexExecute" testItemId="75" title="Apex Execute: Retrieve Session ID">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="51894e18-967b-4d20-b503-c35cce631197" isTitleUpdated="true" name="ApexExecute" testItemId="75" title="Apex Execute: Retrieve Session ID">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiWAAT"/>
       </associations>
@@ -73,7 +73,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="76" title="Set Values: sessionID">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="3854d34e-61a4-4e1b-8a9c-59b5f0b5785b" name="SetValues" testItemId="76" title="Set Values: sessionID">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiXAAT"/>
       </associations>
@@ -107,7 +107,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" isTitleUpdated="true" name="ApexExecute" testItemId="77" title="Apex Execute: Retrieve Base Url">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExecute" guid="00aec0d3-209f-4b01-9cfa-0a917c60f01b" isTitleUpdated="true" name="ApexExecute" testItemId="77" title="Apex Execute: Retrieve Base Url">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkiYAAT"/>
       </associations>

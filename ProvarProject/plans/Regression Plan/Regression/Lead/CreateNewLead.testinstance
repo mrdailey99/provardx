@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlanInstance testCasePath="tests/Regression/Lead/CreateNewLead.testcase">
+<testPlanInstance guid="c277048a-836d-448c-9e52-eb7648be2522" testCasePath="tests/Regression/Lead/CreateNewLead.testcase">
   <planSettings/>
   <planFeatures/>
   <associations>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase guid="b615080d-1cc1-4ef7-b063-500363997610" id="3">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="71" title="Set Values: TestCaseStart">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="fc1438e1-c97d-42d5-b14b-6c9dd49f18ab" name="SetValues" testItemId="71" title="Set Values: TestCaseStart">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkVAAT"/>
       </associations>
@@ -26,7 +26,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="20f3f5d4-8206-4d20-8182-76429e3d8f29" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin_Sandbox (Test)">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkWAAT"/>
       </associations>
@@ -72,7 +72,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Lead Home screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="64d6ef4a-074f-4662-b718-e0789dc4d14a" name="UiWithScreen" testItemId="2" title="On SF Lead Home screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkXAAT"/>
       </associations>
@@ -106,7 +106,7 @@
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="4" title="Click the New button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="aeaf83af-7149-42d9-b55b-c9738030703f" name="UiDoAction" testItemId="4" title="Click the New button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkjAAD"/>
               </associations>
@@ -164,7 +164,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="6" title="On SF Lead New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="5f488163-aa7c-4d22-943b-6c0a33d23c4e" name="UiWithScreen" testItemId="6" title="On SF Lead New screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkYAAT"/>
       </associations>
@@ -204,7 +204,7 @@
       <clauses>
         <clause name="substeps" testItemId="7">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="15" title="Set Values: LeadSource">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="2c8fabc0-58fa-40c1-8751-ad3d21d55638" name="SetValues" testItemId="15" title="Set Values: LeadSource">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkkAAD"/>
               </associations>
@@ -226,7 +226,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="11" title="Set Values: Phone">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="2908c8c4-fe58-4378-b9aa-1fe710c7337d" name="SetValues" testItemId="11" title="Set Values: Phone">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkklAAD"/>
               </associations>
@@ -283,7 +283,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="10" title="Set Values: Company">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="82f245f1-dc33-4a56-b254-df2302773a0c" name="SetValues" testItemId="10" title="Set Values: Company">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkmAAD"/>
               </associations>
@@ -305,7 +305,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="9" title="Set Values: LastName">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="0ede8899-b681-4b8d-9abb-a1c24314791a" name="SetValues" testItemId="9" title="Set Values: LastName">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkknAAD"/>
               </associations>
@@ -336,7 +336,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="8" title="Set the Last Name field to {LastName}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="8a721d38-3b69-4ec9-b75d-ea6cdb809ae7" name="UiDoAction" testItemId="8" title="Set the Last Name field to {LastName}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkoAAD"/>
               </associations>
@@ -401,7 +401,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Company field to {Company}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="d323e73b-76ef-489a-8610-39ef9cdc2f6a" name="UiDoAction" testItemId="12" title="Set the Company field to {Company}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkpAAD"/>
               </associations>
@@ -466,7 +466,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Set the Phone field to {Phone}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="97c80c5e-f013-4deb-a6f3-83937a60bf10" name="UiDoAction" testItemId="13" title="Set the Phone field to {Phone}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkqAAD"/>
               </associations>
@@ -526,7 +526,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Lead Source picklist to {LeadSource}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="6dafa6c5-63a0-4026-87e3-97d20d10d1ca" name="UiDoAction" testItemId="14" title="Set the Lead Source picklist to {LeadSource}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkrAAD"/>
               </associations>
@@ -591,7 +591,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="1fe5c191-0447-4ca2-b968-5955d36cb87b" name="UiDoAction" testItemId="16" title="Click the Save button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkksAAD"/>
               </associations>
@@ -670,7 +670,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="17" title="On SF Lead View screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="c8c42a9b-6799-4503-84ef-f5a9311af8e5" name="UiWithScreen" testItemId="17" title="On SF Lead View screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkZAAT"/>
       </associations>
@@ -707,7 +707,7 @@
       <clauses>
         <clause name="substeps" testItemId="18">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="21" title="Assert Lead Values">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="9a01190c-31d0-4789-aa87-74436bd2a092" name="StepGroup" testItemId="21" title="Assert Lead Values">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkktAAD"/>
               </associations>
@@ -719,7 +719,7 @@
               <clauses>
                 <clause name="hidden" testItemId="22">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="38" title="UI Assert: Lead Source">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="24b184cd-6351-433c-a495-8f02bc33cc6d" isTitleUpdated="true" name="UiAssert" testItemId="38" title="UI Assert: Lead Source">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkzAAD"/>
                       </associations>
@@ -757,7 +757,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="24" title="UI Assert: Company">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="20747c57-4bbe-4489-8551-9a2d9e8b381c" isTitleUpdated="true" name="UiAssert" testItemId="24" title="UI Assert: Company">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl0AAD"/>
                       </associations>
@@ -795,7 +795,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="19" title="UI Assert: LastName">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="60053b48-f314-43bf-8055-88abdf97774d" isTitleUpdated="true" name="UiAssert" testItemId="19" title="UI Assert: LastName">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl1AAD"/>
                       </associations>
@@ -833,7 +833,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="20" title="UI Assert: Phone">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="9a5a1fb1-0a60-4f71-8ccc-c1bb7f5a4d45" isTitleUpdated="true" name="UiAssert" testItemId="20" title="UI Assert: Phone">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl2AAD"/>
                       </associations>
@@ -875,7 +875,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="25" title="Click the Convert button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="caf09e75-5ba8-4139-85b6-10282e59c04d" name="UiDoAction" testItemId="25" title="Click the Convert button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkuAAD"/>
               </associations>
@@ -941,7 +941,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="42" title="On SF Lead Convert screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="5e2d8027-6820-4ff9-9754-aa168e718dd8" name="UiWithScreen" testItemId="42" title="On SF Lead Convert screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkaAAD"/>
       </associations>
@@ -980,7 +980,7 @@
       <clauses>
         <clause name="substeps" testItemId="43">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="44" title="Click the Convert Button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="97613e32-82c2-49b6-92fa-54865ad27be8" isTitleUpdated="true" name="UiDoAction" testItemId="44" title="Click the Convert Button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkvAAD"/>
               </associations>
@@ -1042,7 +1042,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="72" title="On ConvertLead page">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="3486d3ff-47f7-42ae-b50f-5060d6a4691a" name="UiWithScreen" testItemId="72" title="On ConvertLead page">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkbAAD"/>
       </associations>
@@ -1077,7 +1077,7 @@
       <clauses>
         <clause name="substeps" testItemId="73">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="75" title="Call the ClickAccountLink method">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="621b3200-f34c-48f5-9f9c-de42c4947ebb" name="UiDoAction" testItemId="75" title="Call the ClickAccountLink method">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkwAAD"/>
               </associations>
@@ -1125,7 +1125,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="46" title="On SF Account View screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="15b8765b-8050-430a-8bd3-510f9eb36d77" name="UiWithScreen" testItemId="46" title="On SF Account View screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkcAAD"/>
       </associations>
@@ -1160,7 +1160,7 @@
       <clauses>
         <clause name="substeps" testItemId="47">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="56" title="Assert All Account References">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="dcab413c-3abb-4bf9-8a00-389f3ff492c0" name="StepGroup" testItemId="56" title="Assert All Account References">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkkxAAD"/>
               </associations>
@@ -1172,7 +1172,7 @@
               <clauses>
                 <clause name="hidden" testItemId="57">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="49" title="With Contacts rows {1}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="a785f468-713f-4613-bdce-659ab8e3aae2" name="UiWithRow" testItemId="49" title="With Contacts rows {1}">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl3AAD"/>
                       </associations>
@@ -1208,7 +1208,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="50">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="58" title="UI Assert: Contact Phone">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="a9dcee06-f0d5-4d78-9f5c-a4220326d378" isTitleUpdated="true" name="UiAssert" testItemId="58" title="UI Assert: Contact Phone">
                               <associations>
                                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl6AAD"/>
                               </associations>
@@ -1246,7 +1246,7 @@
                                 <argument id="autoRetry"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="51" title="UI Assert: Contact Name">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="b542f527-56c8-4c56-9ea7-72a98a91da16" isTitleUpdated="true" name="UiAssert" testItemId="51" title="UI Assert: Contact Name">
                               <associations>
                                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl7AAD"/>
                               </associations>
@@ -1297,7 +1297,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="52" title="With Opportunities rows {1}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" guid="941fb060-add2-4d2f-8214-5e91322a2913" name="UiWithRow" testItemId="52" title="With Opportunities rows {1}">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl4AAD"/>
                       </associations>
@@ -1331,7 +1331,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="53">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="54" title="UI Assert: Opportunity Name">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="96e9ead0-79d4-4b16-9164-f43a65f90dd0" isTitleUpdated="true" name="UiAssert" testItemId="54" title="UI Assert: Opportunity Name">
                               <associations>
                                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl8AAD"/>
                               </associations>
@@ -1387,7 +1387,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="55" title="UI Assert: Account Name">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="23f4bbd3-ffff-4315-9e82-5ddbb4b0cb7c" isTitleUpdated="true" name="UiAssert" testItemId="55" title="UI Assert: Account Name">
                       <associations>
                         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAkl5AAD"/>
                       </associations>

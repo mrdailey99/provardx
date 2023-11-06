@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="11">
+<testCase guid="5a5c808b-8f68-44f1-b945-cd10bfb990a6" id="11">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="1" title="Set Values: {}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="b2201644-b735-468b-95e0-343ca17531dc" name="SetValues" testItemId="1" title="Set Values: {}">
       <tags>
         <string>disabled</string>
       </tags>
@@ -27,7 +27,7 @@
         </parameterValueSource>
       </parameterValueSources>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="2" title="Write: TestingInsert=&gt;templates/AccountData.xlsx">
+    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" guid="b5294178-b68c-43f9-8ce1-ee80d9a7edd6" name="Write" testItemId="2" title="Write: TestingInsert=&gt;templates/AccountData.xlsx">
       <arguments>
         <argument id="data">
           <value class="value" valueClass="string">TestingInsert</value>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlanInstance testCasePath="tests/Regression/Opportunity/CreateNewOpportunity.testcase">
+<testPlanInstance guid="d2f2c4fb-dd51-4097-8843-57956752b241" testCasePath="tests/Regression/Opportunity/CreateNewOpportunity.testcase">
   <planSettings/>
   <planFeatures/>
   <associations>

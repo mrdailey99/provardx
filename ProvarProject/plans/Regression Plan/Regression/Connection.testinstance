@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlanInstance testCasePath="tests/Connection.setup">
+<testPlanInstance guid="ffe6eaf2-5b40-45e8-8888-db77e05b3249" testCasePath="tests/Connection.setup">
   <planSettings/>
   <planFeatures/>
   <associations>

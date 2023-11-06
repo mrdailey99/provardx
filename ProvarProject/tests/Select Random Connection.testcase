@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase guid="f26ff57a-f2b6-4e7e-ba8c-51d8ee31c2fc" id="2">
   <summary/>
   <steps>
-    <apiCall apiId="customapis.RandomInteger" name="RandomInteger" testItemId="3" title="Random Integer: ⇒ index">
+    <apiCall apiId="customapis.RandomInteger" guid="74c934c6-c85b-4eab-8a11-849ee2a8e39f" name="RandomInteger" testItemId="3" title="Random Integer: ⇒ index">
       <arguments>
         <argument id="NumberOfDigits">
           <value class="value" valueClass="decimal">1</value>
@@ -21,7 +21,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: ConnectionsString">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="179ea6d8-527f-48db-bcea-6835e4a6659e" name="SetValues" testItemId="2" title="Set Values: ConnectionsString">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -40,7 +40,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="5" title="Split: {ConnectionsString}=&gt;,=&gt;Connections">
+    <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" guid="11b9845c-1a60-4706-94fa-66a7c00a2053" name="Split" testItemId="5" title="Split: {ConnectionsString}=&gt;,=&gt;Connections">
       <arguments>
         <argument id="input">
           <value class="variable">
@@ -58,7 +58,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: ConnectionName">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="b79a14e5-9e90-43c1-a78d-64f2bd1b2f41" name="SetValues" testItemId="4" title="Set Values: ConnectionName">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -85,7 +85,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: {ConnectionName} (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="7ef99906-bd75-431e-90ec-eca1d6fb46aa" name="ApexConnect" testItemId="1" title="Salesforce Connect: {ConnectionName} (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="variable">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testPlanInstance testCasePath="tests/Regression/Account/ConvertLeadToAccount.testcase">
+<testPlanInstance guid="bfdbd397-6663-4932-86a6-16cc74c3d9c5" testCasePath="tests/Regression/Account/ConvertLeadToAccount.testcase">
   <planSettings/>
   <planFeatures/>
   <associations>

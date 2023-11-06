@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase guid="670ec2b9-d1ad-46ad-b1e4-03389311e9dd" id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoOrg (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="838340f6-29e6-4c7b-a2a9-7d927b718a60" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoOrg (Test)">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSPAA1"/>
       </associations>
@@ -48,7 +48,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Broker Home screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="e8fd6dd7-149d-4121-b89f-6a2325ee5cee" name="UiWithScreen" testItemId="2" title="On SF Broker Home screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSQAA1"/>
       </associations>
@@ -82,7 +82,7 @@
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="4" title="Click the New button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="5fcc7cc5-6cf7-482d-bff7-2b3d8c963757" name="UiDoAction" testItemId="4" title="Click the New button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSUAA1"/>
               </associations>
@@ -140,7 +140,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Broker New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="79ec476b-f832-426e-8f04-d09ddc526710" name="UiWithScreen" testItemId="5" title="On SF Broker New screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSRAA1"/>
       </associations>
@@ -180,7 +180,7 @@
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Set the Broker Name field to Demo {UniqueId(6)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="9ef43d66-1423-4187-804c-06b4b5d38359" name="UiDoAction" testItemId="7" title="Set the Broker Name field to Demo {UniqueId(6)}">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSVAA1"/>
               </associations>
@@ -252,7 +252,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="8" title="Set the Phone field to 555-1234">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="70d67828-20e5-4de3-9bc4-1e4c5b9fd15b" name="UiDoAction" testItemId="8" title="Set the Phone field to 555-1234">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSWAA1"/>
               </associations>
@@ -310,7 +310,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Set the Title field to Senior Salesman">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="b0db3d4b-70ef-46ad-8af2-4ae50e995fb0" name="UiDoAction" testItemId="9" title="Set the Title field to Senior Salesman">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSXAA1"/>
               </associations>
@@ -373,7 +373,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Set the Email field to test{UniqueId(6)}@example.com">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="89f06b6a-e2fc-4eae-a23b-21c315ab44be" name="UiDoAction" testItemId="10" title="Set the Email field to test{UniqueId(6)}@example.com">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSYAA1"/>
               </associations>
@@ -441,7 +441,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="11" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="5d667197-be4d-4240-8a5d-e6a6c0ac2a96" name="UiDoAction" testItemId="11" title="Click the Save button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSZAA1"/>
               </associations>
@@ -520,7 +520,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="12" title="On SF Related List (Broker__c : Properties__r) component in Broker view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="ac916fde-bc25-4917-8760-7f9dd2830965" name="UiWithScreen" testItemId="12" title="On SF Related List (Broker__c : Properties__r) component in Broker view">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSSAA1"/>
       </associations>
@@ -557,7 +557,7 @@
       <clauses>
         <clause name="substeps" testItemId="13">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Click the Properties New button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="e0b7a752-6dec-47ef-b92e-f3e8e3874feb" name="UiDoAction" testItemId="14" title="Click the Properties New button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSaAAL"/>
               </associations>
@@ -609,7 +609,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="19" title="On SF Property New screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="c79ac290-2a22-494b-b8fc-67b64305ef11" name="UiWithScreen" testItemId="19" title="On SF Property New screen">
       <associations>
         <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSTAA1"/>
       </associations>
@@ -649,7 +649,7 @@
       <clauses>
         <clause name="substeps" testItemId="20">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Property Name field to 111 Salesforce Street">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="4f735f0d-5499-4acb-837e-31b51adb5826" name="UiDoAction" testItemId="21" title="Set the Property Name field to 111 Salesforce Street">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqSbAAL"/>
               </associations>
@@ -707,7 +707,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="22" title="Click the Save button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="2be5b6d4-6413-4c37-befa-8497de8ecb9c" name="UiDoAction" testItemId="22" title="Click the Save button">
               <associations>
                 <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000BAqScAAL"/>
               </associations>

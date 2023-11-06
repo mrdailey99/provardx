@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="14" registryId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" visibility="Internal">
+<testCase guid="794cc629-1902-49c2-961a-103b137ff438" id="14" registryId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="36cd76df-11a7-4f79-920a-f2db548e93a5" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="92" title="Setup Test Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="115a0509-8758-4b40-9e2e-7ee86695a0f2" name="StepGroup" testItemId="92" title="Setup Test Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Setup Test Data</value>
@@ -54,7 +54,7 @@
       <clauses>
         <clause name="hidden" testItemId="93">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="94" title="Set Values: PropertyData.City">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="83c801ff-42b8-47ea-bc31-71f5008e81c1" name="SetValues" testItemId="94" title="Set Values: PropertyData.City">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -75,7 +75,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="95" title="Set Values: PropertyData.State">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="8ec2b31e-5f73-4c20-8214-2f5da16b7a98" name="SetValues" testItemId="95" title="Set Values: PropertyData.State">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -96,7 +96,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="96" title="Set Values: PropertyData.AskingPrice">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="97e7c1b8-a71c-4198-a75d-fa8ac5047936" name="SetValues" testItemId="96" title="Set Values: PropertyData.AskingPrice">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -117,7 +117,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="97" title="Set Values: PropertyData.Beds">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="15769547-c51f-4abc-8d4d-929d63865647" name="SetValues" testItemId="97" title="Set Values: PropertyData.Beds">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -138,7 +138,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="98" title="Set Values: PropertyData.Baths">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="fe8f709f-f145-4319-afad-70a6bc241400" name="SetValues" testItemId="98" title="Set Values: PropertyData.Baths">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -159,7 +159,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="99" title="Set Values: PropertyData.Broker">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="f1846cae-db5a-4240-bdd5-3f1078799dc3" name="SetValues" testItemId="99" title="Set Values: PropertyData.Broker">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -184,7 +184,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="160" title="On SF propertyFilter component in Property Explorer">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="f8de0d6c-135b-4299-88bc-4f1c6ba6d232" name="UiWithScreen" testItemId="160" title="On SF propertyFilter component in Property Explorer">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -215,7 +215,7 @@
       <clauses>
         <clause name="substeps" testItemId="161">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="162" title="Set the Search Key field to {PropertyData.City}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3ddeb7a1-aa6e-4087-9453-ba41265807a4" name="UiDoAction" testItemId="162" title="Set the Search Key field to {PropertyData.City}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A7ae4e82f-5c9a-4f86-8784-aabe04784be6&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -254,7 +254,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="165" title="Set Slider Value the Max Price slider field to {PropertyData.AskingPrice}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="34ccf0d9-86b6-4af6-bbec-18f8662a6266" name="UiDoAction" testItemId="165" title="Set Slider Value the Max Price slider field to {PropertyData.AskingPrice}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3Ab4974b8e-88e9-4b94-ab51-65c7485d222c&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -293,7 +293,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="167" title="Set Slider Value the Bedrooms slider field to {PropertyData.Beds}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="5163331e-282b-4ce0-8b62-6783ad07fdad" name="UiDoAction" testItemId="167" title="Set Slider Value the Bedrooms slider field to {PropertyData.Beds}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A5deb45fa-0290-49d0-b76e-a9d89c8d5b33&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -332,7 +332,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="168" title="Set Slider Value the Bathrooms slider field to {PropertyData.Baths}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="4f969b38-4271-4252-b779-45e0ac90d0af" name="UiDoAction" testItemId="168" title="Set Slider Value the Bathrooms slider field to {PropertyData.Baths}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A25da42fb-7612-4beb-9534-94494d333158&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -375,7 +375,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="100" title="If: {PropertyCreated = false}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="5bd9e3c4-9745-4c2e-bc3b-f8de1f92f469" name="If" testItemId="100" title="If: {PropertyCreated = false}">
       <arguments>
         <argument id="condition">
           <value class="eq">
@@ -392,7 +392,7 @@
         </clause>
         <clause name="else" testItemId="103">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="141" title="On SF propertyFilter component in Property Explorer">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="c677751b-c905-4976-864f-115106ef70aa" name="UiWithScreen" testItemId="141" title="On SF propertyFilter component in Property Explorer">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -423,7 +423,7 @@
               <clauses>
                 <clause name="substeps" testItemId="142">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="143" title="Set the Search Key field to {PropertyData.City}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="3598c9b7-a7fc-4e70-b0e1-9aa90b3f0776" name="UiDoAction" testItemId="143" title="Set the Search Key field to {PropertyData.City}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A7ae4e82f-5c9a-4f86-8784-aabe04784be6&amp;path=json%3A%3Aguid%3A%3Aa8413e53-7234-4d20-ae6f-87f9661e7dc8"/>
@@ -470,7 +470,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="116" title="On SF propertyTileList component in Property Explorer">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="3632afdc-8484-424e-816b-03ad58734e96" name="UiWithScreen" testItemId="116" title="On SF propertyTileList component in Property Explorer">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -501,7 +501,7 @@
       <clauses>
         <clause name="substeps" testItemId="117">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="119" title="Click the tileOne field">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="c830803c-8da5-47be-8ed0-05a672b7e8c5" name="UiDoAction" testItemId="119" title="Click the tileOne field">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A046cc82c-a484-459d-b7de-543bdd37a62f&amp;path=json%3A%3Aguid%3A%3Ad171553d-2c79-4447-b522-f913062cb7c5"/>
@@ -531,7 +531,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="120" title="On SF propertySummary component in Property Explorer">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="12932493-6979-4f04-8b33-e04c40fa481c" name="UiWithScreen" testItemId="120" title="On SF propertySummary component in Property Explorer">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -562,7 +562,7 @@
       <clauses>
         <clause name="substeps" testItemId="121">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="122" title="Click the utility:expand_alt button field">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="cf801412-9c49-4a48-9345-f31845391b39" name="UiDoAction" testItemId="122" title="Click the utility:expand_alt button field">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=json%3A%3Aguid%3A%3A7aaf84e4-bb8d-46d3-8016-00ccaef14e5b&amp;path=json%3A%3Aguid%3A%3Ac295e4e3-53c1-47b9-811c-988b12b6f7a9"/>
@@ -592,7 +592,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="172" title="On SF Property View screen">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="ddb646e6-615b-403d-913c-db96c71b9f8c" name="UiWithScreen" testItemId="172" title="On SF Property View screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -626,7 +626,7 @@
       <clauses>
         <clause name="substeps" testItemId="173">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="174" title="Read Asking Price">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="2d80663c-834f-4840-8da3-71088e074dab" isTitleUpdated="true" name="UiAssert" testItemId="174" title="Read Asking Price">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">AskingPrice</value>
@@ -669,7 +669,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="178" title="On SF Information component in Property view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="7900383c-c51a-45e5-8c06-cfcfaab2e369" name="UiWithScreen" testItemId="178" title="On SF Information component in Property view">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -703,7 +703,7 @@
       <clauses>
         <clause name="substeps" testItemId="179">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="180" title="Read Beds">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="9b8ff955-eea4-40dc-bd24-37734c7f560b" isTitleUpdated="true" name="UiAssert" testItemId="180" title="Read Beds">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Beds</value>
@@ -734,7 +734,7 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="181" title="Read Baths">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="8f89ef3a-49f4-49b2-9c64-40ca7284eb3b" isTitleUpdated="true" name="UiAssert" testItemId="181" title="Read Baths">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Baths</value>
@@ -765,7 +765,7 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="190" title="Assert: {AskingPrice.fields.RecordPrice__cField.value} LessThanOrEqualTo {PropertyData.AskingPrice}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="29a9efa7-15d2-42fe-a2fd-d1684308e9e9" name="AssertValues" testItemId="190" title="Assert: {AskingPrice.fields.RecordPrice__cField.value} LessThanOrEqualTo {PropertyData.AskingPrice}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -805,7 +805,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="191" title="Assert: {Beds.fields.RecordBeds_cField.value} GreaterThanOrEqualTo {PropertyData.Beds}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="a768fe8f-80f6-44d8-adf8-71a8c761edaf" name="AssertValues" testItemId="191" title="Assert: {Beds.fields.RecordBeds_cField.value} GreaterThanOrEqualTo {PropertyData.Beds}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -845,7 +845,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="192" title="Assert: {Baths.fields.RecordBaths_cField.value} GreaterThanOrEqualTo {PropertyData.Baths}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" guid="2c06f39e-4ccb-4e52-9eb3-a80e0e7bb4e5" name="AssertValues" testItemId="192" title="Assert: {Baths.fields.RecordBaths_cField.value} GreaterThanOrEqualTo {PropertyData.Baths}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -885,7 +885,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Verify Property Details">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="9abbef89-8301-4cd1-8782-cca6725aa60f" name="StepGroup" testItemId="30" title="Verify Property Details">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Property Details</value>
@@ -894,7 +894,7 @@
               <clauses>
                 <clause name="hidden" testItemId="31">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="182" title="UI Assert: State">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="f947e65a-a1a2-43ee-9570-b8a83f27fd38" isTitleUpdated="true" name="UiAssert" testItemId="182" title="UI Assert: State">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -930,7 +930,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="183" title="UI Assert: City">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="2bb3dc41-44ee-4ceb-818a-21e0ceffc10e" isTitleUpdated="true" name="UiAssert" testItemId="183" title="UI Assert: City">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -982,7 +982,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="147" title="If: {PropertyCreated = true}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" guid="60a6c785-789a-48ed-8ee5-b3005b480b33" name="If" testItemId="147" title="If: {PropertyCreated = true}">
       <arguments>
         <argument id="condition">
           <value class="eq">
@@ -996,7 +996,7 @@
       <clauses>
         <clause name="then" testItemId="148">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="216" title="On SF Information component in Property view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="77a5541e-4cc2-4367-a0b8-7e934dc017e6" name="UiWithScreen" testItemId="216" title="On SF Information component in Property view">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">Admin</value>
@@ -1030,7 +1030,7 @@
               <clauses>
                 <clause name="substeps" testItemId="217">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="218" title="UI Assert: Broker Name">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="633d6e68-9f87-400a-8605-5513ff8f6d90" isTitleUpdated="true" name="UiAssert" testItemId="218" title="UI Assert: Broker Name">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
