@@ -223,13 +223,8 @@
               </arguments>
               <resultAssertions>
                 <resultAssertion resultName="Name" title="Check Name">
-                  <expected class="compound">
-                    <parts>
-                      <variable>
-                        <path element="LeadCompany"/>
-                      </variable>
-                      <value valueClass="string">1</value>
-                    </parts>
+                  <expected class="variable">
+                    <path element="LeadCompany"/>
                   </expected>
                 </resultAssertion>
                 <resultAssertion resultName="Phone" title="Check Phone">
@@ -443,7 +438,7 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-11-06T19:50:32Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-11-06T20:02:58Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="3" value="object=Lead"/>
         <stepMetadataCoverage linkedId="5" value="object=Account&amp;fields=Name,Phone"/>
