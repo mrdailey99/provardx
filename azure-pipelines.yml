@@ -8,8 +8,9 @@ pool:
 variables:
   scratch_org_alias: ProvarDX
   connection_name: Admin
-  provar_major_version: latest
-  provar_build_version: latest
+  # using 2.11.2 due to licensing
+  provar_major_version: 2.11.2
+  provar_build_version: 2.11.2.05
 steps:
   # Download secure file
   # Download a secure file to the agent machine
