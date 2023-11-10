@@ -1,13 +1,13 @@
 version: 2.1
 orbs:
-    provar: provartesting/provar@2.12
+    provar: provartesting/provar@2.13
 workflows:
     version: 2.1
     run_all:
         jobs:
             - provar/run_provar:
-                majorversion: 2.11.1
-                minorversion: '04'
+                majorversion: 2.11.2
+                minorversion: '05'
                 url: download.provartesting.com
                 project_name: ProvarProject
                 build_file: build_circleci.xml
