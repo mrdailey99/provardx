@@ -156,24 +156,3 @@ jobs:
             report_individual_runs: true
             # De-duplicates classes with same name by their file name when set "true", combines test results for those classes otherwise
             deduplicate_classes_by_file_name: false
-    # post_results_copado:
-    #   name: "Resume Copado Deployment"
-    #   needs: test_results
-    #   runs-on: ubuntu-latest
-    #   if: success() || failure()
-    #   steps:
-    #     - name: Resume Copado URL
-    #       uses: fjogeleit/http-request-action@v1
-    #       with:
-    #         url: 'https://app-api.copado.com/json/v1/webhook/resumeDeployment/a0Y5f000000XOV3EAO?api_key=3bea42dd1027379f208cf786174b88df&deploymentId=a0a5f000004ZaIsAAK&success=TRUE'
-    #         method: 'POST'
-    # automerge:
-    #   needs: test_results
-    #   runs-on: ubuntu-latest
-    #   if: success()
-    #   steps:
-    #     - name: automerge
-    #       uses: "pascalgn/automerge-action@v0.15.0"
-    #       env:
-    #         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-    #         MERGE_LABELS: ""
