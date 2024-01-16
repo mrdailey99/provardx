@@ -137,7 +137,7 @@
     </apiCall>
   </steps>
   <outputParams>
-    <param defaultScope="Test" name="sessionID" title="sessionID">
+    <param defaultScope="Test" name="sessionID" passwordVariableAllowed="true" title="sessionID">
       <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
@@ -152,7 +152,7 @@
         <path element="sessionID"/>
       </sourceValue>
     </param>
-    <param name="sandboxURL" title="sandboxURL">
+    <param name="sandboxURL" passwordVariableAllowed="true" title="sandboxURL">
       <summary/>
       <type>
         <textType>
@@ -177,6 +177,6 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgQEAU"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgQEAU" lastModifiedDateTime="2024-01-03T15:15:34Z"/>
   </associations>
 </testCase>

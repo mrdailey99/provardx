@@ -167,7 +167,7 @@
     </connectionClass>
     <connectionClass name="sf">
       <connections>
-        <connection name="Admin">
+        <connection id="e479b38b-f2bc-4a4c-a9e9-468c24a341d6" name="Admin">
           <summary/>
           <connectionUrls>
             <connectionUrl secureStorageNodeId="7559a5f0-963c-4038-829e-37dbd050c73e" url="sf:user=michael.dailey@brave-otter-7uycux.com;password={password};environment=PROD_DEV;apiLoginUrl=https://brave-otter-7uycux-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D3k000000vD06EAE/0053k00000AY9yBAAT;clientId={clientId};clientSecret={clientSecret};lightningMode=true"/>
@@ -197,7 +197,7 @@
         <connection id="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" name="PM">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="d721eb50-4b3d-4082-b026-8e16c0a26df6" url="tm:projectName=ProvarProject;projectKey=ProDX;clientId={clientId};clientSecret={clientSecret};callbackUrl={callbackUrl};environment=PROD_DEV;accessToken={accessToken};refreshToken={refreshToken};apiLoginUrl=https://provar-devops-center-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D8d000002d0gkEAA/0058d000002FxSbAAK;sendScreenshots=true;reportMetadataCoverage=true"/>
+            <connectionUrl secureStorageNodeId="d721eb50-4b3d-4082-b026-8e16c0a26df6" url="tm:projectName=ProvarProject;projectKey=ProDX;clientId={clientId};clientSecret={clientSecret};callbackUrl={callbackUrl};environment=PROD_DEV;accessToken={accessToken};refreshToken={refreshToken};apiLoginUrl=https://provar-devops-center-dev-ed.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00D8d000002d0gkEAA/0058d000002FxSbAAK;sendScreenshots=true;reportMetadataCoverage=true;authenticationType=OAUTH"/>
           </connectionUrls>
         </connection>
       </connections>

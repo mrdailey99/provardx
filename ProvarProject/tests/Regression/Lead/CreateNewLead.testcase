@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="39e05018-c4b0-40be-be30-a8981752df89" id="20" registryId="14c5e2df-ba8a-45e0-b507-af9f057348de" visibility="Internal">
+<testCase guid="39e05018-c4b0-40be-be30-a8981752df89" id="0" registryId="14c5e2df-ba8a-45e0-b507-af9f057348de" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="1ad0f3a0-a196-4ebf-8b68-af8e2bd77e6c" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -271,6 +271,9 @@
         <clause name="then" testItemId="25">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="f967516c-667f-47a4-bf23-c468a3c8592a" name="SetValues" testItemId="30" title="Set Values: LeadStatus">
+              <associations>
+                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000VficqAAB"/>
+              </associations>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -1017,6 +1020,20 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLg6EAE" lastModifiedDateTime="2023-06-15T12:10:51Z"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLg6EAE" lastModifiedDateTime="2024-01-03T15:28:12Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
+      <metadataCoverage>
+        <stepMetadataCoverage linkedId="1" value="uiApplicationName=LightningSales"/>
+        <stepMetadataCoverage linkedId="5" value="object=Lead"/>
+        <stepMetadataCoverage linkedId="7" value="object=Lead"/>
+        <stepMetadataCoverage linkedId="8" value="object=Lead"/>
+        <stepMetadataCoverage linkedId="10" value="object=Lead&amp;field=Phone"/>
+        <stepMetadataCoverage linkedId="11" value="object=Lead&amp;field=LastName"/>
+        <stepMetadataCoverage linkedId="13" value="object=Lead&amp;field=Company"/>
+        <stepMetadataCoverage linkedId="21" value="object=Lead&amp;field=Title"/>
+        <stepMetadataCoverage linkedId="23" value="object=Lead&amp;field=Email"/>
+        <stepMetadataCoverage linkedId="15" value="object=Lead"/>
+        <stepMetadataCoverage linkedId="17" value="object=Lead&amp;fields=LastName,Company,Phone,Status,Email,Title"/>
+      </metadataCoverage>
+    </association>
   </associations>
 </testCase>

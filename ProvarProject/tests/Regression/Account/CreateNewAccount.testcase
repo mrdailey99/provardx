@@ -738,6 +738,20 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgGEAU"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgGEAU" lastModifiedDateTime="2024-01-03T15:15:34Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
+      <metadataCoverage>
+        <stepMetadataCoverage linkedId="1" value="uiApplicationName=LightningSales"/>
+        <stepMetadataCoverage linkedId="4" value="object=Account"/>
+        <stepMetadataCoverage linkedId="6" value="object=Account"/>
+        <stepMetadataCoverage linkedId="17" value="object=Account"/>
+        <stepMetadataCoverage linkedId="19" value="object=Account"/>
+        <stepMetadataCoverage linkedId="7" value="object=Account"/>
+        <stepMetadataCoverage linkedId="9" value="object=Account&amp;field=Name"/>
+        <stepMetadataCoverage linkedId="10" value="object=Account&amp;field=Phone"/>
+        <stepMetadataCoverage linkedId="13" value="object=Account&amp;field=Website"/>
+        <stepMetadataCoverage linkedId="11" value="object=Account"/>
+        <stepMetadataCoverage linkedId="12" value="object=Account&amp;fields=Name,Phone,Website"/>
+      </metadataCoverage>
+    </association>
   </associations>
 </testCase>

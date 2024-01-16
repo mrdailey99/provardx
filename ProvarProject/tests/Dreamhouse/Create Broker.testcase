@@ -774,7 +774,7 @@
     </apiCall>
   </steps>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vOKDEA2" lastModifiedDateTime="2023-10-18T17:10:11Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vOKDEA2" lastModifiedDateTime="2024-01-03T15:15:34Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="1" value="uiApplicationName=Dreamhouse"/>
         <stepMetadataCoverage linkedId="2" value="object=Broker__c"/>

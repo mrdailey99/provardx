@@ -162,6 +162,10 @@
     </apiCall>
   </steps>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLguEAE"/>
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLguEAE" lastModifiedDateTime="2024-01-03T15:15:34Z">
+      <metadataCoverage>
+        <stepMetadataCoverage linkedId="6" value="object=Account&amp;fields=Name,Phone"/>
+      </metadataCoverage>
+    </association>
   </associations>
 </testCase>

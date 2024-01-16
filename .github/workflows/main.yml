@@ -33,8 +33,8 @@ jobs:
       runs-on: ubuntu-latest
       env:
         scratch_org_alias: ProvarDX
-        provar_major_version: 2.11.2
-        provar_build_version: 2.11.2.05
+        provar_major_version: 2.12.1.1
+        # provar_build_version: 2.11.2.05
         dev_hub_alias: SFDX-ENV
         provar_home: ${{ github.workspace }}/ProvarHome
       # Steps represent a sequence of tasks that will be executed as part of the job
@@ -59,22 +59,24 @@ jobs:
 
         - name: Download Provar CLI
           run: |
-            wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_build_version }}.zip
+            wget -nv https://download.provartesting.com/${{ env.provar_major_version }}/Provar_ANT_${{ env.provar_major_version }}.zip
 
         - name: Setup Provar CLI
           run: |
             echo "Unzip Provar ANT Files"
-            unzip -q Provar_ANT_${{ env.provar_build_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
+            unzip -q Provar_ANT_${{ env.provar_major_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
+            mkdir $HOME/Provar/.licenses
+            echo ${{ secrets.PROVAR_LICENSE }} >> $HOME/Provar/.licenses/Execution.properties
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
             
         ## License check is optional in 2.11.2, will be mandatory in 2.11.3+
-        - name: Set License check to false for CLI 
-          run: |
-            #printenv
-            #find . -type d -name "Provar"
-            mkdir -p $HOME/Provar/.properties
-            echo "com.provar.licensecheck.cli=false" >> $HOME/Provar/.properties/provar.properties  
+        # - name: Set License check to false for CLI 
+        #   run: |
+        #     #printenv
+        #     #find . -type d -name "Provar"
+        #     mkdir -p $HOME/Provar/.properties
+        #     echo "com.provar.licensecheck.cli=false" >> $HOME/Provar/.properties/provar.properties  
                       
         - name: List Authenticated Orgs and Set Default Username
           run: |

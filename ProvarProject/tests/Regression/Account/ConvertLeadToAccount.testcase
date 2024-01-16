@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="59f837aa-f97e-4388-9214-f419422b1c67" id="0" visibility="Internal">
+<testCase guid="59f837aa-f97e-4388-9214-f419422b1c67" id="0" registryId="59f837aa-f97e-4388-9214-f419422b1c67" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="43e01868-b8b4-46db-85bb-ee561d1cd72d" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -92,6 +92,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="21e343bd-4db9-4cdb-b84c-38d412ab9207" name="SetValues" testItemId="29" title="Set Values: ConvertedLeadStatus">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000VficlAAB"/>
+      </associations>
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -111,6 +114,9 @@
       </arguments>
     </apiCall>
     <caseCall guid="7f251646-41ca-4a18-b223-76184bcce86e" testCaseId="14c5e2df-ba8a-45e0-b507-af9f057348de" testCasePath="tests/Regression/Lead/CreateNewLead.testcase" testItemId="27">
+      <associations>
+        <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0b8d00000VficmAAB"/>
+      </associations>
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">Admin</value>
@@ -438,7 +444,7 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2023-11-06T20:02:58Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2024-01-03T15:15:34Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="3" value="object=Lead"/>
         <stepMetadataCoverage linkedId="5" value="object=Account&amp;fields=Name,Phone"/>
