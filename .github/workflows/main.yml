@@ -65,7 +65,7 @@ jobs:
           run: |
             echo "Unzip Provar ANT Files"
             unzip -q Provar_ANT_${{ env.provar_major_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
-            mkdir $HOME/Provar/.licenses
+            mkdir -p $HOME/Provar/.licenses
             echo ${{ secrets.PROVAR_LICENSE }} >> $HOME/Provar/.licenses/Execution.properties
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
