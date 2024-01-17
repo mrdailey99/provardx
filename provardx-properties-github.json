@@ -1,8 +1,4 @@
 {
-   "connectionOverride": 
-    [
-      {"connection": "Admin", "username": "ProvarDX"}
-    ],
     "provarHome":"/home/runner/work/provardx/provardx/ProvarHome",
     "projectPath":"/home/runner/work/provardx/provardx/ProvarProject",
     "resultsPath":"/home/runner/work/provardx/provardx/ProvarProject/ANT/Results",
