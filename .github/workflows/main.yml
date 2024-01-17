@@ -67,9 +67,9 @@ jobs:
             unzip -q Provar_ANT_${{ env.provar_major_version }}.zip -d $GITHUB_WORKSPACE/ProvarHome
             mkdir -p $HOME/Provar/.licenses
             echo ${{ env.license }} >> $HOME/Provar/.licenses/Execution.properties
+            cat $HOME/Provar/.licenses/Execution.properties
             ls -la ${{ env.provar_home }}
             ls -la ${{ env.provar_home }}/provardx
-          #  cat $HOME/Provar/.licenses/Execution.properties
 
         - name: List Authenticated Orgs and Set Default Username
           run: |
