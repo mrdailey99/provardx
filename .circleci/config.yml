@@ -37,12 +37,15 @@ jobs:
       - run:
           command: sudo apt-get update -y && sudo apt-get install -y ant
       - run:
-          command: echo "$ENV_VARIABLE_NAME" | base64 --decode > /home/circleci/project/<< parameters.project_name >>/.licenses/License.properties
+          command: mkdir -p /home/circleci/project/ProvarProject/.licenses
+      - run:
+          command: echo "$PROVAR_LICENSE" | base64 --decode > /home/circleci/project/<< parameters.project_name >>/.licenses/License.properties
       - provar/run_test_plans:
           build_file: << parameters.build_file >>
           email_target: << parameters.email_target >>
           environment: << parameters.environment >>
           project_name: << parameters.project_name >>
           test_plan: << parameters.test_plan >>
+          license_path: << parameters.license_path >>
       - provar/store_provar_test_results:
           project_name: << parameters.project_name >>
