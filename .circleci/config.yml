@@ -23,6 +23,9 @@ jobs:
       license_path:
         default: /home/circleci/project/ProvarProject/.licenses
         type: string
+      email_target:
+        default: michael.dailey@provartesting.com
+        type: string
     steps:
       - checkout
       - setup_provar:
