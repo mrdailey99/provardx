@@ -1,17 +1,45 @@
-version: 2.1
+version: '2.1'
 orbs:
-    provar: provartesting/provar@2.13
-workflows:
-    version: 2.1
-    run_all:
-        jobs:
-            - provar/run_provar:
-                majorversion: 2.11.2
-                minorversion: '05'
-                url: download.provartesting.com
-                project_name: ProvarProject
-                build_file: build_circleci.xml
-                test_plan:  "Regression Plan"
-                environment: ""
-                email_target: michael.dailey@provartesting.com
-                name: "Execute Provar Tests"
+  browser-tools: circleci/browser-tools@1
+  provar: provartesting/provar@2.14.2
+jobs:
+  build:
+    executor:
+      name: provar/default
+      tag: current-browsers
+    parameters:
+      build_file:
+        default: build_circleci.xml
+        type: string
+      environment:
+        default: ""
+        type: string
+      project_name:
+        default: ProvarProject
+        type: string
+      test_plan:
+        default: Regression Plan
+        type: string
+      license_path:
+        default: /home/circleci/project/ProvarProject/.licenses
+    steps:
+      - checkout
+      - setup_provar:
+          majorversion: 2.12.1.1
+          url: download.provartesting.com
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          command: sudo apt-get update -y && sudo apt-get install -y ant
+      - run:
+          command: echo "$ENV_VARIABLE_NAME" | base64 --decode > /home/circleci/project/<< parameters.project_name >>/.licenses/License.properties
+      - run_test_plans:
+          build_file: << parameters.build_file >>
+          email_target: << parameters.email_target >>
+          environment: << parameters.environment >>
+          name: Run Provar Tests
+          project_name: << parameters.project_name >>
+          test_plan: << parameters.test_plan >>
+      - store_provar_test_results:
+          project_name: << parameters.project_name >>
+workflows: null
