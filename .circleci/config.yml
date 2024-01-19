@@ -1,9 +1,10 @@
-version: '2.1'
+version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1
   provar: provartesting/provar@2.14.2
 jobs:
-  build:
+  name: "Run Provar Tests"
+  build:     
     executor:
       name: provar/default
       tag: current-browsers
@@ -28,7 +29,7 @@ jobs:
         type: string
     steps:
       - checkout
-      - setup_provar:
+      - provar/setup_provar:
           majorversion: 2.12.1.1
           url: download.provartesting.com
       - browser-tools/install-chrome
@@ -37,13 +38,11 @@ jobs:
           command: sudo apt-get update -y && sudo apt-get install -y ant
       - run:
           command: echo "$ENV_VARIABLE_NAME" | base64 --decode > /home/circleci/project/<< parameters.project_name >>/.licenses/License.properties
-      - run_test_plans:
+      - provar/run_test_plans:
           build_file: << parameters.build_file >>
           email_target: << parameters.email_target >>
           environment: << parameters.environment >>
-          name: Run Provar Tests
           project_name: << parameters.project_name >>
           test_plan: << parameters.test_plan >>
-      - store_provar_test_results:
+      - provar/store_provar_test_results:
           project_name: << parameters.project_name >>
-workflows: null
