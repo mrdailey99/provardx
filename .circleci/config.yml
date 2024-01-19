@@ -22,6 +22,7 @@ jobs:
         type: string
       license_path:
         default: /home/circleci/project/ProvarProject/.licenses
+        type: string
     steps:
       - checkout
       - setup_provar:
