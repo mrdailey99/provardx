@@ -8,9 +8,7 @@ pool:
 variables:
   scratch_org_alias: ProvarDX
   connection_name: Admin
-  # using 2.11.2 due to licensing
-  provar_major_version: 2.11.2
-  provar_build_version: 2.11.2.05
+  provar_major_version: latest
 steps:
   # Download secure file
   # Download a secure file to the agent machine
@@ -18,6 +16,11 @@ steps:
     name: serverKey # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
     inputs:
       secureFile: "server.key"
+
+  - task: DownloadSecureFile@1
+    name: licenseFile # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+    inputs:
+      secureFile: "Floating.properties"
 
   - task: NodeTool@0
     inputs:
@@ -54,19 +57,18 @@ steps:
 
   - bash: |
       echo "Download Provar Libraries"
-      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_build_version).zip
+      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_major_version).zip
       echo "Unzip Provar ANT Files"
-      unzip -q Provar_ANT_$(provar_build_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      unzip -q Provar_ANT_$(provar_master_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
       cd $PROVAR_HOME
       ls -la
     displayName: "Install & Configure Provar for running ProvarDX"
 
-    ## License check is optional in 2.11.2, will be mandatory in 2.11.3+
   - bash: |
-      mkdir -p $HOME/Provar/.properties
-      echo "com.provar.licensecheck.cli=false" >> $HOME/Provar/.properties/provar.properties
-    displayName: "Set License check to false for CLI"
+      mkdir -p $HOME/Provar/.licenses
+      cp $(licenseFile.secureFilePath) $HOME/Provar/.licenses
+    displayName: "Set License path for Provar CLI"
       
   - bash: |
       echo "Creating SFDX Project"
