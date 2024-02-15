@@ -59,7 +59,7 @@ steps:
       echo "Download Provar Libraries"
       wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_major_version).zip
       echo "Unzip Provar ANT Files"
-      unzip -q Provar_ANT_$(provar_master_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
+      unzip -q Provar_ANT_$(provar_major_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
       export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
       cd $PROVAR_HOME
       ls -la
