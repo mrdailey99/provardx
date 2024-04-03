@@ -1,0 +1,28 @@
+{
+   "provarHome":"C:/Program Files/Provar/",
+   "projectPath":"~/git/Manager3Test/ProvarQualityPipeline-main",
+   "resultsPath":"~/ProvarQualityPipeline-main/provardx/Results",
+   "smtpPath": "",
+   "resultsPathDisposition": "Increment", 
+   "testOutputLevel":"BASIC",
+   "pluginOutputlevel":"WARNING",
+   "stopOnError":false,
+   "lightningMode":true,
+   "connectionRefreshType":"Reload",
+   "metadata":{
+      "metadataLevel":"Reuse",
+      "cachePath":"../.provarCaches"
+   },
+   "environment":{
+      "testEnvironment":"QA",
+      "webBrowser":"Chrome",
+      "webBrowserConfig":"Full Screen",
+      "webBrowserProviderName":"Desktop",
+      "webBrowserDeviceName":"Full Screen"
+   }
+   ,"testprojectSecrets":"${env.ProvarSecretsPassword}"
+   ,"testCase":[
+    	"/Assert Profile.testcase"  
+	]
+   ,"emailProperties":{"sendEmail": "false", "primaryRecipients": "", "ccRecipients": "", "bccRecipients": "", "emailSubject": "Provar test run report", "attachExecutionReport": "false", "attachZip": "false"}
+}

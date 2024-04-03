@@ -1,0 +1,47 @@
+{
+    "id": "1857d2cb-9030-4e18-84d2-dbade02b56a4",
+    "description": "Trigger tests via API test",
+    "testPlan": {
+        "name": "Regression"
+    },
+    "testCases": [
+        { "name": "Create Broker" },
+        { "name": "Create Broker API" }
+    ],
+    "systemUnderTest": {
+        "name": "DEV (ProvarManager3Test)"
+    },
+    "tester": {
+        "externalId": "michael.dailey@provartesting.com"
+    },
+    "testingTool": "ProvarGrid",
+    "testCaseAutomationTool": "ProvarAutomation",
+    "missingTestCaseStrategy": "Ignore",
+    "groupByTestSuite": true,
+    "emailAlertSettings": {
+        "onSuccess": true,
+        "onFailure": true,
+        "emailAddresses": ["michael.dailey@provartesting.com"]
+    },
+    "slackAlertSettings": {
+        "onSuccess": true,
+        "onFailure": true,
+        
+        "webhookName": "PM Test Plans Alerts"
+    },
+    "settings": {
+        "PROVAR_GRID_TEST_LEVEL": "RunSpecifiedTests",
+        "PROVAR_GRID_CONCURRENCY": "2",
+        "PROVAR_AUTOMATION_VERSION": "Latest",
+        "PROVAR_TEST_PROJECT_REL_PATH": "ProvarQualityPipeline-main",
+        "PROVAR_GRID_DISABLE_SMART_AUTO_SPLIT": "TRUE",
+        "PROVAR_GRID_CONSOLIDATE_TEST_RESULTS": "TRUE",
+        "PROVAR_GRID_RETRY_ON_FAILURE": "TRUE",
+        "PROVAR_GRID_MAX_RETRIES": "2",
+        "TEST_PLAN_PDF": "TRUE",
+        "TEST_PLAN_PIE_CHART": "TRUE",
+        "PROVAR_GRID_OVERRIDE_TEST_ENVIRONMENT": "TRUE",
+        "PROVAR_GRID_TEST_ENVIRONMENTS": "a0APt000000vKtIMAU,a0APt000000vKtHMAU,a0APt000000vKtGMAU",
+        "PROVAR_GRID_BROWSERS": "[\"Windows 11;Chrome;latest\",\"macOS Monterey;Chrome;latest\"]"
+    }
+}
