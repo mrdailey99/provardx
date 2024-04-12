@@ -72,18 +72,23 @@ steps:
       echo "Setting Provar Home"
       echo "-------------------------------"
       sf provar automation config set provarHome=/ProvarHome
+      cat provardx-properties-generated.json
       echo "Setting Project Path"
       echo "-------------------------------"
       sf provar automation config set projectPath=/ProvarProject
+      cat provardx-properties-generated.json
       echo "Setting Results Path
       echo "-------------------------------"
       sf provar automation config set resultsPath=/ProvarProject/ANT/Results
+      cat provardx-properties-generated.json
       echo "Setting Test Environment"
       echo "-------------------------------"
       sf provar automation config set environment.testEnvironment=""
+      cat provardx-properties-generated.json
       echo "Setting Test Plan"
       echo "-------------------------------"
       sf provar automation config set testPlan='["Regression Plan"]'    
+      cat provardx-properties-generated.json
       echo "Setting Test Plan Features"
       echo "-------------------------------"
       sf provar automation config set testplanFeatures='[{"name": "PDF", "type": "OUTPUT", "enabled": "true"}, {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"}, {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"}, {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}]'                
