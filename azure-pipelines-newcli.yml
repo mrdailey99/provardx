@@ -59,7 +59,7 @@ steps:
   - bash: |
       echo "Download Provar Libraries"
       sf provar automation setup -v $(provar_major_version)
-  displayName: "Download & Install Provar Automation CLI"
+    displayName: "Download & Install Provar Automation CLI"
 
   - bash: |
       echo "Set ProvarDX Properties in JSON"
