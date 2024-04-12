@@ -77,7 +77,7 @@ steps:
       echo "-------------------------------"
       sf provar automation config set projectPath=/ProvarProject
       cat provardx-properties-generated.json
-      echo "Setting Results Path
+      echo "Setting Results Path"
       echo "-------------------------------"
       sf provar automation config set resultsPath=/ProvarProject/ANT/Results
       cat provardx-properties-generated.json
