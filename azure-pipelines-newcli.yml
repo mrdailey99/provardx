@@ -95,7 +95,7 @@ steps:
       cat provardx-properties-generated.json
       echo "\nSetting Test Project Secrets"
       echo "-------------------------------"
-      sf provar automation config set testprojectSecrets='$(secrets_password)'
+      sf provar automation config set testprojectSecrets="$(secrets_password)"
     displayName: "Generate & Configure ProvarDX Property File"
 
   - bash: |
