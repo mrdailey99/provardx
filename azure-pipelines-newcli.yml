@@ -148,7 +148,7 @@ steps:
     displayName: "Download Salesforce Metadata"
 
   - bash: |
-      xvfb sf provar automation test run --json
+      xvfb-run sf provar automation test run --json
     displayName: "Run Provar Tests"
 
   - bash: |
