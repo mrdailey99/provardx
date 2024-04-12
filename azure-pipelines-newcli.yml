@@ -49,6 +49,7 @@ steps:
   - bash: |
       echo "Set IP of Azure Agent to Variable"
       echo "##vso[task.setvariable variable=AGENT_IP;]`curl ifconfig.me`"
+    displayName: "Create variable for Azure Agent IP"
 
   - task: ShellScript@2
     inputs:
@@ -89,6 +90,7 @@ steps:
       echo "Setting Test Project Secrets"
       echo "-------------------------------"
       sf provar automation config set testprojectSecrets="$(secrets_password)"
+    displayName: "Generate & Configure ProvarDX Property File"
 
   - bash: |
       echo "Download Provar Libraries"
