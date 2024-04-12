@@ -69,32 +69,33 @@ steps:
       echo "-------------------------------"
       sf provar automation config generate -p provardx-properties-generated.json --json
       sf provar automation config load -p provardx-properties-generated.json --json
-      echo "Setting Provar Home"
+      echo "\nSetting Provar Home"
       echo "-------------------------------"
       sf provar automation config set provarHome=/ProvarHome
       cat provardx-properties-generated.json
-      echo "Setting Project Path"
+      echo "\nSetting Project Path"
       echo "-------------------------------"
       sf provar automation config set projectPath=/ProvarProject
       cat provardx-properties-generated.json
-      echo "Setting Results Path"
+      echo "\nSetting Results Path"
       echo "-------------------------------"
       sf provar automation config set resultsPath=/ProvarProject/ANT/Results
       cat provardx-properties-generated.json
-      echo "Setting Test Environment"
+      echo "\nSetting Test Environment"
       echo "-------------------------------"
-      sf provar automation config set environment.testEnvironment=""
+      sf provar automation config set environment.testEnvironment=''
       cat provardx-properties-generated.json
-      echo "Setting Test Plan"
+      echo "\nSetting Test Plan"
       echo "-------------------------------"
       sf provar automation config set testPlan='["Regression Plan"]'    
       cat provardx-properties-generated.json
-      echo "Setting Test Plan Features"
+      echo "\nSetting Test Plan Features"
       echo "-------------------------------"
       sf provar automation config set testplanFeatures='[{"name": "PDF", "type": "OUTPUT", "enabled": "true"}, {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"}, {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"}, {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}]'                
-      echo "Setting Test Project Secrets"
+      cat provardx-properties-generated.json
+      echo "\nSetting Test Project Secrets"
       echo "-------------------------------"
-      sf provar automation config set testprojectSecrets=$(secrets_password)
+      sf provar automation config set testprojectSecrets='$(secrets_password)'
     displayName: "Generate & Configure ProvarDX Property File"
 
   - bash: |
