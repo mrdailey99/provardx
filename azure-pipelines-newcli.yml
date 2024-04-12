@@ -140,7 +140,7 @@ steps:
     displayName: "Validate ProvarDX property file"
 
   - bash: |
-      sf provar automation compile --json
+      sf provar automation project compile --json
     displayName: "Compile Provar Tests"
 
   - bash: |
