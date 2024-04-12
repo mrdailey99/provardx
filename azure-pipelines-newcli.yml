@@ -1,11 +1,15 @@
 name: $(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
+trigger:
+  - master
+
 pool:
   vmImage: "ubuntu-latest"
 variables:
   scratch_org_alias: ProvarDX
   connection_name: Admin
   provar_major_version: latest
+  test_plan: Regression Plan
 steps:
   # Download secure file
   # Download a secure file to the agent machine
@@ -31,7 +35,7 @@ steps:
     displayName: "Node Install: sf cli"
 
   - script: |
-      echo y | sf plugins:install @provartesting/provardx 
+      echo y | sf plugins:install @provartesting/provardx-cli
       sf plugins:update
     displayName: "Install ProvarDX Plugin via SFDX"
 
@@ -54,13 +58,42 @@ steps:
 
   - bash: |
       echo "Download Provar Libraries"
-      wget -nv https://download.provartesting.com/$(provar_major_version)/Provar_ANT_$(provar_major_version).zip
-      echo "Unzip Provar ANT Files"
-      unzip -q Provar_ANT_$(provar_major_version).zip -d $BUILD_SOURCESDIRECTORY/ProvarHome
-      export PROVAR_HOME=$BUILD_SOURCESDIRECTORY/ProvarHome
-      cd $PROVAR_HOME
-      ls -la
-    displayName: "Install & Configure Provar for running ProvarDX"
+      sf provar automation setup -v $(provar_major_version)
+  displayName: "Download & Install Provar Automation CLI"
+
+  - bash: |
+      echo "Set ProvarDX Properties in JSON"
+      echo "-------------------------------"
+      echo "Generating ProvarDX property file"
+      echo "-------------------------------"
+      sf provar automation config generate -p provardx-properties-generated.json --json
+      sf provar automation config load -p provardx-properties-generated.json --json
+      echo "Setting Provar Home"
+      echo "-------------------------------"
+      sf provar automation set provarHome="/ProvarHome"
+      echo "Setting Project Path"
+      echo "-------------------------------"
+      sf provar automation config set projectPath="/ProvarProject"
+      echo "Setting Results Path
+      echo "-------------------------------"
+      sf provar automation config set resultsPath="/ProvarProject/ANT/Results"
+      echo "Setting Test Environment"
+      echo "-------------------------------"
+      sf provar automation config set environment.testEnvironment=""
+      echo "Setting Test Plan"
+      echo "-------------------------------"
+      sf provar automation config set testPlan='["Regression Plan"]'    
+      echo "Setting Test Plan Features"
+      echo "-------------------------------"
+      sf provar automation config set testplanFeatures='[{"name": "PDF", "type": "OUTPUT", "enabled": "true"}, {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"}, {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"}, {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}]'                
+      echo "Setting Test Project Secrets"
+      echo "-------------------------------"
+      sf provar automation config set testprojectSecrets="$(secrets_password)"
+
+  - bash: |
+      echo "Download Provar Libraries"
+      sf provar automation setup -v $(provar_major_version)
+    displayName: "Download & Install Provar Automation CLI"
 
   - bash: |
       mkdir -p $HOME/Provar/.licenses
@@ -90,30 +123,24 @@ steps:
 
   - task: ShellScript@2
     inputs:
-      scriptPath: insert_secrets_password.sh
-      args: $(secrets_password) $(Build.SourcesDirectory)/provardx-properties.json
-    displayName: "Insert Provar Secrets Password to Property File"
-
-  - task: ShellScript@2
-    inputs:
       scriptPath: setup_dreamhouse.sh
       args: $(scratch_org_alias)
     displayName: "Deploy and Setup Dreamhouse App"
 
   - bash: |
-      sfdx provar:validate
+      sf provar automation validate --json
     displayName: "Validate ProvarDX property file"
 
   - bash: |
-      sfdx provar:compile -p provardx-properties.json
+      sf provar automation compile --json
     displayName: "Compile Provar Tests"
 
   - bash: |
-      sfdx provar:metadatacache -m 'Reload' -c '/home/vsts/work/1/s/.provarCaches' -p provardx-properties.json
-    displayName: "Reload Metadata Cache"
+      sf provar automation metadata download --connections Admin --json
+    displayName: "Download Salesforce Metadata"
 
   - bash: |
-      yes | xvfb-run sfdx provar:runtests -p provardx-properties.json
+      xvfb sf provar automation test run --json
     displayName: "Run Provar Tests"
 
   - bash: |
