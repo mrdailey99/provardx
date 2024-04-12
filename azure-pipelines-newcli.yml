@@ -71,16 +71,16 @@ steps:
       sf provar automation config load -p provardx-properties-generated.json --json
       echo "Setting Provar Home"
       echo "-------------------------------"
-      sf provar automation config set provarHome='/ProvarHome'
+      sf provar automation config set provarHome=/ProvarHome
       echo "Setting Project Path"
       echo "-------------------------------"
-      sf provar automation config set projectPath='/ProvarProject'
+      sf provar automation config set projectPath=/ProvarProject
       echo "Setting Results Path
       echo "-------------------------------"
-      sf provar automation config set resultsPath='/ProvarProject/ANT/Results'
+      sf provar automation config set resultsPath=/ProvarProject/ANT/Results
       echo "Setting Test Environment"
       echo "-------------------------------"
-      sf provar automation config set environment.testEnvironment=''
+      sf provar automation config set environment.testEnvironment=""
       echo "Setting Test Plan"
       echo "-------------------------------"
       sf provar automation config set testPlan='["Regression Plan"]'    
@@ -89,7 +89,7 @@ steps:
       sf provar automation config set testplanFeatures='[{"name": "PDF", "type": "OUTPUT", "enabled": "true"}, {"name": "PIECHART", "type": "OUTPUT", "enabled": "true"}, {"name": "EMAIL", "type": "NOTIFICATION", "enabled": "false"}, {"name": "TEST_MANAGER", "type": "REPORTING", "enabled": "true"}]'                
       echo "Setting Test Project Secrets"
       echo "-------------------------------"
-      sf provar automation config set testprojectSecrets='$(secrets_password)'
+      sf provar automation config set testprojectSecrets=$(secrets_password)
     displayName: "Generate & Configure ProvarDX Property File"
 
   - bash: |
