@@ -75,11 +75,11 @@ steps:
       cat provardx-properties-generated.json
       echo "Setting Project Path"
       echo "-------------------------------"
-      sf provar automation config set projectPath=/ProvarProject
+      sf provar automation config set projectPath=./ProvarProject
       cat provardx-properties-generated.json
       echo "Setting Results Path"
       echo "-------------------------------"
-      sf provar automation config set resultsPath=/ProvarProject/ANT/Results
+      sf provar automation config set resultsPath=./ProvarProject/ANT/Results
       cat provardx-properties-generated.json
       echo "Setting Test Environment"
       echo "-------------------------------"
@@ -97,11 +97,6 @@ steps:
       echo "-------------------------------"
       sf provar automation config set testprojectSecrets="$(secrets_password)"
     displayName: "Generate & Configure ProvarDX Property File"
-
-  - bash: |
-      echo "Download Provar Libraries"
-      sf provar automation setup -v $(provar_major_version)
-    displayName: "Download & Install Provar Automation CLI"
 
   - bash: |
       mkdir -p $HOME/Provar/.licenses
