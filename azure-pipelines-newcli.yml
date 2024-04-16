@@ -71,7 +71,7 @@ steps:
       sf provar automation config load -p provardx-properties-generated.json --json
       echo "Setting Provar Home"
       echo "-------------------------------"
-      sf provar automation config set provarHome=/ProvarHome
+      sf provar automation config set provarHome=./ProvarHome
       cat provardx-properties-generated.json
       echo "Setting Project Path"
       echo "-------------------------------"
