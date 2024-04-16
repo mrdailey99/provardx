@@ -10,6 +10,7 @@ variables:
   connection_name: Admin
   provar_major_version: latest
   test_plan: Regression Plan
+  test_environment: 
 steps:
   # Download secure file
   # Download a secure file to the agent machine
@@ -83,11 +84,11 @@ steps:
       cat provardx-properties-generated.json
       echo "Setting Test Environment"
       echo "-------------------------------"
-      sf provar automation config set environment.testEnvironment=''
+      sf provar automation config set environment.testEnvironment="$(test_environment)"
       cat provardx-properties-generated.json
       echo "Setting Test Plan"
       echo "-------------------------------"
-      sf provar automation config set testPlan='["Regression Plan"]'    
+      sf provar automation config set testPlan='["$(test_plan)"]'    
       cat provardx-properties-generated.json
       echo "Setting Test Plan Features"
       echo "-------------------------------"
@@ -144,6 +145,8 @@ steps:
 
   - bash: |
       xvfb-run sf provar automation test run --json
+      echo "Provar Automation Run Logs"
+      cat ./ProvarProject/log.txt
     displayName: "Run Provar Tests"
 
   - bash: |
