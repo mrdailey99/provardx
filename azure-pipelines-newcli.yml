@@ -36,7 +36,7 @@ steps:
     displayName: "Node Install: sf cli"
 
   - script: |
-      echo y | sf plugins:install @provartesting/provardx-cli
+      echo y | sf plugins:install @provartesting/provardx-cli@1.1.2-beta
       sf plugins:update
     displayName: "Install ProvarDX Plugin via SFDX"
 
