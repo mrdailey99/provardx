@@ -33,7 +33,7 @@ jobs:
       runs-on: ubuntu-latest
       env:
         scratch_org_alias: ProvarDX
-        provar_major_version: 2.12.1.1
+        provar_major_version: 2.13.1.1
         dev_hub_alias: SFDX-ENV
         provar_home: ${{ github.workspace }}/ProvarHome
         license: ${{ secrets.PROVAR_LICENSE }}

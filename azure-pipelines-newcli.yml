@@ -9,7 +9,7 @@ variables:
   scratch_org_alias: ProvarDX
   connection_name: Admin
   provar_major_version: latest
-  test_plan: Regression Plan
+  test_plan: Smoke Test
   test_environment: 
 steps:
   # Download secure file
