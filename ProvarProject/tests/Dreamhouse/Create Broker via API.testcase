@@ -41,6 +41,9 @@
           <value class="value" valueClass="string">default</value>
         </argument>
         <argument id="webBrowser"/>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">e479b38b-f2bc-4a4c-a9e9-468c24a341d6</value>
+        </argument>
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="SourceData" variableScope="Test"/>
@@ -98,6 +101,48 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Status__c" name="Status__c" title="Status__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Name" name="Name" title="Name"/>
       </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="716b43db-6766-41d7-b7ce-4033876c437c" name="ApexConnect" testItemId="3" title="Salesforce Connect: AdminConnection (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="string">e479b38b-f2bc-4a4c-a9e9-468c24a341d6</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">AdminConnection</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
     </apiCall>
   </steps>
   <params>

@@ -45,6 +45,9 @@
           <value class="value" valueClass="string">default</value>
         </argument>
         <argument id="webBrowser"/>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">e479b38b-f2bc-4a4c-a9e9-468c24a341d6</value>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" guid="ad965ddb-7f7d-4e4b-9cbe-8ce0941f2647" name="SetValues" testItemId="20" title="Set Values: InitialOppStage">
@@ -444,7 +447,7 @@
     </outputArgument>
   </outputArgs>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2024-01-03T15:15:34Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhOEAU" lastModifiedDateTime="2024-07-23T13:26:27Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="3" value="object=Lead"/>
         <stepMetadataCoverage linkedId="5" value="object=Account&amp;fields=Name,Phone"/>

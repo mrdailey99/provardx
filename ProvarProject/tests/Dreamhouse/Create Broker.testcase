@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="670ec2b9-d1ad-46ad-b1e4-03389311e9dd" id="0">
+<testCase guid="670ec2b9-d1ad-46ad-b1e4-03389311e9dd" id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="838340f6-29e6-4c7b-a2a9-7d927b718a60" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoOrg (Test)">
@@ -46,6 +46,9 @@
           <value class="value" valueClass="string">default</value>
         </argument>
         <argument id="webBrowser"/>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">e479b38b-f2bc-4a4c-a9e9-468c24a341d6</value>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" guid="e8fd6dd7-149d-4121-b89f-6a2325ee5cee" name="UiWithScreen" testItemId="2" title="On SF Broker Home screen">
@@ -225,6 +228,7 @@
                   <value class="value" valueClass="string">Set the Broker Name field to Demo {UniqueId(6)}</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="locatorParams"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Name" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -288,6 +292,7 @@
                   <value class="value" valueClass="string">Set the Phone field to 555-1234</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="locatorParams"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Phone__c" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -346,6 +351,7 @@
                   <value class="value" valueClass="string">Set the Title field to Senior Salesman</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="locatorParams"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Title__c" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -419,6 +425,7 @@
                   <value class="value" valueClass="string">Set the Email field to test{UniqueId(6)}@example.com</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="locatorParams"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" modelBinding="sf:ui:binding:object?object=Broker__c&amp;field=Email__c" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
@@ -474,6 +481,7 @@
                 <argument id="ieClickMethod">
                   <value class="value" valueClass="string">Default</value>
                 </argument>
+                <argument id="locatorParams"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
@@ -774,7 +782,7 @@
     </apiCall>
   </steps>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vOKDEA2" lastModifiedDateTime="2024-01-03T15:15:34Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vOKDEA2" lastModifiedDateTime="2024-08-30T13:28:01Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="1" value="uiApplicationName=Dreamhouse"/>
         <stepMetadataCoverage linkedId="2" value="object=Broker__c"/>

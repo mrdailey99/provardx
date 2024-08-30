@@ -5,7 +5,20 @@ Bundle-SymbolicName: SeleniumGrid
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: com.provar.core.testapi,
  com.provar.core.model.base,
- com.provar.core.lib.selenium,
  com.provar.testrunner,
  com.provar.plugins.sf.apis,
- com.provar.core.model.ui
+ com.provar.core.model.ui,
+ org.seleniumhq.selenium.selenium-api,
+ org.seleniumhq.selenium.selenium-chrome-driver,
+ org.seleniumhq.selenium.selenium-edge-driver,
+ org.seleniumhq.selenium.selenium-firefox-driver,
+ org.seleniumhq.selenium.selenium-ie-driver,
+ org.seleniumhq.selenium.selenium-remote-driver,
+ org.seleniumhq.selenium.selenium-safari-driver,
+ org.seleniumhq.selenium.selenium-support,
+ org.seleniumhq.selenium.selenium-chromium-driver,
+ org.seleniumhq.selenium.selenium-http,
+ org.seleniumhq.selenium.selenium-json,
+ org.seleniumhq.selenium.selenium-manager,
+ org.seleniumhq.selenium.selenium-os,
+ org.seleniumhq.selenium.selenium-java
