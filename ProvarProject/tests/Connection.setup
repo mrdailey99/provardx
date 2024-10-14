@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="7820b59c-df95-4cfb-ad8a-4a3373940a61" id="1">
+<testCase guid="7820b59c-df95-4cfb-ad8a-4a3373940a61" id="21" registryId="7820b59c-df95-4cfb-ad8a-4a3373940a61">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="dc1ceec6-274f-409e-8ad0-491b2ffb4b49" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Global)">
@@ -51,7 +51,7 @@
   </steps>
   <tags/>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgfEAE" lastModifiedDateTime="2024-01-03T15:15:34Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLgfEAE" lastModifiedDateTime="2024-10-14T12:41:11Z" lastUploadedDateTime="2024-01-03T15:16:45Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="1" value="uiApplicationName=LightningSales"/>
       </metadataCoverage>

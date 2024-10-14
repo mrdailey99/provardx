@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase guid="794cc629-1902-49c2-961a-103b137ff438" id="14" registryId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" visibility="Internal">
+<testCase guid="794cc629-1902-49c2-961a-103b137ff438" id="6" registryId="56a053f1-6e8b-4bf0-b2e1-9bb16c0c0e84" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="36cd76df-11a7-4f79-920a-f2db548e93a5" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -43,6 +43,9 @@
           <value class="value" valueClass="string">default</value>
         </argument>
         <argument id="webBrowser"/>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">e479b38b-f2bc-4a4c-a9e9-468c24a341d6</value>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" guid="115a0509-8758-4b40-9e2e-7ee86695a0f2" name="StepGroup" testItemId="92" title="Setup Test Data">

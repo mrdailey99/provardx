@@ -160,6 +160,7 @@
                 <argument id="ieClickMethod">
                   <value class="value" valueClass="string">Default</value>
                 </argument>
+                <argument id="locatorParams"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
@@ -593,7 +594,7 @@
                                 <argument id="autoRetry"/>
                               </arguments>
                               <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
+                                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                                   <summary>The value to be populated.</summary>
                                   <type>
                                     <textType>
@@ -722,7 +723,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
+                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -1271,7 +1272,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
+                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -1333,7 +1334,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
+                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -1395,7 +1396,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
+                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -1457,7 +1458,7 @@
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
+                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
                     <textType>
@@ -1860,7 +1861,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <textType>
@@ -2008,7 +2009,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <textType>
@@ -2318,7 +2319,7 @@
                         <argument id="value"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <textType/>
@@ -2583,7 +2584,7 @@
                         </argument>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Expected Message">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Expected Message">
                           <summary>The expected message.  The test will fail if this is populated and doesn't match the actual message.</summary>
                           <type>
                             <textType/>
@@ -2712,7 +2713,7 @@
                         <argument id="value"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <textType/>
@@ -2866,7 +2867,7 @@
                                 <argument id="autoRetry"/>
                               </arguments>
                               <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
+                                <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                                   <summary>The value to be populated.</summary>
                                   <type>
                                     <textType>
@@ -3064,7 +3065,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <textType>
@@ -3323,7 +3324,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <textType>

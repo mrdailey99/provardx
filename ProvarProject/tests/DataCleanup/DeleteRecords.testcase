@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" guid="b27472ac-2dfa-4662-bb18-14db33d64c04" id="17">
+<testCase failureBehaviour="Continue" guid="b27472ac-2dfa-4662-bb18-14db33d64c04" id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="23830d51-341d-4ef9-9536-9142f4056757" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
@@ -41,6 +41,44 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="40ab7f99-518a-499d-b8b7-6343dec37199" name="ApexSoqlQuery" testItemId="46" title="SOQL Query: select Id from Broker__c where Name like 'Jim Realtor%'=&gt;BrokerRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from Broker__c where Name like 'Jim Realtor%'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">BrokerRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="80a65dc7-a427-45d0-b60a-03ac6a7cfff6" name="ApexSoqlQuery" testItemId="50" title="SOQL Query: select Id from Property__c where name like 'Salesforce Tower%'=&gt;PropertyRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from Property__c where name like 'Salesforce Tower%'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">PropertyRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="bbd367aa-300c-4489-90b0-62f486c53cd6" name="ApexSoqlQuery" testItemId="35" title="SOQL Query: select Id from Contact where Name like 'D%'=&gt;ContactRows">
       <tags/>
       <arguments>
@@ -56,10 +94,15 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="2940d3e0-f30a-4f08-abba-e16e17f0e98e" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id from Contact where Name like 'Sm%'=&gt;ContactRows">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Contact where Name like 'Sm%'</value>
@@ -92,9 +135,15 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="5f48ef8b-decd-425f-afe2-a6cdec8f6822" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Sm%'=&gt;LeadRows">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="6c6f67de-b463-4ffe-b752-5eaa677bfff4" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: select Id from Lead where Name like 'Sm%'=&gt;LeadRows">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Lead where Name like 'Sm%'</value>
@@ -108,10 +157,34 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="5f48ef8b-decd-425f-afe2-a6cdec8f6822" name="ApexSoqlQuery" testItemId="6" title="SOQL Query: select Id from Lead where Name like 'Dai%'=&gt;LeadRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from Lead where Name like 'Dai%'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">LeadRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="29b8fed1-f9b7-45cc-b484-d3e95d5deb41" name="ApexSoqlQuery" testItemId="33" title="SOQL Query: select Id from Account where Name like 'Provar%'=&gt;AccountRows">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Account where Name like 'Provar%'</value>
@@ -175,9 +248,7 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="fbbe6d3d-eafd-42d5-9065-9752b0fad2e8" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id from Account where Name like 'Test%'=&gt;AccountRows">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="soqlQuery">
           <value class="value" valueClass="string">select Id from Account where Name like 'Test%'</value>
@@ -210,6 +281,9 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="1ad8a862-f031-4f9c-ab55-f6cc877049f8" name="ApexSoqlQuery" testItemId="23" title="SOQL Query: select Id from Case =&gt;CaseRows">
@@ -222,6 +296,28 @@
         </argument>
         <argument id="resultListName">
           <value class="value" valueClass="string">CaseRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" guid="c58ef899-8328-4841-9ce1-14126d1c100c" name="ApexSoqlQuery" testItemId="39" title="SOQL Query: select Id from ScratchOrgInfo=&gt;ScratchOrgInfoRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select Id from ScratchOrgInfo</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ScratchOrgInfoRows</value>
+        </argument>
+        <argument id="soqlColumnAliases">
+          <value class="valueList" mutable="Mutable"/>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -242,17 +338,44 @@
                     <lhs class="add">
                       <lhs class="add">
                         <lhs class="add">
-                          <lhs class="funcCall" id="Count">
-                            <argument id="value">
-                              <value class="variable">
-                                <path element="CaseRows"/>
-                              </value>
-                            </argument>
+                          <lhs class="add">
+                            <lhs class="add">
+                              <lhs class="add">
+                                <lhs class="funcCall" id="Count">
+                                  <argument id="value">
+                                    <value class="variable">
+                                      <path element="CaseRows"/>
+                                    </value>
+                                  </argument>
+                                </lhs>
+                                <rhs class="funcCall" id="Count">
+                                  <argument id="value">
+                                    <value class="variable">
+                                      <path element="ContactRows"/>
+                                    </value>
+                                  </argument>
+                                </rhs>
+                              </lhs>
+                              <rhs class="funcCall" id="Count">
+                                <argument id="value">
+                                  <value class="variable">
+                                    <path element="LeadRows"/>
+                                  </value>
+                                </argument>
+                              </rhs>
+                            </lhs>
+                            <rhs class="funcCall" id="Count">
+                              <argument id="value">
+                                <value class="variable">
+                                  <path element="OpportunityRows"/>
+                                </value>
+                              </argument>
+                            </rhs>
                           </lhs>
                           <rhs class="funcCall" id="Count">
                             <argument id="value">
                               <value class="variable">
-                                <path element="ContactRows"/>
+                                <path element="TaskRows"/>
                               </value>
                             </argument>
                           </rhs>
@@ -260,7 +383,7 @@
                         <rhs class="funcCall" id="Count">
                           <argument id="value">
                             <value class="variable">
-                              <path element="LeadRows"/>
+                              <path element="AccountRows"/>
                             </value>
                           </argument>
                         </rhs>
@@ -268,7 +391,7 @@
                       <rhs class="funcCall" id="Count">
                         <argument id="value">
                           <value class="variable">
-                            <path element="OpportunityRows"/>
+                            <path element="ScratchOrgInfoRows"/>
                           </value>
                         </argument>
                       </rhs>
@@ -276,7 +399,7 @@
                     <rhs class="funcCall" id="Count">
                       <argument id="value">
                         <value class="variable">
-                          <path element="TaskRows"/>
+                          <path element="BrokerRows"/>
                         </value>
                       </argument>
                     </rhs>
@@ -284,7 +407,7 @@
                   <rhs class="funcCall" id="Count">
                     <argument id="value">
                       <value class="variable">
-                        <path element="AccountRows"/>
+                        <path element="PropertyRows"/>
                       </value>
                     </argument>
                   </rhs>
@@ -524,6 +647,113 @@
         </clause>
       </clauses>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="5c4d9f21-ac39-47f2-af98-b4ae1cdd0d91" name="ForEach" testItemId="40" title="For Each: {ScratchOrgInfoRows}=&gt;Info">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="ScratchOrgInfoRows"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Info</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="41">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="3bf151bc-5aef-404b-a78d-e2b3be443936" name="ApexDeleteObject" testItemId="42" title="Delete Object: {Info.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="Info"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="5959e3b9-e7dc-4de0-bc06-904f64dac36a" name="ForEach" testItemId="47" title="For Each: {BrokerRows}=&gt;Broker">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="BrokerRows"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Broker</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="48">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="abad123c-c889-41c7-b335-d0df748cb7b1" name="ApexDeleteObject" testItemId="49" title="Delete Object: {Broker.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="Broker"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" guid="5bf1e3bd-b30a-4d96-88e0-a4ad09e3bac9" name="ForEach" testItemId="51" title="For Each: {PropertyRows}=&gt;Prop">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="PropertyRows"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Prop</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="52">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" guid="511bb62d-bc24-4ed0-a8ac-8adbedc20fcc" name="ApexDeleteObject" testItemId="53" title="Delete Object: {Prop.Id}">
+              <arguments>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">Admin</value>
+                </argument>
+                <argument id="objectId">
+                  <value class="variable">
+                    <path element="Prop"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" guid="6a854008-96a8-4600-9994-ccb4ac109919" name="Finally" testItemId="30" title="Finally: Records Deleted: {TotalRecords}">
       <arguments>
         <argument id="description">
@@ -538,7 +768,9 @@
         </argument>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="31"/>
+        <clause name="hidden" testItemId="31">
+          <steps/>
+        </clause>
       </clauses>
     </apiCall>
   </steps>
