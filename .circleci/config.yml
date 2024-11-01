@@ -22,7 +22,7 @@ jobs:
         default: Regression Plan
         type: string
       license_path:
-        default: /home/circleci/project/ProvarProject/.licenses
+        default: /home/circleci/project/.licenses
         type: string
       email_target:
         default: michael.dailey@provartesting.com
