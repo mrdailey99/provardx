@@ -39,7 +39,7 @@ jobs:
       - run:
           command: |
             mkdir /home/circleci/project/ProvarProject/.licenses
-            cp /home/circleci/project/.licenses /home/circleci/project/ProvarProject/.licenses
+            cp -r /home/circleci/project/.licenses /home/circleci/project/ProvarProject/.licenses
 
       - provar/run_test_plans:
           build_file: << parameters.build_file >>
