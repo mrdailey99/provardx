@@ -36,7 +36,7 @@ steps:
     displayName: "Node Install: sf cli"
 
   - script: |
-      echo y | sf plugins:install @provartesting/provardx-cli
+      echo y | sf plugins:install @provartesting/provardx-cli@1.3.0
       sf plugins:update
     displayName: "Install ProvarDX Plugin via SFDX"
     
@@ -113,7 +113,7 @@ steps:
     displayName: "Download Salesforce Metadata"
 
   - bash: |
-      xvfb-run sf provar automation test run --json; cat ./ProvarProject/log.txt
+      xvfb-run sf provar automation test run; cat ./ProvarProject/log.txt
     displayName: "Run Provar Tests"
 
   - bash: |
