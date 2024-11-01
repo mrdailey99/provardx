@@ -22,7 +22,7 @@ jobs:
         default: Regression Plan
         type: string
       license_path:
-        default: /home/circleci/project/.licenses
+        default: /home/circleci/project/ProvarProject/.licenses
         type: string
       email_target:
         default: michael.dailey@provartesting.com
@@ -36,6 +36,11 @@ jobs:
       - browser-tools/install-chromedriver
       - run:
           command: sudo apt-get update -y && sudo apt-get install -y ant
+      - run:
+          command: |
+            mkdir /home/circleci/project/ProvarProject/.licenses
+            cp /home/circleci/project/.licenses /home/circleci/project/ProvarProject/.licenses
+
       - provar/run_test_plans:
           build_file: << parameters.build_file >>
           email_target: << parameters.email_target >>
