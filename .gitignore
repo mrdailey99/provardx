@@ -11,7 +11,6 @@ ProvarHome/
 package-lock.json
 ProvarProject/ANT/build_local.xml
 ebikes-lwc
-**/.licenses
 dreamhouse-lwc/
 provardx-local-properties.json
 **/*.zip

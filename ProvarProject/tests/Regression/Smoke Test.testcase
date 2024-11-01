@@ -147,11 +147,9 @@
       </clauses>
     </apiCall>
   </steps>
-  <tags>
-    <string>disabled</string>
-  </tags>
+  <tags/>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhEEAU" lastModifiedDateTime="2024-08-30T18:20:54Z" lastUploadedDateTime="2024-08-30T19:09:09Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vLhEEAU" lastModifiedDateTime="2024-11-01T14:28:11Z" lastUploadedDateTime="2024-08-30T19:09:09Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="1" value="uiApplicationName=LightningSales"/>
       </metadataCoverage>

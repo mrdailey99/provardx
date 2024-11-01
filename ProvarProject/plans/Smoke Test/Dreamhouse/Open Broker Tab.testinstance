@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testPlanInstance guid="abacd8d9-371b-4849-a7d0-45c224235ed2" testCaseId="670ec2b9-d1ad-46ad-b1e4-03389311e9dd" testCasePath="tests/Dreamhouse/Open Broker Tab.testcase">
+  <planSettings/>
+  <planFeatures/>
+  <associations>
+    <association assocationType="TM.TEST_SUITE_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0c8d000003BHERAA4"/>
+  </associations>
+</testPlanInstance>

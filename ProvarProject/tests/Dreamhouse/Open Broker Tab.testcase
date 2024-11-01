@@ -85,50 +85,6 @@
       <clauses>
         <clause name="substeps" testItemId="26">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" guid="003f2933-41f6-4b31-b9a6-15c17340de6f" name="UiAssert" testItemId="27" title="UI Assert">
-              <tags>
-                <string>disabled</string>
-              </tags>
-              <associations>
-                <association assocationType="TM.TEST_STEP" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0bJ7000000saCBIAY"/>
-              </associations>
-              <arguments>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">Values</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-                <argument id="fieldAssertions">
-                  <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="New">
-                      <fieldLocator uri="ui:locator?name=New&amp;path=List%2FBroker__cButtons"/>
-                      <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                          <value class="value" valueClass="string">New</value>
-                        </uiAttributeAssertion>
-                      </attributeAssertions>
-                    </uiFieldAssertion>
-                  </value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="columnAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="pageAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="locatorParams"/>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="autoRetry">
-                  <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
-                </argument>
-              </arguments>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" guid="17377040-5663-4c4e-bad0-193b74ef87c6" name="UiDoAction" testItemId="28" title="Click the New button">
               <arguments>
                 <argument id="locator">
@@ -181,7 +137,7 @@
     </apiCall>
   </steps>
   <associations>
-    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vOKDEA2" lastModifiedDateTime="2024-09-03T12:53:54Z" lastUploadedDateTime="2024-08-30T19:09:10Z">
+    <association assocationType="TM.TEST_CASE" connectionId="55d392f7-ccc9-4c71-aa4e-33aa895ddd53" entityKey="a0R8d000007vOKDEA2" lastModifiedDateTime="2024-11-01T14:28:48Z" lastUploadedDateTime="2024-08-30T19:09:10Z">
       <metadataCoverage>
         <stepMetadataCoverage linkedId="1" value="uiApplicationName=Dreamhouse"/>
         <stepMetadataCoverage linkedId="25" value="object=Broker__c"/>

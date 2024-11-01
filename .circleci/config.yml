@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1
-  provar: provartesting/provar@2.16.0
+  provar: provartesting/provar@2.18.0
 jobs:
   name: "Run Provar Tests"
   build:     
@@ -30,16 +30,12 @@ jobs:
     steps:
       - checkout
       - provar/setup_provar:
-          majorversion: 2.13.1.1
+          majorversion: 2.14.1
           url: download.provartesting.com
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run:
           command: sudo apt-get update -y && sudo apt-get install -y ant
-      - run:
-          command: mkdir -p /home/circleci/project/ProvarProject/.licenses
-      - run:
-          command: echo "$PROVAR_LICENSE" | base64 --decode > /home/circleci/project/<< parameters.project_name >>/.licenses/License.properties
       - provar/run_test_plans:
           build_file: << parameters.build_file >>
           email_target: << parameters.email_target >>
