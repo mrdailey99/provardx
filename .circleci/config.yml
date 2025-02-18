@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1
-  provar: provartesting/provar@2.18.0
+  provar: provartesting/provar@2.20.0
 jobs:
   name: "Run Provar Tests"
   build:     
@@ -30,7 +30,7 @@ jobs:
     steps:
       - checkout
       - provar/setup_provar:
-          majorversion: 2.14.1
+          majorversion: 2.15.1.2
           url: download.provartesting.com
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
