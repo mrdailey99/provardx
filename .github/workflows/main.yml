@@ -33,7 +33,7 @@ jobs:
       runs-on: ubuntu-latest
       env:
         scratch_org_alias: ProvarDX
-        provar_major_version: 2.13.1.1
+        provar_major_version: latest
         dev_hub_alias: SFDX-ENV
         provar_home: ${{ github.workspace }}/ProvarHome
         license: ${{ secrets.PROVAR_LICENSE }}
@@ -41,9 +41,13 @@ jobs:
       steps:
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - uses: actions/checkout@v3
+        - uses: actions/setup-java@v4
+          with:
+            distribution: 'temurin' # See 'Supported distributions' for available options
+            java-version: '21'
         - uses: actions/setup-node@v3
           with: 
-            node-version: '16'
+            node-version: '20'
         - uses: sfdx-actions/setup-sfdx@v1
           with:
             sfdx-auth-url: ${{ secrets.SFDX_AUTH_URL }}
