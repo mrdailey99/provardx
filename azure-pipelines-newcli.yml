@@ -30,6 +30,13 @@ steps:
       versionSpec: '20.x'
       checkLatest: true
     displayName: "Install Node.js"
+
+  - task: JavaToolInstaller@1
+    inputs:
+      versionSpec: '21'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+    displayName: "Set Java Version to 21"
     
   - script: |
       npm install -g @salesforce/cli
