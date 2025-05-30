@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase guid="ac6c09d0-ad09-468b-af46-acdd027542eb" id="12">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" guid="8f01496f-62f9-4e8a-9ea8-c301f9448d48" name="ApexConnect" testItemId="1" title="Salesforce Connect: Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="connectionId">
+          <value class="value" valueClass="id">e479b38b-f2bc-4a4c-a9e9-468c24a341d6</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexExtractLayout" guid="a99cfd53-a9bc-4db6-98fa-91cc071cd810" name="ApexExtractLayout" testItemId="3" title="Extract Salesforce Layout=&gt;Broker__c">
+      <tags/>
+      <arguments>
+        <argument id="objectName">
+          <value class="value" valueClass="string">Broker__c</value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="excelTarget">
+            <workbookPath class="value" valueClass="string">Broker__cLayout.xlsx</workbookPath>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="extractRecordPageLayout">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="extractDynamicFormLayout">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="includeFieldPermissions">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexAssertLayout" guid="14335ded-e681-4d33-ad1b-b6338b988bb4" name="ApexAssertLayout" testItemId="4" title="Assert Salesforce Layout=&gt;Broker__c">
+      <arguments>
+        <argument id="objectName">
+          <value class="value" valueClass="string">Broker__c</value>
+        </argument>
+        <argument id="dataUrl">
+          <value class="excelTarget">
+            <workbookPath class="value" valueClass="string">Broker__cLayout.xlsx</workbookPath>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Admin</value>
+        </argument>
+        <argument id="extractRecordPageLayout">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="extractDynamicFormLayout">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="includeFieldPermissions">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reportUnmatchedExpectedRecordTypes">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reportUnmatchedActualRecordTypes">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reportUnmatchedExpectedFields">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reportUnmatchedActualFields">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>

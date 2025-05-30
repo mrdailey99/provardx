@@ -1,0 +1,27 @@
+Run (Locally) Apex Tests For A Given User Story
+$ sf provar manager testcase retrieve --issues "OASIS-15" --test-project "HR" --test-automation-tool "Apex" --json | jq -r '.result.testCases[].name' | xargs -I {} sf apex run test --synchronous --class-names {}
+
+=== Test Results
+TEST NAME                                    OUTCOME  MESSAGE  RUNTIME (MS)
+───────────────────────────────────────────  ───────  ───────  ────────────
+TimesheetValidatorTest.testTimesheetIsValid  Pass              143         
+
+=== Test Summary
+NAME                 VALUE                 
+───────────────────  ──────────────────────
+Outcome              Passed                
+Tests Ran            1                     
+Pass Rate            100%                  
+Fail Rate            0%                    
+Skip Rate            0%                    
+Test Run Id                                
+Test Execution Time  148 ms                
+Org Id               00D4L000000omW3UAI    
+Username             samuel@prod.devops.poc
+
+Run (Locally) Provar Automation Test Cases For A Given User Story
+sf provar automation config set testCase="$(sf provar manager testcase retrieve --issues "OASIS-15" --test-project "HR" --test-automation-tool "ProvarAutomation" --json | jq -c '[.result.testCases[].filePath]')"
+
+
+Run (Locally) Provar Automation Test Instances For A Given User Story
+sf provar automation config set testPlan="$(sf provar manager testcase retrieve --issues "OASIS-15" --test-project "HR" --test-plan "Time Tracking" --test-automation-tool "ProvarAutomation" --json | jq -c '[.result.testCases[].filePaths[]]')"
