@@ -31,12 +31,17 @@ steps:
       checkLatest: true
     displayName: "Install Node.js"
 
-  - task: JavaToolInstaller@1
-    inputs:
-      versionSpec: '24'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: 'PreInstalled'
-    displayName: "Set Java Version to 21"
+  # - task: JavaToolInstaller@1
+  #   inputs:
+  #     versionSpec: '21'
+  #     jdkArchitectureOption: 'x64'
+  #     jdkSourceOption: 'PreInstalled'
+  #   displayName: "Set Java Version to 21"
+  - script: |
+      sudo apt update
+      sudo apt install openjdk-24-jdk
+      sudo update-alternatives --config java
+      sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-24-openjdk-amd64\"” >> /etc/environment'
 
   - script: |
       npm install -g @salesforce/cli
