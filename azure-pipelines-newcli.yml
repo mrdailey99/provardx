@@ -37,11 +37,27 @@ steps:
   #     jdkArchitectureOption: 'x64'
   #     jdkSourceOption: 'PreInstalled'
   #   displayName: "Set Java Version to 21"
-  - script: |
-      sudo apt update
-      sudo apt install openjdk-24-jdk
-      sudo update-alternatives --config java
-      sudo sh -c 'echo "JAVA_HOME=\"/usr/lib/jvm/java-24-openjdk-amd64\"” >> /etc/environment'
+  - task: Bash@3
+    displayName: 'Install OpenJDK 24'
+    inputs:
+      targetType: 'inline'
+      script: |
+        echo "▶ Downloading OpenJDK 24…
+        wget https://download.java.net/java/GA/jdk24.0.1/24a58e0e276943138bf3e963e6291ac2/9/GPL/openjdk-24.0.1_linux-x64_bin.tar.gz \
+          -O jdk24.tar.gz
+
+        echo "▶ Extracting to /usr/lib/jvm…
+        sudo mkdir -p /usr/lib/jvm
+        sudo tar -xzf jdk24.tar.gz -C /usr/lib/jvm
+
+        # point JAVA_HOME at the new JDK
+        export JAVA_HOME=/usr/lib/jvm/jdk-24.0.1
+        echo "##vso[task.setvariable variable=JAVA_HOME]$JAVA_HOME"
+
+        # add its bin directory to PATH
+        echo "##vso[task.prependpath]$JAVA_HOME/bin"
+
+        echo "✅ JAVA_HOME is now $JAVA_HOME"
 
   - script: |
       npm install -g @salesforce/cli
