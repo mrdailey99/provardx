@@ -33,11 +33,11 @@ steps:
 
   - task: JavaToolInstaller@1
     inputs:
-      versionSpec: '21'
+      versionSpec: '24'
       jdkArchitectureOption: 'x64'
       jdkSourceOption: 'PreInstalled'
     displayName: "Set Java Version to 21"
-    
+
   - script: |
       npm install -g @salesforce/cli
     displayName: "Node Install: sf cli"
